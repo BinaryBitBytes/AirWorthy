@@ -1,13 +1,17 @@
-const User = require('./User');
-const Doctor = require('./Doctor');
+const Airliner = require('');
+const Inspector = require('');
+const Manager = require('');
+const Technician = require('');
+const Project = require('');
 
-User.hasMany(Doctor, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
-});
 
-Doctor.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+// User.hasMany(Doctor, {
+//   foreignKey: 'user_id',
+//   onDelete: 'CASCADE',
+// });
 
-module.exports = { User, Doctor };
+// Doctor.belongsTo(User, {
+//   foreignKey: 'user_id',
+// });
+
+// module.exports = { User, Doctor };
