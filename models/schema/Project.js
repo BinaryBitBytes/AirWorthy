@@ -13,6 +13,13 @@ const projectSchema = new mongoose.Schema(
         modelAircraft:[{type: Number}],
 
     },
+    {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "project",
+  }
 );
 
 module.exports = mongoose.model("Project", projectSchema);
