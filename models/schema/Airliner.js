@@ -13,6 +13,26 @@ const airlinerSchema = new mongoose.Schema(
         isAdmin: true,
         modelAircraft:[{type: Number}],
     },
+    {
+        hooks: {
+          beforeCreate: async (newAirlinerData) => {
+            newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10);
+            return newAirlinerData;
+          },
+          beforeUpdate: async (updatedAirlinerData) => {
+            updatedAirlinerData.password = await bcrypt.hash(
+              updatedAirlinerData.password,
+              10
+            );
+            return updatedAirlinerData;
+          },
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "airliner",
+      }
 );
 
 module.exports = mongoose.model("Airliner", airlinerSchema);

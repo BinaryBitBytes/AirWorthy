@@ -13,6 +13,26 @@ const managerSchema = new mongoose.Schema(
         onProject: [{type: String}],
         
     },
+    {
+        hooks: {
+          beforeCreate: async (newManagerData) => {
+            newManagerData.password = await bcrypt.hash(newManagerData.password, 10);
+            return newManagerData;
+          },
+          beforeUpdate: async (updatedManagerData) => {
+            updatedManagerData.password = await bcrypt.hash(
+              updatedManagerData.password,
+              10
+            );
+            return updatedManagerData;
+          },
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "manager",
+      }
 );
 
 module.exports = mongoose.model("Manager", managerSchema);
