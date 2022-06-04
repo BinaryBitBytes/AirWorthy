@@ -4,13 +4,15 @@ const Manager = require('./Manager');
 const Project = require('./Project');
 const Technician = require('./Technician');
 
-Manager.hasMany(Doctor, {
+
+
+Manager.hasMany(Project, {
   foreignKey: 'manager_id',
   onDelete: 'CASCADE',
 });
 
-Doctor.belongsTo(User, {
+Technician.belongsTo(Project, {
   foreignKey: 'user_id',
 });
 
-module.exports = { User, Doctor };
+module.exports = {Project ,Technician, Manager, Inspector, Airliner };
