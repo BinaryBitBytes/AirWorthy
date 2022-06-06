@@ -10,10 +10,12 @@ const inspectorSchema = require("");
 const typeDefs = gql`
   type Technician {
     _id: ID!
+    technicianName: [technicianName]
+    isAdmin: Boolean
+    onProject: [Project]
     username: String!
     email: String
     password: String
-    savedBooks: [Book]
   }
 
   type Manager {
@@ -24,8 +26,8 @@ const typeDefs = gql`
     savedBooks: [Book]
   }
 
-  type Book {
-    authors: [String]
+  type Project {
+    inspectorName: [String]
     description: String
     bookId: String
     image: String
