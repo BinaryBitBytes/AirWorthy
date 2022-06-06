@@ -6,13 +6,15 @@ const inspectorData = require('./inspectorData.json');
 const managerData = require('./managerData.json');
 const projectData = require('./projectData.json');
 const technicianData = require('./technicianData.json');
-//sourced from stackOverflow line 11 mongoose.connect
-//https://stackoverflow.com/questions/61897268/trying-to-seed-db-with-mongoose-looping-over-json-while-adding-relational-data
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/app", { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false })
 
 db.once('open', async () => {
-  //!-- await /*Tech.deleteMany*/({});
-
+  await Airliner.deleteMany({});
+  await Inspector.deleteMany({});
+  await Manager.deleteMany({});
+  await Project.deleteMany({});
+  await Technician.deleteMany({});
+  
+  
   //seeding the airliners
   const airliner = await Airliner.insertMany(airlinerData);
   console.log('Airliners seeded!');
@@ -28,6 +30,8 @@ db.once('open', async () => {
   //seeding the technicians
   const technician = await Technician.insertMany(technicianData);
   console.log('Technicians seeded!');
-
+  // To recognize incoming request as JSON object
+  app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
+  
   process.exit(0);
 });
