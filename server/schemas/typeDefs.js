@@ -20,19 +20,20 @@ const typeDefs = gql`
 
   type Manager {
     _id: ID!
+    managerName: [managerName]
+    isAdmin: Boolean
+    onProject: [Project]
     username: String!
     email: String
     password: String
-    savedBooks: [Book]
   }
 
   type Project {
-    inspectorName: [String]
-    description: String
-    bookId: String
-    image: String
-    link: String
-    title: String
+    _id: ID!
+    projectName: [projectName]
+    inspectorName: [inspectorName]
+    workDescription: String
+    
   }
 
    type Auth {
