@@ -1,0 +1,32 @@
+[
+{
+    "id":"integer",
+    "technicianName": "Rake Yohn",
+    "isAdmin": "boolean",
+    "onProject": "integer"
+},
+{
+    "id":"integer",
+    "technicianName": "Tom Green",
+    "isAdmin": "boolean",
+    "onProject": "integer"
+},
+{
+    "id":"integer",
+    "technicianName": "Phillup Ondeez",
+    "isAdmin": "boolean",
+    "onProject": "integer"
+},
+{
+    "id":"integer",
+    "technicianName": "Jack Blue",
+    "isAdmin": "boolean",
+    "onProject": "integer"
+},
+{
+    "id":"integer",
+    "technicianName": "Linda Hand",
+    "isAdmin": "boolean",
+    "onProject": "integer"
+}
+]

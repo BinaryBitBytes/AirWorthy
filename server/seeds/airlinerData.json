@@ -1,3 +1,4 @@
+[
 {
     "id":"integer",
     "airlinerName": "United",
@@ -28,3 +29,4 @@
     "isAdmin": "boolean",
     "modelAircraft": "integer"
 }
+]
