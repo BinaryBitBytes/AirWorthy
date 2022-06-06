@@ -1,0 +1,37 @@
+[
+    {
+        "id":"integer",
+        "projectName": "Smoke Detector Mod",
+        "workDescription": "body",
+        "startingDate": "String",
+        "modelAircraft": "integer"
+    },
+    {
+        "id":"integer",
+        "projectName": "Wifi Modification",
+        "workDescription": "body",
+        "startingDate": "String",
+        "modelAircraft": "integer"
+    },
+    {
+        "id":"integer",
+        "projectName": "Radar Modification",
+        "workDescription": "body",
+        "startingDate": "String",
+        "modelAircraft": "integer"
+    },
+    {
+        "id":"integer",
+        "projectName": "USB Modification",
+        "workDescription": "body",
+        "startingDate": "String",
+        "modelAircraft": "integer"
+    },
+    {
+        "id":"integer",
+        "projectName": "Fuel Tank Modification",
+        "workDescription": "body",
+        "startingDate": "String",
+        "modelAircraft": "integer"
+    }
+    ]

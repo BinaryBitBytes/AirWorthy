@@ -9,7 +9,8 @@ const projectSchema = new mongoose.Schema(
             autoIncrement: true,
           },
         projectName: [{type: String}],
-        workDescription:[{ body: String, date: Date}],
+        workDescription:[{body: String}],
+        startingDate: [{date: Date}],
         modelAircraft:[{type: Number}],
 
     },
