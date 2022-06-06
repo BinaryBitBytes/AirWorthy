@@ -2,31 +2,31 @@
 {
     "id":"integer",
     "inspectorName": "United",
-    "isAdmin": "boolean",
-    "onProject": "integer"
+    "isAdmin": "Boolean",
+    "onProject": "String"
 },
 {
     "id":"integer",
     "inspectorName": "Delta",
-    "isAdmin": "boolean",
-    "onProject": "integer"
+    "isAdmin": "Boolean",
+    "onProject": "String"
 },
 {
     "id":"integer",
     "inspectorName": "Amazon",
-    "isAdmin": "boolean",
-    "onProject": "integer"
+    "isAdmin": "Boolean",
+    "onProject": "String"
 },
 {
     "id":"integer",
     "inspectorName": "UPS",
-    "isAdmin": "boolean",
-    "onProject": "integer"
+    "isAdmin": "Boolean",
+    "onProject": "String"
 },
 {
     "id":"integer",
     "inspectorName": "FedEx",
-    "isAdmin": "boolean",
-    "onProject": "integer"
+    "isAdmin": "Boolean",
+    "onProject": "String"
 }
 ]
