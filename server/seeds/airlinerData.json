@@ -3,30 +3,40 @@
     "id":"integer",
     "airlinerName": "United",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer"
+    "modelAircraft": "integer",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "airlinerName": "Delta",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer"
+    "modelAircraft": "integer",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "airlinerName": "Amazon",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer"
+    "modelAircraft": "integer",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "airlinerName": "UPS",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer"
+    "modelAircraft": "integer",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "airlinerName": "FedEx",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer"
+    "modelAircraft": "integer",
+    "email": "String",
+    "password": "String"
 }
 ]

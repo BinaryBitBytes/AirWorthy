@@ -13,6 +13,8 @@ const airlinerSchema = new mongoose.Schema(
         airlinerName: [{type: String}],
         isAdmin: true,
         modelAircraft:[{type: Number}],
+        email: String,
+        password: String
     },
     {
         hooks: {

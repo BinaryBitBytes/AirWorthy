@@ -3,30 +3,40 @@
     "id":"integer",
     "technicianName": "Rake Yohn",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "technicianName": "Tom Green",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "technicianName": "Phillup Ondeez",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "technicianName": "Jack Blue",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "technicianName": "Linda Hand",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "password": "String"
 }
 ]

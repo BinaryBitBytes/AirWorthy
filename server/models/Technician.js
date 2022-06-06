@@ -11,6 +11,8 @@ const technicianSchema = new mongoose.Schema(
         technicianName: {type: String, required: true, unique: true},
         isAdmin: false,
         onProject: [{type: String}],
+        email: String,
+        password: String
     },
     {
         hooks: {

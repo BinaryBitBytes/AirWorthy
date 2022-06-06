@@ -1,7 +1,22 @@
 const { gql } = require('apollo-server-express');
+const mongoose = require("mongoose");
+const technicianSchema = require("");
+const managerSchema = require("");
+const projectSchema = require("");
+const arilinerSchema = require("");
+const inspectorSchema = require("");
+
 
 const typeDefs = gql`
-  type User {
+  type Technician {
+    _id: ID!
+    username: String!
+    email: String
+    password: String
+    savedBooks: [Book]
+  }
+
+  type Manager {
     _id: ID!
     username: String!
     email: String

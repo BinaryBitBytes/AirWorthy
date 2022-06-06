@@ -1,37 +1,48 @@
 [
     {
-        "id":"integer",
+        "id":"Integer",
         "projectName": "Smoke Detector Mod",
         "workDescription": "body",
         "startingDate": "String",
-        "modelAircraft": "integer"
+        "modelAircraft": "Integer",
+        "managerName":"String",
+        "technicianName":"String"
+
     },
     {
-        "id":"integer",
+        "id":"Integer",
         "projectName": "Wifi Modification",
         "workDescription": "body",
         "startingDate": "String",
-        "modelAircraft": "integer"
+        "modelAircraft": "Integer",
+        "managerName":"String",
+        "technicianName":"String"
     },
     {
-        "id":"integer",
+        "id":"Integer",
         "projectName": "Radar Modification",
         "workDescription": "body",
         "startingDate": "String",
-        "modelAircraft": "integer"
+        "modelAircraft": "Integer",
+        "managerName":"String",
+        "technicianName":"String"
     },
     {
-        "id":"integer",
+        "id":"Integer",
         "projectName": "USB Modification",
         "workDescription": "body",
         "startingDate": "String",
-        "modelAircraft": "integer"
+        "modelAircraft": "Integer",
+        "managerName":"String",
+        "technicianName":"String"
     },
     {
-        "id":"integer",
+        "id":"Integer",
         "projectName": "Fuel Tank Modification",
         "workDescription": "body",
         "startingDate": "String",
-        "modelAircraft": "integer"
+        "modelAircraft": "Integer",
+        "managerName":"String",
+        "technicianName":"String"
     }
     ]
