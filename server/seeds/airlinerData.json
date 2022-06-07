@@ -1,0 +1,32 @@
+[
+{
+    "id":"integer",
+    "airlinerName": "United",
+    "isAdmin": "Boolean",
+    "modelAircraft": "integer"
+},
+{
+    "id":"integer",
+    "airlinerName": "Delta",
+    "isAdmin": "Boolean",
+    "modelAircraft": "integer"
+},
+{
+    "id":"integer",
+    "airlinerName": "Amazon",
+    "isAdmin": "Boolean",
+    "modelAircraft": "integer"
+},
+{
+    "id":"integer",
+    "airlinerName": "UPS",
+    "isAdmin": "Boolean",
+    "modelAircraft": "integer"
+},
+{
+    "id":"integer",
+    "airlinerName": "FedEx",
+    "isAdmin": "Boolean",
+    "modelAircraft": "integer"
+}
+]
