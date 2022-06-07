@@ -11,6 +11,7 @@ const managerSchema = new mongoose.Schema(
         managerName: {type: String, required: true, unique: true},
         isAdmin: true,
         onProject: [{type: String}],
+        userName: String,
         email: String,
         password: String
         

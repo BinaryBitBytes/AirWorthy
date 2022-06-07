@@ -5,6 +5,7 @@
     "isAdmin": "Boolean",
     "modelAircraft": "integer",
     "email": "String",
+    "userName": "String",
     "password": "String"
 },
 {
@@ -13,6 +14,7 @@
     "isAdmin": "Boolean",
     "modelAircraft": "integer",
     "email": "String",
+    "userName": "String",
     "password": "String"
 },
 {
@@ -21,6 +23,7 @@
     "isAdmin": "Boolean",
     "modelAircraft": "integer",
     "email": "String",
+    "userName": "String",
     "password": "String"
 },
 {
@@ -29,6 +32,7 @@
     "isAdmin": "Boolean",
     "modelAircraft": "integer",
     "email": "String",
+    "userName": "String",
     "password": "String"
 },
 {
@@ -37,6 +41,7 @@
     "isAdmin": "Boolean",
     "modelAircraft": "integer",
     "email": "String",
+    "userName": "String",
     "password": "String"
 }
 ]

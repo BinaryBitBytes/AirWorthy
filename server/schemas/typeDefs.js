@@ -28,6 +28,16 @@ const typeDefs = gql`
     password: String
   }
 
+  type Inspector {
+    _id: ID!
+    inspectorName: [inspectorName]
+    isAdmin: Boolean
+    onProject: [Project]
+    username: String!
+    email: String
+    password: String
+  }
+
   type Project {
     _id: ID!
     projectName: [projectName]
@@ -41,13 +51,11 @@ const typeDefs = gql`
     user: User
   }
 
-  input BookData {
-    authors: [String]
-    description: String
-    title: String
-    bookId: String
-    image: String
-    link: String
+  input projectData {
+    projectName: [String]
+    inspectorName: [inspectorName]
+    workDescription: String
+    projectId: Integer
 }
 
   type Query {

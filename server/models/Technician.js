@@ -12,6 +12,7 @@ const technicianSchema = new mongoose.Schema(
         isAdmin: false,
         onProject: [{type: String}],
         email: String,
+        userName: String,
         password: String
     },
     {

@@ -1,10 +1,12 @@
-[
+
+    [
     {
         "id":"integer",
         "managerName": "Todd Anderson",
         "isAdmin": "Boolean",
         "onProject": "String",
         "email": "String",
+        "userName": "String",
         "password": "String"
     },
     {
@@ -13,6 +15,7 @@
         "isAdmin": "Boolean",
         "onProject": "String",
         "email": "String",
+        "userName": "String",
         "password": "String"
     },
     {
@@ -21,6 +24,7 @@
         "isAdmin": "Boolean",
         "onProject": "String",
         "email": "String",
+        "userName": "String",
         "password": "String"
     },
     {
@@ -29,6 +33,7 @@
         "isAdmin": "Boolean",
         "onProject": "String",
         "email": "String",
+        "userName": "String",
         "password": "String"
     },
     {
@@ -37,6 +42,7 @@
         "isAdmin": "Boolean",
         "onProject": "String",
         "email": "String",
+        "userName": "String",
         "password": "String"
     }
     ]
