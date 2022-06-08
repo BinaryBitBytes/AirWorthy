@@ -3,14 +3,17 @@ const mongoose = require("mongoose");
 const inspectorSchema = new mongoose.Schema(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: Number,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
           },
         inspectorName: {type: String, required: true, unique: true},
-        isAdmin: true,
+        isAdmin: Boolean,
         onProject: [{type: String}],
+        userName: String,
+        email: String,
+        password: String
     },
     {
         hooks: {
@@ -26,7 +29,6 @@ const inspectorSchema = new mongoose.Schema(
             return updatedInspectorData;
           },
         },
-        sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
