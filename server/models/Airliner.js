@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const airlinerSchema = new mongoose.Schema(
     {
         id: {
-            type: NumberPrompt,
+            type: Number,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
