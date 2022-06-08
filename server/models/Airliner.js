@@ -1,17 +1,17 @@
+const NumberPrompt = require("inquirer/lib/prompts/number");
 const mongoose = require("mongoose");
 
-const { STRING } = require("sequelize/types");
 
 const airlinerSchema = new mongoose.Schema(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: NumberPrompt,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
           },
         airlinerName: [{type: String}],
-        isAdmin: true,
+        isAdmin: Boolean,
         modelAircraft:[{type: Number}],
         userName: String,
         email: String,
@@ -31,7 +31,6 @@ const airlinerSchema = new mongoose.Schema(
             return updatedAirlinerData;
           },
         },
-        sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,

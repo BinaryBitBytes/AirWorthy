@@ -1,11 +1,4 @@
 const { gql } = require('apollo-server-express');
-const mongoose = require("mongoose");
-const technicianSchema = require("");
-const managerSchema = require("");
-const projectSchema = require("");
-const arilinerSchema = require("");
-const inspectorSchema = require("");
-
 
 const typeDefs = gql`
   type Technician {

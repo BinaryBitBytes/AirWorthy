@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const projectSchema = new mongoose.Schema(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: Number,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
@@ -15,7 +15,6 @@ const projectSchema = new mongoose.Schema(
 
     },
     {
-    sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,

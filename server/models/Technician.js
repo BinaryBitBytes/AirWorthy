@@ -1,15 +1,18 @@
 const mongoose = require("mongoose");
 
-const technicianSchema = new mongoose.Schema(
-    {
+const technicianSchema = new mongoose.Schema({
         id: {
-            type: DataTypes.INTEGER,
+            type: Number,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
           },
-        technicianName: {type: String, required: true, unique: true},
-        isAdmin: false,
+        technicianName: {
+          type: String,
+          required: true,
+          unique: true
+        },
+        isAdmin: Boolean,
         onProject: [{type: String}],
         email: String,
         userName: String,
@@ -29,7 +32,6 @@ const technicianSchema = new mongoose.Schema(
             return updatedTechnicianData;
           },
         },
-        sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
