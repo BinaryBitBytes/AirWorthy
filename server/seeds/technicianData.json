@@ -1,7 +1,7 @@
 [
 {
     "id":"integer",
-    "inspectorName": "United",
+    "technicianName": "Rake Yohn",
     "isAdmin": "Boolean",
     "onProject": "String",
     "email": "String",
@@ -10,7 +10,7 @@
 },
 {
     "id":"integer",
-    "inspectorName": "Delta",
+    "technicianName": "Tom Green",
     "isAdmin": "Boolean",
     "onProject": "String",
     "email": "String",
@@ -19,7 +19,7 @@
 },
 {
     "id":"integer",
-    "inspectorName": "Amazon",
+    "technicianName": "Phillup Ondeez",
     "isAdmin": "Boolean",
     "onProject": "String",
     "email": "String",
@@ -28,7 +28,7 @@
 },
 {
     "id":"integer",
-    "inspectorName": "UPS",
+    "technicianName": "Jack Blue",
     "isAdmin": "Boolean",
     "onProject": "String",
     "email": "String",
@@ -37,7 +37,7 @@
 },
 {
     "id":"integer",
-    "inspectorName": "FedEx",
+    "technicianName": "Linda Hand",
     "isAdmin": "Boolean",
     "onProject": "String",
     "email": "String",

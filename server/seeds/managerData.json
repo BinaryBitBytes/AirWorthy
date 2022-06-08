@@ -1,32 +1,48 @@
-[
+
+    [
     {
         "id":"integer",
         "managerName": "Todd Anderson",
         "isAdmin": "Boolean",
-        "onProject": "String"
+        "onProject": "String",
+        "email": "String",
+        "userName": "String",
+        "password": "String"
     },
     {
         "id":"integer",
         "managerName": "Richard Slick",
         "isAdmin": "Boolean",
-        "onProject": "String"
+        "onProject": "String",
+        "email": "String",
+        "userName": "String",
+        "password": "String"
     },
     {
         "id":"integer",
         "managerName": "Karen Becarin",
         "isAdmin": "Boolean",
-        "onProject": "String"
+        "onProject": "String",
+        "email": "String",
+        "userName": "String",
+        "password": "String"
     },
     {
         "id":"integer",
         "managerName": "Andy Red",
         "isAdmin": "Boolean",
-        "onProject": "String"
+        "onProject": "String",
+        "email": "String",
+        "userName": "String",
+        "password": "String"
     },
     {
         "id":"integer",
         "managerName": "Jason Lee",
         "isAdmin": "Boolean",
-        "onProject": "String"
+        "onProject": "String",
+        "email": "String",
+        "userName": "String",
+        "password": "String"
     }
     ]

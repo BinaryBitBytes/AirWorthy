@@ -3,14 +3,17 @@ const mongoose = require("mongoose");
 const managerSchema = new mongoose.Schema(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: Number,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
           },
         managerName: {type: String, required: true, unique: true},
-        isAdmin: true,
+        isAdmin: Boolean,
         onProject: [{type: String}],
+        userName: String,
+        email: String,
+        password: String
         
     },
     {
@@ -27,7 +30,6 @@ const managerSchema = new mongoose.Schema(
             return updatedManagerData;
           },
         },
-        sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,

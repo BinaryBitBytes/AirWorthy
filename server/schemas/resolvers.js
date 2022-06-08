@@ -1,3 +1,58 @@
+const { mongoose } = require("mongoose");
+const { Technician } = require("../models");
+const { Manager } = require("../models");
+const { Project } = require("../models");
+const { Airliner } = require("../models");
+const { Inspector } = require("../models");
+
+const technicianResolvers = {
+  Query: {
+    technicians: async () => {
+      return Technician.find().sort({ createdAt: -1 });
+    },
+
+    technician: async (parent, { technicianID }) => {
+      return Technician.findOne({ _id: technicianID });
+    },
+  },
+  
+  Mutation: {
+    addTechnician: async(parent, {technicianName, isAdmin, onProject, username, email, password}) => {
+      return Technician.create({ technicianName, isAdmin, onProject, username, email, password });
+    },
+    addProject: async(parent, {technicianID, onProject }) => {
+      return Technician.findOneAndUpdate(
+        {_id: technicianID},
+        {
+          $addToSet: { project: {onProject} },
+        },
+        {
+          new: true,
+          runValidators: true,
+        },
+      );
+    },
+    removeTechnician: async (parent, { technicianID }) =>{
+      return Technician.fineOneAndDelete({ _id: technicianID});
+    },
+    removeTechnician: async(parent, { technicianId, onProject }) => {
+      return Technician.findOneAndUpdate(
+        { _id: technicianId},
+        {}
+      )
+    },
+  }
+};
+
+module.exports = technicianResolvers;
+
+
+
+
+
+
+
+
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
