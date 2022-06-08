@@ -3,30 +3,65 @@
     "id":"integer",
     "technicianName": "Rake Yohn",
     "isAdmin": "Boolean",
+<<<<<<< HEAD
     "onProject": "String"
+=======
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
+>>>>>>> 42d359643ba0af8fac9be76994c9677187664309
 },
 {
     "id":"integer",
     "technicianName": "Tom Green",
     "isAdmin": "Boolean",
+<<<<<<< HEAD
     "onProject": "String"
+=======
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
+>>>>>>> 42d359643ba0af8fac9be76994c9677187664309
 },
 {
     "id":"integer",
     "technicianName": "Phillup Ondeez",
     "isAdmin": "Boolean",
+<<<<<<< HEAD
     "onProject": "String"
+=======
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
+>>>>>>> 42d359643ba0af8fac9be76994c9677187664309
 },
 {
     "id":"integer",
     "technicianName": "Jack Blue",
     "isAdmin": "Boolean",
+<<<<<<< HEAD
     "onProject": "String"
+=======
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
+>>>>>>> 42d359643ba0af8fac9be76994c9677187664309
 },
 {
     "id":"integer",
     "technicianName": "Linda Hand",
     "isAdmin": "Boolean",
+<<<<<<< HEAD
     "onProject": "String"
+=======
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
+>>>>>>> 42d359643ba0af8fac9be76994c9677187664309
 }
 ]

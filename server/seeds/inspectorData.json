@@ -3,30 +3,45 @@
     "id":"integer",
     "inspectorName": "United",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "inspectorName": "Delta",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "inspectorName": "Amazon",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "inspectorName": "UPS",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
 },
 {
     "id":"integer",
     "inspectorName": "FedEx",
     "isAdmin": "Boolean",
-    "onProject": "String"
+    "onProject": "String",
+    "email": "String",
+    "userName": "String",
+    "password": "String"
 }
 ]
