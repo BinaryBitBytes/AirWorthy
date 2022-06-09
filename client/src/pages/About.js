@@ -1,5 +1,5 @@
 import React from "react";
-import About from "../components/About.js";
+import About from "../components/about.js";
 
 <React.Fragment>
   <About />
