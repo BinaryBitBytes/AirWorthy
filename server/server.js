@@ -32,7 +32,8 @@ app.get('/', (req, res) => {
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   console.error('startApolloServer is throwing error in typeDefs and or resolvers');
-await server.start(console.error('await server.start throwing error'));
+await server.start();
+console.error('await server.start throwing error')
 server.applyMiddleware({ app });
 
 db.once('open', () => {
