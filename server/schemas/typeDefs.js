@@ -1,9 +1,9 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Technician {
     _id: ID!
-    technicianName: [technicianName]
+    technicianName: String
     isAdmin: Boolean
     onProject: [Project]
     username: String!
@@ -13,7 +13,7 @@ const typeDefs = gql`
 
   type Manager {
     _id: ID!
-    managerName: [managerName]
+    managerName: String
     isAdmin: Boolean
     onProject: [Project]
     username: String!
@@ -23,7 +23,7 @@ const typeDefs = gql`
 
   type Inspector {
     _id: ID!
-    inspectorName: [inspectorName]
+    inspectorName: String
     isAdmin: Boolean
     onProject: [Project]
     username: String!
@@ -33,33 +33,30 @@ const typeDefs = gql`
 
   type Project {
     _id: ID!
-    projectName: [projectName]
-    inspectorName: [inspectorName]
+    projectName: String
+    inspectorName: String
     workDescription: String
-    
   }
 
-   type Auth {
+  type Auth {
     token: ID!
-    user: User
+    user: String
   }
 
   input projectData {
-    projectName: [String]
-    inspectorName: [inspectorName]
+    projectName: String
+    inspectorName: String
     workDescription: String
-    projectId: Integer
-}
+    projectId: Int
+  }
 
   type Query {
-    me(userId: ID!): User
+    me(userId: ID!): Auth
   }
 
   type Mutation {
     loginUser(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(userId: ID!, bookData: BookData): User
-    removeBook(userId: ID!, bookId: ID!): User
   }
 `;
 
