@@ -159,23 +159,23 @@ const airlinerResolvers = {
   },
 
   Mutation: {
-    addAirliner: async (parent,
-      { airlinerName, isAdmin, onProject, username, email, password }
+    addAirliners: async (parent,
+      { airlinerName, isAdmin, modelAircraft, username, email, password }
     ) => {
       return Airliner.create({
         airlinerName,
         isAdmin,
-        onProject,
+        modelAircraft,
         username,
         email,
         password,
       });
     },
-    addProject: async (parent, { airlinerID, onProject }) => {
+    addAirliner: async (parent, { airlinerID, airlinerName }) => {
       return Airliner.findOneAndUpdate(
         { _id: airlinerID },
         {
-          $addToSet: { project: { onProject } },
+          $addToSet: { airlinerName: { airlinerName } },
         },
         {
           new: true,
@@ -183,11 +183,11 @@ const airlinerResolvers = {
         }
       );
     },
-    removeTechnician: async (parent, { airlinerID }) => {
+    removeAirliner: async (parent, { airlinerID }) => {
       return Airliner.fineOneAndDelete({ _id: airlinerID });
     },
-    removeTechnician: async (parent, { airlinerID, onProject }) => {
-      return Airliner.findOneAndUpdate({ _id: airlinerID }, {});
+    removeAirliner: async (parent, { airlinerID, airlinerName }) => {
+      return Airliner.findOneAndUpdate({ _id: airlinerID }, { airlinerName });
     },
   },
 };
