@@ -245,6 +245,7 @@ module.exports = projectResolvers; //! still need to do project
 module.exports = inspectorResolvers;
 module.exports = airlinerResolvers;
 
+//! authentication example below
 // const { User } = require("../models");
 // const { signToken } = require("../utils/auth");
 // const { AuthenticationError } = require("apollo-server-express");
