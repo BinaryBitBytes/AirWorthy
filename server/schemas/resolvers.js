@@ -99,7 +99,52 @@ const managerResolvers = {
   },
 };
 
-//! Creating Resolver for Airliner
+//! Creating Resolver for Project
+const projectResolvers = {
+  Query: {
+    projects: async () => {
+      return Project.find().sort({ createdAt: -1 });
+    },
+
+    project: async (parent, { projectID }) => {
+      return Project.findOne({ _id: projectID });
+    },
+  },
+
+  Mutation: {
+    addProject: async (
+      parent,
+      { projectName, isAdmin, onProject, username, email, password }
+    ) => {
+      return Project.create({
+        projectName,
+        isAdmin,
+        onProject,
+        username,
+        email,
+        password,
+      });
+    },
+    addProject: async (parent, { projectID, onProject }) => {
+      return Project.findOneAndUpdate(
+        { _id:projectID },
+        {
+          $addToSet: { project: { onProject } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+    removeProject: async (parent, { projectID }) => {
+      return Project.fineOneAndDelete({ _id: projectID });
+    },
+    removeTechnician: async (parent, { projectId, onProject }) => {
+      return Project.findOneAndUpdate({ _id: projectId }, {});
+    },
+  },
+};
 
 //Creating Resolver for Airliner
 const airlinerResolvers = {
@@ -197,6 +242,7 @@ const inspectorResolvers = {
 module.exports = technicianResolvers;
 module.exports = managerResolvers;
 module.exports = projectResolvers; //! still need to do project
+module.exports = inspectorResolvers;
 module.exports = airlinerResolvers;
 
 // const { User } = require("../models");
