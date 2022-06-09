@@ -1,12 +1,13 @@
 import React from "react";
-import imageOverlay from "../img/earth.jpg";
+import "./stars.scss";
+// import earth from "assets/images/earth.jpg";
 
 class Contact extends React.Component {
   render() {
     return (
       <section
         className="paralax-mf footer-paralax bg-image sect-mt4 route"
-        style={{ backgroundImage: "url(" + imageOverlay + ")" }}
+        // style={{ backgroundImage: "url(" + earth + ")" }}
       >
         <div className="overlay-mf"></div>
         <div className="container">
@@ -115,47 +116,6 @@ class Contact extends React.Component {
                                 <li><span class="ion-email"></span> contact@example.com</li>
                                 </ul> --> */}
                       </div>
-
-
-
-                      
-                      <div className="socials">
-                        <ul>
-                          <li>
-                            <a
-                              href="mailto:emmanuelajeanbaptiste1@gmail.com"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <span className="ico-circle">
-                                <i className="ion-social-google"></i>
-                              </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://github.com/emma4jesus"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <span className="ico-circle">
-                                <i className="ion-social-github"></i>
-                              </span>
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="https://www.linkedin.com/in/emmanuela-jean-baptiste-8442501a2"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <span className="ico-circle">
-                                <i className="ion-social-linkedin"></i>
-                              </span>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -163,17 +123,6 @@ class Contact extends React.Component {
             </div>
           </div>
         </div>
-        <footer>
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                <div className="copyright-box">© 2022 Emmanuela Jean-Baptiste
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </footer>
       </section>
     );
   }
