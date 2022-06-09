@@ -9,11 +9,11 @@ const { Inspector } = require("../models");
 const technicianResolvers = {
   Query: {
     technicians: async () => {
-      return Technician.find().sort({ createdAt: -1 });
+      return await Technician.find().sort({ createdAt: -1 })//.cursor(); //added .cursor to see if this resolves //! added await
     },
 
     technician: async (parent, { technicianID }) => {
-      return Technician.findOne({ _id: technicianID });
+      return await Technician.findOne({ _id: technicianID })//.cursor(); //added .cursor to see if this resolves //! added await
     },
   },
 
@@ -56,11 +56,11 @@ const technicianResolvers = {
 const managerResolvers = {
   Query: {
     managers: async () => {
-      return Manager.find().sort({ createdAt: -1 });
+      return await Manager.find().sort({ createdAt: -1 }); //! added await
     },
 
     manager: async (parent, { managerID }) => {
-      return Manager.findOne({ _id: managerID });
+      return await Manager.findOne({ _id: managerID }); //! added await
     },
   },
 
@@ -103,11 +103,11 @@ const managerResolvers = {
 const projectResolvers = {
   Query: {
     projects: async () => {
-      return Project.find().sort({ createdAt: -1 });
+      return await Project.find().sort({ createdAt: -1 }); //! added await
     },
 
     project: async (parent, { projectID }) => {
-      return Project.findOne({ _id: projectID });
+      return await Project.findOne({ _id: projectID }); //! added await
     },
   },
 
@@ -150,11 +150,11 @@ const projectResolvers = {
 const airlinerResolvers = {
   Query: {
     airliners: async () => {
-      return Airliner.find().sort({ createdAt: -1 });
+      return await Airliner.find().sort({ createdAt: -1 }); //! added await
     },
 
     airliner: async (parent, { airlinerID }) => {
-      return Airliner.findOne({ _id: airlinerID });
+      return await Airliner.findOne({ _id: airlinerID }); //! added await
     },
   },
 
@@ -196,11 +196,11 @@ const airlinerResolvers = {
 const inspectorResolvers = {
   Query: {
     inspectors: async () => {
-      return Technician.find().sort({ createdAt: -1 });
+      return await Technician.find().sort({ createdAt: -1 }); //! added await
     },
 
     inspector: async (parent, { inspectorID }) => {
-      return Technician.findOne({ _id: inspectorID });
+      return await Technician.findOne({ _id: inspectorID }); //! added await
     },
   },
 
