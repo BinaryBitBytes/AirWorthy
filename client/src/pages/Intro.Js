@@ -1,5 +1,5 @@
 import React from "react";
-import Intro from "./components/Intro.js";
+import Intro from "./components/intro.js";
 
 <React.Fragment>
   <Intro />

@@ -1,5 +1,5 @@
 import React from "react";
-import Contact from "./components/Contact.js";
+import Contact from "./components/contact.js";
 
 <React.Fragment>
   <Contact />
