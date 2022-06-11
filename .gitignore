@@ -2,12 +2,10 @@
 
 # dependencies
 
-##! commented out for the main branch to contain for functioning npm run develop node_modules
-##! commented out for the main branch to contain for functioning npm run develop /node_modules
-# node_modules
-# /node_modules
-# ./server/node_modules
-# ./client/node_modules
+node_modules
+/node_modules
+./server/node_modules
+./client/node_modules
 /.pnp
 .pnp.js
 
