@@ -3,95 +3,45 @@
     "id":"integer",
     "technicianName": "Rake Yohn",
     "isAdmin": "Boolean",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "onProject": "String"
-=======
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
     "onProject": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
-<<<<<<< HEAD
->>>>>>> 42d359643ba0af8fac9be76994c9677187664309
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
 },
 {
     "id":"integer",
     "technicianName": "Tom Green",
     "isAdmin": "Boolean",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "onProject": "String"
-=======
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
     "onProject": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
-<<<<<<< HEAD
->>>>>>> 42d359643ba0af8fac9be76994c9677187664309
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
 },
 {
     "id":"integer",
     "technicianName": "Phillup Ondeez",
     "isAdmin": "Boolean",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "onProject": "String"
-=======
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
     "onProject": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
-<<<<<<< HEAD
->>>>>>> 42d359643ba0af8fac9be76994c9677187664309
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
 },
 {
     "id":"integer",
     "technicianName": "Jack Blue",
     "isAdmin": "Boolean",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "onProject": "String"
-=======
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
     "onProject": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
-<<<<<<< HEAD
->>>>>>> 42d359643ba0af8fac9be76994c9677187664309
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
 },
 {
     "id":"integer",
     "technicianName": "Linda Hand",
     "isAdmin": "Boolean",
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "onProject": "String"
-=======
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
     "onProject": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
-<<<<<<< HEAD
->>>>>>> 42d359643ba0af8fac9be76994c9677187664309
-=======
->>>>>>> 1057118b7fccdf1f255bd55f4fc2c018639c16f4
 }
 ]

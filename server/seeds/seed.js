@@ -1,6 +1,5 @@
 const db = require('../config/connection');
 const { Airliner, Inspector, Manager, Project, Technician } = require('../models');
-
 const airlinerData = require('./airlinerData.json');
 const inspectorData = require('./inspectorData.json');
 const managerData = require('./managerData.json');
