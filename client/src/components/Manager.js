@@ -4,7 +4,11 @@ import "./stars.scss";
 
 class Manager extends React.Component {
   render() {
-    return <div className="manager"> Manager</div>;
+    return (
+      <div id="manager" className="manager route bg-image ">
+        <h1 className="managertitle mb-4">Welcome To Air Worthy</h1>
+      </div>
+    );
   }
 }
 
