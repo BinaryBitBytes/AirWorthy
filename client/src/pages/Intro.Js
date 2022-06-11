@@ -1,8 +1,12 @@
 import React from "react";
 import Intro from "./components/intro.js";
 
-<React.Fragment>
-  <Intro />
-</React.Fragment>;
+function Intro() {
+  return (
+    <Wrapper>
+      <Intro />
+    </Wrapper>
+  );
+}
 
 export default Intro;
