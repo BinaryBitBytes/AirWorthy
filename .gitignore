@@ -2,10 +2,6 @@
 
 # dependencies
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d30315e708e881d2bfa17d50f40c072543de8ce1
 node_modules
 /node_modules
 ./server/node_modules
