@@ -13,11 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.4.1",
-<<<<<<< HEAD
+    "bootstrap": "^4.6.1",
     "cjs": "^0.0.11",
-=======
->>>>>>> 09cd00d349bbc9ba05e02b936f5504edf44cd4b6
     "concurrently": "^7.2.1",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
@@ -34,11 +31,7 @@
     "typed.js": "^2.0.10",
     "web-vitals": "^2.1.4",
     "webloader": "^0.0.1",
-<<<<<<< HEAD
     "webpack": "^5.73.0",
     "yargs": "^17.5.1"
-=======
-    "webpack": "^5.73.0"
->>>>>>> 09cd00d349bbc9ba05e02b936f5504edf44cd4b6
   }
 }
