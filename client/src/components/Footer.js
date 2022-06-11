@@ -3,8 +3,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer class="footer-area">
-      <div class="footer-copyright text-center py-3">© 2022 Air Worthy</div>
+    <footer className="footer-area">
+      <div className="footer-copyright text-center py-3">© 2022 Air Worthy</div>
     </footer>
   );
 }
