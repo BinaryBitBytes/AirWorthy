@@ -22,7 +22,7 @@ class Intro extends React.Component {
                 </strong> */}
             </p>
             <p className="pt-3">
-            <a className="btn btn-light btn  px-4" href="" role="button"> //!needs href link
+            <a className="btn btn-light btn  px-4" href="" role="button">
                 Login Or Sign-Up
               </a>
             </p>
