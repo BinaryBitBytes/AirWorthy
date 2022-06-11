@@ -1,7 +1,9 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+const {Airliner, Manager, Inspector, Technician, Project} = require('./models/index');
 
 // Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
@@ -45,5 +47,14 @@ db.once('open', () => {
 })
 };
 
-// Call the async function to start the server
+//! BBB Entry 6/10/22
+//   mongoose
+//     .connect('mongodb://localhose:_____/thisIsAtest', {
+//       useNewUrlParser: true, useUnifiedTopology
+//     .then( () => {
+
+//     })
+//   });
+
+// // Call the async function to start the server
 startApolloServer(typeDefs, resolvers);
