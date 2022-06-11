@@ -1,5 +1,5 @@
 import React from "react";
-import "./stars.scss";
+//import SCSS from"client/src/components/stars.scss";
 
 function Footer() {
   return (
