@@ -19,7 +19,7 @@ class Navbar extends React.Component {
         id="mainNav"
       >
         <div className="container">
-          <a class="d-flex navbar navbar-expand-lg" href="#intro">
+          <a className="d-flex navbar navbar-expand-lg" href="#intro">
             AirWorthy
           </a>
 
