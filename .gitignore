@@ -3,10 +3,6 @@
 # dependencies
 node_modules
 /node_modules
-<<<<<<< HEAD
-node_modules
-=======
->>>>>>> 2394a0a5720904517f94c2d4305c3cdb0857c97f
 server/node_modules
 client/node_modules
 /.pnp
