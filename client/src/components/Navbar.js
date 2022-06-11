@@ -1,8 +1,17 @@
 import React from "react";
-import "react-bootstrap";
+import { Link } from "react-router-dom";
+import $ from "jquery";
+import "bootstrap/dist/css/bootstrap.css";
 import "./stars.scss";
 
 class Navbar extends React.Component {
+  componentDidMount() {
+    $(".navbar-toggler").on("click", function () {
+      if (!$("#mainNav").hasClass("navbar-reduce")) {
+        $("#mainNav").addClass("navbar-reduce");
+      }
+    });
+  }
   render() {
     return (
       <nav
@@ -10,7 +19,9 @@ class Navbar extends React.Component {
         id="mainNav"
       >
         <div className="container">
-          <div class="d-flex navbar navbar-expand-lg">AirWorthy</div>
+          <a class="d-flex navbar navbar-expand-lg" href="#intro">
+            AirWorthy
+          </a>
 
           <button
             className="navbar-toggler collapsed"
@@ -31,25 +42,25 @@ class Navbar extends React.Component {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link  active" href="#intro">
+                <Link to="/" className="nav-link  ">
                   Home
-                </a>
+                </Link>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link " href="#about">
-                  About
-                </a>
-              </li>
+            </ul>
+
+            <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link " href="#contact">
-                 
-                </a>
+                <Link to="/manager" className="nav-link  ">
+                  Manager
+                </Link>
               </li>
+            </ul>
+            <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link " href="#contact">
-                 
-                </a>
-              </li> */}
+                <Link to="/technician" className="nav-link  ">
+                  Technician
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
