@@ -22,9 +22,9 @@ class Intro extends React.Component {
                 </strong> */}
             </p>
             <p className="pt-3">
-              <a className="btn btn-light btn  px-4" href="" role="button">
+              <button className="btn btn-light btn  px-4" >
                 Login Or Sign-Up
-              </a>
+              </button>
             </p>
           </div>
         </div>
