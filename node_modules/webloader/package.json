@@ -1,0 +1,24 @@
+{
+  "name": "webloader",
+  "version": "0.0.1",
+  "description": "A minimal web asset loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinsimper/webloader.git"
+  },
+  "keywords": [
+    "web",
+    "asset",
+    "loader"
+  ],
+  "author": "Kevin Simper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinsimper/webloader/issues"
+  },
+  "homepage": "https://github.com/kevinsimper/webloader"
+}
