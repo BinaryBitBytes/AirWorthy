@@ -14,7 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^4.4.1",
+<<<<<<< HEAD
     "cjs": "^0.0.11",
+=======
+>>>>>>> 09cd00d349bbc9ba05e02b936f5504edf44cd4b6
     "concurrently": "^7.2.1",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
@@ -23,7 +26,6 @@
     "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.15.0",
-    "react": "^17.0.2",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
@@ -32,7 +34,11 @@
     "typed.js": "^2.0.10",
     "web-vitals": "^2.1.4",
     "webloader": "^0.0.1",
+<<<<<<< HEAD
     "webpack": "^5.73.0",
     "yargs": "^17.5.1"
+=======
+    "webpack": "^5.73.0"
+>>>>>>> 09cd00d349bbc9ba05e02b936f5504edf44cd4b6
   }
 }

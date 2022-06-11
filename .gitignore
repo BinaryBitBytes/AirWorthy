@@ -1,9 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+<<<<<<< HEAD
 
 ##! commented out for the main branch to contain for functioning npm run develop node_modules
 ##! commented out for the main branch to contain for functioning npm run develop /node_modules
+=======
+node_modules
+/node_modules
+>>>>>>> 09cd00d349bbc9ba05e02b936f5504edf44cd4b6
 server/node_modules
 ##! commented out for the main branch to contain for functioning npm run develop client/node_modules
 /.pnp
