@@ -11,7 +11,7 @@ const airlinerSchema = new mongoose.Schema(
             autoIncrement: true,
           },
         airlinerName: [{type: String}],
-        isAdmin: Boolean,
+        isAdmin: true,
         modelAircraft:[{type: Number}],
         userName: String,
         email: String,
