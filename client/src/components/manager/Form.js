@@ -23,10 +23,16 @@ class FormContainer extends Component {
         managerName: "",
         technicianName: "",
       },
-      technicians: ["John", "Jill", "Jake"],
+      technicians: [
+        "Tom Green",
+        "Rake Yohn",
+        "Phillup Ondeez",
+        "Jack Blue",
+        "linda Hand",
+      ],
     };
     this.handleTextArea = this.handleTextArea.bind(this);
-    this.handleFullName = this.handleFullName.bind(this);
+    this.handleTechnicianName = this.handleTechnicianName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleProjectName = this.handleProjectName.bind(this);
@@ -37,13 +43,13 @@ class FormContainer extends Component {
 
   /* This lifecycle hook gets executed when the component mounts */
 
-  handleFullName(e) {
+  handleTechnicianName(e) {
     let value = e.target.value;
     this.setState(
       (prevState) => ({
         work: {
           ...prevState.work,
-          name: value,
+          technicianName: value,
         },
       }),
       () => console.log(this.state.work)
@@ -113,11 +119,11 @@ class FormContainer extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    let userData = this.state.work;
+    let managerData = this.state.work;
 
-    fetch("http://example.com", {
-      method: "POST",
-      body: JSON.stringify(userData),
+    fetch(`/api/manager/${managerData}`, {
+      method: "PUT",
+      body: JSON.stringify(managerData),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -186,8 +192,8 @@ class FormContainer extends Component {
             name={"technicians"}
             options={this.state.technicians}
             value={this.state.work.technicianName}
-            placeholder={"Select technician"}
-            handleChange={this.handleFullName}
+            placeholder={"Select Technicians Name "}
+            handleChange={this.handleTechnicianName}
           />{" "}
           {/* Age Selection */}
           {/* <DatePicker
