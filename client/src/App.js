@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 // import Wrapper from "./components/Wrapper";
 
 import Intro from "./components/intro";
-import Manager from "./components/Manager";
+import Manager from "./components/manager/Manager";
 import Technician from "./components/Technician";
 
 function App() {
