@@ -1,4 +1,3 @@
-const NumberPrompt = require("inquirer/lib/prompts/number");
 const mongoose = require("mongoose");
 
 
