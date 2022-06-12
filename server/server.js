@@ -10,13 +10,12 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
+const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
 });
-
-const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,9 +33,9 @@ app.get('/', (req, res) => {
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   console.error('startApolloServer is throwing error in typeDefs and or resolvers');
-await server.start();
-console.error('await server.start throwing error')
-server.applyMiddleware({ app });
+  await server.start();
+  console.error('await server.start throwing error')
+  server.applyMiddleware({ app });
 
 db.once('open', () => {
   app.listen(PORT, () => {
@@ -47,14 +46,4 @@ db.once('open', () => {
 })
 };
 
-//! BBB Entry 6/10/22
-//   mongoose
-//     .connect('mongodb://localhose:_____/thisIsAtest', {
-//       useNewUrlParser: true, useUnifiedTopology
-//     .then( () => {
-
-//     })
-//   });
-
-// // Call the async function to start the server
 startApolloServer(typeDefs, resolvers);
