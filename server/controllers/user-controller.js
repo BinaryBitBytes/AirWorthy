@@ -17,6 +17,7 @@ const { signToken } = require('../utils/auth');
 
 module.exports = {
   // get a single user by either their id or their username
+  //! --------------
   async getSingleUser({ user = null, params }, res) {
     const foundUser = await User.findOne({
       $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
@@ -29,6 +30,7 @@ module.exports = {
     res.json(foundUser);
   },
   // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+  //! --------------
   async createUser({ body }, res) {
     const user = await User.create(body);
 
@@ -40,6 +42,7 @@ module.exports = {
   },
   // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
   // {body} is destructured req.body
+  //! --------------
   async login({ body }, res) {
     const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
     if (!user) {
@@ -54,14 +57,13 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
-  // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
   // user comes from `req.user` created in the auth middleware function
-  async saveBook({ user, body }, res) {
+  async saveTechnician({ user, body }, res) {
     console.log(user);
     try {
       const updatedUser = await User.findOneAndUpdate(
         { _id: user._id },
-        { $addToSet: { savedBooks: body } },
+        { $addToSet: { savedTechnicians: body } },
         { new: true, runValidators: true }
       );
       return res.json(updatedUser);
@@ -70,11 +72,26 @@ module.exports = {
       return res.status(400).json(err);
     }
   },
-  // remove a book from `savedBooks`
-  async removeBook({ user, params }, res) {
+  async saveManager({ user, body }, res) {
+    console.log(user);
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { savedManagers: body } },
+        { new: true, runValidators: true }
+      );
+      return res.json(updatedUser);
+    } catch (err) {
+      console.log(err);
+      return res.status(400).json(err);
+    }
+  },
+
+
+  async removeTechnician({ user, params }, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      { $pull: { savedBooks: { bookId: params.bookId } } },
+      { $pull: { savedTechnicians: { technicianId: params.technicianId } } },
       { new: true }
     );
     if (!updatedUser) {
@@ -82,4 +99,17 @@ module.exports = {
     }
     return res.json(updatedUser);
   },
+
+  async removeManager({ user, params }, res) {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: user._id },
+      { $pull: { savedManagers: { managerId: params.managerId } } },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).json({ message: "Couldn't find user with this id!" });
+    }
+    return res.json(updatedUser);
+  },
+
 };
