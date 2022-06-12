@@ -11,19 +11,15 @@
   padding-bottom: 900px;
 }
 
-.manager {
-  color: black;
-  background-color: #000;
-  background-image: url("./manager.jpg");
-  overflow: hidden;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 100%;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding-bottom: 900px;
+.col-md-6 {
+  background-color: lightgrey;
+  padding-top: 20px;
+  margin-left: 300px;
+}
+
+.workfrom {
+  color: #000;
+  padding-top: 200px;
 }
 
 .page-heading {
