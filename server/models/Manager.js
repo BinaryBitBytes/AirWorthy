@@ -9,7 +9,7 @@ const managerSchema = new mongoose.Schema(
             autoIncrement: true,
           },
         managerName: {type: String, required: true, unique: true},
-        isAdmin: Boolean,
+        isAdmin: true,
         onProject: [{type: String}],
         userName: String,
         email: String,
