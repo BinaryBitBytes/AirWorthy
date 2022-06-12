@@ -146,4 +146,8 @@ export const saveProject = (projectData) => {
         },
         body: JSON.stringify(projectData),
     });
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> af6f9966c1d34785f9b29e6a2f2b37566aa1e38a
