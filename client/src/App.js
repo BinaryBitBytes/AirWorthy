@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoginForm from "./components/LoginForm";
 // import Wrapper from "./components/Wrapper";
 
 import Intro from "./components/intro";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/technician" element={<Technician />} />
           </Routes>
         </div>
+        <LoginForm></LoginForm>
         <Footer></Footer>
       </BrowserRouter>
     </div>

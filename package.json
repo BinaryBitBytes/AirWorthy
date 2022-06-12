@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.6.7",
     "bootstrap": "^4.6.1",
     "cjs": "^0.0.11",
     "concurrently": "^7.2.1",
     "css": "^3.0.0",
+    "graphql": "^16.5.0",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
     "lightbox2": "^2.11.0",
