@@ -15,4 +15,4 @@ const Technician = require('./Technician');
 //   foreignKey: 'user_id',
 // });
 
-module.exports = {Project ,Technician, Manager, Inspector, Airliner };
+module.exports = {Airliner, Inspector, Manager, Project ,Technician};

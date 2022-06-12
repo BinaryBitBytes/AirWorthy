@@ -1,9 +1,8 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-const {Airliner, Manager, Inspector, Technician, Project} = require('./models/index');
+const {Airliner, Inspector, Manager, Project ,Technician} = require('./models/index');
 
 // Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
@@ -24,8 +23,9 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
   console.error('line 22 Throwing error for node_env');
 }
-
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 app.get('/', (req, res) => {
+  res.send({ express: 'Express Backend connected to react'});
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
   console.error('line 29 Throwing error for app.get');
 });
