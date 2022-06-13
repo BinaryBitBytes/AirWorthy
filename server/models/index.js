@@ -1,8 +1,8 @@
-const Airliner = require('./Airliner');
-const Inspector = require('./Inspector');
-const Manager = require('./Manager');
-const Project = require('./Project');
-const Technician = require('./Technician');
+const { Airliner } = require('./Airliner');
+const { Inspector} = require('./Inspector');
+const { Manager } = require('./Manager');
+const { Project } = require('./Project');
+const { Technician } = require('./Technician');
 
 
 //! Needs to go in controllers
