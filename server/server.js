@@ -10,7 +10,7 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-const { server } = new ApolloServer({
+const ApolloServer = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
@@ -33,15 +33,15 @@ app.get('/', (req, res) => {
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   console.error('startApolloServer is throwing error in typeDefs and or resolvers');
-  await server.start();
+  await ApolloServer.start();
   console.error('await server.start throwing error')
-  server.applyMiddleware({ app });
+  ApolloServer.applyMiddleware({ app });
 
 db.once('open', () => {
   app.listen(PORT, () => {
     console.error('line 38 Throwing error for db connection');
-    console.log(`API server running on port ${PORT}!`);
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    console.log(`API ApolloServer running on port ${PORT}!`);
+    console.log(`Use GraphQL at http://localhost:${PORT}${ApolloServer.graphqlPath}`);
   })
 })
 };
