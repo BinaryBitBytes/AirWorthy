@@ -159,7 +159,7 @@ const airlinerResolvers = {
   },
 
   Mutation: {
-    addAirliners: async (parent,
+    addAirliner: async (parent,
       { airlinerName, isAdmin, modelAircraft, username, email, password }
     ) => {
       return Airliner.create({
