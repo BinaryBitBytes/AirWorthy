@@ -4,7 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 100%;
+  opacity: 80%;
   position: relative;
   height: 100%;
   width: 100%;
@@ -608,9 +608,10 @@ y .navbar-toggler:focus,
 }
 
 .intro .intro-title {
-  color: white;
-  font-weight: 600;
-  font-size: 3rem;
+  color: #cd661d;
+  font-weight: 300;
+  font-weight: bolder;
+  padding: 5px 37px;
 }
 
 .intro .intro-subtitle {

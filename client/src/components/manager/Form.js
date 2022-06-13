@@ -23,16 +23,10 @@ class FormContainer extends Component {
         managerName: "",
         technicianName: "",
       },
-      technicians: [
-        "Tom Green",
-        "Rake Yohn",
-        "Phillup Ondeez",
-        "Jack Blue",
-        "linda Hand",
-      ],
+      technicians: ["John", "Jill", "Jake"],
     };
     this.handleTextArea = this.handleTextArea.bind(this);
-    this.handleTechnicianName = this.handleTechnicianName.bind(this);
+    this.handleFullName = this.handleFullName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleProjectName = this.handleProjectName.bind(this);
@@ -43,13 +37,13 @@ class FormContainer extends Component {
 
   /* This lifecycle hook gets executed when the component mounts */
 
-  handleTechnicianName(e) {
+  handleFullName(e) {
     let value = e.target.value;
     this.setState(
       (prevState) => ({
         work: {
           ...prevState.work,
-          technicianName: value,
+          name: value,
         },
       }),
       () => console.log(this.state.work)
@@ -119,18 +113,18 @@ class FormContainer extends Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
-    let managerData = this.state.work;
+    let projectData = this.state.work;
 
-    fetch(`/api/manager/${managerData}`, {
-      method: "PUT",
-      body: JSON.stringify(managerData),
+    fetch("/api/project", {
+      method: "POST",
+      body: JSON.stringify(projectData),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then((response) => {
-      response.json().then((data) => {
-        console.log("Successful" + data);
+      response.json().then((projectData) => {
+        console.log("Successful" + projectData);
       });
     });
   }
@@ -192,8 +186,8 @@ class FormContainer extends Component {
             name={"technicians"}
             options={this.state.technicians}
             value={this.state.work.technicianName}
-            placeholder={"Select Technicians Name "}
-            handleChange={this.handleTechnicianName}
+            placeholder={"Select technician"}
+            handleChange={this.handleFullName}
           />{" "}
           {/* Age Selection */}
           {/* <DatePicker
