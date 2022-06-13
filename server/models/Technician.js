@@ -12,7 +12,7 @@ const technicianSchema = new mongoose.Schema({
           required: true,
           unique: true
         },
-        isAdmin: false,
+        isAdmin: {type: Boolean, isAdmin:false},
         onProject: [{type: String}],
         email: String,
         userName: String,

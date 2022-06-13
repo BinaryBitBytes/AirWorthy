@@ -9,7 +9,7 @@ const inspectorSchema = new mongoose.Schema(
             autoIncrement: true,
           },
         inspectorName: {type: String, required: true, unique: true},
-        isAdmin: true,
+        isAdmin: {type: Boolean, isAdmin:true},
         onProject: [{type: String}],
         userName: String,
         email: String,
