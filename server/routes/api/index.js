@@ -5,7 +5,7 @@ const { typeDefs, resolvers } = require('./schemas');
 
 const { authMiddleware } = require('./utils/auth');
 const {Airliner, Inspector, Manager, Project ,Technician} = require('./models/index');
-const ApolloServer = new ApolloServer({
+const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
   console.error('startApolloServer is throwing error in typeDefs and or resolvers');
-  await ApolloServer.start();
+  await server.start();
   console.error('await server.start throwing error')
-  ApolloServer.applyMiddleware({ app });
+  server.applyMiddleware({ app });
 }
 
 
