@@ -1,8 +1,8 @@
-const Airliner = require('./Airliner');
-const Inspector = require('./Inspector');
-const Manager = require('./Manager');
-const Project = require('./Project');
-const Technician = require('./Technician');
+const { Airliner } = require('./Airliner');
+const { Inspector} = require('./Inspector');
+const { Manager } = require('./Manager');
+const { Project } = require('./Project');
+const { Technician } = require('./Technician');
 
 
 //! Needs to go in controllers
@@ -15,4 +15,4 @@ const Technician = require('./Technician');
 //   foreignKey: 'user_id',
 // });
 
-module.exports = {Project ,Technician, Manager, Inspector, Airliner };
+module.exports = {Airliner, Inspector, Manager, Project ,Technician};

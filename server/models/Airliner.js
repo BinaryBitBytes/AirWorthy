@@ -1,4 +1,3 @@
-const NumberPrompt = require("inquirer/lib/prompts/number");
 const mongoose = require("mongoose");
 
 
@@ -11,7 +10,7 @@ const airlinerSchema = new mongoose.Schema(
             autoIncrement: true,
           },
         airlinerName: [{type: String}],
-        isAdmin: true,
+        isAdmin: {type: Boolean, enum:[true]},
         modelAircraft:[{type: Number}],
         userName: String,
         email: String,
