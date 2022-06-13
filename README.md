@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# AirWorthy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Application Description
 
-## Available Scripts
+A full stack application that uses an authentication system to allow FAA Inspectors, Airliners, and Aircraft Technicians to update progress on their work all while keeping a log of records on projects completed.
 
-In the project directory, you can run:
+## The Task
 
-### `npm start`
+The MERN full-stack application had to meet the following requirements:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Use React for the front end.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Use GraphQL with a Node.js and Express.js server.
 
-### `npm test`
+* Use MongoDB and the Mongoose ODM for the database.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Use queries and mutations for retrieving, adding, updating, and deleting data.
 
-### `npm run build`
+* Be deployed using Heroku (with data).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Have a polished UI.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Be responsive.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Be interactive (i.e., accept and respond to user input).
 
-### `npm run eject`
+* Include authentication (JWT).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* Protect sensitive API key information on the server.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, etc.).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## User Story
 
-## Learn More
+```md
+AS AN FAA inspector 
+I WANT to have a central database
+SO THAT I maintain the authenticity of work from certified and uncertified technicians.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+AS AN Airline Company 
+I WANT to have a central database
+SO THAT I am be able to track the progress of the teams that are assigned to maintenance of our aircraft.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+AS AN Aircraft Maintenance Technician 
+I WANT to be able to see the projects I am working on and assigned to
+SO THAT I can log my work history to log my time as I complete the work I do on the aircraft.
+```
+## Acceptance Criteria
 
-### Code Splitting
+```md
+GIVEN an airplane maintenance database
+WHEN I load the search engine
+THEN I am presented with a menu with the options to Login or Signup
+```
+## Screenshot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Landing Page:
+![Landing Page](./assets/images/AirWorthy_Landing.png)
 
-### Analyzing the Bundle Size
+Manager Interface:
+![Manager Interface] ()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## GitHub Repository & Deployed Application (Heroku)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* GitHub Repository: <https://github.com/BinaryBitBytes/AirWorthy>
+* Deployed Application: <https://air-worthy.herokuapp.com/>
