@@ -3,7 +3,7 @@
     "id":"integer",
     "airlinerName": "United",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer",
+    "modelAircraft": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
@@ -12,7 +12,7 @@
     "id":"integer",
     "airlinerName": "Delta",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer",
+    "modelAircraft": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
@@ -21,7 +21,7 @@
     "id":"integer",
     "airlinerName": "Amazon",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer",
+    "modelAircraft": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
@@ -30,7 +30,7 @@
     "id":"integer",
     "airlinerName": "UPS",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer",
+    "modelAircraft": "String",
     "email": "String",
     "userName": "String",
     "password": "String"
@@ -39,7 +39,7 @@
     "id":"integer",
     "airlinerName": "FedEx",
     "isAdmin": "Boolean",
-    "modelAircraft": "integer",
+    "modelAircraft": "String",
     "email": "String",
     "userName": "String",
     "password": "String"

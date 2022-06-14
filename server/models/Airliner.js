@@ -11,7 +11,7 @@ const airlinerSchema = new mongoose.Schema(
           },
         airlinerName: [{type: String}],
         isAdmin: {type: Boolean, enum:[true]},
-        modelAircraft:[{type: Number}],
+        modelAircraft:[{type: String}],
         userName: String,
         email: String,
         password: String

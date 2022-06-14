@@ -15,7 +15,7 @@ const typeDefs = gql`
     _id: ID!
     airlinerName: String
     isAdmin: Boolean
-    modelAircraft: [Int]
+    modelAircraft: [String]
     username: String!
     email: String
     password: String
