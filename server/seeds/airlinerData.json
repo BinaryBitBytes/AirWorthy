@@ -1,47 +1,47 @@
 [
 {
-    "id":"integer",
+    "id":"1",
     "airlinerName": "United",
-    "isAdmin": "Boolean",
-    "modelAircraft": "String",
-    "email": "String",
-    "userName": "String",
-    "password": "String"
+    "isAdmin": "True",
+    "modelAircraft": "777",
+    "email": "united777@united.net",
+    "userName": "United",
+    "password": "Boeing777"
 },
 {
-    "id":"integer",
+    "id":"2",
     "airlinerName": "Delta",
-    "isAdmin": "Boolean",
-    "modelAircraft": "String",
-    "email": "String",
-    "userName": "String",
-    "password": "String"
+    "isAdmin": "True",
+    "modelAircraft": "757",
+    "email": "boeing757@delta.net",
+    "userName": "Delta",
+    "password": "Boeing757"
 },
 {
-    "id":"integer",
+    "id":"3",
     "airlinerName": "Amazon",
-    "isAdmin": "Boolean",
-    "modelAircraft": "String",
-    "email": "String",
-    "userName": "String",
-    "password": "String"
+    "isAdmin": "True",
+    "modelAircraft": "737",
+    "email": "boeing737@amazon.fly",
+    "userName": "AMflyShip",
+    "password": "Amazon737AM"
 },
 {
-    "id":"integer",
+    "id":"4",
     "airlinerName": "UPS",
-    "isAdmin": "Boolean",
-    "modelAircraft": "String",
-    "email": "String",
-    "userName": "String",
-    "password": "String"
+    "isAdmin": "True",
+    "modelAircraft": "737-Max",
+    "email": "upsAIR@ups.net",
+    "userName": "FastShip",
+    "password": "737ship2u"
 },
 {
-    "id":"integer",
+    "id":"5",
     "airlinerName": "FedEx",
-    "isAdmin": "Boolean",
-    "modelAircraft": "String",
-    "email": "String",
-    "userName": "String",
-    "password": "String"
+    "isAdmin": "True",
+    "modelAircraft": "737",
+    "email": "canDeliver@broken.net",
+    "userName": "ProbablyLate",
+    "password": "ProbablyDamaged"
 }
 ]

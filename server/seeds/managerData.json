@@ -1,48 +1,48 @@
 
     [
     {
-        "id":"integer",
+        "id":"1",
         "managerName": "Todd Anderson",
-        "isAdmin": "Boolean",
-        "onProject": "String",
-        "email": "String",
-        "userName": "String",
-        "password": "String"
+        "isAdmin": "True",
+        "onProject": "Smoke Detector Modification",
+        "email": "t.anderson@man.net",
+        "userName": "BigTodd",
+        "password": "Anderson1"
     },
     {
-        "id":"integer",
+        "id":"2",
         "managerName": "Richard Slick",
-        "isAdmin": "Boolean",
-        "onProject": "String",
-        "email": "String",
-        "userName": "String",
-        "password": "String"
+        "isAdmin": "True",
+        "onProject": "Wifi Module Modification",
+        "email": "r.slick@man.net",
+        "userName": "SlickRick",
+        "password": "SlipNSlide"
     },
     {
-        "id":"integer",
-        "managerName": "Karen Becarin",
-        "isAdmin": "Boolean",
-        "onProject": "String",
-        "email": "String",
-        "userName": "String",
-        "password": "String"
+        "id":"3",
+        "managerName": "Cindy Lefthook",
+        "isAdmin": "True",
+        "onProject": "Flight Control Radar Maintinence",
+        "email": "c.lefthook@man.net",
+        "userName": "OleLefty",
+        "password": "RightHandWoman"
     },
     {
-        "id":"integer",
+        "id":"4",
         "managerName": "Andy Red",
-        "isAdmin": "Boolean",
-        "onProject": "String",
-        "email": "String",
-        "userName": "String",
-        "password": "String"
+        "isAdmin": "True",
+        "onProject": "Fuel Tank Upgrade Modification",
+        "email": "a.red@man.net",
+        "userName": "RedVsBlue",
+        "password": "IloveGreen"
     },
     {
-        "id":"integer",
+        "id":"5",
         "managerName": "Jason Lee",
-        "isAdmin": "Boolean",
-        "onProject": "String",
-        "email": "String",
-        "userName": "String",
-        "password": "String"
+        "isAdmin": "True",
+        "onProject": "Air Frame Reinforcement Maintinence",
+        "email": "j.lee@man.net",
+        "userName": "ProSkater",
+        "password": "Sk84L1f3"
     }
     ]
