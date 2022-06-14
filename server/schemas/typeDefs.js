@@ -11,6 +11,16 @@ const typeDefs = gql`
     password: String
   }
 
+  type Airliner {
+    _id: ID!
+    airlinerName: String
+    isAdmin: Boolean
+    modelAircraft: [Int]
+    username: String!
+    email: String
+    password: String
+  }
+
   type Manager {
     _id: ID!
     managerName: String
