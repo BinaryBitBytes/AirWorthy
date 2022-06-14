@@ -47,7 +47,7 @@ const technicianResolvers = {
       return Technician.fineOneAndDelete({ _id: technicianID });
     },
     removeTechnician: async (parent, { technicianID, onProject }) => {
-      return Technician.findOneAndUpdate({ _id: technicianID }, {});
+      return Technician.destroy({ _id: technicianID }, {});
     },
   },
 };
@@ -94,7 +94,7 @@ const managerResolvers = {
       return Manager.fineOneAndDelete({ _id: managerID });
     },
     removeManager: async (parent, { managerID, onProject }) => {
-      return Manager.findOneAndUpdate({ _id: managerID }, {});
+      return Manager.destroy({ _id: managerID }, {});
     },
   },
 };
@@ -141,7 +141,7 @@ const projectResolvers = {
       return Project.fineOneAndDelete({ _id: projectID });
     },
     removeTechnician: async (parent, { projectId, onProject }) => {
-      return Project.findOneAndUpdate({ _id: projectId }, {});
+      return Project.destroy({ _id: projectId }, {});
     },
   },
 };
@@ -187,7 +187,7 @@ const airlinerResolvers = {
       return Airliner.fineOneAndDelete({ _id: airlinerID });
     },
     removeAirliner: async (parent, { airlinerID, airlinerName }) => {
-      return Airliner.findOneAndUpdate({ _id: airlinerID }, { airlinerName });
+      return Airliner.destroy({ _id: airlinerID }, { $airlinerName });
     },
   },
 };
@@ -234,7 +234,7 @@ const inspectorResolvers = {
       return Inspector.fineOneAndDelete({ _id: inspectorID });
     },
     removeInspector: async (parent, { inspectorID, onProject }) => {
-      return Inspector.findOneAndUpdate({ _id: inspectorID }, {});
+      return Inspector.destroy({ _id: inspectorID }, {});
     },
   },
 };
