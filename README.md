@@ -32,6 +32,39 @@ Use React for the front end.
 
 * Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
+## Technologies Used
+
+### Application
+* concurrently
+
+### Client
+* @testing-library/jest-dom
+* @testing-library/react-testing-library
+* bootstrap
+* jQuery
+* auth0/jwt-decode
+* lokesh/lightbox2
+* sass/node-sass
+* necolas/normalize.css
+* floating-ui/popper.js
+* facebook/react-dom
+* facebook/create-react-app
+* remix-run/react-router-dom
+* webpack-contrib/sass-loader
+* mattboldt/typed.js
+* GoogleChrome/web-vitals
+
+### Server
+* apollographql/apollo-server
+* kelektiv/node.bcrypt.js
+* bootstrap
+* snetz/cjs
+* expressjs/express
+* graphql/graphql-js
+* auth0/node-jsonwebtoken
+* Automattic/mongoose
+* remy/nodemon
+
 ## User Story
 
 ```md
@@ -57,7 +90,7 @@ THEN I am presented with a menu with the options to Login or Signup
 ## Screenshot
 
 Landing Page:
-![Landing Page](./assets/images/AirWorthy_Landing.png)
+![Landing Page](/assets/images/AirWorthy_Landing.png)
 
 Manager Interface:
 ![Manager Interface] ()
