@@ -61,7 +61,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    me(userId: ID!): Auth
+    airliners(): [Airliner]
+    airliner(airlinerID:ID!):Airliner
   }
 
   type Mutation {

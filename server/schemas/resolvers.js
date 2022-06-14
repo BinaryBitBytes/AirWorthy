@@ -166,8 +166,8 @@ const airlinerResolvers = {
         airlinerName,
         isAdmin,
         modelAircraft,
-        username,
         email,
+        username,
         password,
       });
     },
