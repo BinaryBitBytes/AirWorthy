@@ -14,7 +14,7 @@ const technicianData = require('./technicianData.json');
 
 db.once('open', async () => {
   
-  seedDB(){
+  async function seedDB(){
   //seeding the airliners
   async function airliner(){await Airliner.insertMany(airlinerData)};
   console.log('Airliners seeded!');
@@ -32,7 +32,7 @@ db.once('open', async () => {
   console.log('Technicians seeded!');
   // To recognize incoming request as JSON object
   app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
-  }
+  };
 
   seedDB(airliner,inspector,manager,project, technician);
   process.exit(0);
