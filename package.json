@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
+    "runStart": "react-scripts start",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
@@ -12,7 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "Dependencies": {
+  "dependencies": {
     "concurrently": "^7.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -29,7 +30,7 @@
     "web-vitals": "^0.2.4"
   },
   "engines": {
-    "node": "14.9.0",
+    "node": "12.18.2",
     "npm": "6.14.8"
   }
 }
