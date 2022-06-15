@@ -14,24 +14,26 @@ const technicianData = require('./technicianData.json');
 
 db.once('open', async () => {
   
-  
+  seedDB(){
   //seeding the airliners
-  const airliner = await Airliner.insertMany(airlinerData);
+  async function airliner(){await Airliner.insertMany(airlinerData)};
   console.log('Airliners seeded!');
   //seeding the inspectors
-  const inspector = await Inspector.insertMany(inspectorData);
+  async function  inspector(){await Inspector.insertMany(inspectorData)};
   console.log('Inspectors seeded!');
   //seeding the managers
-  const manager = await Manager.insertMany(managerData);
+  async function  manager(){await Manager.insertMany(managerData)};
   console.log('Managers seeded!');
   //seeding the projects
-  const project = await Project.insertMany(projectData);
+  async function  project(){await Project.insertMany(projectData)};
   console.log('Projects seeded!');
   //seeding the technicians
-  const technician = await Technician.insertMany(technicianData);
+  async function technician(){await Technician.insertMany(technicianData)};
   console.log('Technicians seeded!');
   // To recognize incoming request as JSON object
   app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
-  
+  }
+
+  seedDB(airliner,inspector,manager,project, technician);
   process.exit(0);
 });
