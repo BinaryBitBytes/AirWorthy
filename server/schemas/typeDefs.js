@@ -62,7 +62,7 @@ const typeDefs = gql`
 
   type Query {
     airliners(): [Airliner]
-    airliner(airlinerID:ID!):Airliner
+    airliner(airliner_id:ID!):Airliner
   }
 
   type Mutation {
