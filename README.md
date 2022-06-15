@@ -94,7 +94,10 @@ Landing Page:
 ![Landing Page](/assets/images/AirWorthy_Landing.png)
 
 Manager Interface:
-![Manager Interface] ()
+![Manager Interface](assets/images/Manager_Landing.png)
+
+Technician Interface:
+![Technician Interface](assets/images/Tech_Landing.png)
 
 ## GitHub Repository & Deployed Application (Heroku)
 
