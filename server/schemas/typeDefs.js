@@ -74,7 +74,7 @@ const typeDefs = buildSchema`
 `;
 
 var app = gql();
-app.use('/graphql', graphqlHTTP({
+app.use('/graphql', gql({
   schema: schema,
   rootValue: root,
   graphiql: true,
