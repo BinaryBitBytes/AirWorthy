@@ -73,13 +73,13 @@ const typeDefs = buildSchema`
   }
 `;
 
-var app = gql();
-app.use('/graphql', gql({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-app.listen(4000);
-console.log('Running a GraphQL API server at http://localhost:4000/graphql');
+// var app = gql();
+// app.use('/graphql', gql({
+//   schema: schema,
+//   rootValue: root,
+//   graphiql: true,
+// }));
+// app.listen(4000);
+// console.log('Running a GraphQL API server at http://localhost:4000/graphql');
 
 module.exports = typeDefs;
