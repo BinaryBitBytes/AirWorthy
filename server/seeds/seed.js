@@ -6,12 +6,13 @@ const managerData = require('./managerData.json');
 const projectData = require('./projectData.json');
 const technicianData = require('./technicianData.json');
 
-db.once('open', async () => {
   // await Airliner.deleteMany({});
   // await Inspector.deleteMany({});
   // await Manager.deleteMany({});
   // await Project.deleteMany({});
   // await Technician.deleteMany({});
+
+db.once('open', async () => {
   
   
   //seeding the airliners
