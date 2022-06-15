@@ -1,6 +1,6 @@
 const { gql } = require("apollo-server-express");
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
+// var { graphqlHTTP } = require('express-graphql');
+// var { buildSchema } = require('graphql');
 
 const typeDefs = gql`
   type Technician {
