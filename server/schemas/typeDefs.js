@@ -1,6 +1,8 @@
 const { gql } = require("apollo-server-express");
+var { graphqlHTTP } = require('express-graphql');
+var { buildSchema } = require('graphql');
 
-const typeDefs = gql`
+const typeDefs = buildSchema`
   type Technician {
     _id: ID!
     technicianName: String
@@ -70,5 +72,14 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
   }
 `;
+
+var app = gql();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000);
+console.log('Running a GraphQL API server at http://localhost:4000/graphql');
 
 module.exports = typeDefs;
