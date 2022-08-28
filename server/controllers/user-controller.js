@@ -19,7 +19,7 @@ module.exports = {
   // get a single user by either their id or their username
   //! --------------
   async getSingleUser({ user = null, params }, res) {
-    const foundUser = await User.findOne({
+    const foundUser = await user.findOne({
       $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
     });
 
@@ -44,7 +44,7 @@ module.exports = {
   // {body} is destructured req.body
   //! --------------
   async login({ body }, res) {
-    const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+    const user = await user.findOne({ $or: [{ username: body.username }, { email: body.email }] });
     if (!user) {
       return res.status(400).json({ message: "Can't find this user" });
     }
@@ -61,7 +61,7 @@ module.exports = {
   async saveTechnician({ user, body }, res) {
     console.log(user);
     try {
-      const updatedUser = await User.findOneAndUpdate(
+      const updatedUser = await user.findOneAndUpdate(
         { _id: user._id },
         { $addToSet: { savedTechnicians: body } },
         { new: true, runValidators: true }
@@ -75,7 +75,7 @@ module.exports = {
   async saveManager({ user, body }, res) {
     console.log(user);
     try {
-      const updatedUser = await User.findOneAndUpdate(
+      const updatedUser = await user.findOneAndUpdate(
         { _id: user._id },
         { $addToSet: { savedManagers: body } },
         { new: true, runValidators: true }
@@ -89,7 +89,7 @@ module.exports = {
 
 
   async removeTechnician({ user, params }, res) {
-    const updatedUser = await User.findOneAndUpdate(
+    const updatedUser = await user.findOneAndUpdate(
       { _id: user._id },
       { $pull: { savedTechnicians: { technicianId: params.technicianId } } },
       { new: true }
@@ -101,7 +101,7 @@ module.exports = {
   },
 
   async removeManager({ user, params }, res) {
-    const updatedUser = await User.findOneAndUpdate(
+    const updatedUser = await user.findOneAndUpdate(
       { _id: user._id },
       { $pull: { savedManagers: { managerId: params.managerId } } },
       { new: true }

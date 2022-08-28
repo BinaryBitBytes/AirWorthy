@@ -34,6 +34,6 @@ db.once('open', async () => {
   app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
   };
 
-  seedDB(airliner,inspector,manager,project, technician);
+  seedDB(Airliner,Inspector,Manager,Project,Technician);
   process.exit(0);
 });
