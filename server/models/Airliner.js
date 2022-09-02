@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
-
-const airlinerSchema = new mongoose.Schema(
+const { Schema } = mongoose;
+// const airlinerSchema = new mongoose.Schema(
+  const airlinerSchema = new Schema(
     {
         id: {
             type: Number,
@@ -9,7 +10,7 @@ const airlinerSchema = new mongoose.Schema(
             primaryKey: true,
             autoIncrement: true,
           },
-        airlinerName: [{type: String}],
+        airlinerName: [{type: String, required: true}],
         isAdmin: {type: Boolean, enum:[true]},
         modelAircraft:[{type: String}],
         userName: String,

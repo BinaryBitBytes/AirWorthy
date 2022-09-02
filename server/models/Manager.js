@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
-const managerSchema = new mongoose.Schema(
+const { Schema } = mongoose; //!newly added 08.30.22
+//! const managerSchema = new mongoose.Schema( //! commneted out 08.30.22 for line below
+const managerSchema = new Schema(
+
     {
         id: {
             type: Number,
@@ -37,4 +40,6 @@ const managerSchema = new mongoose.Schema(
       }
 );
 
-module.exports = mongoose.model("Manager", managerSchema);
+//! module.exports = mongoose.model("Manager", managerSchema);
+// export default mongoose.models.manager || mongoose.model('manager', managerSchema)
+module.exports =  mongoose.model('Manager', managerSchema)

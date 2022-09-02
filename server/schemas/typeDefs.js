@@ -1,4 +1,5 @@
-const { gql } = require("apollo-server-express");
+const { gql } = require('graphql-tag');
+//("apollo-server-express");
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 
@@ -12,17 +13,20 @@ const typeDefs = gql`
     email: String
     password: String
   }
-
+  
   type Airliner {
     _id: ID!
     airlinerName: String
     isAdmin: Boolean
-    modelAircraft: [String]
+    modelAircraft: [aircraft]
     username: String!
     email: String
     password: String
   }
-
+  type aircraft{
+    _id: ID!
+    aircraftName: String
+  }
   type Manager {
     _id: ID!
     managerName: String
@@ -63,7 +67,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    airliners(): [Airliner]
+    airliners: [Airliner]
     airliner(airliner_id:ID!):Airliner
   }
 

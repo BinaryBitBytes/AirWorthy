@@ -1,3 +1,93 @@
+-----BUG------
+C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\models\index.js:9
+[0]  Manager.hasMany(Project, {
+[0]          ^
+[0]
+[0] TypeError: Cannot read properties of undefined (reading 'hasMany')
+[0]     at Object.<anonymous> (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\models\index.js:9:10)
+[0]     at Module._compile (node:internal/modules/cjs/loader:1126:14)
+[0]     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)
+[0]     at Module.load (node:internal/modules/cjs/loader:1004:32)
+[0]     at Function.Module._load (node:internal/modules/cjs/loader:839:12)
+[0]     at Module.require (node:internal/modules/cjs/loader:1028:19)
+[0]     at require (node:internal/modules/cjs/helpers:102:18)
+[0]     at Object.<anonymous> (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\schemas\resolvers.js:2:24)
+[0]     at Module._compile (node:internal/modules/cjs/loader:1126:14)
+[0]     at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)
+[0]     at Module.load (node:internal/modules/cjs/loader:1004:32)
+[0]     at Function.Module._load (node:internal/modules/cjs/loader:839:12)
+[0]     at Module.require (node:internal/modules/cjs/loader:1028:19)
+[0]     at require (node:internal/modules/cjs/helpers:102:18)
+[0]     at Object.<anonymous> (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\schemas\index.js:2:19)
+[0]     at Module._compile (node:internal/modules/cjs/loader:1126:14)
+[0] [nodemon] app crashed - waiting for file changes before starting...
+[1] (node:20604) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[1] (Use `node --trace-deprecation ...` to show where the warning was created)
+[1] (node:20604) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+
+
+----RESOLVED------
+This bug was resolved even though on typedefs it was pointing to line 62 which
+points at  input projectData the actual bug was below within the
+
+--Bug--
+type Query {
+    !!!!--airliners had () in it which was the bug removed this--!!!!
+    airliners(): [Airliner]
+    airliner(airliner_id:ID!):Airliner
+  }
+--Fix---
+type Query {
+    airliners: [Airliner]
+    airliner(airliner_id:ID!):Airliner
+  }
+
+---ISOLATED BUG TO----
+airworthy /server / schemas /typedefs : GRAPHQL
+
+
+The trouble is isolated in this file. Found this bug by using 
+npm run develop node --trace-deprecation
+
+then went to search for line 62(given it said line 62 was the bug)
+then commented out line 61 and bug returned line 61
+
+---BUG TERMINAL OUTPUT BELOW----
+
+PS C:\PROJECT3\airworthy> npm run develop node --trace-deprecation
+[nodemon] starting `node server.js`
+[0] C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:1397
+[0]     throw (0, _syntaxError.syntaxError)(
+[0]     ^
+[0]
+[0] GraphQLError: Syntax Error: Expected Name, found ")".
+[0]     at syntaxError (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\error\syntaxError.js:15:10)
+[0]     at Parser.expectToken (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:1397:40)   
+[0]     at Parser.parseName (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:108:24)      
+[0]     at Parser.parseInputValueDef (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:869:23)
+[0]     at Parser.optionalMany (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:1492:28)  
+[0]     at Parser.parseArgumentDefs (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:855:17)
+[0]     at Parser.parseFieldDefinition (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:837:23)
+[0]     at Parser.optionalMany (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:1492:28)  
+[0]     at Parser.parseFieldsDefinition (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:822:17)
+[0]     at Parser.parseObjectTypeDefinition (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:794:25)
+[0]     at Parser.parseDefinition (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:172:23)
+[0]     at Parser.many (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:1511:26)
+[0]     at Parser.parseDocument (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:122:25)  
+[0]     at Object.parse (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql\language\parser.js:32:17)
+[0]     at parseDocument (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql-tag\lib\graphql-tag.umd.js:69:34)  
+[0]     at gql (C:\Users\laxmi\Desktop\PREWORK_MWC\lesson\PROJECT3\airworthy\server\node_modules\graphql-tag\lib\graphql-tag.umd.js:98:16) {
+[0]   path: undefined,
+[0]   locations: [ { line: 62, column: 15 } ],
+[0]   extensions: [Object: null prototype] {}
+[0] }
+[0] [nodemon] app crashed - waiting for file changes before starting...
+[1] (node:40548) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[1] (Use `node --trace-deprecation ...` to show where the warning was created)
+[1] (node:40548) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+[1] Starting the development server...
+
+--------------RESOLVED------------------
 airworthy>
 npm WARN EBADENGINE   package: 'airworthy@1.0.0',
 npm WARN EBADENGINE   required: { node: '16.14.0', npm: '6.14.8' },

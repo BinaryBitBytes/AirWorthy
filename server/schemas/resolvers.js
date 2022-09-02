@@ -160,14 +160,14 @@ const airlinerResolvers = {
 
   Mutation: {
     addAirliner: async (parent,
-      { airlinerName, isAdmin, modelAircraft, username, email, password }
+      { airlinerName, isAdmin, modelAircraft, userName, email, password }
     ) => {
       return Airliner.create({
         airlinerName,
         isAdmin,
         modelAircraft,
+        userName,
         email,
-        username,
         password,
       });
     },
@@ -187,7 +187,7 @@ const airlinerResolvers = {
       return Airliner.fineOneAndDelete({ _id: airlinerID });
     },
     removeAirliner: async (parent, { airlinerID, airlinerName }) => {
-      return Airliner.destroy({ _id: airlinerID }, { $airlinerName });
+      return Airliner.destroy({ _id: airlinerID }, { airlinerName });
     },
   },
 };
