@@ -4,6 +4,29 @@ const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 
 const typeDefs = gql`
+  input AddAirlinerData {
+    _id: Int!
+    airlinerName: String!
+    isAdmin: Boolean!
+    modelAircraft: [Aircraft]
+    username: String!
+    email: String!
+    password: String!
+  }
+  type addAirliner {
+    _id: Int!
+    airlinerName: String!
+    isAdmin: Boolean!
+    modelAircraft: [Aircraft]
+    username: String!
+    email: String!
+    password: String!
+  }
+
+  type AllAirliners {
+    Airliner: [addAirliner]
+  }
+
   type Technician {
     _id: ID!
     technicianName: String
@@ -14,16 +37,7 @@ const typeDefs = gql`
     password: String
   }
   
-  type Airliner {
-    _id: ID!
-    airlinerName: String
-    isAdmin: Boolean
-    modelAircraft: [aircraft]
-    username: String!
-    email: String
-    password: String
-  }
-  type aircraft{
+  type Aircraft{
     _id: ID!
     aircraftName: String
   }
@@ -59,16 +73,16 @@ const typeDefs = gql`
     user: String
   }
 
-  input projectData {
+  input ProjectData {
     projectName: String
     inspectorName: String
     workDescription: String
-    projectId: Int
+    Project_id: Int
   }
 
   type Query {
-    airliners: [Airliner]
-    airliner(airliner_id:ID!):Airliner
+    airliners: [AllAirliners]
+    airliner(airliner_id:ID!):[addAirliner]
   }
 
   type Mutation {
