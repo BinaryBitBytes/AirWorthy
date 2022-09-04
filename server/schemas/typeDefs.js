@@ -5,7 +5,7 @@ const { buildSchema } = require('graphql');
 
 const typeDefs = gql`
   type Mutation{
-    AddAirliner(newAirliner: AddAirlinerData!) : AddAirlinerData!
+    AddAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft:[Aircraft] ) : AddAirlinerData
     UpdateAirliner(_id: ID!, newAirliner: AddAirlinerData!) : AllAirliners!
     FindAirlinerToRemove(_id: ID!, deletedAirliner: AddAirlinerData) : AllAirliners!
     RemoveAirliner(airlinerID: ID!, deletedAirlinerName: FindAirliner) : AllAirliners!
@@ -71,7 +71,19 @@ const typeDefs = gql`
   
   type Aircraft{
     _id: ID!
+    theAircrafts: [Aircraft!]!
+  }
+  input Aircraft{
+    _id: ID!
     aircraftName: String
+    aircraftData: [AircraftDataDetails!]!
+  }
+  input AircraftDataDetails{
+    _id: ID!
+    aircraft: [Aircraft!]!
+    specificity: Int!
+    modelNumber: Int!
+    airliner: [AllAirliners!]!
   }
   type Manager {
     _id: ID!
