@@ -4,27 +4,59 @@ const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 
 const typeDefs = gql`
+  type Mutation{
+    AddAirliner(newAirliner: AddAirlinerData!) : AddAirlinerData!
+    UpdateAirliner(_id: ID!, newAirliner: AddAirlinerData!) : AllAirliners!
+    FindAirlinerToRemove(_id: ID!, deletedAirliner: AddAirlinerData) : AllAirliners!
+    RemoveAirliner(airlinerID: ID!, deletedAirlinerName: FindAirliner) : AllAirliners!
+  }
+  type Query {
+    AllAirlinersInSystem: [AllAirliners!]!
+    FindAirliner: [AddAirlinerData!]!
+  }
   input AddAirlinerData {
-    _id: Int!
+    _id: ID!
     airlinerName: String!
-    isAdmin: Boolean!
     modelAircraft: [Aircraft]
+    AirlinerProfile: [AirlinerDetails!]!
+  
+  }
+  input AirlinerDetails{
+    isAdmin: Boolean!
     username: String!
     email: String!
     password: String!
   }
-  type addAirliner {
-    _id: Int!
-    airlinerName: String!
-    isAdmin: Boolean!
-    modelAircraft: [Aircraft]
-    username: String!
-    email: String!
-    password: String!
+  input ProjectData {
+    _id: ID!
+    projectName: String
+    inspectorName: String!
+    workDescription: String
+  }
+
+  type Auth {
+    token: ID!
+    user: String
+  }
+  
+  type AddAirlinerData {
+      _id: ID!
+      airlinerName: String!
+      isAdmin: Boolean!
+      modelAircraft: [Aircraft!]!
+      username: String!
+      email: String!
+      password: String!
+    }
+
+  type FindAirliner {
+    _id: ID!
+    ariliner: [AddAirlinerData!]!
   }
 
   type AllAirliners {
-    Airliner: [addAirliner]
+    _id: ID!
+    airliner: [FindAirliner!]!
   }
 
   type Technician {
@@ -51,6 +83,10 @@ const typeDefs = gql`
     password: String
   }
 
+  type Project {
+    _id: ID!
+    project: ProjectData
+  }
   type Inspector {
     _id: ID!
     inspectorName: String
@@ -61,29 +97,6 @@ const typeDefs = gql`
     password: String
   }
 
-  type Project {
-    _id: ID!
-    projectName: String
-    inspectorName: String
-    workDescription: String
-  }
-
-  type Auth {
-    token: ID!
-    user: String
-  }
-
-  input ProjectData {
-    projectName: String
-    inspectorName: String
-    workDescription: String
-    Project_id: Int
-  }
-
-  type Query {
-    airliners: [AllAirliners]
-    airliner(airliner_id:ID!):[addAirliner]
-  }
 
   type Mutation {
     loginUser(email: String!, password: String!): Auth

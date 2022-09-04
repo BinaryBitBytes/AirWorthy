@@ -1,6 +1,6 @@
 // Import the two parts of a GraphQL schema
-const { ApolloServer } = require('apollo-server-express');
-
+require('dotenv').config();
+const { ApolloServer } = require('apollo-server'); //apollo-server-express
 const { typeDefs, resolvers } = require('../../schemas');
 
 const { authMiddleware } = require('../../utils/auth');
