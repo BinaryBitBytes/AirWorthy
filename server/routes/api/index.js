@@ -10,7 +10,9 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
+const { Mongoose } = require('server/config/connection.js');
 
+const app = { Mongoose }
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 app.get('/', (req, res) => {
   res.send({ express: 'Express Backend connected to react'});

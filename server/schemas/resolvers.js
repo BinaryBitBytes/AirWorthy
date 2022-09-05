@@ -183,8 +183,8 @@ const airlinerResolvers = {
         }
       );
     },
-    FindAirlinerToRemove: async (parent, { airlinerID }) => {
-      return Airliner.fineOneAndDelete({ _id: airlinerID });
+    FindAirlinerToRemove: async (parent, { airlinerID , airlinerName}) => {
+      return Airliner.fineOneAndDelete({ _id: airlinerID }, { airlinerName: airlinerName });
     },
     RemoveAirliner: async (parent, { airlinerID, airlinerName }) => {
       return Airliner.destroy({ _id: airlinerID }, { airlinerName: airlinerName });

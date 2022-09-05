@@ -5,21 +5,59 @@ const { buildSchema } = require('graphql');
 
 const typeDefs = gql`
   type Mutation{
-    AddAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft:[Aircraft] ) : AddAirlinerData
-    UpdateAirliner(_id: ID!, newAirliner: AddAirlinerData!) : AllAirliners!
-    FindAirlinerToRemove(_id: ID!, deletedAirliner: AddAirlinerData) : AllAirliners!
-    RemoveAirliner(airlinerID: ID!, deletedAirlinerName: FindAirliner) : AllAirliners!
+    AddAirliner(_id: ID!, airlinerName: String!, isAdmin: Boolean!, modelAircraft: AddAirlinerData ) : InputAirlinerData
+    UpdateAirliner(_id: ID!, AirlinerName: String!) : AllAirliners!
+    FindAirlinerToRemove(_id: ID!, airlinerName: String!) : AllAirliners!
+    RemoveAirliner(airlinerID: ID!, airlinerName: String!) : AllAirliners!
   }
   type Query {
     AllAirlinersInSystem: [AllAirliners!]!
-    FindAirliner: [AddAirlinerData!]!
+    FindAirliner: [Aircraft!]!
+  }
+  type FindAirliner {
+    _id: ID!
+    ariliner: [InputAirlinerData!]!
+  }
+  type AllAirliners {
+    _id: ID!
+    airliner: [FindAirliner!]!
+  }
+  type TheAirliner {
+    _id: ID!
+    airlinerData: [NewAircraft!]!
+  }
+  type InputAirlinerData {
+      _id: ID!
+      airlinerName: String!
+      isAdmin: Boolean!
+      modelAircraft: [Aircraft!]!
+      username: String!
+      email: String!
+      password: String!
+    }
+  type Aircraft{
+    _id: ID!
+    aircraftList: [TheNewAircrafts]!
+  }
+  type TheNewAircrafts{
+    _id: ID!
+    theAircrafts: [NewAircraft!]!
+  }
+  type NewAircraft{
+    _id: ID!
+    aircraftName: String
+  }
+  input AircraftDataDetails{
+    _id: ID!
+    specificity: Int!
+    modelAircraft: Int!
+    airliner: [AddAirlinerData!]!
   }
   input AddAirlinerData {
     _id: ID!
     airlinerName: String!
-    modelAircraft: [Aircraft]
+    modelAircraft: [AircraftDataDetails]
     AirlinerProfile: [AirlinerDetails!]!
-  
   }
   input AirlinerDetails{
     isAdmin: Boolean!
@@ -39,25 +77,6 @@ const typeDefs = gql`
     user: String
   }
   
-  type AddAirlinerData {
-      _id: ID!
-      airlinerName: String!
-      isAdmin: Boolean!
-      modelAircraft: [Aircraft!]!
-      username: String!
-      email: String!
-      password: String!
-    }
-
-  type FindAirliner {
-    _id: ID!
-    ariliner: [AddAirlinerData!]!
-  }
-
-  type AllAirliners {
-    _id: ID!
-    airliner: [FindAirliner!]!
-  }
 
   type Technician {
     _id: ID!
@@ -69,22 +88,6 @@ const typeDefs = gql`
     password: String
   }
   
-  type Aircraft{
-    _id: ID!
-    theAircrafts: [Aircraft!]!
-  }
-  input Aircraft{
-    _id: ID!
-    aircraftName: String
-    aircraftData: [AircraftDataDetails!]!
-  }
-  input AircraftDataDetails{
-    _id: ID!
-    aircraft: [Aircraft!]!
-    specificity: Int!
-    modelNumber: Int!
-    airliner: [AllAirliners!]!
-  }
   type Manager {
     _id: ID!
     managerName: String
@@ -97,7 +100,12 @@ const typeDefs = gql`
 
   type Project {
     _id: ID!
-    project: ProjectData
+    project: [ProjectDataInput]
+  }
+  type ProjectDataInput{
+    _id: ID!
+    description: String!
+    techs: [Technician]
   }
   type Inspector {
     _id: ID!
