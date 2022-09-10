@@ -2,7 +2,7 @@
 require('dotenv').config();
 const { ApolloServer } = require('apollo-server'); //apollo-server-express
 const { typeDefs, resolvers } = require('../../schemas');
-
+const  mongoose  = require('server/config/connection.js');
 const { authMiddleware } = require('../../utils/auth');
 const { Airliner, Inspector, Manager, Project ,Technician } = require('../../models/index');
 const server = new ApolloServer({
@@ -10,9 +10,8 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
-const { Mongoose } = require('server/config/connection.js');
 
-const app = { Mongoose }
+const app = { mongoose }
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
 app.get('/', (req, res) => {
   res.send({ express: 'Express Backend connected to react'});
