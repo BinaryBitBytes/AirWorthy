@@ -4,28 +4,28 @@ const { Schema } = mongoose;
 // const airlinerSchema = new mongoose.Schema(
   const airlinerSchema = new Schema(
     {
-        id: {
-            type: Number,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-          },
-        airlinerName: [{type: String, required: true}],
-        isAdmin: {type: Boolean, enum:[true]},
-        modelAircraft:[{type: String}],
-        userName: String,
-        email: String,
-        password: String
+      id: {
+        type: Number,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      airlinerName: [{type: String, required: true}],
+      isAdmin: {type: Boolean, enum:[true]},
+      modelAircraft:[{type: String}],
+      userName: String,
+      email: String,
+      password: String
     },
     {
-        hooks: {
-          beforeCreate: async (newAirlinerData) => {
-            newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10);
-            return newAirlinerData;
-          },
-          beforeUpdate: async (updatedAirlinerData) => {
-            updatedAirlinerData.password = await bcrypt.hash(
-              updatedAirlinerData.password,
+      hooks: {
+        beforeCreate: async (newAirlinerData) => {
+          newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10);
+          return newAirlinerData;
+        },
+        beforeUpdate: async (updatedAirlinerData) => {
+          updatedAirlinerData.password = await bcrypt.hash(
+            updatedAirlinerData.password,
               10
             );
             return updatedAirlinerData;
@@ -36,6 +36,7 @@ const { Schema } = mongoose;
         underscored: true,
         modelName: "airliner",
       }
-);
-
-module.exports = mongoose.model("Airliner", airlinerSchema);
+      );
+      
+      const Airliner = mongoose.model('Airliner', airlinerSchema) //added 09.12
+      module.exports = mongoose.model("Airliner", airlinerSchema);
