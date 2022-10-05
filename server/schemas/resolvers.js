@@ -1,9 +1,9 @@
 //const { mongoose } = require("mongoose");
-const { Technician } = require("../models");
-const { Manager } = require("../models");
-const { Project } = require("../models");
+// const { Technician } = require("../models");
+// const { Manager } = require("../models");
+// const { Project } = require("../models");
 const { Airliner } = require("../models");
-const { Inspector } = require("../models");
+// const { Inspector } = require("../models");
 
 //Creating Resolvers for Technician
 const technicianResolvers = {

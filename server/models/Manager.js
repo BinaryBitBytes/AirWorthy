@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose; //!newly added 08.30.22
 //! const managerSchema = new mongoose.Schema( //! commneted out 08.30.22 for line below
-const managerSchema = new Schema(
+mongoose instanceof mongoose.Mongoose;
+
+const managerSchema = new mongoose.Mongoose(
 
     {
         id: {

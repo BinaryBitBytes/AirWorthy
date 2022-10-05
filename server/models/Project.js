@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+mongoose instanceof mongoose.Mongoose;
 
-const projectSchema = new mongoose.Schema(
+
+const projectSchema = new mongoose.Mongoose(
     {
         id: {
             type: Number,

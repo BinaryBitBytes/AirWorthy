@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
+const { mongoose } = require("mongoose");
+mongoose instanceof mongoose.Mongoose;
 
-const inspectorSchema = new mongoose.Schema(
+const inspectorSchema = new mongoose.Mongoose(
     {
         id: {
             type: Number,

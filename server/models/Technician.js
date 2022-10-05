@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-
-const technicianSchema = new mongoose.Schema({
+mongoose instanceof mongoose.Mongoose;
+const technicianSchema = new mongoose.Mongoose(
+  {
         id: {
             type: Number,
             allowNull: false,
