@@ -1,7 +1,18 @@
 const express = require('express');
+const { ApolloServer } = require('apollo-server');
+const typeDefs = require('./schemas');  //new 1.15.23
+const resolvers = require('./schemas/resolvers'); //new 1.15.23
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
+const server = new ApolloServer({ typeDefs, resolvers }); //new 1.15.23
+
+//New 1.15.23 setup for apollo server
+//!
+server.listen().then(({ url }) => {
+  console.log(`Server ready at ${url}`);
+});
+//!
 
 const app = express();
 const PORT = process.env.PORT || 3001;
