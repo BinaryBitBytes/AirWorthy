@@ -1,6 +1,6 @@
 const { gql } = require("apollo-server-express");
-// var { graphqlHTTP } = require('express-graphql');
-// var { buildSchema } = require('graphql');
+//const { graphqlHTTP } = require('express-graphql');
+//const { buildSchema } = require('graphql');
 
 const typeDefs = gql`
   type Technician {
@@ -55,7 +55,7 @@ const typeDefs = gql`
     user: String
   }
 
-  input projectData {
+  type projectData {
     projectName: String
     inspectorName: String
     workDescription: String
