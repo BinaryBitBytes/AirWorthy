@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose"); uncommented 5/12/23 to test main
+const mongoose = require("main");
 
 const managerSchema = new mongoose.Schema(
     {

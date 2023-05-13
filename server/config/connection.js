@@ -11,4 +11,4 @@ async function main(){
 // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 
 module.exports = mongoose.connection;
-module.exports = main(); // updated 5.12.23, this function is to deplot mongoose asynchronously.
+module.exports = main; // updated 5.12.23, this function is to deplot mongoose asynchronously.
