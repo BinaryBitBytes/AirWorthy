@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose"; //uncommented 5/12/23 to test main
 import mongoose from "main";
-
-const managerSchema = new Schema(
+import {managerResolvers} from "../schemas/resolvers.js"
+const managerSchema = new managerResolvers(
     {
         id: {
             type: Number,

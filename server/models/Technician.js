@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose"; //uncommented 5/12/23 to test main
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
 //! import { Schema, model } from "main";
-
-const technicianSchema = new Schema({
+import {technicianResolvers} from "../schemas/resolvers.js";
+const technicianSchema = new technicianResolvers({
         id: {
             type: Number,
             allowNull: false,

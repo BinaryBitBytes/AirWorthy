@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-express";
-//const { graphqlHTTP } = require('express-graphql');
-//const { buildSchema } = require('graphql');
+const { graphqlHTTP } = require('express-graphql');
+const { buildSchema } = require('graphql');
 
 const typeDefs = gql`
   type Technician {
