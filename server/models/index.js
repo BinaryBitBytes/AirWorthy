@@ -1,5 +1,5 @@
 const  Airliner  = require('./Airliner').default;
-const  Inspector = require('./Inspector');
+const  Inspector = require('./Inspector').default;
 const  Manager  = require('./Manager');
 const  Project  = require('./Project').default;
 const  Technician  = require('./Technician');
