@@ -1,14 +1,14 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server Side for Airworthy",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Miles Colon",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^3.6.2",

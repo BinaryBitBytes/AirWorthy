@@ -1,8 +1,8 @@
-const  Airliner  = require('./Airliner').default;
-const  Inspector = require('./Inspector').default;
-const  Manager  = require('./Manager');
-const  Project  = require('./Project').default;
-const  Technician  = require('./Technician').default;
+import Airliner from './Airliner';
+import Inspector from './Inspector';
+import Manager from './Manager';
+import Project from './Project';
+import Technician from './Technician';
 //1.15.23 the constants above were wrapped in { } given the chat gpt example did not wrap these i removed them
 
 //! Needs to go in controllers
@@ -15,4 +15,4 @@ const  Technician  = require('./Technician').default;
 //   foreignKey: 'user_id',
 // });
 
-module.exports = {Airliner, Inspector, Manager, Project ,Technician};
+export default {Airliner, Inspector, Manager, Project ,Technician};
