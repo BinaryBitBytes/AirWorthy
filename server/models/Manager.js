@@ -1,7 +1,7 @@
-// const mongoose = require("mongoose"); uncommented 5/12/23 to test main
-const mongoose = require("main");
+import { Schema, model } from "mongoose"; //uncommented 5/12/23 to test main
+import mongoose from "main";
 
-const managerSchema = new mongoose.Schema(
+const managerSchema = new Schema(
     {
         id: {
             type: Number,
@@ -38,4 +38,4 @@ const managerSchema = new mongoose.Schema(
       }
 );
 
-module.exports = mongoose.model("Manager", managerSchema);
+export default model("Manager", managerSchema);
