@@ -64,7 +64,7 @@ export
   async function saveTechnician({ user, body }, res) {
   console.log(user);
   try {
-    const updatedUser = await User.findOneAndUpdate(
+    const updatedUser = await user.findOneAndUpdate(
       { _id: user._id },
       { $addToSet: { savedTechnicians: body } },
       { new: true, runValidators: true }
@@ -78,7 +78,7 @@ export
 export async function saveManager({ user, body }, res) {
   console.log(user);
   try {
-    const updatedUser = await User.findOneAndUpdate(
+    const updatedUser = await user.findOneAndUpdate(
       { _id: user._id },
       { $addToSet: { savedManagers: body } },
       { new: true, runValidators: true }
@@ -90,7 +90,7 @@ export async function saveManager({ user, body }, res) {
   }
 }
 export async function removeTechnician({ user, params }, res) {
-  const updatedUser = await User.findOneAndUpdate(
+  const updatedUser = await user.findOneAndUpdate(
     { _id: user._id },
     { $pull: { savedTechnicians: { technicianId: params.technicianId } } },
     { new: true }

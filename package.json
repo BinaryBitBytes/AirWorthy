@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
+    "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
     "runStart": "react-scripts start",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
@@ -15,12 +16,15 @@
   "license": "MIT",
   "dependencies": {
     "apollo-server": "^3.12.0",
+    "cross-env": "^7.0.3",
     "express": "^4.18.2",
+    "fs": "0.0.1-security",
     "graphql": "^16.6.0",
     "manager": "^1.0.9",
     "node": "^19.4.0",
     "node-gyp": "^9.3.1",
     "nvm": "^0.0.4",
+    "path": "^0.12.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",

@@ -1,11 +1,15 @@
-var { graphql, buildSchema } = require("graphql") // added 5.13.23 sourced from graphql docs
-const express = require('express');
-const { ApolloServer } = require('apollo-server');
-const typeDefs = require('./schemas');  //new 1.15.23
-const resolvers = require('./schemas/resolvers'); //new 1.15.23
-const path = require('path');
-const db = require('./config/connection');
-const routes = require('./routes');
+import { graphql, buildSchema } from "graphql"; // added 5.13.23 sourced from graphql docs
+// import express, { urlencoded, json, static } from 'express'; //!commented out 5.14.23 to remove static
+//!Identifier expected. 'static' is a reserved word in strict mode. Modules are automatically in strict mode.ts(1214)
+//!This is a built-in middleware function in Express. It serves static files and is based on serve-static.
+import express, { urlencoded, json } from 'express';
+import { ApolloServer } from 'apollo-server';
+// // import typeDefs from './schemas';  //new 1.15.23
+// // import resolvers from './schemas/resolvers'; //new 1.15.23
+import { join } from 'path';
+import { once } from './config/connection.js';
+import routes from './routes/index.js'; //!5.14.24 added /index.js to path
+import {typeDefs, resolvers} from './schemas/index.js'; //!5.14.24 added /index.js to path
 const server = new ApolloServer({ typeDefs, resolvers }); //new 1.15.23
 
 //! Start of the graphql server.js setup added 5.13.23
@@ -44,17 +48,18 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(join(__dirname, '../client/build'))); //! 5.14.23 static by itself threw an error.
+  //! used instead express.static per this source LinusU [https://github.com/standard/standard/issues/1279]
   console.error('line 22 Throwing error for node_env');
 }
 
 app.use(routes);
 
-db.once('open', () => {
+once('open', () => {
   app.listen(PORT, () => 
   {
     console.error('line 38 Throwing error for db connection');
@@ -63,4 +68,8 @@ db.once('open', () => {
   )
   }
 );
+
+process.on('warning', (warning) => {
+  console.log(warning.stack);
+});
 

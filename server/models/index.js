@@ -1,8 +1,8 @@
-import Airliner from './Airliner';
-import Inspector from './Inspector';
-import Manager from './Manager';
-import Project from './Project';
-import Technician from './Technician';
+import {Airliner} from './Airliner.js';
+import {Inspector} from './Inspector.js';
+import {Manager} from './Manager.js';
+import {Project} from './Project.js';
+import {Technician} from './Technician.js';
 //1.15.23 the constants above were wrapped in { } given the chat gpt example did not wrap these i removed them
 
 //! Needs to go in controllers

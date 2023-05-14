@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server-express");
+import { gql } from "apollo-server-express";
 //const { graphqlHTTP } = require('express-graphql');
 //const { buildSchema } = require('graphql');
 
@@ -73,4 +73,4 @@ const typeDefs = gql`
   }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;
