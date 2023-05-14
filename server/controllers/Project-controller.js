@@ -1,12 +1,10 @@
-const { Project } = require('../models');
+import { Project } from '../models';
 
-module.exports = {
-  async getAllProject(req, res) {
-    const allProject = await Project.find({});
+export async function getAllProject(req, res) {
+  const allProject = await Project.find({});
 
-    if (!allProject) {
-      return res.status(400).json({ message: 'No projects were found' });
-    }
-    res.status(200).json(allProject);
-  },
-};
+  if (!allProject) {
+    return res.status(400).json({ message: 'No projects were found' });
+  }
+  res.status(200).json(allProject);
+}

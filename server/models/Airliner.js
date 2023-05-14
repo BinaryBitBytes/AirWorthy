@@ -1,7 +1,7 @@
-// const mongoose = require("mongoose"); uncommented 5/12/23 to test main
-const mongoose = require("main");
+const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
+import { Schema, model } from "main";
 
-const airlinerSchema = new mongoose.Schema(
+const airlinerSchema = new Schema(
     {
         id: {
             type: Number,
@@ -37,4 +37,4 @@ const airlinerSchema = new mongoose.Schema(
       }
 );
 
-module.exports = mongoose.model("Airliner", airlinerSchema);
+export default model("Airliner", airlinerSchema);

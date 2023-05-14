@@ -1,7 +1,7 @@
-const  Airliner  = require('./Airliner');
+const  Airliner  = require('./Airliner').default;
 const  Inspector = require('./Inspector');
 const  Manager  = require('./Manager');
-const  Project  = require('./Project');
+const  Project  = require('./Project').default;
 const  Technician  = require('./Technician');
 //1.15.23 the constants above were wrapped in { } given the chat gpt example did not wrap these i removed them
 

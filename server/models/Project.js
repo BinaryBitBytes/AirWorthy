@@ -1,7 +1,7 @@
-// const mongoose = require("mongoose"); uncommented 5/12/23 to test main
-const mongoose = require("main");
+const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
+import { Schema, model } from "main";
 
-const projectSchema = new mongoose.Schema(
+const projectSchema = new Schema(
     {
         id: {
             type: Number,
@@ -16,11 +16,11 @@ const projectSchema = new mongoose.Schema(
 
     },
     {
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: "project",
   }
 );
 
-module.exports = mongoose.model("Project", projectSchema);
+export default model("Project", projectSchema);
