@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose"; //uncommented 5/12/23 to test main
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
-import { Schema, model } from "main";
+// import { Schema, model } from "main";
 import {projectResolvers} from "../schemas/resolvers.js"
 const projectSchema = new projectResolvers(
     {

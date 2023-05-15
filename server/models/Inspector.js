@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose"; //uncommented 5/12/23 to test main
-import mongoose from "main";
+// import mongoose from "main";
 import {inspectorResolvers} from "../schemas/resolvers.js"
 const inspectorSchema = new inspectorResolvers(
     {

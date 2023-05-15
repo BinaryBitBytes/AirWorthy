@@ -13,12 +13,11 @@ import res from 'express/lib/respoonse';
 
 //importing pages
 import { Intro, Manager, Technician } from '../../client/src/pages';
-import { signToken } from '../utils/auth';
+import { signToken } from '../utils/auth.js';
 
-export
-  // get a single user by either their id or their username
-  //! --------------
-  async function getSingleUser({ user = null, params }, res) {
+// get a single user by either their id or their username
+//! --------------
+export async function getSingleUser({ user = null, params }, res) {
   const foundUser = await User.findOne({
     $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
   });
@@ -29,10 +28,9 @@ export
 
   res.json(foundUser);
 }
-export
-  // create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
-  //! --------------
-  async function createUser({ body }, res) {
+// create a user, sign a token, and send it back (to client/src/components/SignUpForm.js)
+//! --------------
+export async function createUser({ body }, res) {
   const user = await user.create(body);
 
   if (!user) {
@@ -41,11 +39,10 @@ export
   const token = signToken(user);
   res.json({ token, user });
 }
-export
-  // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
-  // {body} is destructured req.body
-  //! --------------
-  async function login({ body }, res) {
+// login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
+// {body} is destructured req.body
+//! --------------
+export async function login({ body }, res) {
   const user = await user.findOne({ $or: [{ username: body.username }, { email: body.email }] });
   if (!user) {
     return res.status(400).json({ message: "Can't find this user" });
@@ -59,9 +56,8 @@ export
   const token = signToken(user);
   res.json({ token, user });
 }
-export
-  // user comes from `req.user` created in the auth middleware function
-  async function saveTechnician({ user, body }, res) {
+// user comes from `req.user` created in the auth middleware function
+export async function saveTechnician({ user, body }, res) {
   console.log(user);
   try {
     const updatedUser = await user.findOneAndUpdate(

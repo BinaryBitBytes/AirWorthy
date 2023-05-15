@@ -1,8 +1,9 @@
 // const mongoose = require("mongoose"); uncommented 5/12/23 to test main
 // import mongoose from "main";
 import mongoose from "mongoose";
-import { User } from "../models";
-import { signToken } from "../utils/auth";
+import { authMiddleware, signToken } from "../utils/auth.js";
+// =import { User, Technician, Manager, Project, Airliner, Inspector} from "../models";
+// import {User} from "" //!<---Why is this here?
 import { AuthenticationError } from "apollo-server-express";
 import { Technician } from "../models/Technician.js";
 import { Manager } from "../models/Manager.js";
