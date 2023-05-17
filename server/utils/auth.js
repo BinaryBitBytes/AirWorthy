@@ -1,5 +1,6 @@
-import { verify, sign } from 'jsonwebtoken';
-
+// import { verify, sign } from 'jsonwebtoken';
+import pkg from 'jsonwebtoken';
+const { verify, sign } = pkg;
 // set token secret and expiration date
 const secret = 'mysecretsshhhhh';
 const expiration = '2h';
@@ -33,4 +34,4 @@ const expiration = '2h';
 
   return sign({ data: payload }, secret, { expiresIn: expiration });
 }
-// export default {authMiddleware,signToken};
+export default {authMiddleware,signToken};

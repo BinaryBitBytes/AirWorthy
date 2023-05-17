@@ -5,14 +5,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class Technician extends React.Component {
   render() {
     return (
-      <div class="page-content page-container" id="page-content">
-        <div class="padding ">
-          <div class="row grid-margin">
-            <div class="card ">
-              <div class="card-body">
-                <p class="card-description">Work order request</p>
-                <div class="table-responsive">
-                  <table class="table">
+      <div className="page-content page-container" id="page-content">
+        <div className="padding ">
+          <div className="row grid-margin">
+            <div className="card ">
+              <div className="card-body">
+                <p className="card-description">Work order request</p>
+                <div className="table-responsive">
+                  <table className="table">
                     <thead>
                       <tr>
                         <th>Employee Name</th>
@@ -31,7 +31,7 @@ class Technician extends React.Component {
                         <td>3375</td>
                         <td>Smoke Detector Mod</td>
                         <td>
-                          <label class="badge badge-danger">Pending</label>
+                          <label className="badge badge-danger">Pending</label>
                         </td>
                       </tr>
                       <tr>
@@ -41,7 +41,7 @@ class Technician extends React.Component {
                         <td>9375</td>
                         <td>Wifi Modification</td>
                         <td>
-                          <label class="badge badge-success">Completed</label>
+                          <label className="badge badge-success">Completed</label>
                         </td>
                       </tr>
 
@@ -52,7 +52,7 @@ class Technician extends React.Component {
                       <td>Radar Modification</td>
 
                       <td>
-                        <label class="badge badge-warning">In progress</label>
+                        <label className="badge badge-warning">In progress</label>
                       </td>
                       <tr>
                         <td>Karen Becarin</td>
@@ -61,7 +61,7 @@ class Technician extends React.Component {
                         <td>5333</td>
                         <td>USB Modification</td>
                         <td>
-                          <label class="badge badge-danger">Pending</label>
+                          <label className="badge badge-danger">Pending</label>
                         </td>
                         <td></td>
                       </tr>
@@ -72,7 +72,7 @@ class Technician extends React.Component {
                       <td>5375</td>
                       <td>Fuel Tank Modification</td>
                       <td>
-                        <label class="badge badge-success">Completed</label>
+                        <label className="badge badge-success">Completed</label>
                       </td>
                     </tbody>
                   </table>

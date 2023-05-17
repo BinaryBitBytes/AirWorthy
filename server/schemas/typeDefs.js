@@ -1,8 +1,11 @@
 import { gql } from "apollo-server-express";
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
 const { graphqlHTTP } = require('express-graphql');
 const { buildSchema } = require('graphql');
 
-const typeDefs = gql`
+// const typeDefs = gql`
+const typeDefs = `#graphql
   type Technician {
     _id: ID!
     technicianName: String
@@ -72,5 +75,10 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
   }
 `;
+
+makeExecutableSchema({
+  typeDefs: typeDefs,
+  resolvers: {},
+});
 
 export default typeDefs;

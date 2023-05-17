@@ -1,7 +1,7 @@
-import { Airliner } from '../models';
+import { airlinerSchema } from '../models';
 
 export async function getAllAirliner(req, res) {
-  const allAirliner = await Airliner.find({});
+  const allAirliner = await airlinerSchema.find({});
 
   if (!allAirliner) {
     return res.status(400).json({ message: 'No airliners were found' });

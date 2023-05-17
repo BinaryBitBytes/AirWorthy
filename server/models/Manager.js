@@ -1,7 +1,12 @@
-import { Schema, model } from "mongoose"; //uncommented 5/12/23 to test main
+// import { model } from "mongoose"; //uncommented 5/12/23 to test main
+import pkg from 'mongoose';
+const { model } = pkg;
 // import mongoose from "main";
-import {managerResolvers} from "../schemas/resolvers.js"
-const managerSchema = new managerResolvers(
+// import {managerResolvers} from "../schemas/resolvers.js"
+// const managerSchema = new managerResolvers(
+  import manager from "../schemas/resolvers.js";
+  const {managerResolvers} = manager;
+  const managerSchema = new model.manager(
     {
         id: {
             type: Number,

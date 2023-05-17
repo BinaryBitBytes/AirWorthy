@@ -1,13 +1,12 @@
 // Import the two parts of a GraphQL schema
 import { ApolloServer } from 'apollo-server-express';
-
-import typeDefs  from '../../schemas/typeDefs.js';
+import { typeDefs }  from '../../schemas/typeDefs.js';
 import { resolvers } from '../../schemas/resolvers.js';
 import { authMiddleware } from '../../utils/auth.js';
 // import { Airliner, Inspector, Manager, Project, Technician } from '../../models/index';
 
 // Function to create a new instance of an apollo server
-const apiRoutes = () => {
+// const apiRoutes = () => {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -32,5 +31,6 @@ const server = new ApolloServer({
 
 
   startApolloServer({typeDefs}, {resolvers}); //! 5.15.23 destructured with {}
-}
-export default {apiRoutes};
+// }
+// export default { apiRoutes };
+export default {server, startApolloServer}
