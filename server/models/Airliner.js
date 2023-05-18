@@ -6,9 +6,9 @@ const { model } = pkg;
 // import { Schema, model } from "main"; //! commented 5.15.23
 // import {airlinerResolvers} from '../schemas/resolvers.js'
 // const airlinerSchema = new airlinerResolvers(
-import airliner from "../schemas/resolvers.js";
-const {airlinerResolvers} = airliner;
-const airlinerSchema = new model.airliner(
+import {resolvers} from "../schemas/airlinerSchema.js";
+const airliner = {resolvers};
+model.airliner = new airliner(
     {
         id: {
             type: Number,
@@ -43,5 +43,5 @@ const airlinerSchema = new model.airliner(
         modelName: "airlinerSchema",
       }
 );
-
+console.log(airliner);
 export default model("airlinerSchema", airlinerSchema);

@@ -5,9 +5,9 @@ const { model } = pkg;
 // import { Schema, model } from "main";
 // import {projectResolvers} from "../schemas/resolvers.js"
 // const projectSchema = new projectResolvers(
-  import project from "../schemas/resolvers.js";
-  const {projectResolvers} = project;
-  const projectSchema = new model.project(    
+  import {resolvers} from "../schemas/projectSchema.js";
+  const project = {resolvers};
+  model.project = new project(    
   {
         id: {
             type: Number,
@@ -28,5 +28,5 @@ const { model } = pkg;
     modelName: "project",
   }
 );
-
+console.log(project);
 export default model("Project", projectSchema);

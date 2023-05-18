@@ -6,3 +6,9 @@ type projectData {
     projectId: Int
   }
 ` ;
+
+export const resolvers ={
+  Project_Data:{
+    
+  }
+}

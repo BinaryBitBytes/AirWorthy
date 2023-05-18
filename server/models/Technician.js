@@ -3,9 +3,9 @@ const { model } = pkg;
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
 //! import { Schema, model } from "main";
 // import {technicianResolvers} from "../schemas/resolvers.js";
-import tech from "../schemas/resolvers.js";
-const {technicianResolvers} = tech;
-const technicianSchema = new model.tech({
+import {resolvers} from "../schemas/technicianSchema.js";
+const technician = {resolvers};
+mdoel.technician = new technician({
         id: {
             type: Number,
             allowNull: false,
@@ -43,5 +43,5 @@ const technicianSchema = new model.tech({
         modelName: "technician",
       }
 );
-
+console.log(technician)
 export default model("Technician", technicianSchema);

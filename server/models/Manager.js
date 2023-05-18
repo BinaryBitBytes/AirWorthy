@@ -4,9 +4,9 @@ const { model } = pkg;
 // import mongoose from "main";
 // import {managerResolvers} from "../schemas/resolvers.js"
 // const managerSchema = new managerResolvers(
-  import manager from "../schemas/resolvers.js";
-  const {managerResolvers} = manager;
-  const managerSchema = new model.manager(
+  import {resolvers} from "../schemas/managerSchema.js";
+  const manager = {resolvers};
+  model.manager= new manager(
     {
         id: {
             type: Number,
@@ -42,5 +42,5 @@ const { model } = pkg;
         modelName: "manager",
       }
 );
-
+console.log(manager);
 export default model("Manager", managerSchema);

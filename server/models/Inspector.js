@@ -4,9 +4,9 @@ const { model } = pkg;
 // import mongoose from "main";
 // import {inspectorResolvers} from "../schemas/resolvers.js"
 // const inspectorSchema = new inspectorResolvers(
-  import inspector from "../schemas/resolvers.js";
-  const {inspectorResolvers} = inspector;
-  const inspectorSchema = new model.inspector(
+  import {resolvers} from "../schemas/inspectorSchema.js";
+  const inspector = {resolvers};
+  model.inspector = new inspector(
     {
         id: {
             type: Number,
@@ -41,5 +41,5 @@ const { model } = pkg;
         modelName: "inspector",
       }
 );
-
+console.log(inspector);
 export default model("Inspector", inspectorSchema);
