@@ -58,7 +58,7 @@ export const resolvers = {
         },
       removeAirliner: async (parent, { airlinerID, airlinerName }) => 
         {
-          return Airliner.destroy({ _id: airlinerID }, { $airlinerName });
+          return Airliner.destroy({ _id: airlinerID }, { airlinerName });
         },
     },
   }

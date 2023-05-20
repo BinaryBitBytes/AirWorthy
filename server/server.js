@@ -10,7 +10,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { join } from 'path';
 import { main } from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
-import {typeDefs, resolvers} from '../schemas'; //!5.14.24 added /index.js to path
+import {typeDefs, resolvers} from './schemas'; //!5.14.24 added /index.js to path
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
