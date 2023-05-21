@@ -59,3 +59,5 @@ export const resolvers = {
     },
   }
 };
+
+// module.exports = {typeDef, resolvers}

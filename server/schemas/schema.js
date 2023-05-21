@@ -1,4 +1,5 @@
-import { merge } from 'lodash';
+import pkg from 'lodash';
+import {gql} from 'graphql-tag';
 import { typeDef as Airliner, resolvers as airlinerResolvers } from './airlinerSchema';
 import { typeDef as Auth, resolvers as authResolvers } from './authSchema';
 import { typeDef as Inspector, resolvers as inspectorResolvers } from './inspectorSchema';
@@ -6,7 +7,7 @@ import { typeDef as Manager, resolvers as managerResolvers } from './managerSche
 import { typeDef as ProjectData, resolvers as projectDataResolvers } from './projectDataSchema';
 import { typeDef as Project, resolvers as projectResolvers } from './projectSchema';
 import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema';
-
+const { merge } = pkg;
 // const Query = `
 
 // ` ; 
@@ -27,7 +28,7 @@ import { typeDef as Technician, resolvers as technicianResolvers } from './techn
 //   resolvers as bookResolvers,
 // } from './book.js';
 
-const Query = `
+const Query = gql`
   type Query {
     _empty: String
   }

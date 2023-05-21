@@ -1,14 +1,24 @@
 // Import the two parts of a GraphQL schema
 import { ApolloServer } from 'apollo-server-express';
-import { typeDefs }  from '../../schemas/typeDefs.js';
-import { resolvers } from '../../schemas/resolvers.js';
-import { authMiddleware } from '../../utils/auth.js';
+// import { typeDefs }  from '../../schemas/typeDefs.js';
+// import { resolvers } from '../../schemas/resolvers.js';
+import resolvers  from '../../schemas/index.js';
+import typeDef  from '../../schemas/index.js';
+//! commented out below on typedefs and resolvers on  5.20.23
+// import { typeDef, resolvers } from './airlinerSchema';
+// import { typeDef, resolvers } from '../../schemas/authSchema';
+// import { typeDef, resolvers } from './inspectorSchema';
+// import { typeDef, resolvers } from './managerSchema';
+// import { typeDef, resolvers } from './projectDataSchema';
+// import { typeDef ,resolvers } from './projectSchema';
+// import { typeDef, resolvers } from './technicianSchema';
+// import { authMiddleware } from '../../utils/auth.js';
 // import { Airliner, Inspector, Manager, Project, Technician } from '../../models/index';
 
 // Function to create a new instance of an apollo server
 // const apiRoutes = () => {
-const server = new ApolloServer({
-  typeDefs,
+export const server = new ApolloServer({
+  typeDef,
   resolvers,
   context: authMiddleware,
 });
@@ -22,7 +32,7 @@ const server = new ApolloServer({
   });
 
   // Create a new instance of an Apollo server with the GraphQL schema
-  const startApolloServer = async (typeDefs, resolvers) => {
+  const startApolloServer = async (typeDef, resolvers) => {
     console.error('startApolloServer is throwing error in typeDefs and or resolvers');
     await server.start();
     console.error('await server.start throwing error')
@@ -30,7 +40,7 @@ const server = new ApolloServer({
   }
 
 
-  startApolloServer({typeDefs}, {resolvers}); //! 5.15.23 destructured with {}
+  startApolloServer({typeDef}, {resolvers}); //! 5.15.23 destructured with {}
 // }
 // export default { apiRoutes };
 export default {server, startApolloServer}

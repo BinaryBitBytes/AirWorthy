@@ -4,7 +4,7 @@ const { connect, connections } = pkg;
 // import {express} from 'express';
 // import {router} from '../../routes/index.js';
 // const once = () => {
-  const main = async function main() 
+  const MAIN = async function main() 
   {
     try {
       await pkg(process.env.MONGODB_URI || 'mongodb://localhost:27017/AirWorthy_DB', 
@@ -24,4 +24,4 @@ const { connect, connections } = pkg;
 // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 
 // export default connection;
-export default {main}; // updated 5.12.23, this function is to deplot mongoose asynchronously.
+export  {MAIN}; // updated 5.12.23, this function is to deplot mongoose asynchronously.

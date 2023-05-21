@@ -8,13 +8,15 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 // // import typeDefs from './schemas';  //new 1.15.23
 // // import resolvers from './schemas/resolvers'; //new 1.15.23
 import { join } from 'path';
-import { main } from './config/connection.js';
+import { MAIN } from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
-import {typeDefs, resolvers} from './schemas'; //!5.14.24 added /index.js to path
+import resolvers  from '../../schemas/index.js';
+import typeDef  from '../../schemas/index.js';
+// import {typeDefs, resolvers} from './schemas/schema.js'; //!5.14.24 added /index.js to path
 
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
-const server = new ApolloServer({ typeDefs, resolvers }); //new 1.15.23
+export default async function server() { new ApolloServer({ typeDef, resolvers }); //new 1.15.23
 //! ****--------------------------Added 5.17.23--------------------------****
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 //  1. creates an Express app
@@ -73,15 +75,16 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(routes);
 
-main('open', () => {
+MAIN('open', () => {
   app.listen(PORT, () => 
   {
     console.error('line 38 Throwing error for db connection');
     console.log(`API ApolloServer running on port ${PORT}!`);
   }
   )
-  }
+}
 );
+}
 
 process.on('warning', (warning) => {
   console.log(warning.stack);

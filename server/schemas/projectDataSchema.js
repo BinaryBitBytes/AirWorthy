@@ -11,4 +11,6 @@ export const resolvers ={
   Project_Data:{
     
   }
-}
+};
+
+// module.exports = {typeDef, resolvers}
