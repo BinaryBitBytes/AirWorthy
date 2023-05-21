@@ -1,12 +1,12 @@
 // import { verify, sign } from 'jsonwebtoken';
 import pkg from 'jsonwebtoken';
-import {jwt} from 'express-jwt';
+import { expressjwt, ExpressJwtRequest } from "express-jwt"
 const { verify, sign } = pkg;
 // set token secret and expiration date
 const secret = 'mysecretsshhhhh';
 const expiration = '2h';
 //!----Example of auth middleware----j
-// const authMiddleware = jwt({
+// const authMiddleware = expressjwt({
 //   secret: config.JWT_SECRET,
 //   credentialsRequired: false,
 // })

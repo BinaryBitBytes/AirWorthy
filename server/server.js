@@ -3,12 +3,14 @@ import { graphql, buildSchema } from "graphql"; // added 5.13.23 sourced from gr
 //!Identifier expected. 'static' is a reserved word in strict mode. Modules are automatically in strict mode.ts(1214)
 //!This is a built-in middleware function in Express. It serves static files and is based on serve-static.
 import express, { urlencoded, json } from 'express';
-import {jwt} from 'express-jwt';
+// import jToken from 'express-jwt';
+// const {express: jwt} = jToken;
+import { expressjwt, ExpressJwtRequest } from "express-jwt"
 import { ApolloServer } from 'apollo-server-express';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { join } from 'path';
 import { MAIN } from './config/connection.js';
-import routes from './routes/index.js'; //!5.14.24 added /index.js to path
+import {routes} from './routes/index.js'; //!5.14.24 added /index.js to path
 import {resolvers}  from './schemas/index.js';
 import typeDef  from './schemas/index.js';
 import { types } from "util";
@@ -18,7 +20,7 @@ import { types } from "util";
 //The express() function is a top-level function exported by the express module.
 const app = express();
 // authMiddleware with express using json web tokes
-const authMiddleware = jwt({
+const authMiddleware = expressjwt({
   secret: config.JWT_SECRET,
   credentialsRequired: false,
 })
