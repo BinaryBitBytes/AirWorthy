@@ -1,9 +1,15 @@
 // import { verify, sign } from 'jsonwebtoken';
 import pkg from 'jsonwebtoken';
+import {jwt} from 'express-jwt';
 const { verify, sign } = pkg;
 // set token secret and expiration date
 const secret = 'mysecretsshhhhh';
 const expiration = '2h';
+//!----Example of auth middleware----j
+// const authMiddleware = jwt({
+//   secret: config.JWT_SECRET,
+//   credentialsRequired: false,
+// })
 
 // export function authMiddleware(req, res) { //! uncommented to test module conflict
   export async function authMiddleware(req, res) {

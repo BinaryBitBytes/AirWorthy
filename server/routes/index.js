@@ -11,4 +11,4 @@ router.use((req, res) => {
   res.sendFile(join(__dirname, '../../client/build/index.html'));
 });
 
-export default {router};
+export default { router};

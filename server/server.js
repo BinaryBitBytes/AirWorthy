@@ -3,20 +3,45 @@ import { graphql, buildSchema } from "graphql"; // added 5.13.23 sourced from gr
 //!Identifier expected. 'static' is a reserved word in strict mode. Modules are automatically in strict mode.ts(1214)
 //!This is a built-in middleware function in Express. It serves static files and is based on serve-static.
 import express, { urlencoded, json } from 'express';
-import { ApolloServer } from 'apollo-server';
+import {jwt} from 'express-jwt';
+import { ApolloServer } from 'apollo-server-express';
 import { startStandaloneServer } from '@apollo/server/standalone';
-// // import typeDefs from './schemas';  //new 1.15.23
-// // import resolvers from './schemas/resolvers'; //new 1.15.23
 import { join } from 'path';
 import { MAIN } from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
-import resolvers  from '../../schemas/index.js';
-import typeDef  from '../../schemas/index.js';
-// import {typeDefs, resolvers} from './schemas/schema.js'; //!5.14.24 added /index.js to path
+import {resolvers}  from './schemas/index.js';
+import typeDef  from './schemas/index.js';
+import { types } from "util";
 
+//associating express with a app decleration
+//Creates an Express application. 
+//The express() function is a top-level function exported by the express module.
+const app = express();
+// authMiddleware with express using json web tokes
+const authMiddleware = jwt({
+  secret: config.JWT_SECRET,
+  credentialsRequired: false,
+})
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
-export default async function server() { new ApolloServer({ typeDef, resolvers }); //new 1.15.23
+export default async function server() {
+  new ApolloServer({ 
+    typeDef: types, //new property added //!5.21.23
+    // typeDef: typeDef, //new property added //!5.21.23 // type or typeDef property?
+    resolvers,
+    playground: true, //new property added //!5.21.23
+    context: ({ req }) => ({ //new property added //!5.21.23
+      user: req.user, //new property added //!5.21.23
+    }),
+  }); //new 1.15.23
+// applying middleware
+server.applyMiddleware({ //new added //!5.21.23
+  app: app,
+  path: '/',
+})
+app.use(express.json()); //new added //!5.21.23
+app.use(authMiddleware); //new  added //!5.21.23
+
 //! ****--------------------------Added 5.17.23--------------------------****
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 //  1. creates an Express app
@@ -60,21 +85,15 @@ server.listen().then(({ url }) => {
 });
 //!
 
-const app = express();
 const PORT = process.env.PORT || 3001;
-
-
 app.use(urlencoded({ extended: true }));
 app.use(json());
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(join(__dirname, '../client/build'))); //! 5.14.23 static by itself threw an error.
   //! used instead express.static per this source LinusU [https://github.com/standard/standard/issues/1279]
   console.error('line 22 Throwing error for node_env');
 }
-
 app.use(routes);
-
 MAIN('open', () => {
   app.listen(PORT, () => 
   {
