@@ -1,16 +1,10 @@
-const router = require('express').Router();
 
-const {
-  createUser,
-  getSingleUser,
-  saveManager,
-  removeManager,
-  login,
-} = require('../../controllers/user-controller');
+import { createUser, getSingleUser, saveManager, removeManager, login } from '../../controllers/user-controller';
 
 // import middleware
-const { authMiddleware } = require('../../utils/auth');
-
+import { authMiddleware } from '../../utils/auth.js';
+//! ^^ problem 5.15.23 4:00am
+const router = require('express').Router();
 // put authMiddleware anywhere we need to send a token for verification of user
 router.route('/').post(createUser).put(authMiddleware, saveManager);
 
@@ -20,4 +14,4 @@ router.route('/manager').get(authMiddleware, getSingleUser);
 
 router.route('/manager/:managerId').delete(authMiddleware, removeManager);
 
-module.exports = router;
+export default router;

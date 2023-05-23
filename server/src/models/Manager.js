@@ -1,6 +1,12 @@
-const mongoose = require("mongoose");
-
-const managerSchema = new mongoose.Schema(
+// import { model } from "mongoose"; //uncommented 5/12/23 to test main
+import pkg from 'mongoose';
+const { model } = pkg;
+// import mongoose from "main";
+// import {managerResolvers} from "../schemas/resolvers.js"
+// const managerSchema = new managerResolvers(
+  import {resolvers} from "../typeDef-Resolvers/managerSchema.js";
+  const manager = {resolvers};
+  model.manager= new manager(
     {
         id: {
             type: Number,
@@ -36,5 +42,5 @@ const managerSchema = new mongoose.Schema(
         modelName: "manager",
       }
 );
-
-module.exports = mongoose.model("Manager", managerSchema);
+console.log(manager);
+export default model("Manager", managerSchema);

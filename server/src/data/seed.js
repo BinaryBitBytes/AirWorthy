@@ -1,10 +1,10 @@
-const db = require('../config/connection');
-const { Airliner, Inspector, Manager, Project, Technician } = require('../models');
-const airlinerData = require('./airlinerData.json');
-const inspectorData = require('./inspectorData.json');
-const managerData = require('./managerData.json');
-const projectData = require('./projectData.json');
-const technicianData = require('./technicianData.json');
+import { once } from '../../config/connection';
+import { Airliner, Inspector, Manager, Project, Technician } from '../models';
+import airlinerData from './airlinerData.json';
+import inspectorData from './inspectorData.json';
+import managerData from './managerData.json';
+import projectData from './projectData.json';
+import technicianData from './technicianData.json';
 
   // await Airliner.deleteMany({});
   // await Inspector.deleteMany({});
@@ -12,9 +12,10 @@ const technicianData = require('./technicianData.json');
   // await Project.deleteMany({});
   // await Technician.deleteMany({});
 
-db.once('open', async () => {
+once('open', async () => {
   
   async function seedDB(){
+  app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
   //seeding the airliners
   async function airliner(){await Airliner.insertMany(airlinerData)};
   console.log('Airliners seeded!');
@@ -31,7 +32,8 @@ db.once('open', async () => {
   async function technician(){await Technician.insertMany(technicianData)};
   console.log('Technicians seeded!');
   // To recognize incoming request as JSON object
-  app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
+  // // app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
+  //! ^ 5/14/23 moved to top of this stacked function
   };
 
   seedDB(airliner,inspector,manager,project, technician);

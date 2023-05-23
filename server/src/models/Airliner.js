@@ -1,7 +1,14 @@
-const mongoose = require("mongoose");
-
-
-const airlinerSchema = new mongoose.Schema(
+// Resolvers > Models > Schema
+// import { model } from "mongoose"; //uncommented 5/12/23 to test main
+import pkg from 'mongoose';
+const { model } = pkg;
+//! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
+// import { Schema, model } from "main"; //! commented 5.15.23
+// import {airlinerResolvers} from '../schemas/resolvers.js'
+// const airlinerSchema = new airlinerResolvers(
+import {resolvers} from "../typeDef-Resolvers/airlinerSchema.js";
+const airliner = {resolvers};
+model.airliner = new airliner(
     {
         id: {
             type: Number,
@@ -33,8 +40,8 @@ const airlinerSchema = new mongoose.Schema(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: "airliner",
+        modelName: "airlinerSchema",
       }
 );
-
-module.exports = mongoose.model("Airliner", airlinerSchema);
+console.log(airliner);
+export default model("airlinerSchema", airlinerSchema);

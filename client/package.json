@@ -7,11 +7,11 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.6.2",
     "concurrently": "^7.3.0",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
-    "lightbox2": "^2.11.0",
+    "lightbox2": "^2.11.4",
     "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.15.0",
@@ -21,6 +21,7 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
+    "sass": "^1.62.1",
     "sass-loader": "^13.0.0",
     "typed.js": "^2.0.10",
     "web-vitals": "^2.1.4"
@@ -47,7 +48,15 @@
     ]
   },
   "engines": {
-    "node": "12.18.2",
+    "node": "14.17.3",
     "npm": "6.14.8"
-  }
+  },
+  "description": "Client Side for Airworthy",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [
+    "Client"
+  ],
+  "author": "Miles Colon",
+  "license": "ISC"
 }

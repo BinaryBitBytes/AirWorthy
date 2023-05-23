@@ -1,6 +1,12 @@
-const mongoose = require("mongoose");
-
-const inspectorSchema = new mongoose.Schema(
+// import {  model } from "mongoose"; //uncommented 5/12/23 to test main
+import pkg from 'mongoose';
+const { model } = pkg;
+// import mongoose from "main";
+// import {inspectorResolvers} from "../schemas/resolvers.js"
+// const inspectorSchema = new inspectorResolvers(
+  import {resolvers} from "../typeDef-Resolvers/inspectorSchema.js";
+  const inspector = {resolvers};
+  model.inspector = new inspector(
     {
         id: {
             type: Number,
@@ -35,5 +41,5 @@ const inspectorSchema = new mongoose.Schema(
         modelName: "inspector",
       }
 );
-
-module.exports = mongoose.model("Inspector", inspectorSchema);
+console.log(inspector);
+export default model("Inspector", inspectorSchema);
