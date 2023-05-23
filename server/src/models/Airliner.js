@@ -6,7 +6,7 @@ const { model } = pkg;
 // import { Schema, model } from "main"; //! commented 5.15.23
 // import {airlinerResolvers} from '../schemas/resolvers.js'
 // const airlinerSchema = new airlinerResolvers(
-import {resolvers} from "../schemas/airlinerSchema.js";
+import {resolvers} from "../typeDef-Resolvers/airlinerSchema.js";
 const airliner = {resolvers};
 model.airliner = new airliner(
     {

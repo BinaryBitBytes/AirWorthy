@@ -1,4 +1,4 @@
-import { once } from '../config/connection';
+import { once } from '../../config/connection';
 import { Airliner, Inspector, Manager, Project, Technician } from '../models';
 import airlinerData from './airlinerData.json';
 import inspectorData from './inspectorData.json';

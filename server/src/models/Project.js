@@ -5,7 +5,7 @@ const { model } = pkg;
 // import { Schema, model } from "main";
 // import {projectResolvers} from "../schemas/resolvers.js"
 // const projectSchema = new projectResolvers(
-  import {resolvers} from "../schemas/projectSchema.js";
+  import {resolvers} from "../typeDef-Resolvers/projectSchema.js";
   const project = {resolvers};
   model.project = new project(    
   {

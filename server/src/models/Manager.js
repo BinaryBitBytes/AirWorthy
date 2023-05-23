@@ -4,7 +4,7 @@ const { model } = pkg;
 // import mongoose from "main";
 // import {managerResolvers} from "../schemas/resolvers.js"
 // const managerSchema = new managerResolvers(
-  import {resolvers} from "../schemas/managerSchema.js";
+  import {resolvers} from "../typeDef-Resolvers/managerSchema.js";
   const manager = {resolvers};
   model.manager= new manager(
     {

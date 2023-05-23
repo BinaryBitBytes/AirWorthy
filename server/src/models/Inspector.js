@@ -4,7 +4,7 @@ const { model } = pkg;
 // import mongoose from "main";
 // import {inspectorResolvers} from "../schemas/resolvers.js"
 // const inspectorSchema = new inspectorResolvers(
-  import {resolvers} from "../schemas/inspectorSchema.js";
+  import {resolvers} from "../typeDef-Resolvers/inspectorSchema.js";
   const inspector = {resolvers};
   model.inspector = new inspector(
     {

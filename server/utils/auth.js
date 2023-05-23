@@ -1,6 +1,6 @@
 // import { verify, sign } from 'jsonwebtoken';
 import pkg from 'jsonwebtoken';
-import { expressjwt, ExpressJwtRequest } from "express-jwt"
+import { expressjwt } from"express-jwt";
 const { verify, sign } = pkg;
 // set token secret and expiration date
 const secret = 'mysecretsshhhhh';

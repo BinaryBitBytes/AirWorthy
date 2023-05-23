@@ -3,7 +3,7 @@ const { model } = pkg;
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
 //! import { Schema, model } from "main";
 // import {technicianResolvers} from "../schemas/resolvers.js";
-import {resolvers} from "../schemas/technicianSchema.js";
+import {resolvers} from "../src/schemas/technicianSchema.js";
 const technician = {resolvers};
 mdoel.technician = new technician({
         id: {

@@ -3,25 +3,32 @@ import { graphql, buildSchema } from "graphql"; // added 5.13.23 sourced from gr
 //!Identifier expected. 'static' is a reserved word in strict mode. Modules are automatically in strict mode.ts(1214)
 //!This is a built-in middleware function in Express. It serves static files and is based on serve-static.
 import express, { urlencoded, json } from 'express';
+import jsonToken from 'jsonwebtoken';
+var {jwt} = jsonToken;
 // import jToken from 'express-jwt';
 // const {express: jwt} = jToken;
-import { expressjwt, ExpressJwtRequest } from "express-jwt"
+import pkg from "express-jwt";
+const { expressjwt, ExpressJwtRequest } = pkg; 
 import { ApolloServer } from 'apollo-server-express';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { join } from 'path';
 import { MAIN } from './config/connection.js';
-import {routes} from './routes/index.js'; //!5.14.24 added /index.js to path
-import {resolvers}  from './schemas/index.js';
-import typeDef  from './schemas/index.js';
+import routes from './routes/index.js'; //!5.14.24 added /index.js to path
+import {resolvers}  from './src/typeDef-Resolvers/index.js';
+import typeDef  from './src/typeDef-Resolvers/index.js';
 import { types } from "util";
 
 //associating express with a app decleration
 //Creates an Express application. 
 //The express() function is a top-level function exported by the express module.
 const app = express();
-// authMiddleware with express using json web tokes
+// authMiddleware with express using json web token
+//! jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256' }, function(err, token) {
+//!   console.log(token);
+//! });
 const authMiddleware = expressjwt({
-  secret: config.JWT_SECRET,
+  // secret: config.JWT_SECRET,
+  secret: expressjwt(jwt.Secret | GetVerificationKey), //!<------
   credentialsRequired: false,
 })
 // The ApolloServer constructor requires two parameters: your schema
