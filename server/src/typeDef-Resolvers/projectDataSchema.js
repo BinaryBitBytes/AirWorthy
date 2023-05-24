@@ -1,3 +1,5 @@
+const { ApolloServer, gql } = require('apollo-server');
+
 export const typeDef = `
 type projectData {
     projectName: String
@@ -7,10 +9,9 @@ type projectData {
   }
 ` ;
 
-export const resolvers ={
-  Project_Data:{
+export const resolvers =gql `
+  type Project_Data:{
     
-  }
-};
+  }`;
 
 // module.exports = {typeDef, resolvers}

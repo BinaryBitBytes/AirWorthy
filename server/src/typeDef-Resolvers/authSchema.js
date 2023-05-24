@@ -1,4 +1,6 @@
-export const typeDef = `
+const { ApolloServer, gql } = require('apollo-server');
+
+export const typeDef = gql`
 type Auth {
     token: ID! #should i use {uuid} or a JSWT for this datatype?
     _id: ID!

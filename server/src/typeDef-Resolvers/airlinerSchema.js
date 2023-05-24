@@ -1,3 +1,5 @@
+const { ApolloServer, gql } = require('apollo-server');
+
 
 export const resolvers = {
   Airliner: {
@@ -53,7 +55,7 @@ export const resolvers = {
   }
 };
 
-export const typeDef = `
+export const typeDef = gql`
     type Airliner {
         _id: ID!
         airlinerName: String

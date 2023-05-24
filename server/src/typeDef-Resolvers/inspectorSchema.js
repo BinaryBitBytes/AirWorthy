@@ -1,4 +1,6 @@
-export const typeDef = `
+const { ApolloServer, gql } = require('apollo-server');
+
+export const typeDef = gql`
 type Inspector {
     _id: ID!
     inspectorName: String

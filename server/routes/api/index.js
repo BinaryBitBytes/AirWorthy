@@ -6,7 +6,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { resolvers } from '../../src/typeDef-Resolvers/index.js';
 import typeDef from '../../src/typeDef-Resolvers/index.js';
 import { types } from "util";
-import { authMiddleware } from '../../utils/auth.js';
+import { authMiddleware } from '../../src/middleware/auth.js';
 {// import { typeDefs }  from '../../schemas/typeDefs.js';
   // import { resolvers } from '../../schemas/resolvers.js';
   //! commented out below on typedefs and resolvers on  5.20.23

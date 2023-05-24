@@ -1,5 +1,6 @@
 import pkg from 'lodash';
-import {gql} from 'graphql-tag';
+// import {gql} from 'graphql-tag';
+const { ApolloServer, gql } = require('apollo-server');
 import { typeDef as Airliner, resolvers as airlinerResolvers } from './airlinerSchema';
 import { typeDef as Auth, resolvers as authResolvers } from './authSchema';
 import { typeDef as Inspector, resolvers as inspectorResolvers } from './inspectorSchema';

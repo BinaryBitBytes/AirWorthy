@@ -1,4 +1,6 @@
-export const typeDef = `
+const { ApolloServer, gql } = require('apollo-server');
+
+export const typeDef = gql`
     type Manager {
         _id: ID!
         managerName: String
