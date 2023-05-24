@@ -1,4 +1,5 @@
-const { ApolloServer, gql } = require('apollo-server');
+// const { ApolloServer, gql } = require('apollo-server');
+import {gql} from 'apollo-server';
 
 export const typeDef = gql`
 type Technician {

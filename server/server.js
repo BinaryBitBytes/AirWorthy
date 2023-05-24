@@ -12,10 +12,10 @@ const { expressjwt, ExpressJwtRequest, } = pkg;
 import { ApolloServer } from 'apollo-server-express';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { join } from 'path';
-import { MAIN } from '../config/connection.js';
-import routes from '../routes/index.js'; //!5.14.24 added /index.js to path
-import {resolvers}  from './typeDef-Resolvers/index.js';
-import typeDef  from './typeDef-Resolvers/index.js';
+import { MAIN } from './config/connection.js';
+import routes from './routes/index.js'; //!5.14.24 added /index.js to path
+import {resolvers}  from './src/typeDef-Resolvers/index.js';
+import typeDef  from './src/typeDef-Resolvers/index.js';
 import { types } from "util";
 
 
