@@ -1,18 +1,62 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import {gql} from 'apollo-server';
+import { gql } from 'apollo-server';
 
-export const typeDef = `
+export const typeDef = gql`
 type projectData {
+    _id: ID!
+    projectId: Int
     projectName: String
     inspectorName: String
     workDescription: String
-    projectId: Int
   }
 ` ;
 
-export const resolvers =gql `
-  type Project_Data:{
-    
-  }`;
+export const resolvers = {
+  Project_Data: {
+    Query:
+    {
+      projectsData: async () => {
+        return await Project.find().sort({ createdAt: -1 }); //! added await
+      },
+
+      project: async (parent, { projectID }) => {
+        return await Project.findOne({ _id: projectID }); //! added await
+      },
+    },
+
+    Mutation:
+    {
+      addProject_Data: async (
+        parent,
+        { projectId, projectName, inspectorName, workDescription }
+      ) => {
+        return Manager.create({
+          projectId,
+          projectName,
+          inspectorName,
+          workDescription,
+        });
+      },
+      addInspector: async (parent, { projectID, inspectorName }) => {
+        return Manager.findOneAndUpdate(
+          { _id: projectID },
+          {
+            $addToSet: { workDescription: { inspectorName } },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      },
+      removeProject_Data: async (parent, { projectID }) => {
+        return Project_Data.fineOneAndDelete({ _id: projectID });
+      },
+      removeProject_Data: async (parent, { projectID, workDescription }) => {
+        return Project_Data.destroy({ _id: projectID }, {});
+      },
+    },
+  }
+};
 
 // module.exports = {typeDef, resolvers}
