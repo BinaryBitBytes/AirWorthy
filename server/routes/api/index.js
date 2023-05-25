@@ -3,7 +3,7 @@ import { ApolloServer } from 'apollo-server-express';
 import express, { urlencoded, json } from 'express';
 // var jwt = require('jsonwebtoken');;
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { resolvers } from '../../src/typeDef-Resolvers/index.js';
+import resolvers from '../../src/typeDef-Resolvers/index.js';
 import typeDef from '../../src/typeDef-Resolvers/index.js';
 import { types } from "util";
 import { authMiddleware } from '../../src/middleware/auth.js';

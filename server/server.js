@@ -14,7 +14,7 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { join } from 'path';
 import { MAIN } from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
-import {resolvers}  from './src/typeDef-Resolvers/index.js';
+import resolvers  from './src/typeDef-Resolvers/index.js';
 import typeDef  from './src/typeDef-Resolvers/index.js';
 import { types } from "util";
 
@@ -22,12 +22,13 @@ import { types } from "util";
 async function startApolloServer() {
   const app = express();
   const server = new ApolloServer({
-    typeDefs,
+    typeDef,
     resolvers,
   });
   await server.start();
 
   server.applyMiddleware({ app });
+  console.log(server.applyMiddleware({ app }));
 
   app.use((req, res) => {
     res.status(200);
@@ -50,7 +51,8 @@ const app = express();
 // const GetVerificationKey(req: express.Request, token: jwt.Jwt | undefined){Promise<jwt.Secret>};
 const authMiddleware = expressjwt({
   // secret: config.JWT_SECRET,
-  secret: expressjwt(jwt.Secret | GetVerificationKey), //!<------
+  secret: expressjwt(jwt.Secret),
+    // | GetVerificationKey), //!<------ work on developing a GetVerificationKey for a JSON Web Token.
   credentialsRequired: false,
 })
 console.log(authMiddleware);
