@@ -10,6 +10,7 @@ type projectData {
     workDescription: String
   }
 ` ;
+console.log(typeDef);
 
 export const resolvers = {
   Project_Data: {
@@ -58,5 +59,5 @@ export const resolvers = {
     },
   }
 };
-
+console.log(resolvers.Project_Data.Query.project);
 // module.exports = {typeDef, resolvers}

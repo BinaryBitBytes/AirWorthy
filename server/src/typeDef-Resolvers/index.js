@@ -21,7 +21,8 @@ export default function typeDef(){
     Project,
     Technician
     ];
-}
+};
+console.log(typeDef);
 // export default function typeDef() {
 //     const all = (
 //     Airliner,

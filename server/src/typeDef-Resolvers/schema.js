@@ -62,22 +62,21 @@ const Query = gql`
     technician(id: Int!): Technician 
   }
 `;
+console.log(typeDef);
 
 const resolvers = {
   Query: { 
   }
 };
+console.log(resolvers)
 // makeExecutableSchema({
 //   typeDefs: [ Query, Author, Book ],
 //   resolvers: merge(resolvers, authorResolvers, bookResolvers),
 // });
 //!-------------^^^^^^^--------------------!!
 
-
-
-
-
 makeExecutableSchema({
     typeDefs: [ Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
     resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
   });
+console.log(makeExecutableSchema);

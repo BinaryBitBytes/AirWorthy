@@ -9,6 +9,8 @@ type Project {
     workDescription: String
   }
 ` 
+console.log(typeDef);
+
 export const resolvers =  {
   Project: {
     Query: 
@@ -58,5 +60,5 @@ export const resolvers =  {
     },
   }
 };
-
+console.log(resolvers.Project.Query.projects);
 // module.exports = {typeDef, resolvers}

@@ -12,6 +12,7 @@ type Inspector {
     password: String
   }
 `;
+console.log(typeDef);
 
 export const resolvers = {
   Inspector: {
@@ -67,5 +68,6 @@ export const resolvers = {
     },
   }
 };
-
+console.log(resolvers.Inspector.Query.addProject);
+console.log(resolvers.Inspector.Mutation);
 // module.exports = {typeDef, resolvers}

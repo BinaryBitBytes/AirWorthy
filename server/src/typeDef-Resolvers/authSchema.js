@@ -11,6 +11,7 @@ type Auth {
     password: String!
   }
 `;
+console.error(typeDef);
 
 export const resolvers = {
   Auth: {
@@ -51,6 +52,6 @@ export const resolvers = {
       },
     },
   }
-}
-
+};
+console.log(resolvers.Auth.Query.me);
 // module.exports = {typeDef, resolvers}

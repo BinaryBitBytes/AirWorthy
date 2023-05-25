@@ -54,6 +54,7 @@ export const resolvers = {
     },
   }
 };
+console.log(resolvers.Airliner.Query.addAirliner);
 
 export const typeDef = gql`
     type Airliner {
@@ -66,4 +67,5 @@ export const typeDef = gql`
         password: String
   }
 ` ;
+console.log(typeDef);
 // module.exports = {typeDef, resolvers}

@@ -53,6 +53,7 @@ const authMiddleware = expressjwt({
   secret: expressjwt(jwt.Secret | GetVerificationKey), //!<------
   credentialsRequired: false,
 })
+console.log(authMiddleware);
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 export default async function server() {
@@ -65,13 +66,18 @@ export default async function server() {
       user: req.user, //new property added //!5.21.23
     }),
   }); //new 1.15.23
+  console.log(ApolloServer);
 // applying middleware
 server.applyMiddleware({ //new added //!5.21.23
   app: app,
   path: '/',
-})
+}
+)
+console.log(server.applyMiddleware)
 app.use(express.json()); //new added //!5.21.23
+console.log(app.use(express.json()))
 app.use(authMiddleware); //new  added //!5.21.23
+console.log(app.use(authMiddleware))
 
 //! ****--------------------------Added 5.17.23--------------------------****
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
@@ -135,8 +141,12 @@ MAIN('open', () => {
 }
 );
 }
+console.log(server);
+console.log(startApolloServer);
 
 process.on('warning', (warning) => {
   console.log(warning.stack);
 });
+
+console.log(process.on);
 

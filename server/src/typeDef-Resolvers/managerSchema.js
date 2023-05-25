@@ -12,6 +12,7 @@ export const typeDef = gql`
         password: String
   }
 ` ;
+console.log(typeDef);
 
 export const resolvers = {
   Manager: {
@@ -63,4 +64,6 @@ export const resolvers = {
   }
 };
 
+console.log(resolvers);
+console.log(resolvers.Manager.Query.managers);
 // module.exports = {typeDef, resolvers}

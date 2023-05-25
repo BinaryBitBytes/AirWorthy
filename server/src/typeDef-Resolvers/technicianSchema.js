@@ -10,7 +10,9 @@ type Technician {
     username: String!
     email: String
     password: String
+}
 ` ;
+console.log(typeDef)
 
 export const resolvers = {
   Technician: {
@@ -61,5 +63,5 @@ export const resolvers = {
       },
   }
 };
-
+console.log(resolvers.Technician.Query.technicians);
 // module.exports = {typeDef, resolvers}
