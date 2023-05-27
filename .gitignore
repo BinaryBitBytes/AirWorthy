@@ -11,7 +11,7 @@
 ./server/package-lock.json
 ./client/package-lock.json
 
-node_modulesnod
+node_modules
 package-lock.json
 /package-lock.json
 /node_modules
