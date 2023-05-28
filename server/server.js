@@ -13,13 +13,11 @@ import { types } from "util";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-async function startApolloServer() {
-  const app = express();
-  const server = new ApolloServer({
-    typeDef,
-    resolvers,
-    context: authMiddleware
-  });
+const server = new ApolloServer({
+  typeDef,
+  resolvers,
+  context: authMiddleware
+});
 
 app.use(express.urlencoded({ extended: false })); //changed from true to false 5/26/23
 app.use(express.json());
@@ -31,24 +29,35 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('*', (req,res) => {
-  res.sendFile(path.join(_dirname, "../client/build/index.html"))
+  res.sendFile(path.join(_dirname, "../client/build")) //! removed /index.html
 });
-//----------------------------------correct up to here ^^ 5.26.23----------------------
-await server.start();
 
+//----------------------------------correct up to here ^^ 5.26.23----------------------
+const startApolloServer= async(typeDef, resolvers) => {
+  await server.start();
   server.applyMiddleware({ app });
   console.log(server.applyMiddleware({ app }));
+  db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    })
+  })
+  };
 
-  app.use((req, res) => {
-    res.status(200);
-    res.send('Hello!');
-    res.end();
-  });
+  // Call the async function to start the server
+  startApolloServer(typeDef, resolvers);
+  //!---- Commented below, may be contamination  ----
+  // app.use((req, res) => {
+  //   res.status(200);
+  //   res.send('Hello!');
+  //   res.end();
+  // });
 
-  await new Promise(resolve => app.listen({ port: 4000 }, resolve));
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
-  return { server, app };
-}
+  // await new Promise(resolve => app.listen({ port: 4000 }, resolve));
+  // console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+  // return { server, app };
+// }
 //associating express with a app decleration
 //Creates an Express application. 
 //The express() function is a top-level function exported by the express module.
@@ -57,39 +66,39 @@ await server.start();
 //!   console.log(token);
 //! });
 // const GetVerificationKey(req: express.Request, token: jwt.Jwt | undefined){Promise<jwt.Secret>};
-const authMiddleware = expressjwt(
-  {
-  // secret: config.JWT_SECRET,
-    secret: expressjwt(jwt.Secret),
-    // | GetVerificationKey), //!<------ work on developing a GetVerificationKey for a JSON Web Token.
-    credentialsRequired: false,
-  }
-)
-console.log(authMiddleware);
+// const authMiddleware = expressjwt(
+//   {
+//   // secret: config.JWT_SECRET,
+//     secret: expressjwt(jwt.Secret),
+//     // | GetVerificationKey), //!<------ work on developing a GetVerificationKey for a JSON Web Token.
+//     credentialsRequired: false,
+//   }
+// )
+// console.log(authMiddleware);
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
-export default async function server() {
-  new ApolloServer({ 
-    typeDef: types, //new property added //!5.21.23
-    // typeDef: typeDef, //new property added //!5.21.23 // type or typeDef property?
-    resolvers,
-    playground: true, //new property added //!5.21.23
-    context: ({ req }) => ({ //new property added //!5.21.23
-      user: req.user, //new property added //!5.21.23
-    }),
-  }); //new 1.15.23
-  console.log(ApolloServer);
+// export default async function server() {
+//   new ApolloServer({ 
+//     typeDef: types, //new property added //!5.21.23
+//     // typeDef: typeDef, //new property added //!5.21.23 // type or typeDef property?
+//     resolvers,
+//     playground: true, //new property added //!5.21.23
+//     context: ({ req }) => ({ //new property added //!5.21.23
+//       user: req.user, //new property added //!5.21.23
+//     }),
+//   }); //new 1.15.23
+//   console.log(ApolloServer);
 // applying middleware
-server.applyMiddleware({ //new added //!5.21.23
-  app: app,
-  path: '/',
-}
-)
-app.use(authMiddleware); //new  added //!5.21.23
-console.log(server.applyMiddleware)
-app.use(express.json()); //new added //!5.21.23
-console.log(app.use(express.json()))
-console.log(app.use(authMiddleware))
+// server.applyMiddleware({ //new added //!5.21.23
+//   app: app,
+//   path: '/',
+// }
+// )
+// app.use(authMiddleware); //new  added //!5.21.23
+// console.log(server.applyMiddleware)
+// app.use(express.json()); //new added //!5.21.23
+// console.log(app.use(express.json()))
+// console.log(app.use(authMiddleware))
 
 //! ****--------------------------Added 5.17.23--------------------------****
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
@@ -104,53 +113,53 @@ console.log(app.use(authMiddleware))
 
 //! Start of the graphql server.js setup added 5.13.23
 // Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`)
+// var schema = buildSchema(`
+//   type Query {
+//     hello: String
+//   }
+// `)
 
 // The rootValue provides a resolver function for each API endpoint
-var rootValue = {
-  hello: () => {
-    return "Hello world!"
-  },
-}
+// var rootValue = {
+//   hello: () => {
+//     return "Hello world!"
+//   },
+// }
 
 // Run the GraphQL query '{ hello }' and print out the response
-graphql({
-  schema,
-  source: "{ hello }",
-  rootValue,
-}).then(response => {
-  console.log(response)
-})  //! End of the graphql server.js setup added 5.13.23
+// graphql({
+//   schema,
+//   source: "{ hello }",
+//   rootValue,
+// }).then(response => {
+//   console.log(response)
+// })  //! End of the graphql server.js setup added 5.13.23
 
 
 //New 1.15.23 setup for apollo server
 //!
-server.listen().then(({ url }) => {
-  console.log(`Server ready at ${url}`);
-});
-//!
+// server.listen().then(({ url }) => {
+//   console.log(`Server ready at ${url}`);
+// });
+// //!
 
-app.use(routes);
-MAIN('open', () => {
-  app.listen(PORT, () => 
-  {
-    console.error('line 38 Throwing error for db connection');
-    console.log(`API ApolloServer running on port ${PORT}!`);
-  }
-  )
-}
-);
-}
-console.log(server);
-console.log(startApolloServer);
+// app.use(routes);
+// MAIN('open', () => {
+//   app.listen(PORT, () => 
+//   {
+//     console.error('line 38 Throwing error for db connection');
+//     console.log(`API ApolloServer running on port ${PORT}!`);
+//   }
+//   )
+// }
+// );
+// }
+// console.log(server);
+// console.log(startApolloServer);
 
-process.on('warning', (warning) => {
-  console.log(warning.stack);
-});
+// process.on('warning', (warning) => {
+//   console.log(warning.stack);
+// });
 
-console.log(process.on);
+// console.log(process.on);
 
