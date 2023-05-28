@@ -1,23 +1,29 @@
 import express, { urlencoded, json } from 'express';
-import { ApolloServer } from 'apollo-server-express';
+// const { loadFilesSync } = require('@graphql-tools/load-files');
+// const { mergeTypeDefs } = require('@graphql-tools/merge');
+// const typesArray = loadFilesSync(path.join(__dirname, '.'), { extensions: ['gql'] });
+// const typeDefs = mergeTypeDefs(types);
+// import { ApolloServer } from 'apollo-server-express';
+const { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageLocalDefault } = require('apollo-server-core');
+const http = require('http');
+import { ApolloServer } from 'apollo-server';
 import { graphql, buildSchema } from "graphql"; // added 5.13.23 sourced from graphql docs
 import pkg from "express-jwt";
 const { expressjwt , ExpressJwtRequest, } = pkg; 
 import path, { join } from 'path';
-import { MAIN } from './config/connection.js';
+import { authMiddleware } from './utils/middleware/auth.cjs';
+// import { MAIN } from './config/connection.js';
+// const db = mongoose.connection;
+import db from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
 import {resolvers}  from './src/typeDef-Resolvers/resolvers.js';
 import {typeDef}  from './src/typeDef-Resolvers/typeDef.js';
 import { types } from "util";
+import { application } from './src/typeDef-Resolvers/module/createApplication.js';
 
+const schema = application.createApolloExecutor();
 
 const PORT = process.env.PORT || 3001;
-const app = express();
-const server = new ApolloServer({
-  typeDef,
-  resolvers,
-  context: authMiddleware
-});
 
 app.use(express.urlencoded({ extended: false })); //changed from true to false 5/26/23
 app.use(express.json());
@@ -33,7 +39,22 @@ app.get('*', (req,res) => {
 });
 
 //----------------------------------correct up to here ^^ 5.26.23----------------------
-const startApolloServer= async(typeDef, resolvers) => {
+async function startApolloServer(typeDef, resolvers){
+  const app = express();
+  // Our httpServer handles incoming requests to our Express app.
+  // Below, we tell Apollo Server to "drain" this httpServer,
+  // enabling our servers to shut down gracefully.
+  const httpServer = http.createServer(app);
+  const server = new ApolloServer({
+    schema: schema,
+    typeDefs: typeDef,
+    resolvers: resolvers,
+    csrfPrevention: true,
+    cache: 'bounded',
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer }), ApolloServerPluginLandingPageLocalDefault({ embed: true })],
+    // context: authMiddleware
+  });
+  console.log(server);
   await server.start();
   server.applyMiddleware({ app });
   console.log(server.applyMiddleware({ app }));

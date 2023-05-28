@@ -13,7 +13,7 @@ import res from 'express/lib/respoonse';
 
 //importing pages
 import { Intro, Manager, Technician } from '../../client/src/pages';
-import { signToken } from '../utils/auth.js';
+import { signToken } from '../utils/middleware/auth.cjs';
 
 // get a single user by either their id or their username
 //! --------------

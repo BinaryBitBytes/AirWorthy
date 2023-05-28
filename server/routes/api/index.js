@@ -3,27 +3,21 @@ import { ApolloServer } from 'apollo-server-express';
 import express, { urlencoded, json } from 'express';
 // var jwt = require('jsonwebtoken');;
 import { startStandaloneServer } from '@apollo/server/standalone';
-import resolvers from '../../src/typeDef-Resolvers/index.js';
-import typeDef from '../../src/typeDef-Resolvers/index.js';
+import { typeDefs } from '../../src/typeDef-Resolvers/index.js';
+import { resolver } from '../../src/typeDef-Resolvers/index.js';
+// const { resolvers } = require('../../src/typeDef-Resolvers/index.js')  //!5.27.23 used instead of line 6 for testing
 import { types } from "util";
-import { authMiddleware } from '../../src/middleware/auth.js';
-{// import { typeDefs }  from '../../schemas/typeDefs.js';
-  // import { resolvers } from '../../schemas/resolvers.js';
-  //! commented out below on typedefs and resolvers on  5.20.23
-  // import { typeDef, resolvers } from './airlinerSchema';
-  // import { typeDef, resolvers } from '../../schemas/authSchema';
-  // import { typeDef, resolvers } from './inspectorSchema';
-  // import { typeDef, resolvers } from './managerSchema';
-  // import { typeDef, resolvers } from './projectDataSchema';
-  // import { typeDef ,resolvers } from './projectSchema';
-  // import { typeDef, resolvers } from './technicianSchema';
-  // import { authMiddleware } from '../../utils/auth.js';
-  // import { Airliner, Inspector, Manager, Project, Technician } from '../../models/index';
+// import { authMiddleware } from '../../utils/middleware/auth.cjs';
+import pkg from '../../utils/middleware/auth.cjs';
+const { authMiddleware } = pkg;
+// const authMiddleware = require('../../utils/middleware/auth.cjs');
+// const {authMiddleware} = require('../../utils/middleware/auth.js')
+
   //!-----------------------------------------------------------------------------------$$$$$$------------------]]]]]
   //associating express with a app decleration
   //Creates an Express application. 
   //The express() function is a top-level function exported by the express module.
-}
+
 const PORT =3002;
 const app = express();
 // authMiddleware with express using json web tokes
@@ -35,9 +29,9 @@ const app = express();
   // definition and your set of resolvers.}
   export default async function server() {
     new ApolloServer({
-      typeDef: types, //new property added //!5.21.23
+      typeDefs: types, //new property added //!5.21.23
       // typeDef: typeDef, //new property added //!5.21.23 // type or typeDef property?
-      resolvers,
+      resolver,
       playground: true, //new property added //!5.21.23
       context: authMiddleware,
       // context: ({ req }) => ({ //new property added //!5.21.23
@@ -45,7 +39,8 @@ const app = express();
       // }),
     }); //new 1.15.23
     // applying middleware
-    server.applyMiddleware({ //new added //!5.21.23
+    // server.applyMiddleware({ //new added //!5.21.23
+    server.authMiddleware({ //new added //!5.21.23
       app: app,
       path: '/',
     })
@@ -94,7 +89,7 @@ const app = express();
   //*   }
   //* }
 
-  server({ typeDef }, { resolvers }); //! 5.15.23 destructured with {}
+  server({ typeDefs }, { resolver }); //! 5.15.23 destructured with {}
 //startApolloServer({typeDef}, {resolvers}); //! 5.15.23 destructured with {}
 // }
 // export default { apiRoutes };

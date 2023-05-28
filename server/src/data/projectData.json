@@ -6,7 +6,8 @@
         "startingDate": "2022-06-18T11:15:13.511Z",
         "modelAircraft": "777",
         "managerName":"Todd Anderson",
-        "technicianName":"Rake Yohn"
+        "technicianName":"Rake Yohn",
+        "inspectorName": ""
 
     },
     {
@@ -16,7 +17,8 @@
         "startingDate": "2022-01-23T08:25:43.511Z",
         "modelAircraft": "757",
         "managerName":"Richard Slick",
-        "technicianName":"Tom Green"
+        "technicianName":"Tom Green",
+        "inspectorName": ""
     },
     {
         "id":3,
@@ -25,7 +27,8 @@
         "startingDate": "2022-05-04T21:35:22.511Z",
         "modelAircraft": "737",
         "managerName":"Cindy Lefthook",
-        "technicianName":"Phillup Ondeez"
+        "technicianName":"Phillup Ondeez",
+        "inspectorName": ""
     },
     {
         "id":4,
@@ -34,7 +37,8 @@
         "startingDate": "2022-04-3T23:55:53.511Z",
         "modelAircraft": "737",
         "managerName":"Andy Red",
-        "technicianName":"Jack Blue"
+        "technicianName":"Jack Blue",
+        "inspectorName": ""
     },
     {
         "id":5,
@@ -43,6 +47,7 @@
         "startingDate": "2022-03-13T01:49:43.511Z",
         "modelAircraft": "777",
         "managerName":"Jason Lee",
-        "technicianName":"Arty Land"
+        "technicianName":"Arty Land",
+        "inspectorName": ""
     }
 ]

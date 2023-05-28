@@ -9,13 +9,19 @@
 // import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema.js';
 import { resolvers } from './resolvers.js';
 import { typeDef } from './typeDef.js';
+export const  resolver = resolvers;
+export const typeDefs = typeDef;
 
-console.log(typeDef);
+console.log(typeDefs);
 console.log(resolvers);
+// module.exports = {
+//     typeDef, 
+//     resolvers}
+//! export default () =>{
+//     return { typeDef, resolvers}
+//! };
 
-export default () =>{
-    return { resolvers, typeDef}
-};
+
 // export const typeDef= {
     //     Airliner,
 //     Auth,
