@@ -1,46 +1,63 @@
 import express, { urlencoded, json } from 'express';
-// const { loadFilesSync } = require('@graphql-tools/load-files');
-// const { mergeTypeDefs } = require('@graphql-tools/merge');
-// const typesArray = loadFilesSync(path.join(__dirname, '.'), { extensions: ['gql'] });
-// const typeDefs = mergeTypeDefs(types);
+import { loadFilesSync } from '@graphql-tools/load-files';
+import { mergeTypeDefs } from '@graphql-tools/merge';
 // import { ApolloServer } from 'apollo-server-express';
-const { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageLocalDefault } = require('apollo-server-core');
-const http = require('http');
+import { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+import http from 'http';
 import { ApolloServer } from 'apollo-server';
 import { graphql, buildSchema } from "graphql"; // added 5.13.23 sourced from graphql docs
 import pkg from "express-jwt";
-const { expressjwt , ExpressJwtRequest, } = pkg; 
+const { expressjwt, ExpressJwtRequest, } = pkg;
 import path, { join } from 'path';
 import { authMiddleware } from './utils/middleware/auth.cjs';
 // import { MAIN } from './config/connection.js';
 // const db = mongoose.connection;
 import db from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
-import {resolvers}  from './src/typeDef-Resolvers/resolvers.js';
-import {typeDef}  from './src/typeDef-Resolvers/typeDef.js';
+import { resolvers } from './src/typeDef-Resolvers/resolvers.js';
+import { typeDef } from './src/typeDef-Resolvers/typeDef.js';
 import { types } from "util";
 import { application } from './src/typeDef-Resolvers/module/createApplication.js';
 
 const schema = application.createApolloExecutor();
-
 const PORT = process.env.PORT || 3001;
+const app = express();
+const typesArray = loadFilesSync(path.join(__dirname, '.'), { extensions: ['gql'] });
+const typeDefs = mergeTypeDefs(types);
 
-app.use(express.urlencoded({ extended: false })); //changed from true to false 5/26/23
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+/*
+! @BinaryBitBytes
+//**
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(join(__dirname, '../client/build'))); //! 5.14.23 static by itself threw an error.
   //! used instead express.static per this source LinusU [https://github.com/standard/standard/issues/1279]
   console.error('line 27 Throwing error for node_env');
 }
 
-app.get('*', (req,res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(_dirname, "../client/build")) //! removed /index.html
 });
+//*
+!
+*/
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  server.applyMiddleware({ app });
 
+  db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    })
+  })
+};
+startApolloServer(typeDef, resolvers);
 //----------------------------------correct up to here ^^ 5.26.23----------------------
-async function startApolloServer(typeDef, resolvers){
-  const app = express();
+//TODO Below is reserved for suture use------------ @BinaryBitBytes
+/*
+async function startApolloServer(typeDef, resolvers) {
   // Our httpServer handles incoming requests to our Express app.
   // Below, we tell Apollo Server to "drain" this httpServer,
   // enabling our servers to shut down gracefully.
@@ -64,10 +81,11 @@ async function startApolloServer(typeDef, resolvers){
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
+};
+TODO End of Reserve -------------------------------^^^^^
+*/
 
-  // Call the async function to start the server
-  startApolloServer(typeDef, resolvers);
+// Call the async function to start the server
   //!---- Commented below, may be contamination  ----
   // app.use((req, res) => {
   //   res.status(200);
@@ -80,7 +98,7 @@ async function startApolloServer(typeDef, resolvers){
   // return { server, app };
 // }
 //associating express with a app decleration
-//Creates an Express application. 
+//Creates an Express application.
 //The express() function is a top-level function exported by the express module.
 // authMiddleware with express using json web token
 //! jwt.sign({ foo: 'bar' }, privateKey, { algorithm: 'RS256' }, function(err, token) {
@@ -99,7 +117,7 @@ async function startApolloServer(typeDef, resolvers){
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 // export default async function server() {
-//   new ApolloServer({ 
+//   new ApolloServer({
 //     typeDef: types, //new property added //!5.21.23
 //     // typeDef: typeDef, //new property added //!5.21.23 // type or typeDef property?
 //     resolvers,
@@ -166,7 +184,7 @@ async function startApolloServer(typeDef, resolvers){
 
 // app.use(routes);
 // MAIN('open', () => {
-//   app.listen(PORT, () => 
+//   app.listen(PORT, () =>
 //   {
 //     console.error('line 38 Throwing error for db connection');
 //     console.log(`API ApolloServer running on port ${PORT}!`);
