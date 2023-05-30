@@ -8,7 +8,6 @@ import express, { urlencoded, json } from 'express';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from '../../src/typeDef-Resolvers/index.js';
 import { resolver } from '../../src/typeDef-Resolvers/index.js';
-// const { resolvers } = require('../../src/typeDef-Resolvers/index.js')  //!5.27.23 used instead of line 6 for testing
 import { types } from "util";
 import pkg2 from '../../utils/middleware/auth.cjs';
 const { authMiddleware } = pkg2;
