@@ -16,5 +16,4 @@ export const typeDef = {
     Technician
 };
 
-console.log('index .js typeDef')
 console.log(typeDef);

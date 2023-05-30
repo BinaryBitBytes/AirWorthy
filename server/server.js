@@ -1,4 +1,5 @@
 import express, { urlencoded, json } from 'express';
+import { fileURLToPath } from 'url';
 import { loadFilesSync } from '@graphql-tools/load-files';
 import { mergeTypeDefs } from '@graphql-tools/merge';
 // import { ApolloServer } from 'apollo-server-express';
@@ -19,11 +20,16 @@ import { typeDef } from './src/typeDef-Resolvers/typeDef.js';
 import { types } from "util";
 import { application } from './src/typeDef-Resolvers/module/createApplication.js';
 
+makeExecutableSchema({
+  typeDefs: [Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
+  resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
+});
+
 const schema = application.createApolloExecutor();
 const PORT = process.env.PORT || 3001;
 const app = express();
-const typesArray = loadFilesSync(path.join(__dirname, '.'), { extensions: ['gql'] });
-const typeDefs = mergeTypeDefs(types);
+// const typesArray = loadFilesSync(path.join(__dirname, '.'), { extensions: ['gql'] });
+// const typeDefs = mergeTypeDefs(types);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

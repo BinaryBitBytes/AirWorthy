@@ -1,5 +1,5 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import { gql } from 'apollo-server';
+import { gql, makeExecutableSchema } from 'apollo-server';
 
 export const typeDef = gql`
 type projectData {
@@ -59,5 +59,13 @@ export const resolvers = {
     },
   }
 };
+const schema = makeExecutableSchema({
+  typeDef,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
 console.log(resolvers.Project_Data.Query.project);
 // module.exports = {typeDef, resolvers}

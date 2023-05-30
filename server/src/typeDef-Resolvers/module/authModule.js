@@ -1,4 +1,4 @@
-import{ typeDef } from '../authSchema.js'; //!
+import { typeDef } from '../authSchema.js'; //!
 import { resolvers } from '../authSchema.js'; //!
 import { createModule } from 'graphql-modules';
 
@@ -9,6 +9,7 @@ const { __dirname, __filename } = fileDirName(import.meta);
 export const AuthModule = createModule({ //!
   id: 'auth-module',  //!
   dirname: __dirname,
-  typeDefs: [typeDef],
-  resolvers: [resolvers]
+  filename: __filename,
+  typeDefs: typeDef,
+  resolvers: resolvers
 });

@@ -1,5 +1,5 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import {gql} from 'apollo-server';
+import { gql, makeExecutableSchema } from 'apollo-server';
 
 export const typeDef = gql`
 type Inspector {
@@ -16,20 +16,18 @@ console.log(typeDef);
 
 export const resolvers = {
   Inspector: {
-    Query: 
+    Query:
     {
-      inspectors: async () => 
-      {
+      inspectors: async () => {
         return await Technician.find().sort({ createdAt: -1 }); //! added await
       },
 
-      inspector: async (parent, { inspectorID }) => 
-      {
+      inspector: async (parent, { inspectorID }) => {
         return await Technician.findOne({ _id: inspectorID }); //! added await
       },
     },
 
-    Mutation: 
+    Mutation:
     {
       addInspector: async (
         parent,
@@ -44,8 +42,7 @@ export const resolvers = {
           password,
         });
       },
-      addProject: async (parent, { inspectorID, onProject }) => 
-      {
+      addProject: async (parent, { inspectorID, onProject }) => {
         return Inspector.findOneAndUpdate(
           { _id: inspectorID },
           {
@@ -57,17 +54,23 @@ export const resolvers = {
           }
         );
       },
-      removeInspector: async (parent, { inspectorID }) => 
-      {
+      removeInspector: async (parent, { inspectorID }) => {
         return Inspector.fineOneAndDelete({ _id: inspectorID });
       },
-      removeInspector: async (parent, { inspectorID, onProject }) => 
-      {
+      removeInspector: async (parent, { inspectorID, onProject }) => {
         return Inspector.destroy({ _id: inspectorID }, {});
       },
     },
   }
 };
+const schema = makeExecutableSchema({
+  typeDef,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
 console.log(resolvers.Inspector.Query.addProject);
 console.log(resolvers.Inspector.Mutation);
 // module.exports = {typeDef, resolvers}

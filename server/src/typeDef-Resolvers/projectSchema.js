@@ -1,5 +1,5 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import {gql} from 'apollo-server';
+import { gql, makeExecutableSchema } from 'apollo-server';
 
 export const typeDef = gql`
 type Project {
@@ -8,12 +8,12 @@ type Project {
     inspectorName: String
     workDescription: String
   }
-` 
+`
 console.log(typeDef);
 
-export const resolvers =  {
+export const resolvers = {
   Project: {
-    Query: 
+    Query:
     {
       projects: async () => {
         return await Project.find().sort({ createdAt: -1 }); //! added await
@@ -24,7 +24,7 @@ export const resolvers =  {
       },
     },
 
-    Mutation: 
+    Mutation:
     {
       addProject: async (
         parent,
@@ -41,7 +41,7 @@ export const resolvers =  {
       },
       addProject: async (parent, { projectID, onProject }) => {
         return Project.findOneAndUpdate(
-          { _id:projectID },
+          { _id: projectID },
           {
             $addToSet: { project: { onProject } },
           },
@@ -60,5 +60,13 @@ export const resolvers =  {
     },
   }
 };
+const schema = makeExecutableSchema({
+  typeDef,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
 console.log(resolvers.Project.Query.projects);
 // module.exports = {typeDef, resolvers}

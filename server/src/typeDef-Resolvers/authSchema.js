@@ -1,5 +1,5 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import {gql} from 'apollo-server';
+import { gql, makeExecutableSchema } from 'apollo-server';
 
 export const typeDef = gql`
 type Auth {
@@ -15,7 +15,7 @@ console.error(typeDef);
 
 export const resolvers = {
   Auth: {
-    Query: 
+    Query:
     {
       me: async (parent, { userId }) => {
         return await User.findOne({
@@ -24,7 +24,7 @@ export const resolvers = {
       },
     },
 
-    Mutation: 
+    Mutation:
     {
       loginUser: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
@@ -53,5 +53,13 @@ export const resolvers = {
     },
   }
 };
+const schema = makeExecutableSchema({
+  typeDef,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
 console.log(resolvers.Auth.Query.me);
 // module.exports = {typeDef, resolvers}

@@ -1,6 +1,6 @@
 import pkg from 'lodash';
 // import {gql} from 'graphql-tag';
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql, makeExecutableSchema } = require('apollo-server');
 import { typeDef as Airliner, resolvers as airlinerResolvers } from './airlinerSchema';
 import { typeDef as Auth, resolvers as authResolvers } from './authSchema';
 import { typeDef as Inspector, resolvers as inspectorResolvers } from './inspectorSchema';
@@ -65,7 +65,7 @@ const Query = gql`
 console.log(typeDef);
 
 const resolvers = {
-  Query: { 
+  Query: {
   }
 };
 console.log(resolvers)
@@ -76,7 +76,12 @@ console.log(resolvers)
 //!-------------^^^^^^^--------------------!!
 
 makeExecutableSchema({
-    typeDefs: [ Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
-    resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
-  });
+  typeDefs: [Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
+  resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
+});
+
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
 console.log(makeExecutableSchema);

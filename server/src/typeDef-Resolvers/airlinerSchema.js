@@ -1,37 +1,36 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import {gql} from 'apollo-server';
+import { gql, makeExecutableSchema } from 'apollo-server';
 
 export const resolvers = {
   Airliner: {
-    Query: 
+    Query:
     {
       airliners: async () => {
         return await Airliner.find().sort({ createdAt: -1 }); //! added await
       },
-      
+
       airliner: async (parent, { airlinerID }) => {
         return await Airliner.findOne({ _id: airlinerID }); //! added await
       },
     },
-    
-    Mutation: 
+
+    Mutation:
     {
       addAirliner: async (parent,
         { airlinerName, isAdmin, modelAircraft, username, email, password }
-        ) => {
-          return Airliner.create(
-            {
-              airlinerName,
-              isAdmin,
-          modelAircraft,
-          email,
-          username,
-          password,
-        }
+      ) => {
+        return Airliner.create(
+          {
+            airlinerName,
+            isAdmin,
+            modelAircraft,
+            email,
+            username,
+            password,
+          }
         );
       },
-      addAirliner: async (parent, { airlinerID, airlinerName }) => 
-      {
+      addAirliner: async (parent, { airlinerID, airlinerName }) => {
         return Airliner.findOneAndUpdate(
           { _id: airlinerID },
           {
@@ -41,16 +40,14 @@ export const resolvers = {
             new: true,
             runValidators: true,
           }
-          );
-        },
-        removeAirliner: async (parent, { airlinerID }) => 
-        {
-          return Airliner.fineOneAndDelete({ _id: airlinerID });
-        },
-        removeAirliner: async (parent, { airlinerID, airlinerName }) => 
-        {
-          return Airliner.destroy({ _id: airlinerID }, { airlinerName });
-        },
+        );
+      },
+      removeAirliner: async (parent, { airlinerID }) => {
+        return Airliner.fineOneAndDelete({ _id: airlinerID });
+      },
+      removeAirliner: async (parent, { airlinerID, airlinerName }) => {
+        return Airliner.destroy({ _id: airlinerID }, { airlinerName });
+      },
     },
   }
 };
@@ -66,6 +63,16 @@ export const typeDef = gql`
         email: String
         password: String
   }
-` ;
+`;
+
+const schema = makeExecutableSchema({
+  typeDef,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
+// console.log(typeof typeDef)
 console.log(typeDef);
 // module.exports = {typeDef, resolvers}
