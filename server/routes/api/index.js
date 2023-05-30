@@ -1,4 +1,7 @@
 // Import the two parts of a GraphQL schema
+// import { expressMiddleware } from 'apollo-server-express';
+// import pkg from 'apollo-server-express';
+// const { expressMiddleware } = pkg;
 import { ApolloServer } from 'apollo-server-express';
 import express, { urlencoded, json } from 'express';
 // var jwt = require('jsonwebtoken');;
@@ -7,11 +10,8 @@ import { typeDefs } from '../../src/typeDef-Resolvers/index.js';
 import { resolver } from '../../src/typeDef-Resolvers/index.js';
 // const { resolvers } = require('../../src/typeDef-Resolvers/index.js')  //!5.27.23 used instead of line 6 for testing
 import { types } from "util";
-// import { authMiddleware } from '../../utils/middleware/auth.cjs';
-import pkg from '../../utils/middleware/auth.cjs';
-const { authMiddleware } = pkg;
-// const authMiddleware = require('../../utils/middleware/auth.cjs');
-// const {authMiddleware} = require('../../utils/middleware/auth.js')
+import pkg2 from '../../utils/middleware/auth.cjs';
+const { authMiddleware } = pkg2;
 
 //!-----------------------------------------------------------------------------------$$$$$$------------------]]]]]
 //associating express with a app decleration
@@ -28,7 +28,9 @@ const app = express();
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.}
 export default async function server() {
+  // new expressMiddleware({
   new ApolloServer({
+
     typeDefs: types, //new property added //!5.21.23
     // typeDef: typeDef, //new property added //!5.21.23 // type or typeDef property?
     resolver,

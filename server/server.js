@@ -11,8 +11,6 @@ import pkg from "express-jwt";
 const { expressjwt, ExpressJwtRequest, } = pkg;
 import path, { join } from 'path';
 import { authMiddleware } from './utils/middleware/auth.cjs';
-// import { MAIN } from './config/connection.js';
-// const db = mongoose.connection;
 import db from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
 import { resolvers } from './src/typeDef-Resolvers/resolvers.js';

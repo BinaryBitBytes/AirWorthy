@@ -1,5 +1,7 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import { gql, makeExecutableSchema } from 'apollo-server';
+import { makeExecutableSchema } from 'graphql-tools'
+import pkg from 'apollo-server-express';
+const { gql } = pkg;
 
 export const resolvers = {
   Airliner: {

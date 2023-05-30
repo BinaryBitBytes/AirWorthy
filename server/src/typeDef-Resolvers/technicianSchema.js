@@ -1,5 +1,6 @@
 // const { ApolloServer, gql } = require('apollo-server');
-import { gql, makeExecutableSchema } from 'apollo-server';
+import pkg from 'apollo-server';
+const { gql, makeExecutableSchema } = pkg;
 
 export const typeDef = gql`
 type Technician {
@@ -14,6 +15,7 @@ type Technician {
 ` ;
 console.log(typeDef)
 
+// export const resolvers = {
 export const resolvers = {
   Technician: {
     Query:
