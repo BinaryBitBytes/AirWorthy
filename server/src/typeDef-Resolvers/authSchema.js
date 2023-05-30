@@ -1,4 +1,3 @@
-// const { ApolloServer, gql } = require('apollo-server');
 import pkg from 'apollo-server';
 const { gql, makeExecutableSchema } = pkg;
 
@@ -63,4 +62,3 @@ const rootResolveFunction = (parent, args, context, info) => {
 };
 addSchemaLevelResolveFunction(schema, rootResolveFunction)
 console.log(resolvers.Auth.Query.me);
-// module.exports = {typeDef, resolvers}

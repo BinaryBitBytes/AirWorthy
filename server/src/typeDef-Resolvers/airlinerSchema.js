@@ -1,4 +1,3 @@
-// const { ApolloServer, gql } = require('apollo-server');
 import { makeExecutableSchema } from 'graphql-tools'
 import pkg from 'apollo-server-express';
 const { gql } = pkg;
@@ -77,4 +76,3 @@ const rootResolveFunction = (parent, args, context, info) => {
 addSchemaLevelResolveFunction(schema, rootResolveFunction)
 // console.log(typeof typeDef)
 console.log(typeDef);
-// module.exports = {typeDef, resolvers}
