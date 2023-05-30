@@ -1,5 +1,6 @@
 import pkg from 'lodash';
-import {gql} from 'graphql-tag';
+const { ApolloServer, gql } = require('apollo-server');
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import { typeDef as Airliner, resolvers as airlinerResolvers } from './airlinerSchema';
 import { typeDef as Auth, resolvers as authResolvers } from './authSchema';
 import { typeDef as Inspector, resolvers as inspectorResolvers } from './inspectorSchema';
@@ -8,26 +9,6 @@ import { typeDef as ProjectData, resolvers as projectDataResolvers } from './pro
 import { typeDef as Project, resolvers as projectResolvers } from './projectSchema';
 import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema';
 const { merge } = pkg;
-// const Query = `
-
-// ` ; 
-//! EXAMPLE---- BELOW
-// const Query = `
-//   type Query {
-//     author(id: Int!): Post
-//     book(id: Int!): Post
-//   }
-// `;
-//!---------------------------------!!
-// import { 
-//   typeDef as Author, 
-//   resolvers as authorResolvers,
-// } from './author.js';
-// import { 
-//   typeDef as Book, 
-//   resolvers as bookResolvers,
-// } from './book.js';
-
 const Query = gql`
   type Query {
     _empty: String
@@ -61,22 +42,26 @@ const Query = gql`
     technician(id: Int!): Technician 
   }
 `;
+console.log(typeDef);
 
 const resolvers = {
-  Query: { 
+  Query: {
   }
 };
+console.log(resolvers)
 // makeExecutableSchema({
 //   typeDefs: [ Query, Author, Book ],
 //   resolvers: merge(resolvers, authorResolvers, bookResolvers),
 // });
 //!-------------^^^^^^^--------------------!!
 
-
-
-
-
 makeExecutableSchema({
-    typeDefs: [ Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
-    resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
-  });
+  typeDefs: [Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
+  resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
+});
+
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
+console.log(makeExecutableSchema);

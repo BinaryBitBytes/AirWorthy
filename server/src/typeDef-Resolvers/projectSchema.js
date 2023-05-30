@@ -1,14 +1,20 @@
-export const typeDef = `
+import pkg from 'apollo-server';
+const { gql } = pkg;
+import { makeExecutableSchema } from '@graphql-tools/schema'
+
+export const typeDefs = gql`
 type Project {
     _id: ID!
     projectName: String
     inspectorName: String
     workDescription: String
   }
-` 
-export const resolvers =  {
+`
+console.log(typeDefs);
+
+export const resolvers = {
   Project: {
-    Query: 
+    Query:
     {
       projects: async () => {
         return await Project.find().sort({ createdAt: -1 }); //! added await
@@ -19,7 +25,7 @@ export const resolvers =  {
       },
     },
 
-    Mutation: 
+    Mutation:
     {
       addProject: async (
         parent,
@@ -36,7 +42,7 @@ export const resolvers =  {
       },
       addProject: async (parent, { projectID, onProject }) => {
         return Project.findOneAndUpdate(
-          { _id:projectID },
+          { _id: projectID },
           {
             $addToSet: { project: { onProject } },
           },
@@ -55,5 +61,12 @@ export const resolvers =  {
     },
   }
 };
-
-// module.exports = {typeDef, resolvers}
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
+console.log(resolvers.Project.Query.projects);

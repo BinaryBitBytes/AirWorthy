@@ -1,7 +1,8 @@
-import { ApolloServer, gql } from 'apollo-server';
-import { typeDefs } from "./typeDefs";
-import { resolvers } from "./resolvers";
+import { ApolloServer, startStandaloneServer, gql } from 'apollo-server';
+import { typeDefs } from "../src/typeDef-Resolvers/index.js";
+import { resolvers } from "../src/typeDef-Resolvers/index.js";
 
+// const server = new startStandaloneServer({ typeDefs, resolvers });
 const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen().then(({ url }) => {

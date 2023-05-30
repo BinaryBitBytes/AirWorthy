@@ -1,4 +1,9 @@
-export const typeDef = `
+import pkg from 'apollo-server';
+const { gql } = pkg;
+import { makeExecutableSchema } from '@graphql-tools/schema'
+
+
+export const typeDefs = gql`
     type Manager {
         _id: ID!
         managerName: String
@@ -9,10 +14,11 @@ export const typeDef = `
         password: String
   }
 ` ;
+console.log(typeDefs);
 
 export const resolvers = {
   Manager: {
-    Query: 
+    Query:
     {
       managers: async () => {
         return await Manager.find().sort({ createdAt: -1 }); //! added await
@@ -23,7 +29,7 @@ export const resolvers = {
       },
     },
 
-    Mutation: 
+    Mutation:
     {
       addManager: async (
         parent,
@@ -59,5 +65,14 @@ export const resolvers = {
     },
   }
 };
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
 
-// module.exports = {typeDef, resolvers}
+console.log(resolvers);
+console.log(resolvers.Manager.Query.managers);

@@ -1,4 +1,9 @@
-export const typeDef = `
+import pkg from 'apollo-server';
+const { gql } = pkg;
+import { makeExecutableSchema } from '@graphql-tools/schema'
+
+
+export const typeDefs = gql`
 type Auth {
     token: ID! #should i use {uuid} or a JSWT for this datatype?
     _id: ID!
@@ -8,10 +13,11 @@ type Auth {
     password: String!
   }
 `;
+console.error(typeDefs);
 
 export const resolvers = {
   Auth: {
-    Query: 
+    Query:
     {
       me: async (parent, { userId }) => {
         return await User.findOne({
@@ -20,7 +26,7 @@ export const resolvers = {
       },
     },
 
-    Mutation: 
+    Mutation:
     {
       loginUser: async (parent, { email, password }) => {
         const user = await User.findOne({ email });
@@ -48,6 +54,13 @@ export const resolvers = {
       },
     },
   }
-}
-
-// module.exports = {typeDef, resolvers}
+};
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+const rootResolveFunction = (parent, args, context, info) => {
+  //perform action before any other resolvers
+};
+addSchemaLevelResolveFunction(schema, rootResolveFunction)
+console.log(resolvers.Auth.Query.me);

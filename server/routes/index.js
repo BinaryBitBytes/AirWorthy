@@ -1,7 +1,7 @@
 import { join } from 'path';
 import server from './api/index.js';
 //! ^problem 5.15.23 4:20 am // confirmed 5.16.23 1:36pm
-import { MAIN } from '../config/connection.js';
+// import { mongoose.connection } from '../config/connection.js';
 import express, {Router} from 'express';
 // const router = require('express').Router();
 // import express, {Router} from 'express';
