@@ -1,4 +1,4 @@
-import { typeDef } from '../inspectorSchema.js'; //!
+import { typeDefs } from '../inspectorSchema.js'; //!
 import { resolvers } from '../inspectorSchema.js'; //!
 import { createModule } from 'graphql-modules';
 import fileDirName from './file-dir-name.js';
@@ -9,6 +9,6 @@ export const InspectorModule = createModule({ //!
   id: 'inspector-module',  //!
   dirname: __dirname,
   filename: __filename,
-  typeDefs: typeDef,
+  typeDefs: typeDefs,
   resolvers: resolvers
 });

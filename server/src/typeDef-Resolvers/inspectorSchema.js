@@ -1,7 +1,9 @@
 import pkg from 'apollo-server';
-const { gql, makeExecutableSchema } = pkg;
+const { gql } = pkg;
+import { makeExecutableSchema } from '@graphql-tools/schema'
 
-export const typeDef = gql`
+
+export const typeDefs = gql`
 type Inspector {
     _id: ID!
     inspectorName: String
@@ -12,7 +14,7 @@ type Inspector {
     password: String
   }
 `;
-console.log(typeDef);
+console.log(typeDefs);
 
 export const resolvers = {
   Inspector: {
@@ -64,7 +66,7 @@ export const resolvers = {
   }
 };
 const schema = makeExecutableSchema({
-  typeDef,
+  typeDefs,
   resolvers,
 });
 const rootResolveFunction = (parent, args, context, info) => {

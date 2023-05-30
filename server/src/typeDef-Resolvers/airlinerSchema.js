@@ -1,4 +1,4 @@
-import { makeExecutableSchema } from 'graphql-tools'
+import { makeExecutableSchema } from '@graphql-tools/schema'
 import pkg from 'apollo-server-express';
 const { gql } = pkg;
 
@@ -54,7 +54,7 @@ export const resolvers = {
 };
 console.log(resolvers.Airliner.Query.addAirliner);
 
-export const typeDef = gql`
+export const typeDefs = gql`
     type Airliner {
         _id: ID!
         airlinerName: String
@@ -67,7 +67,7 @@ export const typeDef = gql`
 `;
 
 const schema = makeExecutableSchema({
-  typeDef,
+  typeDefs,
   resolvers,
 });
 const rootResolveFunction = (parent, args, context, info) => {
@@ -75,4 +75,4 @@ const rootResolveFunction = (parent, args, context, info) => {
 };
 addSchemaLevelResolveFunction(schema, rootResolveFunction)
 // console.log(typeof typeDef)
-console.log(typeDef);
+console.log(typeDefs);

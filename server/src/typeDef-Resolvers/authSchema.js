@@ -1,7 +1,9 @@
 import pkg from 'apollo-server';
-const { gql, makeExecutableSchema } = pkg;
+const { gql } = pkg;
+import { makeExecutableSchema } from '@graphql-tools/schema'
 
-export const typeDef = gql`
+
+export const typeDefs = gql`
 type Auth {
     token: ID! #should i use {uuid} or a JSWT for this datatype?
     _id: ID!
@@ -11,7 +13,7 @@ type Auth {
     password: String!
   }
 `;
-console.error(typeDef);
+console.error(typeDefs);
 
 export const resolvers = {
   Auth: {
@@ -54,7 +56,7 @@ export const resolvers = {
   }
 };
 const schema = makeExecutableSchema({
-  typeDef,
+  typeDefs,
   resolvers,
 });
 const rootResolveFunction = (parent, args, context, info) => {

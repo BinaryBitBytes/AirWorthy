@@ -1,4 +1,4 @@
-import { typeDef } from '../managerSchema.js'; //!
+import { typeDefs } from '../managerSchema.js'; //!
 import { resolvers } from '../managerSchema.js'; //!
 import { createModule } from 'graphql-modules';
 import fileDirName from './file-dir-name.js';
@@ -9,6 +9,6 @@ export const ManagerModule = createModule({ //!
   id: 'manager-module',  //!
   dirname: __dirname,
   filename: __filename,
-  typeDefs: typeDef,
+  typeDefs: typeDefs,
   resolvers: resolvers
 });

@@ -14,12 +14,12 @@ import { authMiddleware } from './utils/middleware/auth.cjs';
 import db from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
 import { resolvers } from './src/typeDef-Resolvers/resolvers.js';
-import { typeDef } from './src/typeDef-Resolvers/typeDef.js';
+import { typeDef as typeDefs } from './src/typeDef-Resolvers/typeDef.js';
 import { types } from "util";
 import { application } from './src/typeDef-Resolvers/module/createApplication.js';
 
 makeExecutableSchema({
-  typeDefs: [Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
+  typeDefs: typeDefs,//[Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
   resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
 });
 
@@ -40,4 +40,4 @@ const startApolloServer = async (typeDefs, resolvers) => {
     })
   })
 };
-startApolloServer(typeDef, resolvers);
+startApolloServer(typeDefs, resolvers);
