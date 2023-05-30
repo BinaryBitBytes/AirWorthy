@@ -1,5 +1,4 @@
 import pkg from 'lodash';
-// import {gql} from 'graphql-tag';
 const { ApolloServer, gql, makeExecutableSchema } = require('apollo-server');
 import { typeDef as Airliner, resolvers as airlinerResolvers } from './airlinerSchema';
 import { typeDef as Auth, resolvers as authResolvers } from './authSchema';
@@ -9,26 +8,6 @@ import { typeDef as ProjectData, resolvers as projectDataResolvers } from './pro
 import { typeDef as Project, resolvers as projectResolvers } from './projectSchema';
 import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema';
 const { merge } = pkg;
-// const Query = `
-
-// ` ; 
-//! EXAMPLE---- BELOW
-// const Query = `
-//   type Query {
-//     author(id: Int!): Post
-//     book(id: Int!): Post
-//   }
-// `;
-//!---------------------------------!!
-// import { 
-//   typeDef as Author, 
-//   resolvers as authorResolvers,
-// } from './author.js';
-// import { 
-//   typeDef as Book, 
-//   resolvers as bookResolvers,
-// } from './book.js';
-
 const Query = gql`
   type Query {
     _empty: String

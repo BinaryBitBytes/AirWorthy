@@ -1,4 +1,3 @@
-// const { ApolloServer, gql } = require('apollo-server');
 import pkg from 'apollo-server';
 const { gql, makeExecutableSchema } = pkg;
 
