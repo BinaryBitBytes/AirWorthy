@@ -1,14 +1,14 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import pkg from 'apollo-server-express';
 const { gql } = pkg;
-// import { airlinerSchema } from '../models/Airliner.js';
+// import { AirlinerSchema } from '../models/Airliner.js';
 import { typeDefs as Auth } from './authSchema.js';
 
 export const resolvers = {
   Airliner: {
     Query: {
       airliner: async (parent, { _id }) => {
-        return Airliner.findOne({ _id: airlinerID }).populate("airliner"); //! added await
+        return AirlinerSchema.findOne({ _id: airlinerID }).populate("airliner"); //! added await
       },
       airliners: async (parent, { airlinerName }) => {
         return Airliner.find().sort({ createdAt: -1 }).populate("airliner"); //! added await
