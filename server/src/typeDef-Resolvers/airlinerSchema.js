@@ -60,27 +60,27 @@ export const resolvers = {
 console.log(resolvers.Airliner.Query.airliner);
 
 export const typeDefs = gql`
-    type Airliner {
-        _id: ID!
-        airlinerName: String
-        isAdmin: Boolean
-        modelAircraft: [String]
-        username: String!
-        email: String
-        password: String
+  type Airliner {
+    _id: ID!
+    airlinerName: String
+    isAdmin: Boolean
+    modelAircraft: [String]
+    username: String!
+    email: String
+    password: String
   }
   type Auth {
     token: ID!
     airliner: Airliner
   }
-    type Query {
-      airliner(airlinerID: ID!): Airliner,
-      airliners(airlinerID: ID!): [Airliner]
-    }
+  type Query {
+    airliner(airlinerID: ID!): Airliner,
+    airliners(airlinerID: ID!): [Airliner]
+  }
 
-    type Mutation {
-      addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Auth
-    }
+  type Mutation {
+    addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Auth
+  }
 `;
 
 const schema = makeExecutableSchema({
