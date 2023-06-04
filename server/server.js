@@ -14,10 +14,13 @@ import { authMiddleware } from './utils/middleware/auth.cjs';
 import db from './config/connection.js';
 import routes from './routes/index.js'; //!5.14.24 added /index.js to path
 import { resolvers } from './src/typeDef-Resolvers/resolvers.js';
-import { typeDef as typeDefs } from './src/typeDef-Resolvers/typeDef.js';
+// import { typeDef as typeDefs } from './src/typeDef-Resolvers/typeDef.js';
+import typeDefs from './src/typeDef-Resolvers/typeDef.js';
+
 import { types } from "util";
 import { application } from './src/typeDef-Resolvers/module/createApplication.js';
 import { makeExecutableSchema } from '@graphql-tools/schema'
+console.log(typeDefs)
 
 // makeExecutableSchema({
 //   typeDefs: typeDefs,//[Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],

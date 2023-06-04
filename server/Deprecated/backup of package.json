@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Server Side for Airworthy",
+  "type": "module",
   "main": "server.js",
   "quokka": {
     "babel": true
