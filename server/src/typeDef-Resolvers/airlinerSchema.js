@@ -8,7 +8,9 @@ export const resolvers = {
   Airliner: {
     Query: {
       airliner: async (parent, { _id }) => {
-        return AirlinerSchema.findOne({ _id: airlinerID }).populate("airliner"); //! added await
+        // return AirlinerSchema.findOne({ _id: airlinerID }).populate("airliner"); //! added await
+        return Airliner.findOne({ _id: airlinerID }).populate("airliner"); //! added await
+
       },
       airliners: async (parent, { airlinerName }) => {
         return Airliner.find().sort({ createdAt: -1 }).populate("airliner"); //! added await
@@ -25,16 +27,6 @@ export const resolvers = {
         await newAirliner.build(airlinerName, username, email, password);
         await newAirliner.save();
         await newAirliner.populate("airliner");
-        // return Airliner.create(
-        //   {
-        //     airlinerName,
-        //     isAdmin,
-        //     modelAircraft,
-        //     email,
-        //     username,
-        //     password,
-        //   }
-        // );
       },
       addAirliner: async (parent, { airlinerID, airlinerName }) => {
         return airlinerID.findOneAndUpdate(
@@ -60,7 +52,8 @@ export const resolvers = {
 console.log(resolvers.Airliner.Query.airliner);
 
 export const typeDefs = gql`
-  type Airliner {
+    # //TODO need to add a real input type to Airliner named airlinerInput and change Airliner back to type Airliner
+  input Airliner {
     _id: ID!
     airlinerName: String
     isAdmin: Boolean
@@ -69,17 +62,17 @@ export const typeDefs = gql`
     email: String
     password: String
   }
-  type Auth {
-    token: ID!
-    airliner: Airliner
-  }
+  # type Auth {
+  #   token: ID!
+  #   airliner: Airliner
+  # }
   type Query {
     airliner(airlinerID: ID!): Airliner,
     airliners(airlinerID: ID!): [Airliner]
   }
 
   type Mutation {
-    addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Auth
+    addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Airliner
   }
 `;
 
@@ -90,6 +83,6 @@ const schema = makeExecutableSchema({
 const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
-addSchemaLevelResolveFunction(schema, rootResolveFunction)
+// addSchemaLevelResolveFunction(schema, rootResolveFunction)
 // console.log(typeof typeDef)
 console.log(typeDefs);

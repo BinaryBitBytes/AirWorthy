@@ -4,7 +4,8 @@ import { makeExecutableSchema } from '@graphql-tools/schema'
 
 
 export const typeDefs = gql`
-type projectData {
+    # //TODO need to add a real input type to projectData named projectDataInput and change auth back to type projectData
+input ProjectData {
     _id: ID!
     projectId: Int
     projectName: String
@@ -15,15 +16,15 @@ type projectData {
 console.log(typeDefs);
 
 export const resolvers = {
-  Project_Data: {
+  ProjectData: {
     Query:
     {
-      projectsData: async () => {
-        return await Project.find().sort({ createdAt: -1 }); //! added await
+      projectData: async () => {
+        return await ProjectData.find().sort({ createdAt: -1 }); //! added await
       },
 
       project: async (parent, { projectID }) => {
-        return await Project.findOne({ _id: projectID }); //! added await
+        return await ProjectData.findOne({ _id: projectID }); //! added await
       },
     },
 
@@ -68,5 +69,4 @@ const schema = makeExecutableSchema({
 const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
-addSchemaLevelResolveFunction(schema, rootResolveFunction)
-console.log(resolvers.Project_Data.Query.project);
+// addSchemaLevelResolveFunction(schema, rootResolveFunction)

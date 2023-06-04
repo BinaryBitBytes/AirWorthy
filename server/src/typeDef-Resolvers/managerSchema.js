@@ -4,11 +4,12 @@ import { makeExecutableSchema } from '@graphql-tools/schema'
 
 
 export const typeDefs = gql`
-    type Manager {
+    input Manager {
+# //TODO need to add a real input type to Mananger named managerInput and change manager back to type Manager
         _id: ID!
         managerName: String
         isAdmin: Boolean
-        onProject: [Project]
+        # onProject: [Project]
         username: String!
         email: String
         password: String
@@ -72,7 +73,7 @@ const schema = makeExecutableSchema({
 const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
-addSchemaLevelResolveFunction(schema, rootResolveFunction)
+// addSchemaLevelResolveFunction(schema, rootResolveFunction)
 
 console.log(resolvers);
 console.log(resolvers.Manager.Query.managers);

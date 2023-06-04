@@ -4,11 +4,13 @@ import { makeExecutableSchema } from '@graphql-tools/schema'
 
 
 export const typeDefs = gql`
-type Technician {
+# //TODO need to add a real input type to technician named technicianInput and change auth back to type technician
+
+input Technician {
     _id: ID!
     technicianName: String
     isAdmin: Boolean
-    onProject: [Project]
+    # onProject: [Project]
     username: String!
     email: String
     password: String
@@ -73,6 +75,5 @@ const schema = makeExecutableSchema({
 const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
-addSchemaLevelResolveFunction(schema, rootResolveFunction)
-console.log(resolvers.Technician.Query.technicians);
+// addSchemaLevelResolveFunction(schema, rootResolveFunction)
 // module.exports = {typeDef, resolvers}

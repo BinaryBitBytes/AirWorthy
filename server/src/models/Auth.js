@@ -9,24 +9,23 @@ const auth = { resolvers };
 const authSchema= new Schema({
 // model.auth = new auth(
 //   {
-    token:{
-        type: Token,
-        allowNull: false,
-        primaryKey: false,
-    },
     id: {
       type: Number,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
+    token:{
+        type: Token,
+        allowNull: false,
+        primaryKey: false,
+    },
     userID: [{ type: String }],
-    user: [User],
-    isAdmin: { type: Boolean, enum: [true] },
-    modelAircraft: [{ type: String }],
+    user: String,
     userName: String,
     email: String,
-    password: String
+    password: String,
+    isAdmin: { type: Boolean, enum: [true] },
   },
   {
     hooks: {

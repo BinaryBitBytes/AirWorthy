@@ -6,7 +6,7 @@ import { typeDefs as ProjectData } from './projectDataSchema.js';
 import { typeDefs as Project } from './projectSchema.js';
 import { typeDefs as Technician } from './technicianSchema.js';
 
-export const typeDef = {
+export const typeDef = [
     Airliner,
     Auth,
     Inspector,
@@ -14,6 +14,6 @@ export const typeDef = {
     ProjectData,
     Project,
     Technician
-};
+];
 
 console.log(typeDef);
