@@ -17,15 +17,17 @@ import { resolvers } from './src/typeDef-Resolvers/resolvers.js';
 import { typeDef as typeDefs } from './src/typeDef-Resolvers/typeDef.js';
 import { types } from "util";
 import { application } from './src/typeDef-Resolvers/module/createApplication.js';
+import { makeExecutableSchema } from '@graphql-tools/schema'
 
-makeExecutableSchema({
-  typeDefs: typeDefs,//[Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
-  resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
-});
+// makeExecutableSchema({
+//   typeDefs: typeDefs,//[Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
+//   // resolvers: merge(resolvers, airlinerResolvers, authResolvers, inspectorResolvers, managerResolvers, projectDataResolvers, projectResolvers, technicianResolvers),
+//   resolvers: resolvers,
+// });
 
-const schema = application.createApolloExecutor();
+const schema = application.createApolloExecutor(typeDefs, resolvers);
 const PORT = process.env.PORT || 3001;
-const app = express();
+const app = express(schema);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
