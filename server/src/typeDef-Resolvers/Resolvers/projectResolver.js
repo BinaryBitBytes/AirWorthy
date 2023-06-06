@@ -1,19 +1,4 @@
-import pkg from 'apollo-server';
-const { gql } = pkg;
-import { makeExecutableSchema } from '@graphql-tools/schema'
-
-export const typeDefs = gql`
-    # //TODO need to add a real input type to project named projectInput and change project back to type project
-input Project {
-    _id: ID!
-    projectName: String
-    inspectorName: String
-    workDescription: String
-  }
-`
-console.log(typeDefs);
-
-export const resolvers = {
+export const resolver = {
   Project: {
     Query:
     {
@@ -62,12 +47,4 @@ export const resolvers = {
     },
   }
 };
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
-const rootResolveFunction = (parent, args, context, info) => {
-  //perform action before any other resolvers
-};
-// addSchemaLevelResolveFunction(schema, rootResolveFunction)
-console.log(resolvers.Project.Query.projects);
+export default resolver;

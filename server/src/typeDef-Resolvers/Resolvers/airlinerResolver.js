@@ -1,10 +1,4 @@
-import { makeExecutableSchema } from '@graphql-tools/schema'
-import pkg from 'apollo-server-express';
-const { gql } = pkg;
-// import { AirlinerSchema } from '../models/Airliner.js';
-import { typeDefs as Auth } from './authSchema.js';
-
-export const resolvers = {
+export const resolver = {
   Airliner: {
     Query: {
       airliner: async (parent, { _id }) => {
@@ -49,40 +43,4 @@ export const resolvers = {
     },
   }
 };
-console.log(resolvers.Airliner.Query.airliner);
-
-export const typeDefs = gql`
-    # //TODO need to add a real input type to Airliner named airlinerInput and change Airliner back to type Airliner
-  input Airliner {
-    _id: ID!
-    airlinerName: String
-    isAdmin: Boolean
-    modelAircraft: [String]
-    username: String!
-    email: String
-    password: String
-  }
-  # type Auth {
-  #   token: ID!
-  #   airliner: Airliner
-  # }
-  type Query {
-    airliner(airlinerID: ID!): Airliner,
-    airliners(airlinerID: ID!): [Airliner]
-  }
-
-  type Mutation {
-    addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Airliner
-  }
-`;
-
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
-const rootResolveFunction = (parent, args, context, info) => {
-  //perform action before any other resolvers
-};
-// addSchemaLevelResolveFunction(schema, rootResolveFunction)
-// console.log(typeof typeDef)
-console.log(typeDefs);
+// export default resolver;

@@ -106,14 +106,14 @@ export const resolvers = {
     },
   },
 };
-console.log(`"typeDefs"`);
-console.log(typeDefs.definitions);
+// console.log(`"typeDefs"`);
+// console.log(typeDefs.definitions);
 const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
-console.log(`"schema"`);
-console.log(schema);
+// console.log(`"schema"`);
+// console.log(schema);
 const rootResolveFunction = (parent, args, context, info) => {
 };
 // addSchemaLevelResolveFunction(schema, rootResolveFunction);

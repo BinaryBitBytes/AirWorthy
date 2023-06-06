@@ -47,6 +47,6 @@ const authSchema= new Schema({
     modelName: "authSchema",
   });
 
-console.log(auth);
+// console.log(auth);
 export default model("authSchema", authSchema);
 module.exports = {authSchema};

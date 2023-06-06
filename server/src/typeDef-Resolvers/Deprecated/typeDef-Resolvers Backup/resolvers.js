@@ -16,4 +16,4 @@ export const resolvers = [
     technicianResolvers
 ]
 
-console.log(resolvers)
+// console.log(resolvers)

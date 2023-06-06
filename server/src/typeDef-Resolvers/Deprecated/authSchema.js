@@ -175,8 +175,8 @@ export const typeDefs = gql`
   }
 `;
 
-console.log(`"typeDefs"`);
-console.log(typeDefs.definitions);
+// console.log(`"typeDefs"`);
+// console.log(typeDefs.definitions);
 
 const schema = makeExecutableSchema({
   typeDefs,
@@ -187,15 +187,15 @@ const schema = makeExecutableSchema({
 }
 );
 
-console.log(`"schema"`);
-console.log(schema);
+// console.log(`"schema"`);
+// console.log(schema);
 
 const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
-console.log(rootResolveFunction);
+// console.log(rootResolveFunction);
 
 addSchemaLevelResolveFunction(schema, rootResolveFunction);
 
-console.log(`"addSchemaLevelResolveFunction"`)
-console.log(addSchemaLevelResolveFunction);
+// console.log(`"addSchemaLevelResolveFunction"`)
+// console.log(addSchemaLevelResolveFunction);

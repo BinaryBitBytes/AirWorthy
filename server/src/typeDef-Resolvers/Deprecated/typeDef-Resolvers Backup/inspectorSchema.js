@@ -19,7 +19,7 @@ input Inspector {
     _id: ID!
   }
 `;
-console.log(typeDefs);
+// console.log(typeDefs);
 
 export const resolvers = {
   Inspector: {
@@ -78,5 +78,5 @@ const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
 // addSchemaLevelResolveFunction(schema, rootResolveFunction)
-console.log(resolvers.Inspector.Query.addProject);
-console.log(resolvers.Inspector.Mutation);
+// console.log(resolvers.Inspector.Query.addProject);
+// console.log(resolvers.Inspector.Mutation);

@@ -39,5 +39,5 @@ model.airliner = new airliner(
     modelName: "airlinerSchema",
   }
 );
-console.log(airliner);
+// console.log(airliner);
 export default model("airlinerSchema", airlinerSchema);

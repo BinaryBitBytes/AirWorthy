@@ -16,7 +16,7 @@ input Technician {
     password: String
 }
 ` ;
-console.log(typeDefs)
+// console.log(typeDefs)
 
 // export const resolvers = {
 export const resolvers = {

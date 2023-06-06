@@ -40,5 +40,5 @@ mdoel.technician = new technician({
     modelName: "technician",
   }
 );
-console.log(technician)
+// console.log(technician)
 export default model("Technician", technicianSchema);
