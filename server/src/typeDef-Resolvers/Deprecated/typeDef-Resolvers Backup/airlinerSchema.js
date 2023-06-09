@@ -1,5 +1,5 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import pkg2 from 'apollo-server-express';
+import pkg2 from 'apollo-server';
 const { gql } = pkg2;
 import pkg from 'graphql'
 const { graphql, buildSchema } = pkg;
