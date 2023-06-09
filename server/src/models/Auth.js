@@ -41,4 +41,3 @@ const Auth = new mongoose.Schema({
   modelName: 'Auth'
 })
 export const AuthModel = model('Auth', Auth)
-// module.exports = {Auth};

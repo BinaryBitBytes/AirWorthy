@@ -37,38 +37,3 @@ const Inspector = new mongoose.Schema(
 )
 
 export const InspectorModel = model('Inspector', Inspector)
-
-// export const inspectorResolvers = {
-//   Query: {
-//     inspector: async (_, { _id }) => {
-//       return InspectorModel.findOne({ _id });
-//     },
-//     inspectors: async () => {
-//       return InspectorModel.find().sort({ createdAt: -1 });
-//     },
-//   },
-//   Mutation: {
-//     addInspector: async (_, { inspectorName, isAdmin, onProject, userName, email, password }) => {
-//       const newInspector = new InspectorModel({
-//         inspectorName,
-//         isAdmin,
-//         onProject,
-//         userName,
-//         email,
-//         password,
-//       });
-
-//       newInspector.password = await bcrypt.hash(password, 10);
-
-//       await newInspector.save();
-
-//       return newInspector;
-//     },
-//     removeInspector: async (_, { _id }) => {
-//       await InspectorModel.findOneAndDelete({ _id });
-//       return true;
-//     },
-//   },
-// };
-
-// export default inspectorResolvers;

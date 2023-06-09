@@ -1,10 +1,6 @@
-// import pkg from 'mongoose'
-// import { resolvers } from '../src/schemas/technicianSchema.js'
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 const { model } = mongoose
-// const technician = { resolvers }
-// model.technician = new Technician({
 const Technician = new mongoose.Schema({
   id: {
     type: Number,
@@ -43,6 +39,4 @@ const Technician = new mongoose.Schema({
   modelName: 'Technician'
 }
 )
-// console.log(technician)
-// export default model('Technician', Technician)
 export const TechnicianModel = model('Technician', Technician)

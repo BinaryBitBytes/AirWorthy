@@ -1,10 +1,10 @@
-import { airlinerSchema } from '../models'
+import { Airliner } from '../src/models/Airliner.js'
 
-export async function getAllAirliner (req, res) {
-  const allAirliner = await airlinerSchema.find({})
+export async function ALL_AIRLINERS (req, res) {
+  const allAirliners = await Airliner.find({})
 
-  if (!allAirliner) {
+  if (!allAirliners) {
     return res.status(400).json({ message: 'No airliners were found' })
   }
-  res.status(200).json(allAirliner) // 5.12.23 possible bug fix, json() was previously set to allAriline changed to allAirliner
+  res.status(200).json(allAirliners)
 }

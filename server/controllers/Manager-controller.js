@@ -1,10 +1,10 @@
-import { Manager } from '../models'
+import { Manager } from '../src/models/Manager.js'
 
 export async function getAllManager (req, res) {
-  const allManager = await Manager.find({})
+  const allManagers = await Manager.find({})
 
-  if (!allManager) {
+  if (!allManagers) {
     return res.status(400).json({ message: 'No managers were found' })
   }
-  res.status(200).json(allManager)
+  res.status(200).json(allManagers)
 }
