@@ -1,8 +1,10 @@
+
+
 import pkg from 'mongoose';
 const { Schema, model } = pkg;
 import bcrypt from 'bcrypt';
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
-import {Auth} from '../../models/Auth'
+import {AuthModel} from '../../models/Auth.js'
 export const resolver = {
   Query: {
     auth: async (parent, args) => {

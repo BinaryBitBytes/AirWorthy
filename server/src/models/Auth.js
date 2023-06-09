@@ -2,7 +2,7 @@
 import pkg from 'mongoose';
 const { Schema, model } = pkg;
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
-import { resolvers } from "../typeDef-Resolvers/authSchema.js";
+// import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
 import { Token } from 'graphql';
 
 const Auth = new Schema({
@@ -40,6 +40,5 @@ const Auth = new Schema({
   underscored: true,
   modelName: "Auth",
 });
-
 export const AuthModel = model("Auth", Auth);
-module.exports = {Auth};
+// module.exports = {Auth};

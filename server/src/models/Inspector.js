@@ -1,8 +1,9 @@
 import pkg from 'mongoose';
-const { model } = pkg;
+const { Schema, model } = pkg;
+import bcrypt from 'bcrypt';
 import { resolvers } from "../typeDef-Resolvers/inspectorSchema.js";
-const inspector = { resolvers };
-model.inspector = new inspector(
+
+const inspectorSchema = new Schema(
   {
     id: {
       type: Number,
@@ -24,18 +25,50 @@ model.inspector = new inspector(
         return newInspectorData;
       },
       beforeUpdate: async (updatedInspectorData) => {
-        updatedInspectorData.password = await bcrypt.hash(
-          updatedInspectorData.password,
-          10
-        );
+        updatedInspectorData.password = await bcrypt.hash(updatedInspectorData.password, 10);
         return updatedInspectorData;
       },
     },
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "inspector",
+    modelName: "Inspector",
   }
 );
-// console.log(inspector);
-export default model("Inspector", inspectorSchema);
+
+export const InspectorModel = model("Inspector", inspectorSchema);
+
+// export const inspectorResolvers = {
+//   Query: {
+//     inspector: async (_, { _id }) => {
+//       return InspectorModel.findOne({ _id });
+//     },
+//     inspectors: async () => {
+//       return InspectorModel.find().sort({ createdAt: -1 });
+//     },
+//   },
+//   Mutation: {
+//     addInspector: async (_, { inspectorName, isAdmin, onProject, userName, email, password }) => {
+//       const newInspector = new InspectorModel({
+//         inspectorName,
+//         isAdmin,
+//         onProject,
+//         userName,
+//         email,
+//         password,
+//       });
+
+//       newInspector.password = await bcrypt.hash(password, 10);
+
+//       await newInspector.save();
+
+//       return newInspector;
+//     },
+//     removeInspector: async (_, { _id }) => {
+//       await InspectorModel.findOneAndDelete({ _id });
+//       return true;
+//     },
+//   },
+// };
+
+// export default inspectorResolvers;

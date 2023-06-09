@@ -1,4 +1,4 @@
-import { resolver as airlinerResolvers } from './airlinerResolver.js';
+import { airlinerResolvers } from './airlinerResolver.js';
 import { resolver as authResolvers } from './authResolver.js';
 import { resolver as inspectorResolvers } from './inspectorResolver.js';
 import { resolver as managerResolvers } from './managerResolver.js';

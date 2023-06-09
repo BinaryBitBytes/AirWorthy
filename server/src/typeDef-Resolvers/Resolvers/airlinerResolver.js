@@ -1,32 +1,34 @@
-export const resolver = {
+import { AirlinerModel } from '../../models/Airliner.js';
+
+export const airlinerResolvers = {
   Query: {
-    airliner: async (parent, { _id }) => {
-      return Airliner.findOne({ _id }).populate("airliner");
+    airliner: async (_, { _id }) => {
+      return AirlinerModel.findOne({ _id });
     },
-    airliners: async (parent, { airlinerName }) => {
-      return Airliner.find().sort({ createdAt: -1 }).populate("airliner");
+    airliners: async (_, { airlinerName }) => {
+      return AirlinerModel.find({ airlinerName }).sort({ createdAt: -1 });
     },
   },
   Mutation: {
-    addAirliner: async (
-      parent,
-      { airlinerName, isAdmin, modelAircraft, username, email, password }
-    ) => {
-      const newAirliner = new Airliner({
+    addAirliner: async (_, { airlinerName, isAdmin, modelAircraft, username, email, password }) => {
+      const newAirliner = new AirlinerModel({
         airlinerName,
         isAdmin,
         modelAircraft,
-        username,
+        userName: username,
         email,
         password,
       });
-      await newAirliner.build(airlinerName, username, email, password);
+
+      newAirliner.password = await bcrypt.hash(password, 10);
+
       await newAirliner.save();
-      await newAirliner.populate("airliner");
+
+      return newAirliner;
     },
-    removeAirliner: async (parent, { _id }) => {
-      return Airliner.findOneAndDelete({ _id });
+    removeAirliner: async (_, { _id }) => {
+      await AirlinerModel.findOneAndDelete({ _id });
+      return true;
     },
   },
 };
-export default resolver;
