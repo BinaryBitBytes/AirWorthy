@@ -1,5 +1,5 @@
-import { gql } from 'apollo-server';
-import { AirlinerModel } from '../../models/Airliner.js';
+import { gql } from 'apollo-server'
+import { AirlinerModel } from '../../models/Airliner.js'
 
 export const AirlinerTypeDefs = gql`
   type Airliner {
@@ -26,16 +26,16 @@ export const AirlinerTypeDefs = gql`
     ): Airliner
     removeAirliner(_id: ID!): Boolean
   }
-`;
+`
 
 export const airlinerResolvers = {
   Query: {
     airliner: async (_, { _id }) => {
-      return AirlinerModel.findOne({ _id });
+      return AirlinerModel.findOne({ _id })
     },
     airliners: async (_, { airlinerName }) => {
-      return AirlinerModel.find({ airlinerName });
-    },
+      return AirlinerModel.find({ airlinerName })
+    }
   },
   Mutation: {
     addAirliner: async (_, { airlinerName, _isAdmin, modelAircraft, email, password }) => {
@@ -44,14 +44,14 @@ export const airlinerResolvers = {
         isAdmin: _isAdmin,
         modelAircraft,
         email,
-        password,
-      });
-      await newAirliner.save();
-      return newAirliner;
+        password
+      })
+      await newAirliner.save()
+      return newAirliner
     },
     removeAirliner: async (_, { _id }) => {
-      await AirlinerModel.findByIdAndDelete(_id);
-      return true;
-    },
-  },
-};
+      await AirlinerModel.findByIdAndDelete(_id)
+      return true
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import pkg from 'apollo-server';
-const { gql } = pkg;
+import pkg from 'apollo-server'
+const { gql } = pkg
 
 export const InspectorTypeDefs = gql`
   type Inspector {
@@ -38,4 +38,4 @@ export const InspectorTypeDefs = gql`
     removeInspector(inspectorID: ID!): Boolean
     removeProject(inspectorID: ID!, projectID: ID!): Inspector
   }
-`;
+`

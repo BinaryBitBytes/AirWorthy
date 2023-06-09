@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server'
 
 export const ManagerTypeDefs = gql`
   input ManagerInput {
@@ -17,4 +17,4 @@ export const ManagerTypeDefs = gql`
     email: String
     password: String
   }
-`;
+`

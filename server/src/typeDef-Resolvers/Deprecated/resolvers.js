@@ -14,7 +14,7 @@
 // //Creating Resolvers for Technician
 // const technicianResolvers = new Schema(
 //   {
-//     Query: 
+//     Query:
 //     {
 //       technicians: async () => {
 //         return await Technician.find().sort({ createdAt: -1 })//.cursor(); //added .cursor to see if this resolves //! added await
@@ -25,7 +25,7 @@
 //       },
 //     },
 
-//     Mutation: 
+//     Mutation:
 //     {
 //       addTechnician: async (
 //         parent,
@@ -65,7 +65,7 @@
 // //Creating Resolvers for Manager
 // const managerResolvers = new Schema(
 //   {
-//     Query: 
+//     Query:
 //     {
 //       managers: async () => {
 //         return await Manager.find().sort({ createdAt: -1 }); //! added await
@@ -76,7 +76,7 @@
 //       },
 //     },
 
-//     Mutation: 
+//     Mutation:
 //     {
 //       addManager: async (
 //         parent,
@@ -116,7 +116,7 @@
 // //! Creating Resolver for Project
 // const projectResolvers = new Schema (
 //   {
-//     Query: 
+//     Query:
 //     {
 //       projects: async () => {
 //         return await Project.find().sort({ createdAt: -1 }); //! added await
@@ -127,7 +127,7 @@
 //       },
 //     },
 
-//     Mutation: 
+//     Mutation:
 //     {
 //       addProject: async (
 //         parent,
@@ -167,7 +167,7 @@
 // //Creating Resolver for Airliner
 // const airlinerResolvers = new Schema(
 //   {
-//     Query: 
+//     Query:
 //     {
 //       airliners: async () => {
 //         return await Airliner.find().sort({ createdAt: -1 }); //! added await
@@ -178,7 +178,7 @@
 //       },
 //     },
 
-//     Mutation: 
+//     Mutation:
 //     {
 //       addAirliner: async (parent,
 //         { airlinerName, isAdmin, modelAircraft, username, email, password }
@@ -194,7 +194,7 @@
 //           }
 //         );
 //       },
-//       addAirliner: async (parent, { airlinerID, airlinerName }) => 
+//       addAirliner: async (parent, { airlinerID, airlinerName }) =>
 //       {
 //         return Airliner.findOneAndUpdate(
 //           { _id: airlinerID },
@@ -207,11 +207,11 @@
 //           }
 //         );
 //       },
-//       removeAirliner: async (parent, { airlinerID }) => 
+//       removeAirliner: async (parent, { airlinerID }) =>
 //         {
 //           return Airliner.fineOneAndDelete({ _id: airlinerID });
 //         },
-//       removeAirliner: async (parent, { airlinerID, airlinerName }) => 
+//       removeAirliner: async (parent, { airlinerID, airlinerName }) =>
 //         {
 //           return Airliner.destroy({ _id: airlinerID }, { $airlinerName });
 //         },
@@ -222,20 +222,20 @@
 // //Creating Resolver for Inspector
 // const inspectorResolvers = new Schema (
 //   {
-//     Query: 
+//     Query:
 //     {
-//       inspectors: async () => 
+//       inspectors: async () =>
 //       {
 //         return await Technician.find().sort({ createdAt: -1 }); //! added await
 //       },
 
-//       inspector: async (parent, { inspectorID }) => 
+//       inspector: async (parent, { inspectorID }) =>
 //       {
 //         return await Technician.findOne({ _id: inspectorID }); //! added await
 //       },
 //     },
 
-//     Mutation: 
+//     Mutation:
 //     {
 //       addInspector: async (
 //         parent,
@@ -250,7 +250,7 @@
 //           password,
 //         });
 //       },
-//       addProject: async (parent, { inspectorID, onProject }) => 
+//       addProject: async (parent, { inspectorID, onProject }) =>
 //       {
 //         return Inspector.findOneAndUpdate(
 //           { _id: inspectorID },
@@ -263,11 +263,11 @@
 //           }
 //         );
 //       },
-//       removeInspector: async (parent, { inspectorID }) => 
+//       removeInspector: async (parent, { inspectorID }) =>
 //       {
 //         return Inspector.fineOneAndDelete({ _id: inspectorID });
 //       },
-//       removeInspector: async (parent, { inspectorID, onProject }) => 
+//       removeInspector: async (parent, { inspectorID, onProject }) =>
 //       {
 //         return Inspector.destroy({ _id: inspectorID }, {});
 //       },
@@ -279,7 +279,7 @@
 
 // const resolvers = new Schema(
 //   {
-//     Query: 
+//     Query:
 //     {
 //       me: async (parent, { userId }) => {
 //         return await User.findOne({
@@ -288,7 +288,7 @@
 //       },
 //     },
 
-//     Mutation: 
+//     Mutation:
 //     {
 //       loginUser: async (parent, { email, password }) => {
 //         const user = await User.findOne({ email });
@@ -318,7 +318,6 @@
 //   }
 // );
 
-
 // //! still need to do project
 // export default {resolvers, technicianResolvers, managerResolvers, inspectorResolvers, airlinerResolvers, projectResolvers}
 // // @ts-check resolved ^
@@ -328,4 +327,3 @@
 // // export default projectResolvers; //! still need to do project
 // // export default inspectorResolvers;
 // // export default airlinerResolvers;
-

@@ -1,9 +1,6 @@
-
-
-import pkg from 'apollo-server';
-const { gql } = pkg;
-import { makeExecutableSchema } from '@graphql-tools/schema'
-
+import pkg from 'apollo-server'
+// import { makeExecutableSchema } from '@graphql-tools/schema'
+const { gql } = pkg
 
 export const ProjectDataTypeDefs = gql`
 input ProjectData {
@@ -13,4 +10,4 @@ input ProjectData {
     inspectorName: String
     workDescription: String
   }
-` ;
+`

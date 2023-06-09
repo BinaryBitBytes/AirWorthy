@@ -1,7 +1,7 @@
-import pkg from 'mongoose';
-const { Schema, model } = pkg;
-import bcrypt from 'bcrypt';
-import { resolvers } from "../typeDef-Resolvers/inspectorSchema.js";
+import pkg from 'mongoose'
+import bcrypt from 'bcrypt'
+// import { resolvers } from "../typeDef-Resolvers/inspectorSchema.js"
+const { Schema, model } = pkg
 
 const inspectorSchema = new Schema(
   {
@@ -9,7 +9,7 @@ const inspectorSchema = new Schema(
       type: Number,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     inspectorName: { type: String, required: true, unique: true },
     isAdmin: { type: Boolean, enum: [true] },
@@ -21,22 +21,22 @@ const inspectorSchema = new Schema(
   {
     hooks: {
       beforeCreate: async (newInspectorData) => {
-        newInspectorData.password = await bcrypt.hash(newInspectorData.password, 10);
-        return newInspectorData;
+        newInspectorData.password = await bcrypt.hash(newInspectorData.password, 10)
+        return newInspectorData
       },
       beforeUpdate: async (updatedInspectorData) => {
-        updatedInspectorData.password = await bcrypt.hash(updatedInspectorData.password, 10);
-        return updatedInspectorData;
-      },
+        updatedInspectorData.password = await bcrypt.hash(updatedInspectorData.password, 10)
+        return updatedInspectorData
+      }
     },
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Inspector",
+    modelName: 'Inspector'
   }
-);
+)
 
-export const InspectorModel = model("Inspector", inspectorSchema);
+export const InspectorModel = model('Inspector', inspectorSchema)
 
 // export const inspectorResolvers = {
 //   Query: {

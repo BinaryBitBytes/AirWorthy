@@ -1,16 +1,14 @@
-
-
 export const resolver = {
   ProjectData: {
     Query:
     {
       projectData: async () => {
-        return await ProjectData.find().sort({ createdAt: -1 }); //! added await
+        return await ProjectData.find().sort({ createdAt: -1 }) //! added await
       },
 
       project: async (parent, { projectID }) => {
-        return await ProjectData.findOne({ _id: projectID }); //! added await
-      },
+        return await ProjectData.findOne({ _id: projectID }) //! added await
+      }
     },
 
     Mutation:
@@ -23,28 +21,28 @@ export const resolver = {
           projectId,
           projectName,
           inspectorName,
-          workDescription,
-        });
+          workDescription
+        })
       },
       addInspector: async (parent, { projectID, inspectorName }) => {
         return Manager.findOneAndUpdate(
           { _id: projectID },
           {
-            $addToSet: { workDescription: { inspectorName } },
+            $addToSet: { workDescription: { inspectorName } }
           },
           {
             new: true,
-            runValidators: true,
+            runValidators: true
           }
-        );
+        )
       },
       removeProject_Data: async (parent, { projectID }) => {
-        return Project_Data.fineOneAndDelete({ _id: projectID });
+        return Project_Data.fineOneAndDelete({ _id: projectID })
       },
       removeProject_Data: async (parent, { projectID, workDescription }) => {
         return Project_Data.destroy({ _id: projectID }, {});
-      },
-    },
+      }
+    }
   }
-};
-export default resolver;
+}
+export default resolver

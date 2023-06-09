@@ -1,20 +1,20 @@
-import { ApolloServer, gql } from 'apollo-server';
-import { makeExecutableSchema } from '@graphql-tools/schema';
-import { merge } from 'lodash';
+import { ApolloServer, gql } from 'apollo-server'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { merge } from 'lodash'
 
 // Import resolvers from schema files
-import { resolvers as airlinerResolvers } from './airlinerSchema.js';
-import { resolvers as authResolvers } from './authSchema.js';
-import { resolvers as inspectorResolvers } from './inspectorSchema.js';
-import { resolvers as managerResolvers } from './managerSchema.js';
-import { resolvers as projectDataResolvers } from './projectDataSchema.js';
-import { resolvers as projectResolvers } from './projectSchema.js';
-import { resolvers as technicianResolvers } from './technicianSchema.js';
+import { resolvers as airlinerResolvers } from './airlinerSchema.js'
+import { resolvers as authResolvers } from './authSchema.js'
+import { resolvers as inspectorResolvers } from './inspectorSchema.js'
+import { resolvers as managerResolvers } from './managerSchema.js'
+import { resolvers as projectDataResolvers } from './projectDataSchema.js'
+import { resolvers as projectResolvers } from './projectSchema.js'
+import { resolvers as technicianResolvers } from './technicianSchema.js'
 
 // Define the root resolvers
 const rootResolvers = {
-  Query: {},
-};
+  Query: {}
+}
 
 // Define the executable schema
 const schema = makeExecutableSchema({
@@ -28,21 +28,19 @@ const schema = makeExecutableSchema({
     projectDataResolvers,
     projectResolvers,
     technicianResolvers
-  ),
-});
+  )
+})
 
 // Create an Apollo Server instance
 const server = new ApolloServer({
-  schema,
+  schema
   // ... other Apollo Server options if needed
-});
+})
 
 // Start the server
 server.listen().then(({ url }) => {
-  console.log(`Server running at ${url}`);
-});
-
-
+  console.log(`Server running at ${url}`)
+})
 
 // import pkg from 'lodash';
 // import { ApolloServer, gql } from 'apollo-server';
@@ -60,7 +58,7 @@ server.listen().then(({ url }) => {
 //   }
 // };
 
-// const SCHEMAex = () => { 
+// const SCHEMAex = () => {
 //   makeExecutableSchema({
 //     // typeDefs: [Query, Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],
 //     typeDefs: [Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician],

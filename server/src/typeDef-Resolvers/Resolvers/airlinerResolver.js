@@ -1,13 +1,14 @@
-import { AirlinerModel } from '../../models/Airliner.js';
+import { AirlinerModel } from '../../models/Airliner.js'
+import bcrypt from 'bcrypt'
 
 export const airlinerResolvers = {
   Query: {
     airliner: async (_, { _id }) => {
-      return AirlinerModel.findOne({ _id });
+      return AirlinerModel.findOne({ _id })
     },
     airliners: async (_, { airlinerName }) => {
-      return AirlinerModel.find({ airlinerName }).sort({ createdAt: -1 });
-    },
+      return AirlinerModel.find({ airlinerName }).sort({ createdAt: -1 })
+    }
   },
   Mutation: {
     addAirliner: async (_, { airlinerName, isAdmin, modelAircraft, username, email, password }) => {
@@ -17,18 +18,18 @@ export const airlinerResolvers = {
         modelAircraft,
         userName: username,
         email,
-        password,
-      });
+        password
+      })
 
-      newAirliner.password = await bcrypt.hash(password, 10);
+      newAirliner.password = await bcrypt.hash(password, 10)
 
-      await newAirliner.save();
+      await newAirliner.save()
 
-      return newAirliner;
+      return newAirliner
     },
     removeAirliner: async (_, { _id }) => {
-      await AirlinerModel.findOneAndDelete({ _id });
-      return true;
-    },
-  },
-};
+      await AirlinerModel.findOneAndDelete({ _id })
+      return true
+    }
+  }
+}

@@ -1,13 +1,13 @@
-import pkg from 'mongoose';
-const { Schema, model } = pkg;
-import bcrypt from 'bcrypt';
+import pkg from 'mongoose'
+import bcrypt from 'bcrypt'
+const { Schema, model } = pkg
 
 const AirlinerSchema = new Schema({
   id: {
     type: Number,
     allowNull: false,
     primaryKey: true,
-    autoIncrement: true,
+    autoIncrement: true
   },
   airlinerName: String,
   isAdmin: { type: Boolean, enum: [true] },
@@ -17,19 +17,19 @@ const AirlinerSchema = new Schema({
   password: String
 }, {
   hooks: {
-    beforeCreate: async function(newAirlinerData) {
-      newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10);
-      return newAirlinerData;
+    beforeCreate: async function (newAirlinerData) {
+      newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10)
+      return newAirlinerData
     },
-    beforeUpdate: async function(updatedAirlinerData) {
-      updatedAirlinerData.password = await bcrypt.hash(updatedAirlinerData.password, 10);
-      return updatedAirlinerData;
-    },
+    beforeUpdate: async function (updatedAirlinerData) {
+      updatedAirlinerData.password = await bcrypt.hash(updatedAirlinerData.password, 10)
+      return updatedAirlinerData
+    }
   },
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: "Airliner",
-});
+  modelName: 'Airliner'
+})
 
-export const AirlinerModel = model("Airliner", AirlinerSchema);
+export const AirlinerModel = model('Airliner', AirlinerSchema)

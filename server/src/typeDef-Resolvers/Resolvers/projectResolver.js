@@ -1,11 +1,11 @@
 export const resolver = {
   Query: {
     projects: async () => {
-      return await Project.find().sort({ createdAt: -1 });
+      return await Project.find().sort({ createdAt: -1 })
     },
     project: async (parent, { projectID }) => {
-      return await Project.findOne({ _id: projectID });
-    },
+      return await Project.findOne({ _id: projectID })
+    }
   },
   Mutation: {
     addProject: async (
@@ -18,38 +18,38 @@ export const resolver = {
         onProject,
         username,
         email,
-        password,
-      });
+        password
+      })
     },
     updateProject: async (parent, { projectID, onProject }) => {
       return Project.findOneAndUpdate(
         { _id: projectID },
         {
-          $addToSet: { onProject },
+          $addToSet: { onProject }
         },
         {
           new: true,
-          runValidators: true,
+          runValidators: true
         }
-      );
+      )
     },
     removeProject: async (parent, { projectID }) => {
-      return Project.findOneAndDelete({ _id: projectID });
+      return Project.findOneAndDelete({ _id: projectID })
     },
     removeTechnician: async (parent, { projectID, technicianID }) => {
       return Project.findOneAndUpdate(
         { _id: projectID },
         {
-          $pull: { onProject: technicianID },
+          $pull: { onProject: technicianID }
         },
         {
           new: true,
-          runValidators: true,
+          runValidators: true
         }
-      );
-    },
-  },
-};
+      )
+    }
+  }
+}
 
 export default resolver;
 

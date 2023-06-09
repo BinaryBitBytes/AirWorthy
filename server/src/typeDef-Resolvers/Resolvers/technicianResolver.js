@@ -3,12 +3,12 @@ export const resolver = {
     Query:
     {
       technicians: async () => {
-        return await Technician.find().sort({ createdAt: -1 })//.cursor(); //added .cursor to see if this resolves //! added await
+        return await Technician.find().sort({ createdAt: -1 }) // .cursor(); //added .cursor to see if this resolves //! added await
       },
 
       technician: async (parent, { technicianID }) => {
-        return await Technician.findOne({ _id: technicianID })//.cursor(); //added .cursor to see if this resolves //! added await
-      },
+        return await Technician.findOne({ _id: technicianID }) // .cursor(); //added .cursor to see if this resolves //! added await
+      }
     },
 
     Mutation:
@@ -23,28 +23,28 @@ export const resolver = {
           onProject,
           username,
           email,
-          password,
-        });
+          password
+        })
       },
       addProject: async (parent, { technicianID, onProject }) => {
         return Technician.findOneAndUpdate(
           { _id: technicianID },
           {
-            $addToSet: { project: { onProject } },
+            $addToSet: { project: { onProject } }
           },
           {
             new: true,
-            runValidators: true,
+            runValidators: true
           }
-        );
+        )
       },
       removeTechnician: async (parent, { technicianID }) => {
-        return Technician.fineOneAndDelete({ _id: technicianID });
+        return Technician.fineOneAndDelete({ _id: technicianID })
       },
       removeTechnician: async (parent, { technicianID, onProject }) => {
-        return Technician.destroy({ _id: technicianID }, {});
-      },
-    },
+        return Technician.destroy({ _id: technicianID }, {})
+      }
+    }
   }
-};
-export default resolver;
+}
+export default resolver

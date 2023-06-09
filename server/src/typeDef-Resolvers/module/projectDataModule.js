@@ -1,14 +1,14 @@
-import { typeDefs } from '../Schema/projectDataSchema.js'; //!
-import { resolver } from '../Resolvers/projectDataResolver.js'; //!
-import { createModule } from 'graphql-modules';
-import fileDirName from './file-dir-name.js';
+import { typeDefs } from '../Schema/projectDataSchema.js' //!
+import { resolver } from '../Resolvers/projectDataResolver.js' //!
+import { createModule } from 'graphql-modules'
+import fileDirName from './file-dir-name.js'
 
-const { __dirname, __filename } = fileDirName(import.meta);
+const { __dirname, __filename } = fileDirName(import.meta)
 
 export const ProjectDataModule = createModule({ //!
-  id: 'projectData-module',  //!
+  id: 'projectData-module', //!
   dirname: __dirname,
   filename: __filename,
-  typeDefs: typeDefs,
+  typeDefs,
   resolvers: resolver
-});
+})
