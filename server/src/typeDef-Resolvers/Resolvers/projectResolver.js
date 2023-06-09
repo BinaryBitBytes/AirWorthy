@@ -51,8 +51,7 @@ export const resolver = {
   }
 }
 
-export default resolver;
-
+export default resolver
 
 // export const resolver = {
 //   Project: {

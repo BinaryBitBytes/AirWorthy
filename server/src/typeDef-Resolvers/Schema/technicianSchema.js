@@ -1,4 +1,4 @@
-import pkg from 'apollo-server';
+import pkg from 'apollo-server'
 const { gql } = pkg
 // import { makeExecutableSchema } from '@graphql-tools/schema'
 

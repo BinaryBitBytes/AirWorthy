@@ -54,8 +54,6 @@ export default resolver
 //     },
 //   },
 // };
-
-
 // // export const resolver = {
 // //   Auth: {
 // //     Query: {
@@ -67,7 +65,7 @@ export default resolver
 // //       },
 // //     },
 // //     Mutation: {
-// //       addUser: async (parent, 
+// //       addUser: async (parent,
 // //         { username, token, email, password, isAdmin }
 // //         ) => {
 // //           const newAuth = new Auth({ username, token, email, password, isAdmin });

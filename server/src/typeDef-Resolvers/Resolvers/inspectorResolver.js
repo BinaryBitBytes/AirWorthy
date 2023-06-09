@@ -27,7 +27,7 @@ export const resolver = {
     addProject: async (parent, { inspectorID, onProject }) => {
       return Inspector.findOneAndUpdate(
         { _id: inspectorID },
-        { $addToSet: { onProject: onProject } },
+        { $addToSet: { onProject } },
         { new: true, runValidators: true }
       )
     },
@@ -39,7 +39,7 @@ export const resolver = {
     removeProject: async (parent, { inspectorID, onProject }) => {
       return Inspector.updateOne(
         { _id: inspectorID },
-        { $pull: { onProject: onProject } }
+        { $pull: { onProject } }
       )
     }
   }

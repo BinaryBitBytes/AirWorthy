@@ -1,19 +1,19 @@
 // import models
 import { Airliner, Inspector, Manager, Project, Technician } from '../models';
 // import sign token function from auth
-import res from 'express/lib/respoonse';
-// This res function is a built-in middleware function in Express. It parses incoming requests 
+// import res from 'express/lib/respoonse';
+// This res function is a built-in middleware function in Express. It parses incoming requests
 // with JSON payloads and is based on body-parser.
-// Returns middleware that only parses JSON and only looks at requests where the 
-// Content-Type header matches the type option. This parser accepts any Unicode 
+// Returns middleware that only parses JSON and only looks at requests where the
+// Content-Type header matches the type option. This parser accepts any Unicode
 // encoding of the body and supports automatic inflation of gzip and deflate encodings.
 // A new body object containing the parsed data is populated on the request object after
 // the middleware (i.e. req.body), or an empty object ({}) if there was no body to parse,
 // the Content-Type was not matched, or an error occurred.
 
 //importing pages
-import { Intro, Manager, Technician } from '../../client/src/pages';
-import { signToken } from '../utils/middleware/auth.cjs';
+import { Intro, Manager, Technician } from '../../client/src/pages'
+import { signToken } from '../utils/middleware/auth.cjs'
 
 // get a single user by either their id or their username
 //! --------------

@@ -42,4 +42,4 @@ model.technician = new technician({
 }
 )
 // console.log(technician)
-export default model('Technician', technicianSchema)
+export default model('Technician', technician)
