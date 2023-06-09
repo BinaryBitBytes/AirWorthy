@@ -4,10 +4,34 @@ const { gql } = pkg
 
 export const ProjectTypeDefs = gql`
     # //TODO need to add a real input type to project named projectInput and change project back to type project
-input Project {
-    _id: ID!
-    projectName: String
-    inspectorName: String
-    workDescription: String
-  }
+  type Project {
+  _id: ID!
+  projectName: String
+  isAdmin: Boolean
+  onProject: [String]
+  username: String
+  email: String
+  password: String
+}
+
+input ProjectInput {
+  projectName: String
+  isAdmin: Boolean
+  onProject: [String]
+  username: String
+  email: String
+  password: String
+}
+
+type Query {
+  projects: [Project]
+  project(projectID: ID!): Project
+}
+
+type Mutation {
+  addProject(input: ProjectInput): Project
+  updateProject(projectID: ID!, onProject: [String]): Project
+  removeProject(projectID: ID!): Project
+  removeTechnician(projectID: ID!, technicianID: String): Project
+}
 `

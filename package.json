@@ -8,7 +8,7 @@
     "js": true
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node -r esm server/server.js",
     "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
     "runStart": "react-scripts start",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -55,6 +55,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "esm": "^3.2.25",
     "node": "^16.13.0",
     "npm": "8.1.0",
     "react": "^17.0.2",

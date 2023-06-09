@@ -12,12 +12,6 @@ export const InspectorTypeDefs = gql`
     password: String
   }
 
-  type Project {
-    _id: ID!
-    # Add other fields for the Project type
-    # ...
-  }
-
   input InspectorInput {
     inspectorName: String
     isAdmin: Boolean
@@ -34,8 +28,8 @@ export const InspectorTypeDefs = gql`
 
   type Mutation {
     addInspector(inspector: InspectorInput): Inspector
-    addProject(inspectorID: ID!, projectID: ID!): Inspector
+    # addProject(inspectorID: ID!, projectID: ID!): Inspector
     removeInspector(inspectorID: ID!): Boolean
-    removeProject(inspectorID: ID!, projectID: ID!): Inspector
+    # removeProject(inspectorID: ID!, projectID: ID!): Inspector
   }
 `

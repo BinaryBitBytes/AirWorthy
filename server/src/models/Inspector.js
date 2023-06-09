@@ -1,9 +1,9 @@
-import pkg from 'mongoose'
+import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
+const { model } = mongoose
 // import { resolvers } from "../typeDef-Resolvers/inspectorSchema.js"
-const { Schema, model } = pkg
 
-const inspectorSchema = new Schema(
+const Inspector = new mongoose.Schema(
   {
     id: {
       type: Number,
@@ -36,7 +36,7 @@ const inspectorSchema = new Schema(
   }
 )
 
-export const InspectorModel = model('Inspector', inspectorSchema)
+export const InspectorModel = model('Inspector', Inspector)
 
 // export const inspectorResolvers = {
 //   Query: {

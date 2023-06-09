@@ -1,6 +1,6 @@
 import { airlinerResolvers } from './airlinerResolver.js'
 import { resolver as authResolvers } from './authResolver.js'
-import { resolver as inspectorResolvers } from './inspectorResolver.js'
+import { resolvers as inspectorResolvers } from './inspectorResolver.js'
 import { resolver as managerResolvers } from './managerResolver.js'
 import { resolver as projectDataResolvers } from './projectDataResolver.js'
 import { resolver as projectResolvers } from './projectResolver.js'

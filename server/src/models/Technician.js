@@ -1,9 +1,11 @@
-import pkg from 'mongoose'
-import { resolvers } from '../src/schemas/technicianSchema.js'
+// import pkg from 'mongoose'
+// import { resolvers } from '../src/schemas/technicianSchema.js'
+import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
-const { model } = pkg
-const technician = { resolvers }
-model.technician = new technician({
+const { model } = mongoose
+// const technician = { resolvers }
+// model.technician = new Technician({
+const Technician = new mongoose.Schema({
   id: {
     type: Number,
     allowNull: false,
@@ -38,8 +40,9 @@ model.technician = new technician({
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: 'technician'
+  modelName: 'Technician'
 }
 )
 // console.log(technician)
-export default model('Technician', technician)
+// export default model('Technician', Technician)
+export const TechnicianModel = model('Technician', Technician)

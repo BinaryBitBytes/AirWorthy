@@ -1,3 +1,4 @@
+import Project from '../../models/Project.js'
 export const resolver = {
   Query: {
     projects: async () => {

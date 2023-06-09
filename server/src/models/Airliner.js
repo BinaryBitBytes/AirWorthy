@@ -1,8 +1,8 @@
-import pkg from 'mongoose'
+import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
-const { Schema, model } = pkg
+const { model } = mongoose
 
-const AirlinerSchema = new Schema({
+const Airliner = new mongoose.Schema({
   id: {
     type: Number,
     allowNull: false,
@@ -32,4 +32,4 @@ const AirlinerSchema = new Schema({
   modelName: 'Airliner'
 })
 
-export const AirlinerModel = model('Airliner', AirlinerSchema)
+export const AirlinerModel = model('Airliner', Airliner)

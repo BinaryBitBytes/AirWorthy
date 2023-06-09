@@ -1,12 +1,11 @@
 // Resolvers > Models > Schema
-import pkg from 'mongoose'
+import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
-// import { Token } from 'graphql'
-const { Schema, model } = pkg
+const { model } = mongoose
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
 
-const Auth = new Schema({
+const Auth = new mongoose.Schema({
   id: {
     type: Number,
     allowNull: false,

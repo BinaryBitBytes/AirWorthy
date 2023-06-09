@@ -1,8 +1,8 @@
-import pkg from 'mongoose'
-import { resolvers } from '../typeDef-Resolvers/projectSchema.js'
-const { model, Schema } = pkg
+import mongoose from 'mongoose'
+const { model } = mongoose
+// import { resolvers } from '../typeDef-Resolvers/projectSchema.js'
 
-const projectSchema = new Schema({
+const Project = new mongoose.Schema({
   id: {
     type: Number,
     allowNull: false,
@@ -19,12 +19,12 @@ const projectSchema = new Schema({
   underscored: true,
   modelName: 'Project'
 })
+export default model('Project', Project)
+// const project = { resolvers }
+// model('Project', Project)
+// model.project = new project(Project)
 
-const project = { resolvers }
-model('Project', projectSchema)
-model.project = new project(projectSchema)
-
-export default model('Project') // Use "Project" as the model name
+// export default model('Project') // Use "Project" as the model name
 
 // import pkg from 'mongoose';
 // const { model } = pkg;

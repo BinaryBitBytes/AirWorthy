@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
+const { model } = mongoose
 
-const ProjectDataSchema = new mongoose.Schema({
+const ProjectData = new mongoose.Schema({
   projectId: {
     type: Number,
     required: true
@@ -19,6 +20,6 @@ const ProjectDataSchema = new mongoose.Schema({
   }
 })
 
-const ProjectData = mongoose.model('ProjectData', ProjectDataSchema)
-
-export default ProjectData
+// const ProjectData = mongoose.model('ProjectData', ProjectData)
+export const ProjectDataModel = model('ProjectData', ProjectData)
+// export default ProjectData

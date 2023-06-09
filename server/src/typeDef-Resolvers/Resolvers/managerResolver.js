@@ -1,4 +1,4 @@
-import Manager from '../models/manager' // Import the Manager model
+import Manager from '../../models/Manager.js' // Import the Manager model
 
 export const resolver = {
   Query: {

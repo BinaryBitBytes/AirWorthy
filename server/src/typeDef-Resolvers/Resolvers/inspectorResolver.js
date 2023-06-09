@@ -1,20 +1,20 @@
-export const resolver = {
+import { InspectorModel } from '../../models/Inspector.js'
+
+export const resolvers = {
   Query: {
     inspectors: async () => {
-      return await Inspector.find().sort({ createdAt: -1 })
+      return await InspectorModel.find().sort({ createdAt: -1 })
     },
-
     inspector: async (parent, { inspectorID }) => {
-      return await Inspector.findOne({ _id: inspectorID })
+      return await InspectorModel.findOne({ _id: inspectorID })
     }
   },
-
   Mutation: {
     addInspector: async (
       parent,
       { inspectorName, isAdmin, onProject, username, email, password }
     ) => {
-      return Inspector.create({
+      return InspectorModel.create({
         inspectorName,
         isAdmin,
         onProject,
@@ -23,26 +23,21 @@ export const resolver = {
         password
       })
     },
-
     addProject: async (parent, { inspectorID, onProject }) => {
-      return Inspector.findOneAndUpdate(
+      return InspectorModel.findOneAndUpdate(
         { _id: inspectorID },
-        { $addToSet: { onProject } },
+        { $addToSet: { onProject: onProject } },
         { new: true, runValidators: true }
       )
     },
-
     removeInspector: async (parent, { inspectorID }) => {
-      return Inspector.findOneAndDelete({ _id: inspectorID })
+      return InspectorModel.findOneAndDelete({ _id: inspectorID })
     },
-
     removeProject: async (parent, { inspectorID, onProject }) => {
-      return Inspector.updateOne(
+      return InspectorModel.updateOne(
         { _id: inspectorID },
-        { $pull: { onProject } }
+        { $pull: { onProject: onProject } }
       )
     }
   }
 }
-
-export default resolver

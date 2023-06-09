@@ -1,8 +1,8 @@
-import pkg from 'mongoose'
+import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
-const { Schema, model } = pkg
+const { model } = mongoose
 
-const managerSchema = new Schema(
+const Manager = new mongoose.Schema(
   {
     id: {
       type: Number,
@@ -35,4 +35,4 @@ const managerSchema = new Schema(
   }
 )
 
-export default model('Manager', managerSchema)
+export default model('Manager', Manager)

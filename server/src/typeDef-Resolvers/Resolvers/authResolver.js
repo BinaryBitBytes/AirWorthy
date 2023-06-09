@@ -1,8 +1,5 @@
-import pkg from 'mongoose'
-import bcrypt from 'bcrypt'
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
 import { AuthModel } from '../../models/Auth.js'
-const { Schema, model } = pkg
 export const resolver = {
   Query: {
     auth: async (parent, args) => {
@@ -76,7 +73,7 @@ export default resolver
 // //           // return newAuth;
 // //       },
 // //       addUser: async (parent, { authID, username, email, password }) => {
-// //         return authID.findOneAndUpdate( //Todo: need to verify the parent value of userID <------ 
+// //         return authID.findOneAndUpdate( //Todo: need to verify the parent value of userID <------
 // //         //! ^^^^
 // //           { _id: authID },
 // //           {
