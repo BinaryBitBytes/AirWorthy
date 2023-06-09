@@ -1,5 +1,5 @@
-import { typeDefs } from '../airlinerSchema.js';
-import { resolvers } from '../airlinerSchema.js';
+import {AirlinerTypeDefs} from '../Schema/airlinerSchema.js';
+import {resolver} from '../Resolvers/airlinerResolver.js';
 import { createModule } from 'graphql-modules';
 import fileDirName from './file-dir-name.js';
 import { fileURLToPath } from 'url';
@@ -12,6 +12,6 @@ export const AirlinerModule = createModule({
   id: 'airliner-module',
   dirname: __dirname,
   filename: __filename,
-  typeDefs: typeDefs,
-  resolvers: resolvers
+  typeDefs: AirlinerTypeDefs,
+  resolvers: resolver
 });

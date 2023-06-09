@@ -1,5 +1,5 @@
-import { typeDefs } from '../technicianSchema.js'; //!
-import { resolvers } from '../technicianSchema.js'; //!
+import { TechnicianTypeDefs } from '../Schema/technicianSchema.js'; //!
+import { resolver } from '../Resolvers/technicianResolver.js'; //!
 import { createModule } from 'graphql-modules';
 import fileDirName from './file-dir-name.js';
 
@@ -9,7 +9,7 @@ export const TechnicianModule = createModule({ //!
   id: 'technician-module',  //!
   dirname: __dirname,
   filename: __filename,
-  typeDefs: typeDefs,
-  resolvers: resolvers
+  typeDefs: TechnicianTypeDefs,
+  resolvers: resolver
 });
-console.log(TechnicianModule)
+// console.log(TechnicianModule)

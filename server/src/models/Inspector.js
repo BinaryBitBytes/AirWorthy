@@ -37,5 +37,5 @@ model.inspector = new inspector(
     modelName: "inspector",
   }
 );
-console.log(inspector);
+// console.log(inspector);
 export default model("Inspector", inspectorSchema);

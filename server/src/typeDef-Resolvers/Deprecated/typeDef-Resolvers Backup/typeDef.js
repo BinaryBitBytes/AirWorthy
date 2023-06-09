@@ -6,14 +6,18 @@ import { typeDefs as ProjectData } from './projectDataSchema.js';
 import { typeDefs as Project } from './projectSchema.js';
 import { typeDefs as Technician } from './technicianSchema.js';
 
-export const typeDef = [
-    Airliner,
-    Auth,
-    Inspector,
-    Manager,
-    ProjectData,
-    Project,
-    Technician
-];
+const  typeDefs = () => {
+      const arr = (
+        Airliner,
+        Auth,
+        Inspector,
+        Manager,
+        ProjectData,
+        Project,
+        Technician
+      )
+    return arr
+};
 
-console.log(typeDef);
+export default typeDefs;
+// console.log(typeDefs());

@@ -1,6 +1,8 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import pkg from 'apollo-server-express';
-const { gql } = pkg;
+import pkg2 from 'apollo-server';
+const { gql } = pkg2;
+import pkg from 'graphql'
+const { graphql, buildSchema } = pkg;
 // import { AirlinerSchema } from '../models/Airliner.js';
 import { typeDefs as Auth } from './authSchema.js';
 
@@ -49,15 +51,25 @@ export const resolvers = {
     },
   }
 };
-console.log(resolvers.Airliner.Query.airliner);
 
-export const typeDefs = gql`
+export const typeDefs = buildSchema (`
     # //TODO need to add a real input type to Airliner named airlinerInput and change Airliner back to type Airliner
-  input Airliner {
+  type Airliner {
     _id: ID!
     airlinerName: String
     isAdmin: Boolean
-    modelAircraft: [String]
+    # modelAircraft: [String]
+    modelAircraft: String
+    username: String!
+    email: String
+    password: String
+  }
+
+  input AirlinerInput {
+    airlinerName: String
+    isAdmin: Boolean
+    # modelAircraft: [String]
+    modelAircraft: String
     username: String!
     email: String
     password: String
@@ -71,18 +83,26 @@ export const typeDefs = gql`
     airliners(airlinerID: ID!): [Airliner]
   }
 
+  # type Mutation {
+  #   addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Airliner
+  # }
   type Mutation {
-    addAirliner(airlinerName: String!, isAdmin: Boolean!, modelAircraft: String, username: String! , email: String! , password: String!): Airliner
-  }
-`;
+    addAirliner(input: AirlinerInput): Airliner
+    }
+`
+)
 
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-});
+graphql({ typeDefs }).then(response => {
+  console.log(response)
+})
+
+// const schema = makeExecutableSchema({
+//   typeDefs,
+//   resolvers,
+// });
 const rootResolveFunction = (parent, args, context, info) => {
   //perform action before any other resolvers
 };
 // addSchemaLevelResolveFunction(schema, rootResolveFunction)
 // console.log(typeof typeDef)
-console.log(typeDefs);
+// console.log(typeDefs);

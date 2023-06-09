@@ -2,6 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Server Side for Airworthy",
+  "type": "module",
   "main": "server.js",
   "quokka": {
     "babel": true
@@ -42,7 +43,6 @@
     "popper": "^1.0.1",
     "url": "^0.11.0"
   },
-  "type": "module",
   "devDependencies": {
     "graphql-tools": "^9.0.0",
     "node": "^16.13.0",

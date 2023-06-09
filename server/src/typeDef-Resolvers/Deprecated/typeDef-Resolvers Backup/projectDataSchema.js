@@ -13,7 +13,7 @@ input ProjectData {
     workDescription: String
   }
 ` ;
-console.log(typeDefs);
+// console.log(typeDefs);
 
 export const resolvers = {
   ProjectData: {

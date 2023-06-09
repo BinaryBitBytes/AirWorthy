@@ -24,5 +24,5 @@ model.project = new project(
     modelName: "project",
   }
 );
-console.log(project);
+// console.log(project);
 export default model("Project", projectSchema);

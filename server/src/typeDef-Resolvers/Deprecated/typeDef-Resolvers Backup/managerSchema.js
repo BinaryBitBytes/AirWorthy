@@ -15,7 +15,7 @@ export const typeDefs = gql`
         password: String
   }
 ` ;
-console.log(typeDefs);
+// console.log(typeDefs);
 
 export const resolvers = {
   Manager: {
@@ -75,5 +75,5 @@ const rootResolveFunction = (parent, args, context, info) => {
 };
 // addSchemaLevelResolveFunction(schema, rootResolveFunction)
 
-console.log(resolvers);
-console.log(resolvers.Manager.Query.managers);
+// console.log(resolvers);
+// console.log(resolvers.Manager.Query.managers);

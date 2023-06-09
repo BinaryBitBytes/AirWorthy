@@ -38,5 +38,5 @@ model.manager = new manager(
     modelName: "manager",
   }
 );
-console.log(manager);
+// console.log(manager);
 export default model("Manager", managerSchema);

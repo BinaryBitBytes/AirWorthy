@@ -1,11 +1,13 @@
 // Resolvers > Models > Schema
-import pkg from 'mongoose';
-const { model } = pkg;
+// import pkg from 'mongoose';
+// const { model } = pkg;
 //! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
-import { resolvers } from "../typeDef-Resolvers/airlinerSchema.js";
-const airliner = { resolvers };
-model.airliner = new airliner(
-  {
+// import { resolvers } from "../typeDef-Resolvers/airlinerSchema.js";
+// const airliner = { resolvers };
+// model.airliner = new airliner(
+  
+
+const Airliner= new Schema({
     id: {
       type: Number,
       allowNull: false,
@@ -36,8 +38,9 @@ model.airliner = new airliner(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "airlinerSchema",
+    modelName: "Airliner",
   }
 );
-console.log(airliner);
-export default model("airlinerSchema", airlinerSchema);
+// console.log(airliner);
+export default model("Airliner", Airliner);
+module.exports = {Airliner};
