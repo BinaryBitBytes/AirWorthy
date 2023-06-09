@@ -1,21 +1,35 @@
-import pkg from 'apollo-server';
-const { gql } = pkg;
-import { makeExecutableSchema } from '@graphql-tools/schema'
-
+import pkg from 'apollo-server'
+const { gql } = pkg
 
 export const InspectorTypeDefs = gql`
-input Inspector {
-      # //TODO need to add a real input type to Inspector named inspectorInput and change Inspector back to type Inspector
-
+  type Inspector {
     _id: ID!
     inspectorName: String
     isAdmin: Boolean
-    # onProject: [Project] <!---Bug
+    onProject: [Project]
     username: String!
     email: String
     password: String
   }
-  type onProject {
-    _id: ID!
+
+  input InspectorInput {
+    inspectorName: String
+    isAdmin: Boolean
+    onProject: [ID]
+    username: String!
+    email: String
+    password: String
   }
-`;
+
+  type Query {
+    inspectors: [Inspector]
+    inspector(inspectorID: ID!): Inspector
+  }
+
+  type Mutation {
+    addInspector(inspector: InspectorInput): Inspector
+    # addProject(inspectorID: ID!, projectID: ID!): Inspector
+    removeInspector(inspectorID: ID!): Boolean
+    # removeProject(inspectorID: ID!, projectID: ID!): Inspector
+  }
+`

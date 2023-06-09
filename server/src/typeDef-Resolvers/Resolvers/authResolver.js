@@ -1,37 +1,33 @@
-import pkg from 'mongoose';
-const { Schema, model } = pkg;
-import bcrypt from 'bcrypt';
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
-import {Auth} from '../../models/Auth'
+import { AuthModel } from '../../models/Auth.js'
 export const resolver = {
   Query: {
     auth: async (parent, args) => {
-      return AuthModel.findOne({ _id: args.authID }).populate("auth");
+      return AuthModel.findOne({ _id: args.authID }).populate('auth')
     },
     auths: async (parent, args) => {
-      return AuthModel.find().sort({ createdAt: -1 }).populate("auth");
-    },
+      return AuthModel.find().sort({ createdAt: -1 }).populate('auth')
+    }
   },
   Mutation: {
     addUser: async (parent, { username, token, email, password, isAdmin }) => {
-      const newAuth = new AuthModel({ username, token, email, password, isAdmin });
-      await newAuth.build(username, token, email, password);
-      await newAuth.save();
-      await newAuth.populate("auth");
-      return newAuth;
+      const newAuth = new AuthModel({ username, token, email, password, isAdmin })
+      await newAuth.build(username, token, email, password)
+      await newAuth.save()
+      await newAuth.populate('auth')
+      return newAuth
     },
     loginUser: async (parent, { username, token, email, password }) => {
-      const userLogin = new AuthModel.findOne({ username, token, email, password });
-      await userLogin.build(username, email, password);
-      await userLogin.save();
-      await userLogin.populate("loginUser");
-      return userLogin;
-    },
-  },
-};
+      const userLogin = new AuthModel.findOne({ username, token, email, password })
+      await userLogin.build(username, email, password)
+      await userLogin.save()
+      await userLogin.populate('loginUser')
+      return userLogin
+    }
+  }
+}
 
-export default resolver;
-
+export default resolver
 
 // // import { Auth } from '../../models/Auth.js'
 // export const resolver = {
@@ -55,8 +51,6 @@ export default resolver;
 //     },
 //   },
 // };
-
-
 // // export const resolver = {
 // //   Auth: {
 // //     Query: {
@@ -68,7 +62,7 @@ export default resolver;
 // //       },
 // //     },
 // //     Mutation: {
-// //       addUser: async (parent, 
+// //       addUser: async (parent,
 // //         { username, token, email, password, isAdmin }
 // //         ) => {
 // //           const newAuth = new Auth({ username, token, email, password, isAdmin });
@@ -79,7 +73,7 @@ export default resolver;
 // //           // return newAuth;
 // //       },
 // //       addUser: async (parent, { authID, username, email, password }) => {
-// //         return authID.findOneAndUpdate( //Todo: need to verify the parent value of userID <------ 
+// //         return authID.findOneAndUpdate( //Todo: need to verify the parent value of userID <------
 // //         //! ^^^^
 // //           { _id: authID },
 // //           {

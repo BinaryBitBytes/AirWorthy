@@ -1,4 +1,4 @@
-import { gql } from "apollo-server";
+import { gql } from 'apollo-server'
 
 export const AuthTypeDefs = gql`
   type Query {
@@ -19,5 +19,4 @@ export const AuthTypeDefs = gql`
     addUser(username: String, token: String, email: String, password: String, isAdmin: Boolean): User
     loginUser(username: String, token: String, email: String, password: String): User
   }
-`;
-
+`

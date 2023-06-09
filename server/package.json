@@ -7,7 +7,7 @@
     "babel": true
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node -r esm server.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
@@ -44,6 +44,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "esm": "^3.2.25",
     "graphql-tools": "^9.0.0",
     "node": "^16.13.0",
     "nodemon": "^2.0.3",

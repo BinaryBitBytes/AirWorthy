@@ -1,46 +1,35 @@
-// Resolvers > Models > Schema
-// import pkg from 'mongoose';
-// const { model } = pkg;
-//! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
-// import { resolvers } from "../typeDef-Resolvers/airlinerSchema.js";
-// const airliner = { resolvers };
-// model.airliner = new airliner(
-  
+import mongoose from 'mongoose'
+import bcrypt from 'bcrypt'
+const { model } = mongoose
 
-const Airliner= new Schema({
-    id: {
-      type: Number,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    airlinerName: [{ type: String }],
-    isAdmin: { type: Boolean, enum: [true] },
-    modelAircraft: [{ type: String }],
-    userName: String,
-    email: String,
-    password: String
+const Airliner = new mongoose.Schema({
+  id: {
+    type: Number,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true
   },
-  {
-    hooks: {
-      beforeCreate: async (newAirlinerData) => {
-        newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10);
-        return newAirlinerData;
-      },
-      beforeUpdate: async (updatedAirlinerData) => {
-        updatedAirlinerData.password = await bcrypt.hash(
-          updatedAirlinerData.password,
-          10
-        );
-        return updatedAirlinerData;
-      },
+  airlinerName: String,
+  isAdmin: { type: Boolean, enum: [true] },
+  modelAircraft: [String],
+  userName: String,
+  email: String,
+  password: String
+}, {
+  hooks: {
+    beforeCreate: async function (newAirlinerData) {
+      newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10)
+      return newAirlinerData
     },
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "Airliner",
-  }
-);
-// console.log(airliner);
-export default model("Airliner", Airliner);
-module.exports = {Airliner};
+    beforeUpdate: async function (updatedAirlinerData) {
+      updatedAirlinerData.password = await bcrypt.hash(updatedAirlinerData.password, 10)
+      return updatedAirlinerData
+    }
+  },
+  timestamps: false,
+  freezeTableName: true,
+  underscored: true,
+  modelName: 'Airliner'
+})
+
+export const AirlinerModel = model('Airliner', Airliner)
