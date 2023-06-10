@@ -1,53 +1,57 @@
 import Project from '../../models/Project.js'
+import authenticationUser from '../../../utils/middleware/auth.js'
+
 export const resolver = {
-  Query: {
-    projects: async () => {
-      return await Project.find().sort({ createdAt: -1 })
+  Project: {
+    Query: {
+      projects: async () => {
+        return await Project.find().sort({ createdAt: -1 })
+      },
+      project: async (parent, { projectID }) => {
+        return await Project.findOne({ _id: projectID })
+      }
     },
-    project: async (parent, { projectID }) => {
-      return await Project.findOne({ _id: projectID })
-    }
-  },
-  Mutation: {
-    addProject: async (
-      parent,
-      { projectName, isAdmin, onProject, username, email, password }
-    ) => {
-      return Project.create({
-        projectName,
-        isAdmin,
-        onProject,
-        username,
-        email,
-        password
-      })
-    },
-    updateProject: async (parent, { projectID, onProject }) => {
-      return Project.findOneAndUpdate(
-        { _id: projectID },
-        {
-          $addToSet: { onProject }
-        },
-        {
-          new: true,
-          runValidators: true
-        }
-      )
-    },
-    removeProject: async (parent, { projectID }) => {
-      return Project.findOneAndDelete({ _id: projectID })
-    },
-    removeTechnician: async (parent, { projectID, technicianID }) => {
-      return Project.findOneAndUpdate(
-        { _id: projectID },
-        {
-          $pull: { onProject: technicianID }
-        },
-        {
-          new: true,
-          runValidators: true
-        }
-      )
+    Mutation: {
+      addProject: async (
+        parent,
+        { projectName, isAdmin, onProject, username, email, password }
+      ) => {
+        return Project.create({
+          projectName,
+          isAdmin,
+          onProject,
+          username,
+          email,
+          password
+        })
+      },
+      updateProject: async (parent, { projectID, onProject }) => {
+        return Project.findOneAndUpdate(
+          { _id: projectID },
+          {
+            $addToSet: { onProject }
+          },
+          {
+            new: true,
+            runValidators: true
+          }
+        )
+      },
+      removeProject: async (parent, { projectID }) => {
+        return Project.findOneAndDelete({ _id: projectID })
+      },
+      removeTechnician: async (parent, { projectID, technicianID }) => {
+        return Project.findOneAndUpdate(
+          { _id: projectID },
+          {
+            $pull: { onProject: technicianID }
+          },
+          {
+            new: true,
+            runValidators: true
+          }
+        )
+      }
     }
   }
 }

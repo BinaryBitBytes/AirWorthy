@@ -1,35 +1,38 @@
 import { AirlinerModel } from '../../models/Airliner.js'
 import bcrypt from 'bcrypt'
+import authenticationUser from '../../../utils/middleware/auth.js'
 
 export const airlinerResolvers = {
-  Query: {
-    airliner: async (_, { _id }) => {
-      return AirlinerModel.findOne({ _id })
+  Airliner: {
+    Query: {
+      airliner: async (_, { _id }) => {
+        return AirlinerModel.findOne({ _id })
+      },
+      airliners: async (_, { airlinerName }) => {
+        return AirlinerModel.find({ airlinerName }).sort({ createdAt: -1 })
+      }
     },
-    airliners: async (_, { airlinerName }) => {
-      return AirlinerModel.find({ airlinerName }).sort({ createdAt: -1 })
-    }
-  },
-  Mutation: {
-    addAirliner: async (_, { airlinerName, isAdmin, modelAircraft, username, email, password }) => {
-      const newAirliner = new AirlinerModel({
-        airlinerName,
-        isAdmin,
-        modelAircraft,
-        userName: username,
-        email,
-        password
-      })
+    Mutation: {
+      addAirliner: async (_, { airlinerName, isAdmin, modelAircraft, username, email, password }) => {
+        const newAirliner = new AirlinerModel({
+          airlinerName,
+          isAdmin,
+          modelAircraft,
+          userName: username,
+          email,
+          password
+        })
 
-      newAirliner.password = await bcrypt.hash(password, 10)
+        newAirliner.password = await bcrypt.hash(password, 10)
 
-      await newAirliner.save()
+        await newAirliner.save()
 
-      return newAirliner
-    },
-    removeAirliner: async (_, { _id }) => {
-      await AirlinerModel.findOneAndDelete({ _id })
-      return true
+        return newAirliner
+      },
+      removeAirliner: async (_, { _id }) => {
+        await AirlinerModel.findOneAndDelete({ _id })
+        return true
+      }
     }
   }
 }

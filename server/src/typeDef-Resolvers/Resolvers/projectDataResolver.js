@@ -1,3 +1,6 @@
+import ProjectData from '../../models/ProjectData.js' // Import the Manager model
+import authenticationUser from '../../../utils/middleware/auth.js'
+
 export const resolver = {
   ProjectData: {
     Query:
