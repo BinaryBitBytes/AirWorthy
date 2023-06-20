@@ -19,7 +19,7 @@ const Project = new mongoose.Schema({
   underscored: true,
   modelName: 'Project'
 })
-export default model('Project', Project)
+export const ProjectModel=  model('Project', Project)
 // const project = { resolvers }
 // model('Project', Project)
 // model.project = new project(Project)
