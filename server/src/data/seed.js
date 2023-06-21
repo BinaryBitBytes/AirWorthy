@@ -1,33 +1,79 @@
-import { once } from '../../config/connection'
-import { Airliner, Inspector, Manager, Project, Technician } from '../models'
-import airlinerData from './airlinerData.json'
-import inspectorData from './inspectorData.json'
-import managerData from './managerData.json'
-import projectData from './projectData.json'
-import technicianData from './technicianData.json'
-once('open', async () => {
+import { connectDB } from '../../config/connection.js'
+import fs from fs
+import { 
+  AirlinerModel,
+  InspectorModel,
+  ManagerModel,
+  ProjectModel,
+  TechnicianModel,
+  AuthModel,
+  ProjectDataModel } from '../models/index.js'
+import { 
+  airlinerData,
+  inspectorData,
+  managerData,
+  projectData,
+  technicianData,
+  authData,
+  projectDataData  } from './index.js'
+connectDB('open', async () => {
   async function seedDB () {
-    app.use(express.json()) //! Team Stuxtnet2 does this go here or below?
+    await app.use(express.json()) //! Team Stuxtnet2 does this go here or below?
     // seeding the airliners
-    async function airliner () { await Airliner.insertMany(airlinerData) }
-    console.log('Airliners seeded!')
+    async function airlinerSeed () { 
+      await AirlinerModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\airlinerData.json', 'utf-8'))
+      await AirlinerModel.insertMany(airlinerData);
+      console.log('Airliners seeded!')
+    }
     // seeding the inspectors
-    async function inspector () { await Inspector.insertMany(inspectorData) }
-    console.log('Inspectors seeded!')
+    async function inspectorSeed () { 
+      await InspectorModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\inspectorData.json', 'utf-8'))
+      await InspectorModel.insertMany(inspectorData);
+      console.log('Inspectors seeded!')
+    }
     // seeding the managers
-    async function manager () { await Manager.insertMany(managerData) }
-    console.log('Managers seeded!')
+    async function managerSeed () { 
+      await ManagerModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\managerData.json', 'utf-8'))
+      await ManagerModel.insertMany(managerData);
+      console.log('Managers seeded!')
+    }
     // seeding the projects
-    async function project () { await Project.insertMany(projectData) }
-    console.log('Projects seeded!')
+    async function projectSeed () { 
+      await ProjectModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\projectData.json', 'utf-8'))
+      await ProjectModel.insertMany(projectData);
+      console.log('Projects seeded!')
+    }
     // seeding the technicians
-    async function technician () { await Technician.insertMany(technicianData) }
-    console.log('Technicians seeded!')
+    async function technicianSeed () { 
+      await TechnicianModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\technicianData.json', 'utf-8'))
+      await TechnicianModel.insertMany(technicianData);
+      console.log('Technicians seeded!')
+    }
+    // seeding the auth
+    async function authSeed () { 
+      await AuthModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\authData.json', 'utf-8'))
+      await AuthModel.insertMany(authData);
+      console.log('Auth seeded!')
+    }
+    // seeding the project-data
+    async function projectDataSeed () { 
+      await ProjectDataModel.deleteMany({});
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\projectDataData.json', 'utf-8'))
+      await ProjectDataModel.insertMany(projectDataData);
+      console.log('Project Data seeded!')
+    }
+
     // To recognize incoming request as JSON object
     // // app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
     //! ^ 5/14/23 moved to top of this stacked function
   };
 
-  seedDB(airliner, inspector, manager, project, technician)
+  seedDB()
   process.exit(0)
 })
