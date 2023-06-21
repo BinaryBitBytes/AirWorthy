@@ -1,5 +1,6 @@
 import { connectDB } from '../../config/connection.js'
-import fs from fs
+import express from 'express'
+import fs from 'fs'
 import { 
   AirlinerModel,
   InspectorModel,
@@ -9,13 +10,15 @@ import {
   AuthModel,
   ProjectDataModel } from '../models/index.js'
 import { 
-  airlinerData,
+  Airliner_jsonString,
   inspectorData,
   managerData,
   projectData,
   technicianData,
   authData,
   projectDataData  } from './index.js'
+
+const app = express();
 connectDB('open', async () => {
   async function seedDB () {
     await app.use(express.json()) //! Team Stuxtnet2 does this go here or below?
@@ -23,7 +26,7 @@ connectDB('open', async () => {
     async function airlinerSeed () { 
       await AirlinerModel.deleteMany({});
       const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\airlinerData.json', 'utf-8'))
-      await AirlinerModel.insertMany(airlinerData);
+      await AirlinerModel.insertMany(Airliner_jsonString);
       console.log('Airliners seeded!')
     }
     // seeding the inspectors
@@ -68,7 +71,14 @@ connectDB('open', async () => {
       await ProjectDataModel.insertMany(projectDataData);
       console.log('Project Data seeded!')
     }
-
+    await airlinerSeed();
+    await inspectorSeed();
+    await managerSeed();
+    await projectSeed();
+    await technicianSeed();
+    await authSeed();
+    await projectDataSeed();
+    console.log(`Database seeding is complete.`)
     // To recognize incoming request as JSON object
     // // app.use(express.json()); //! Team Stuxtnet2 does this go here or below?
     //! ^ 5/14/23 moved to top of this stacked function

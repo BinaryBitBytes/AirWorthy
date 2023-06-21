@@ -1,9 +1,9 @@
-import * as airlinerData from './airlinerData.json'
-import * as inspectorData from './inspectorData.json'
-import * as managerData  from './managerData.json'
-import * as projectData_Data  from './projectData-Data.json'
-import * as projectData from './projectData.json'
+import * as Airliner_jsonString from './airlinerData'
+import * as inspectorData from './inspectorData'
+import * as managerData  from './managerData'
+import * as projectData_Data  from './projectData-Data'
+import * as projectData from './projectData'
 import * as technicianData from './technicianData.json'
-import * as authData from './authData.json'
+import * as authData from './authData'
 
-export {airlinerData, inspectorData, managerData, projectData_Data, projectData, technicianData, authData}
+export {Airliner_jsonString, inspectorData, managerData, projectData_Data, projectData, technicianData, authData}

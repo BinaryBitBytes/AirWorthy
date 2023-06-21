@@ -1,3 +1,6 @@
+import fs from 'fs';
+
+const airlinerData = 
 [
     {
         "id":1,
@@ -45,3 +48,14 @@
         "password": "ProbablyDamaged"
     }
 ]
+
+export const Airliner_jsonString = JSON.stringify(airlinerData, null, 2);
+
+fs.writeFile('airlinerData.json', jsonString, 'utf8', (err) => {
+  if (err) {
+    console.error('Error writing JSON file:', err);
+    return;
+  }
+  console.log('JSON file has been exported.');
+});
+
