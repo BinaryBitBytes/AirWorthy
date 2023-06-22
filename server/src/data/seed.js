@@ -25,7 +25,7 @@ connectDB('open', async () => {
     // seeding the airliners
     async function airlinerSeed () { 
       await AirlinerModel.deleteMany({});
-      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\airlinerData.json', 'utf-8'))
+      const airlinerData = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\airlinerData.js', 'utf-8'))
       await AirlinerModel.insertMany(Airliner_jsonString);
       console.log('Airliners seeded!')
     }

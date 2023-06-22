@@ -1,3 +1,6 @@
+import fs from 'fs';
+
+const inspectorData= 
 [
     {
         "id":1,
@@ -45,3 +48,13 @@
         "password": "Stranger!"
     }
 ]
+
+const Inspector_jsonString = JSON.stringify(inspectorData, null, 2);
+
+fs.writeFile('inspectorData.json', Inspector_jsonString, 'utf8', (err) => {
+   if (err) {
+    console.error('Error writing JSON file:', err);
+    return;
+   }
+   console.log('JSON file has been exported')
+})

@@ -1,4 +1,5 @@
-[
+import fs from 'fs'
+const projectData = [
     {
         "id":1,
         "projectName": "Smoke Detector Modification",
@@ -51,3 +52,13 @@
         "inspectorName": ""
     }
 ]
+
+const ProjectData_jsonString = JSON.stringify(projectData, null, 2)
+
+fs.writeFile('projectData.json', ProjectData_jsonString, 'utf8', (err) => {
+    if (err) {
+        console.error('Error writing JSON file:', err);
+        return;
+    }
+    console.log('JSON file has been exported')
+});

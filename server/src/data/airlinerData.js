@@ -49,9 +49,9 @@ const airlinerData =
     }
 ]
 
-export const Airliner_jsonString = JSON.stringify(airlinerData, null, 2);
+const Airliner_jsonString = JSON.stringify(airlinerData, null, 2);
 
-fs.writeFile('airlinerData.json', jsonString, 'utf8', (err) => {
+fs.writeFile('airlinerData.json', Airliner_jsonString, 'utf8', (err) => {
   if (err) {
     console.error('Error writing JSON file:', err);
     return;

@@ -1,5 +1,6 @@
+import fs from 'fs';
 
-[
+const managerData= [
     {
         "id":1,
         "managerName": "Todd Anderson",
@@ -46,3 +47,12 @@
         "password": "Sk84L1f3"
     }
 ]
+
+const Manager_jsonString = JSON.stringify(managerData, null, 2);
+
+fs.writeFile('managerData.json', Manager_jsonString, 'utf8', (err) => {
+    if (err) {
+        console.error('Error writing JSON file:', err);
+    }
+    console.log('JSON file has been exported')
+})
