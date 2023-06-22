@@ -1,5 +1,5 @@
 import fs from 'fs' 
-const technicianData = [
+export const technicianData = [
     {
         "id":1,
         "technicianName": "Rake Yohn",

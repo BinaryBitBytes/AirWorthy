@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const inspectorData= 
+export const inspectorData= 
 [
     {
         "id":1,

@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const managerData= [
+export const managerData= [
     {
         "id":1,
         "managerName": "Todd Anderson",

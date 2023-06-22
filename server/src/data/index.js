@@ -1,9 +1,9 @@
-import * as Airliner_jsonString from './airlinerData.js'
-import * as Inspector_jsonString from './inspectorData.js'
-import * as Manager_jsonString  from './managerData.js'
-import * as ProjectData_Data_jsonString  from './projectData-Data.js'
-import * as ProjectData_jsonString from './projectData.js'
-import * as Technician_jsonString from './technicianData.js'
-import * as AuthData_jsonString from './authData.js'
+import AirlinerData from './airlinerData.js'
+import InspectorData from './inspectorData.js'
+import ManagerData  from './managerData.js'
+import ProjectData_Data from './projectData-Data.js'
+import ProjectData from './projectData.js'
+import TechnicianData from './technicianData.js'
+import AuthData from './authData.js'
 
-export {Airliner_jsonString, Inspector_jsonString, Manager_jsonString, ProjectData_Data_jsonString, ProjectData_jsonString, Technician_jsonString, AuthData_jsonString}
+export {AirlinerData, InspectorData, ManagerData, ProjectData_Data, ProjectData, TechnicianData, AuthData}

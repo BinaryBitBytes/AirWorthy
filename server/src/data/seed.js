@@ -8,7 +8,7 @@ import {
   ProjectModel,
   TechnicianModel,
   AuthModel,
-  ProjectDataModel } from '../models/index.js'
+  ProjectDataModel } from '../src/models/index.js'
 import { 
   Airliner_jsonString,
   Inspector_jsonString,
@@ -16,7 +16,16 @@ import {
   ProjectData_jsonString,
   Technician_jsonString,
   AuthData_jsonString,
-  ProjectData_Data_jsonString  } from './index.js'
+  ProjectData_Data_jsonString  } from './json_String_index.js'
+import {
+  AirlinerData,
+  InspectorData,
+  ManagerData,
+  ProjectData,
+  TechnicianData,
+  AuthData,
+  ProjectData_Data
+} from './index.js'
 
 const app = express();
 connectDB('open', async () => {

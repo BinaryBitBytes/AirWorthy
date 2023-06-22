@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const airlinerData = 
+export const airlinerData = 
 [
     {
         "id":1,

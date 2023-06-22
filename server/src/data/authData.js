@@ -1,5 +1,5 @@
 import fs from 'fs'
-const authData= [
+export const authData= [
     {
   "id": {
     "id": 1

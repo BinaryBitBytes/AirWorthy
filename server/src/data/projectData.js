@@ -1,5 +1,5 @@
 import fs from 'fs'
-const projectData = [
+export const projectData = [
     {
         "id":1,
         "projectName": "Smoke Detector Modification",
