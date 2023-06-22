@@ -53,7 +53,7 @@ const projectData = [
     }
 ]
 
-const ProjectData_jsonString = JSON.stringify(projectData, null, 2)
+export const ProjectData_jsonString = JSON.stringify(projectData, null, 2)
 
 fs.writeFile('projectData.json', ProjectData_jsonString, 'utf8', (err) => {
     if (err) {

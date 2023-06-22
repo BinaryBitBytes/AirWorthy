@@ -47,7 +47,7 @@ const technicianData = [
     }
 ]
 
-const Technician_jsonString = JSON.stringify(technicianData, 2 , null);
+export const Technician_jsonString = JSON.stringify(technicianData, 2 , null);
 
 fs.writeFile('technicianData.json', Technician_jsonString, 'utf8', (err) => {
     if (err) {

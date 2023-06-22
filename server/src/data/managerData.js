@@ -48,7 +48,7 @@ const managerData= [
     }
 ]
 
-const Manager_jsonString = JSON.stringify(managerData, null, 2);
+export const Manager_jsonString = JSON.stringify(managerData, null, 2);
 
 fs.writeFile('managerData.json', Manager_jsonString, 'utf8', (err) => {
     if (err) {

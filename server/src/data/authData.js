@@ -16,7 +16,7 @@ const authData= [
     }
 ]
 
-const AuthData_jsonString =JSON.stringify(authData, null, 2);
+export const AuthData_jsonString =JSON.stringify(authData, null, 2);
 
 fs.writeFile('authData.json', AuthData_jsonString, 'utf8', (err) => {
   if (err) {

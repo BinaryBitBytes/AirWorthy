@@ -49,7 +49,7 @@ const inspectorData=
     }
 ]
 
-const Inspector_jsonString = JSON.stringify(inspectorData, null, 2);
+export const Inspector_jsonString = JSON.stringify(inspectorData, null, 2);
 
 fs.writeFile('inspectorData.json', Inspector_jsonString, 'utf8', (err) => {
    if (err) {

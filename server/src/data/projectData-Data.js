@@ -8,7 +8,7 @@ const projectData_Data= [
 "workDescription": ""
     }
 ]
-const ProjectData_Data_jsonString = JSON.stringify(projectData_Data, null , 2)
+export const ProjectData_Data_jsonString = JSON.stringify(projectData_Data, null , 2)
 fs.writeFile('projectData-Data.json', ProjectData_Data_jsonString, 'utf8', (err) => {
     if (err) {
         console.error('Error writing JSON file:', err)
