@@ -1,4 +1,4 @@
-import { ProjectModel } from '../../models/Project.js'
+import { default as ProjectModel } from '../../models/Project.js'
 export const resolver = {
   Query: {
     projects: async () => {

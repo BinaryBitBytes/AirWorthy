@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export const inspectorData= 
+const InspectorData= 
 [
     {
         "id":1,
@@ -49,7 +49,7 @@ export const inspectorData=
     }
 ]
 
-export const Inspector_jsonString = JSON.stringify(inspectorData, null, 2);
+export const Inspector_jsonString = JSON.stringify(InspectorData, null, 2);
 
 fs.writeFile('inspectorData.json', Inspector_jsonString, 'utf8', (err) => {
    if (err) {
@@ -58,3 +58,5 @@ fs.writeFile('inspectorData.json', Inspector_jsonString, 'utf8', (err) => {
    }
    console.log('JSON file has been exported')
 })
+
+export default InspectorData

@@ -1,5 +1,5 @@
 import fs from 'fs' 
-export const technicianData = [
+const TechnicianData = [
     {
         "id":1,
         "technicianName": "Rake Yohn",
@@ -47,7 +47,7 @@ export const technicianData = [
     }
 ]
 
-export const Technician_jsonString = JSON.stringify(technicianData, 2 , null);
+export const Technician_jsonString = JSON.stringify(TechnicianData, null, 2);
 
 fs.writeFile('technicianData.json', Technician_jsonString, 'utf8', (err) => {
     if (err) {
@@ -56,3 +56,5 @@ fs.writeFile('technicianData.json', Technician_jsonString, 'utf8', (err) => {
     }
     console.log('JSON file has been exported')
 })
+
+export default TechnicianData

@@ -1,5 +1,5 @@
 import fs from 'fs'
-export const authData= [
+const AuthData= [
     {
   "id": {
     "id": 1
@@ -16,7 +16,7 @@ export const authData= [
     }
 ]
 
-export const AuthData_jsonString =JSON.stringify(authData, null, 2);
+export const AuthData_jsonString =JSON.stringify(AuthData, null, 2);
 
 fs.writeFile('authData.json', AuthData_jsonString, 'utf8', (err) => {
   if (err) {
@@ -25,3 +25,5 @@ fs.writeFile('authData.json', AuthData_jsonString, 'utf8', (err) => {
   }
   console.log('JSON file has been exported')
 })
+
+export default AuthData

@@ -1,4 +1,4 @@
-import { InspectorModel } from '../../models/Inspector.js'
+import { default as InspectorModel } from '../../models/Inspector.js'
 
 export const resolvers = {
   Query: {

@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export const managerData= [
+const ManagerData= [
     {
         "id":1,
         "managerName": "Todd Anderson",
@@ -48,7 +48,7 @@ export const managerData= [
     }
 ]
 
-export const Manager_jsonString = JSON.stringify(managerData, null, 2);
+export const Manager_jsonString = JSON.stringify(ManagerData, null, 2);
 
 fs.writeFile('managerData.json', Manager_jsonString, 'utf8', (err) => {
     if (err) {
@@ -56,3 +56,5 @@ fs.writeFile('managerData.json', Manager_jsonString, 'utf8', (err) => {
     }
     console.log('JSON file has been exported')
 })
+
+export default ManagerData

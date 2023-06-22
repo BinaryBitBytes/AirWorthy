@@ -1,5 +1,5 @@
 import fs from 'fs'
-export const projectData = [
+const ProjectData = [
     {
         "id":1,
         "projectName": "Smoke Detector Modification",
@@ -53,7 +53,7 @@ export const projectData = [
     }
 ]
 
-export const ProjectData_jsonString = JSON.stringify(projectData, null, 2)
+export const ProjectData_jsonString = JSON.stringify(ProjectData, null, 2)
 
 fs.writeFile('projectData.json', ProjectData_jsonString, 'utf8', (err) => {
     if (err) {
@@ -62,3 +62,5 @@ fs.writeFile('projectData.json', ProjectData_jsonString, 'utf8', (err) => {
     }
     console.log('JSON file has been exported')
 });
+
+export default ProjectData

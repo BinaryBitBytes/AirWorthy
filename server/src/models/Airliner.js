@@ -32,4 +32,5 @@ const Airliner = new mongoose.Schema({
   modelName: 'Airliner'
 })
 
-export const AirlinerModel = model('Airliner', Airliner)
+const AirlinerModel = model('Airliner', Airliner)
+export default AirlinerModel

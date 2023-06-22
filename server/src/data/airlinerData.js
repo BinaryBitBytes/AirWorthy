@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export const airlinerData = 
+const AirlinerData = 
 [
     {
         "id":1,
@@ -49,7 +49,7 @@ export const airlinerData =
     }
 ]
 
-export const Airliner_jsonString = JSON.stringify(airlinerData, null, 2);
+export const Airliner_jsonString = JSON.stringify(AirlinerData, null, 2);
 
 fs.writeFile('airlinerData.json', Airliner_jsonString, 'utf8', (err) => {
   if (err) {
@@ -59,3 +59,4 @@ fs.writeFile('airlinerData.json', Airliner_jsonString, 'utf8', (err) => {
   console.log('JSON file has been exported.');
 });
 
+export default AirlinerData;

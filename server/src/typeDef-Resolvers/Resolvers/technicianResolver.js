@@ -1,13 +1,14 @@
+import { default as TechnicianModel } from '../../models/Technician.js'
 export const resolver = {
   Technician: {
     Query:
     {
       technicians: async () => {
-        return await Technician.find().sort({ createdAt: -1 }) // .cursor(); //added .cursor to see if this resolves //! added await
+        return await TechnicianModel.find().sort({ createdAt: -1 }) // .cursor(); //added .cursor to see if this resolves //! added await
       },
 
       technician: async (parent, { technicianID }) => {
-        return await Technician.findOne({ _id: technicianID }) // .cursor(); //added .cursor to see if this resolves //! added await
+        return await TechnicianModel.findOne({ _id: technicianID }) // .cursor(); //added .cursor to see if this resolves //! added await
       }
     },
 
@@ -27,7 +28,7 @@ export const resolver = {
         })
       },
       addProject: async (parent, { technicianID, onProject }) => {
-        return Technician.findOneAndUpdate(
+        return TechnicianModel.findOneAndUpdate(
           { _id: technicianID },
           {
             $addToSet: { project: { onProject } }
@@ -39,10 +40,10 @@ export const resolver = {
         )
       },
       removeTechnician: async (parent, { technicianID }) => {
-        return Technician.fineOneAndDelete({ _id: technicianID })
+        return TechnicianModel.fineOneAndDelete({ _id: technicianID })
       },
       removeTechnician: async (parent, { technicianID, onProject }) => {
-        return Technician.destroy({ _id: technicianID }, {})
+        return TechnicianModel.destroy({ _id: technicianID }, {})
       }
     }
   }

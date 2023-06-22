@@ -1,5 +1,5 @@
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
-import { AuthModel } from '../../models/Auth.js'
+import { default as AuthModel } from '../../models/Auth.js'
 export const resolver = {
   Query: {
     auth: async (parent, args) => {

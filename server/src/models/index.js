@@ -1,10 +1,10 @@
-import { AirlinerModel } from './Airliner.js'
-import { AuthModel } from './Auth.js'
-import { InspectorModel } from './Inspector.js'
-import { ManagerModel } from './Manager.js'
-import { ProjectModel } from './Project.js'
-import { ProjectDataModel } from './ProjectData.js'
-import { TechnicianModel } from './Technician.js'
+import AirlinerModel from './Airliner.js'
+import AuthModel from './Auth.js'
+import InspectorModel from './Inspector.js'
+import ManagerModel from './Manager.js'
+import ProjectModel from './Project.js'
+import ProjectDataModel from './ProjectData.js'
+import TechnicianModel from './Technician.js'
 
 //! Needs to go in controllers
 // Manager.hasMany(Project, {

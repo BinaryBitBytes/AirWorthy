@@ -36,7 +36,8 @@ const Inspector = new mongoose.Schema(
   }
 )
 
-export const InspectorModel = model('Inspector', Inspector)
+const InspectorModel = model('Inspector', Inspector)
+export default InspectorModel
 
 // export const inspectorResolvers = {
 //   Query: {

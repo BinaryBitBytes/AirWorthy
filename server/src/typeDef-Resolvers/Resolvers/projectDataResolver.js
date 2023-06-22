@@ -1,13 +1,15 @@
+import { default as ProjectDataModel } from '../../models/ProjectData.js'
+
 export const resolver = {
   ProjectData: {
     Query:
     {
       projectData: async () => {
-        return await ProjectData.find().sort({ createdAt: -1 }) //! added await
+        return await ProjectDataModel.find().sort({ createdAt: -1 }) //! added await
       },
 
       project: async (parent, { projectID }) => {
-        return await ProjectData.findOne({ _id: projectID }) //! added await
+        return await ProjectDataModel.findOne({ _id: projectID }) //! added await
       }
     },
 
@@ -37,10 +39,10 @@ export const resolver = {
         )
       },
       removeProject_Data: async (parent, { projectID }) => {
-        return Project_Data.fineOneAndDelete({ _id: projectID })
+        return ProjectDataModel.fineOneAndDelete({ _id: projectID })
       },
       removeProject_Data: async (parent, { projectID, workDescription }) => {
-        return Project_Data.destroy({ _id: projectID }, {});
+        return ProjectDataModel.destroy({ _id: projectID }, {});
       }
     }
   }

@@ -1,4 +1,4 @@
-import { AirlinerModel } from '../../models/Airliner.js'
+import { default as AirlinerModel } from '../../models/Airliner.js'
 import bcrypt from 'bcrypt'
 
 export const airlinerResolvers = {
