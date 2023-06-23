@@ -17,7 +17,7 @@ export const connectDB = async () => {
       useUnifiedTopology: true
     })
     .then(() => {
-      console.log(`Connected to MongoDB at ${mongodbURI}`);
+      console.log(`Connected to Mongoose at ${mongodbURI}`);
     })
   } catch (error) {
     console.error('Failed to connect to MongoDB', error)
