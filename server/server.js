@@ -1,18 +1,12 @@
 import express from 'express'
-// import mongoose from 'mongoose'
 import { ApolloServer } from 'apollo-server-express'
 import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.js'
 import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.js'
 import { connectDB } from './config/connection.js'
-// for (const [typeName, typeResolvers] of Object.entries(resolvers)) {
-//   // Iterate over field resolvers for each type
-//   for (const [fieldName, fieldResolver] of Object.entries(typeResolvers)) {
-//     // Process each field resolver
-//   }
-// }
+
 // connecting to the mongo database
 connectDB()
-// Global function to start the seerver asynchronously
+// Global function to start the server asynchronously
 const startServer = async () => {
   // This creates an Express application
   const app = express()

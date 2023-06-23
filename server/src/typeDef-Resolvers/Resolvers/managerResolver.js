@@ -1,12 +1,12 @@
-import Manager from '../../models/Manager.js' // Import the Manager model
+import { default as ManagerModel } from '../../models/Manager.js' // Import the Manager model
 
 export const resolver = {
   Query: {
     managers: async () => {
-      return await Manager.find().sort({ createdAt: -1 })
+      return await ManagerModel.find().sort({ createdAt: -1 })
     },
     manager: async (parent, { managerID }) => {
-      return await Manager.findOne({ _id: managerID })
+      return await ManagerModel.findOne({ _id: managerID })
     }
   },
   Mutation: {
@@ -14,7 +14,7 @@ export const resolver = {
       parent,
       { managerName, isAdmin, onProject, username, email, password }
     ) => {
-      return Manager.create({
+      return ManagerModel.create({
         managerName,
         isAdmin,
         onProject,
@@ -24,7 +24,7 @@ export const resolver = {
       })
     },
     addProject: async (parent, { managerID, onProject }) => {
-      return Manager.findOneAndUpdate(
+      return ManagerModel.findOneAndUpdate(
         { _id: managerID },
         {
           $addToSet: { onProject }
@@ -36,10 +36,10 @@ export const resolver = {
       )
     },
     removeManager: async (parent, { managerID }) => {
-      return Manager.findOneAndDelete({ _id: managerID })
+      return ManagerModel.findOneAndDelete({ _id: managerID })
     },
     removeProject: async (parent, { managerID, onProject }) => {
-      const manager = await Manager.findOne({ _id: managerID })
+      const manager = await ManagerModel.findOne({ _id: managerID })
       if (!manager) {
         throw new Error('Manager not found.')
       }

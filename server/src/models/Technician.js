@@ -45,4 +45,5 @@ const Technician = new mongoose.Schema({
 )
 // console.log(technician)
 // export default model('Technician', Technician)
-export const TechnicianModel = model('Technician', Technician)
+const TechnicianModel = model('Technician', Technician)
+export default TechnicianModel

@@ -21,5 +21,6 @@ const ProjectData = new mongoose.Schema({
 })
 
 // const ProjectData = mongoose.model('ProjectData', ProjectData)
-export const ProjectDataModel = model('ProjectData', ProjectData)
+const ProjectDataModel = model('ProjectData', ProjectData)
 // export default ProjectData
+export default ProjectDataModel

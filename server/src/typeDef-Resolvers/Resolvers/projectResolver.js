@@ -1,11 +1,11 @@
-import Project from '../../models/Project.js'
+import { default as ProjectModel } from '../../models/Project.js'
 export const resolver = {
   Query: {
     projects: async () => {
-      return await Project.find().sort({ createdAt: -1 })
+      return await ProjectModel.find().sort({ createdAt: -1 })
     },
     project: async (parent, { projectID }) => {
-      return await Project.findOne({ _id: projectID })
+      return await ProjectModel.findOne({ _id: projectID })
     }
   },
   Mutation: {
@@ -13,7 +13,7 @@ export const resolver = {
       parent,
       { projectName, isAdmin, onProject, username, email, password }
     ) => {
-      return Project.create({
+      return ProjectModel.create({
         projectName,
         isAdmin,
         onProject,
@@ -23,7 +23,7 @@ export const resolver = {
       })
     },
     updateProject: async (parent, { projectID, onProject }) => {
-      return Project.findOneAndUpdate(
+      return ProjectModel.findOneAndUpdate(
         { _id: projectID },
         {
           $addToSet: { onProject }
@@ -35,10 +35,10 @@ export const resolver = {
       )
     },
     removeProject: async (parent, { projectID }) => {
-      return Project.findOneAndDelete({ _id: projectID })
+      return ProjectModel.findOneAndDelete({ _id: projectID })
     },
     removeTechnician: async (parent, { projectID, technicianID }) => {
-      return Project.findOneAndUpdate(
+      return ProjectModel.findOneAndUpdate(
         { _id: projectID },
         {
           $pull: { onProject: technicianID }

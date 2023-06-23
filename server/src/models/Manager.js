@@ -35,4 +35,5 @@ const Manager = new mongoose.Schema(
   }
 )
 
-export default model('Manager', Manager)
+const ManagerModel = model('Manager', Manager)
+export default ManagerModel
