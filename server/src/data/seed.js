@@ -63,49 +63,49 @@ connectDB(async () => {
       // seeding the airliners
       async function airlinerSeed () { 
         await airliner.deleteMany({});
-        const AirlinerDataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\airlinerData.json', 'utf-8'))
+        const AirlinerDataRead = JSON.parse(fs.readFileSync('/server/src/data/airlinerData.json', 'utf-8'))
         await airliner.insertMany(AirlinerData);
         console.log('Airliners seeded!')
       }
       // seeding the inspectors
       async function inspectorSeed () { 
         await inspector.deleteMany({});
-        const InspectorDataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\inspectorData.json', 'utf-8'))
+        const InspectorDataRead = JSON.parse(fs.readFileSync('/server/src/data/inspectorData.json', 'utf-8'))
         await inspector.insertMany(InspectorData);
         console.log('Inspectors seeded!')
       }
       // seeding the managers
       async function managerSeed () { 
         await manager.deleteMany({});
-        const ManagerDataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\managerData.json', 'utf-8'))
+        const ManagerDataRead = JSON.parse(fs.readFileSync('server/src/data/managerData.json', 'utf-8'))
         await manager.insertMany(ManagerData);
         console.log('Managers seeded!')
       }
       // seeding the projects
       async function projectSeed () { 
         await project.deleteMany({});
-        const ProjectDataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\projectData.json', 'utf-8'))
+        const ProjectDataRead = JSON.parse(fs.readFileSync('/server/src/data/projectData.json', 'utf-8'))
         await project.insertMany(ProjectData);
         console.log('Projects seeded!')
       }
       // seeding the technicians
       async function technicianSeed () { 
         await technician.deleteMany({});
-        const TechnicianDataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\technicianData.json', 'utf-8'))
+        const TechnicianDataRead = JSON.parse(fs.readFileSync('/server/src/data/technicianData.json', 'utf-8'))
         await technician.insertMany(TechnicianData);
         console.log('Technicians seeded!')
       }
       // seeding the auth
       async function authSeed () { 
         await auth.deleteMany({});
-        const AuthDataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\authData.json', 'utf-8'))
+        const AuthDataRead = JSON.parse(fs.readFileSync('/server/src/data/authData.json', 'utf-8'))
         await auth.insertMany(AuthData);
         console.log('Auth seeded!')
       }
       // seeding the project-data
       async function projectDataSeed () { 
         await projectData.deleteMany({});
-        const ProjectData_DataRead = JSON.parse(fs.readFileSync('C:\\Users\\Miles\\Documents\\GIT\\AirWorthy\\server\\src\\data\\projectDataData.json', 'utf-8'))
+        const ProjectData_DataRead = JSON.parse(fs.readFileSync('/server/src/data/projectDataData.json', 'utf-8'))
         await projectData.insertMany(ProjectData_Data);
         console.log('Project Data seeded!')
       }

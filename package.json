@@ -8,6 +8,7 @@
     "js": true
   },
   "scripts": {
+    "seed": "node server/src/data/seed.js",
     "start": "node -r esm server/server.js",
     "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
     "runStart": "react-scripts start",
