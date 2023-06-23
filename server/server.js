@@ -23,8 +23,6 @@ const startServer = async () => {
   console.log(`---logging server----`)
   console.log(server)
   await server.start()
-  console.log(console.log(`---logging await server.start()----`))
-  console.log(await server.start())
   // This applies the Apollo Server Middleware into the Express application
   console.log(`----logging apply middleware -> app------`)
   server.applyMiddleware({ app })

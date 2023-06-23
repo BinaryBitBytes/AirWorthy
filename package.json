@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A full stack MERN application that uses an authentication system to allow FAA Inspectors, Airliners, and Aircraft Technicians to update progress on their work all while keeping a log of records on projects completed.",
   "main": "server/server.js",
+  "type": "module",
   "quokka": {
     "babel": true,
     "js": true
