@@ -1,5 +1,5 @@
 // import models
-import { Airliner, Inspector, Manager, Project, Technician } from '../models';
+//! import { Airliner, Inspector, Manager, Project, Technician } from '../models';
 // import sign token function from auth
 // import res from 'express/lib/respoonse';
 // This res function is a built-in middleware function in Express. It parses incoming requests
@@ -42,7 +42,7 @@ export async function createUser({ body }, res) {
 // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
 // {body} is destructured req.body
 //! --------------
-export async function login({ body }, res) {
+export default async function login({ body }, res) {
   const user = await user.findOne({ $or: [{ username: body.username }, { email: body.email }] });
   if (!user) {
     return res.status(400).json({ message: "Can't find this user" });
