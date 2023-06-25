@@ -6,7 +6,7 @@ const router = require('express').Router()
 
 router.route('/').post(createAirliner).put(authMiddleware, getLoginForm)
 
-router.route('/login').post(login)
+router.route('/login/ariliner/:airlinerId').post(login, createAirliner)
 
 router.route('/login/airliner').get(authMiddleware, getAirliner)
 
