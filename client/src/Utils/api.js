@@ -78,6 +78,16 @@ export const saveTechnician = (technicianData) => {
     });
 };
 
+export const removeTechnician = (technicianData) => {
+    return fetch('/api/technician', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(technicianData),
+    });
+};
+
 //Get, Put, Post Manager Data
 export const getManager = () => {
     return fetch('/api/manager', {
@@ -103,6 +113,17 @@ export const saveManager = (managerData) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(managerData),
+    });
+};
+
+export const removeManager = (managerData) => {
+    return fetch('/api/manager', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+
         },
         body: JSON.stringify(managerData),
     });
@@ -138,6 +159,17 @@ export const saveAirliner = (airlinerData) => {
     });
 };
 
+export const removeAirliner = (airlinerData) => {
+    return fetch('/api/airliner', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+
+        },
+        body: JSON.stringify(airlinerData),
+    });
+};
+
 //Get, Put, Post Inspector Data
 export const getInspector = () => {
     return fetch('/api/inspector', {
@@ -161,6 +193,16 @@ export const createInspector = (inspectorData) => {
 export const saveInspector = (inspectorData) => {
     return fetch('/api/inspector', {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inspectorData),
+    });
+};
+
+export const removeInspector = (inspectorData) => {
+    return fetch('/api/inspector', {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -195,5 +237,14 @@ export const saveProject = (projectData) => {
             'Content-Type': 'project/json'
         },
         body: JSON.stringify(projectData),
+    });
+};
+
+export const removeProject = (projectData) => {
+    return fetch('/api/project', {
+        method:'DELETE',
+        headers: {
+            'Content-Type': 'project/json'
+        },
     });
 };
