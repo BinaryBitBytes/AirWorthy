@@ -29,6 +29,7 @@
     "express": "^4.18.2",
     "express-jwt": "^8.4.1",
     "fs": "^0.0.1-security",
+    "gql-tag": "^1.0.1",
     "graphql": "^16.6.0",
     "graphql-modules": "^2.1.2",
     "graphql-tag": "^2.12.6",

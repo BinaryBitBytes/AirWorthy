@@ -5,7 +5,7 @@ import { ManagerTypeDefs } from './managerSchema.js'
 import { ProjectDataTypeDefs } from './projectDataSchema.js'
 import { ProjectTypeDefs } from './projectSchema.js'
 import { TechnicianTypeDefs } from './technicianSchema.js'
-import { gql } from 'apollo-server'
+import gql  from 'graphql-tag'
 // import { gql } from 'apollo-server'
 // const typeDefs = [
 //         gql(AirlinerTypeDefs),
@@ -29,3 +29,4 @@ const typeDefs = gql`
 export default typeDefs
 
 console.log(typeof(typeDefs))
+console.log(typeDefs);
