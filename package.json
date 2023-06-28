@@ -10,8 +10,8 @@
   },
   "scripts": {
     "seed": "node server/src/data/seed.js",
-    "start": "node -r esm server/server.js",
-    "START": "node --experimental-modules server/server.js",
+    "START": "node -r esm server/server.js",
+    "start": "node --experimental-modules server/server.js",
     "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
     "runStart": "react-scripts start",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
