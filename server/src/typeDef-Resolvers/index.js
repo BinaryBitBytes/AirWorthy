@@ -8,9 +8,9 @@
 // import { typeDef as Project, resolvers as projectResolvers } from './projectSchema.js';
 // import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema.js';
 import resolvers from '../typeDef-Resolvers/Resolvers/resolvers.js'
-import * as typedefs from '../typeDef-Resolvers/Schema/typeDef.js'
+import typedefs from '../typeDef-Resolvers/Schema/typeDef.js'
 export const resolver = resolvers
-export const typeDefs = typedefs
+export default typedefs
 
 // console.log(typeDefs);
 // console.log(resolvers);

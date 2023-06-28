@@ -1,5 +1,6 @@
 {
   "name": "server",
+  "type": "module",
   "version": "1.0.0",
   "description": "Server Side for Airworthy",
   "main": "server.js",
@@ -29,6 +30,7 @@
     "express": "^4.18.2",
     "express-jwt": "^8.4.1",
     "fs": "^0.0.1-security",
+    "gql-tag": "^1.0.1",
     "graphql": "^16.6.0",
     "graphql-modules": "^2.1.2",
     "graphql-tag": "^2.12.6",
@@ -36,21 +38,19 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.13.19",
     "node": "^16.13.0",
-    "npm": "8.1.0",
     "nvm": "0.0.4",
     "path": "^0.12.7",
     "popper": "^1.0.1",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
     "url": "^0.11.0"
   },
-  "type": "module",
   "devDependencies": {
     "esm": "^3.2.25",
     "graphql-tools": "^9.0.0",
     "node": "^16.13.0",
-    "nodemon": "^2.0.3",
-    "npm": "8.1.0"
+    "nodemon": "^1.14.9",
+    "npm": "^8.19.4"
   },
   "engines": {
     "node": "^16.13.0",

@@ -1,7 +1,9 @@
-
-import {gql} from 'apollo-server';
+import { gql } from 'apollo-server';
 
 export const AirlinerTypeDefs = gql`
+  """
+  Airliner represents an airline company.
+  """
   type Airliner {
     _id: ID!
     airlinerName: String
@@ -12,11 +14,21 @@ export const AirlinerTypeDefs = gql`
   }
 
   type Query {
+    """
+    Get an airliner by ID.
+    """
     airliner(_id: ID!): Airliner
+
+    """
+    Get airliners by airliner name.
+    """
     airliners(airlinerName: String): [Airliner]
   }
 
   type Mutation {
+    """
+    Add a new airliner.
+    """
     addAirliner(
       airlinerName: String
       _isAdmin: Boolean
@@ -24,6 +36,10 @@ export const AirlinerTypeDefs = gql`
       email: String
       password: String
     ): Airliner
+
+    """
+    Remove an existing airliner.
+    """
     removeAirliner(_id: ID!): Boolean
   }
 `;
