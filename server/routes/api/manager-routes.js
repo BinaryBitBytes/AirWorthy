@@ -4,7 +4,9 @@ import { createUser, getSingleUser, saveManager, removeManager, login } from '..
 // import middleware
 import { authMiddleware } from '../../utils/middleware/auth.cjs'
 //! ^^ problem 5.15.23 4:00am
-const router = require('express').Router()
+import express from 'express';
+
+const router = express.Router();
 // put authMiddleware anywhere we need to send a token for verification of user
 router.route('/').post(createUser).put(authMiddleware, saveManager)
 

@@ -1,7 +1,7 @@
 // import { verify, sign } from 'jsonwebtoken';
 // import pkg from 'jsonwebtoken';
 // const { jwt, verify, sign } = pkg;
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 // import jwt from 'jsonwebtoken';
 // import { expressjwt } from"express-jwt";
 // set token secret and expiration date

@@ -2,7 +2,9 @@ import {getLoginForm, createLoginForm, login, createUser, getSingleUser } from '
 
 import { authMiddleware } from '../../utils/middleware.js'
 
-const router = require('express').Router()
+import express from 'express';
+
+const router = express.Router();
 
 router.route('/').post(createUser).put(authMiddleware, getLoginForm)
 

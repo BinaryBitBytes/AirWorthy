@@ -2,7 +2,9 @@ import {getAirliner, createAirliner, saveAirliner,removeAirliner , login, create
 
 import { authMiddleware } from '../../utils/middleware.js'
 
-const router = require('express').Router()
+import express from 'express';
+
+const router = express.Router();
 
 router.route('/').post(createAirliner).put(authMiddleware, getLoginForm)
 
