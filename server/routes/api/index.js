@@ -1,10 +1,6 @@
 // Import the two parts of a GraphQL schema
-// import { expressMiddleware } from 'apollo-server-express';
-// import pkg from 'apollo-server-express';
-// const { expressMiddleware } = pkg;
 import { ApolloServer } from 'apollo-server-express'
 import express, { urlencoded, json } from 'express'
-// var jwt = require('jsonwebtoken');;
 import { startStandaloneServer } from '@apollo/server/standalone'
 import typeDefs from '../../src/typeDef-Resolvers/Schema/typeDef.js'
 import { resolver } from '../../src/typeDef-Resolvers/index.js'

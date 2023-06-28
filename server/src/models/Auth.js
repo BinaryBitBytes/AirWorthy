@@ -2,7 +2,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcrypt'
 const { model } = mongoose
-//! const mongoose = require("mongoose"); //uncommented 5/12/23 to test main
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
 
 const Auth = new mongoose.Schema({

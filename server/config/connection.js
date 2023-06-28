@@ -7,12 +7,9 @@ dotenv.config();
 // Use the `mongodbURI` variable in your code to connect to MongoDB
 export const connectDB = async () => {
   try {
-    const mongodbURI = process.env.MONGODB_URI;
+    const mongodbURI = process.env.MONGODB_URI|| 'mongodb://localhost:27017/AirWorthy_DB';
     console.log(mongodbURI)
-    //await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/AirWorthy_DB ', {
-    await mongoose.connect(mongodbURI || 'mongodb+srv://117BBB117:U_o6innka@airworthy.r9anp.mongodb.net/', {
-    // await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/AirWorthy_DB', { 
-    // await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/AirWorthy_DB', {
+    await mongoose.connect(mongodbURI , {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
