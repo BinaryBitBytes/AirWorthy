@@ -1,5 +1,5 @@
 import express from 'express'
-import apollo from 'apollo-server'
+import apollo from 'apollo-server-express'
 const { ApolloServer, gql } = apollo
 import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
 import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
@@ -17,6 +17,7 @@ const startServer = async () => {
     resolvers
   })
   await server.start()
+  // await server.listen()
   // This applies the Apollo Server Middleware into the Express application
   server.applyMiddleware({ app })
   // This starts the server and listens on the respected port address

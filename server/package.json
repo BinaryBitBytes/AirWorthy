@@ -31,7 +31,6 @@
     "express-jwt": "^8.4.1",
     "fs": "^0.0.1-security",
     "gql-tag": "^1.0.1",
-    "graphql": "^16.7.1",
     "graphql-modules": "^2.1.2",
     "graphql-tag": "^2.12.6",
     "jsonwebtoken": "^9.0.0",
@@ -46,6 +45,7 @@
   },
   "devDependencies": {
     "esm": "^3.2.25",
+    "graphql": "^16.7.1",
     "graphql-tools": "^9.0.0",
     "node": "^16.13.0",
     "nodemon": "^1.14.9",
