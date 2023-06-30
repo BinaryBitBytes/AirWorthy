@@ -1,4 +1,4 @@
 // import { gql } from 'apollo-server-core/src/gql.js'
-import { gql } from 'apollo-server-core'
+import { gql } from 'graphql-tag'
 
 export default gql 

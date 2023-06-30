@@ -34,7 +34,7 @@
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "gql-tag": "^1.0.1",
-    "graphql": "^16.6.0",
+    "graphql": "^16.7.1",
     "graphql-tag": "^2.12.6",
     "graphql-tools": "^9.0.0",
     "jquery": "^3.7.0",

@@ -5,7 +5,7 @@ import { startStandaloneServer } from '@apollo/server/standalone'
 import typeDefs from '../../src/typeDef-Resolvers/Schema/typeDef.js'
 import { resolver } from '../../src/typeDef-Resolvers/index.js'
 import { types } from 'util'
-import pkg2 from '../../utils/middleware/auth.cjs'
+import pkg2 from '../../utils/middleware/auth.mjs'
 const { authMiddleware } = pkg2
 
 // !-----------------------------------------------------------------------------------$$$$$$------------------]]]]]
