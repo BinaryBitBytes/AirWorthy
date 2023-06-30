@@ -4,7 +4,7 @@
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { makeExecutableSchema } from '@graphql-tools/schema'
 // import { gql } from'apollo-server-core'
-import { gql } from '../../gql.mjs'
+import gql  from '../../gql.mjs'
 
 export const ProjectTypeDefs = gql`
     # //TODO need to add a real input type to project named projectInput and change project back to type project

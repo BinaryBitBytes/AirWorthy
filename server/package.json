@@ -50,7 +50,9 @@
     "node": "^16.13.0",
     "nodemon": "^1.14.9",
     "npm": "^9.7.2",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": "^18.16.1",

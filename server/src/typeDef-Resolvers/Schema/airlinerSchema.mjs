@@ -1,6 +1,6 @@
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
- import { gql } from '../../gql.mjs'
+ import gql  from '../../gql.mjs'
 // import gql from 'gql-tag'
 // const { gql } = gql
 export const AirlinerTypeDefs = gql`
