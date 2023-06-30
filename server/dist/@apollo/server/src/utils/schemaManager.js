@@ -1,0 +1,147 @@
+/**
+ * An async-safe class for tracking changes in schemas and schema-derived data.
+ *
+ * Specifically, as long as start() is called (and completes) before stop() is
+ * called, any set of executions of public methods is linearizable.
+ *
+ * Note that linearizability in Javascript is trivial if all public methods are
+ * non-async, but increasingly difficult to guarantee if public methods become
+ * async. Accordingly, if you believe a public method should be async, think
+ * carefully on whether it's worth the mental overhead. (E.g. if you wished that
+ * a callback was async, consider instead resolving a Promise in a non-async
+ * callback and having your async code wait on the Promise in setTimeout().)
+ */
+export class SchemaManager {
+    constructor(options) {
+        this.onSchemaLoadOrUpdateListeners = new Set();
+        this.isStopped = false;
+        this.logger = options.logger;
+        this.schemaDerivedDataProvider = options.schemaDerivedDataProvider;
+        if ('gateway' in options) {
+            this.modeSpecificState = {
+                mode: 'gateway',
+                gateway: options.gateway,
+                apolloConfig: options.apolloConfig,
+            };
+        }
+        else {
+            this.modeSpecificState = {
+                mode: 'schema',
+                apiSchema: options.apiSchema,
+                // The caller of the constructor expects us to fail early if the schema
+                // given is invalid/has errors, so we call the provider here. We also
+                // pass the result to start(), as the provider can be expensive to call.
+                schemaDerivedData: options.schemaDerivedDataProvider(options.apiSchema),
+            };
+        }
+    }
+    /**
+     * Calling start() will:
+     * - Start gateway schema fetching (if a gateway was provided).
+     * - Initialize schema-derived data.
+     * - Synchronously notify onSchemaLoadOrUpdate() listeners of schema load, and
+     *   asynchronously notify them of schema updates.
+     * - If we started a gateway, returns the gateway's executor; otherwise null.
+     */
+    async start() {
+        if (this.modeSpecificState.mode === 'gateway') {
+            const gateway = this.modeSpecificState.gateway;
+            if (gateway.onSchemaLoadOrUpdate) {
+                // Use onSchemaLoadOrUpdate, as it reports the core supergraph SDL and
+                // always reports the initial schema load.
+                this.modeSpecificState.unsubscribeFromGateway =
+                    gateway.onSchemaLoadOrUpdate((schemaContext) => {
+                        this.processSchemaLoadOrUpdateEvent(schemaContext);
+                    });
+            }
+            else {
+                throw new Error("Unexpectedly couldn't find onSchemaLoadOrUpdate on gateway");
+            }
+            const config = await this.modeSpecificState.gateway.load({
+                apollo: this.modeSpecificState.apolloConfig,
+            });
+            return config.executor;
+        }
+        else {
+            this.processSchemaLoadOrUpdateEvent({
+                apiSchema: this.modeSpecificState.apiSchema,
+            }, this.modeSpecificState.schemaDerivedData);
+            return null;
+        }
+    }
+    /**
+     * Registers a listener for schema load/update events. Note that the latest
+     * event is buffered, i.e.
+     * - If registered before start(), this method will throw. (We have no need
+     *   for registration before start(), but this is easy enough to change.)
+     * - If registered after start() but before stop(), the callback will be first
+     *   called in this method (for whatever the current schema is), and then
+     *   later for updates.
+     * - If registered after stop(), the callback will never be called.
+     *
+     * For gateways, a core supergraph SDL will be provided to the callback.
+     *
+     * @param callback The listener to execute on schema load/updates.
+     */
+    onSchemaLoadOrUpdate(callback) {
+        if (!this.schemaContext) {
+            throw new Error('You must call start() before onSchemaLoadOrUpdate()');
+        }
+        if (!this.isStopped) {
+            try {
+                callback(this.schemaContext);
+            }
+            catch (e) {
+                // Note that onSchemaLoadOrUpdate() is currently only called from
+                // ApolloServer._start(), so we throw here to alert the user early
+                // that their callback is failing.
+                throw new Error(`An error was thrown from an 'onSchemaLoadOrUpdate' listener: ${e.message}`);
+            }
+        }
+        this.onSchemaLoadOrUpdateListeners.add(callback);
+        return () => {
+            this.onSchemaLoadOrUpdateListeners.delete(callback);
+        };
+    }
+    /**
+     * Get the schema-derived state for the current schema. This throws if called
+     * before start() is called.
+     */
+    getSchemaDerivedData() {
+        if (!this.schemaDerivedData) {
+            throw new Error('You must call start() before getSchemaDerivedData()');
+        }
+        return this.schemaDerivedData;
+    }
+    /**
+     * Calling stop() will:
+     * - Stop gateway schema fetching (if a gateway was provided).
+     *   - Note that this specific step may not succeed if gateway is old.
+     * - Stop updating schema-derived data.
+     * - Stop notifying onSchemaLoadOrUpdate() listeners.
+     */
+    async stop() {
+        this.isStopped = true;
+        if (this.modeSpecificState.mode === 'gateway') {
+            this.modeSpecificState.unsubscribeFromGateway?.();
+            await this.modeSpecificState.gateway.stop?.();
+        }
+    }
+    processSchemaLoadOrUpdateEvent(schemaContext, schemaDerivedData) {
+        if (!this.isStopped) {
+            this.schemaDerivedData =
+                schemaDerivedData ??
+                    this.schemaDerivedDataProvider(schemaContext.apiSchema);
+            this.schemaContext = schemaContext;
+            this.onSchemaLoadOrUpdateListeners.forEach((listener) => {
+                try {
+                    listener(schemaContext);
+                }
+                catch (e) {
+                    this.logger.error("An error was thrown from an 'onSchemaLoadOrUpdate' listener");
+                    this.logger.error(e);
+                }
+            });
+        }
+    }
+}

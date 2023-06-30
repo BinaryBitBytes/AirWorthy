@@ -2,7 +2,6 @@
   "name": "airworthy",
   "version": "1.0.0",
   "description": "A full stack MERN application that uses an authentication system to allow FAA Inspectors, Airliners, and Aircraft Technicians to update progress on their work all while keeping a log of records on projects completed.",
-  "type": "module",
   "main": "server/server.js",
   "quokka": {
     "babel": true,
@@ -10,8 +9,8 @@
   },
   "scripts": {
     "seed": "node server/src/data/seed.js",
-    "start": "node -r esm server/server.js",
-    "START": "node --experimental-modules server/server.js",
+    "start": "node -r esm server/server.mjs",
+    "START": "node --experimental-modules server/server.mjs",
     "start1": "node --experimental-modules server/server.js concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
     "runStart": "react-scripts start",
@@ -23,6 +22,7 @@
   "keywords": [],
   "author": "Miles Colón",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
@@ -33,6 +33,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
+    "gql-tag": "^1.0.1",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "graphql-tools": "^9.0.0",
@@ -73,8 +74,8 @@
     "web-vitals": "^0.2.4"
   },
   "engines": {
-    "node": "16.13.0",
-    "npm": "8.1.0"
+    "node": "18.16.1",
+    "npm": "9.7.2"
   },
   "repository": {
     "type": "git",
