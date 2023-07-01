@@ -1,5 +1,5 @@
 import React from "react";
-import Technician from "../components/Technician.js";
+import Technician from "../components/technician/Technician.jsx";
 
 <React.Fragment>
   <Technician />

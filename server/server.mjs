@@ -1,6 +1,6 @@
-import express from 'express'
 import apollo from 'apollo-server-express'
-const { ApolloServer, gql } = apollo
+import express from 'express'
+const { ApolloServer } = apollo
 import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
 import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
 import { connectDB } from './config/connection.mjs'

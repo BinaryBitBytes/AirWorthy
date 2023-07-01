@@ -1,5 +1,5 @@
 import React from "react";
-import "./stars.scss";
+import "../stars.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Technician extends React.Component {

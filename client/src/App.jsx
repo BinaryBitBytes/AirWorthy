@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 import Intro from "./components/intro";
 import Manager from "./components/manager/Manager";
-import Technician from "./components/Technician";
+import Technician from "./components/technician/Technician";
 
 function App() {
   return (
