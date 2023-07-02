@@ -10,6 +10,7 @@
   "scripts": {
     "seed": "node server/src/data/seed.js",
     "start": "node -r esm server/server.mjs",
+    "STARTING": "node server/server.mjs",
     "START": "node --experimental-modules server/server.mjs",
     "start1": "node --experimental-modules server/server.js concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
@@ -69,7 +70,7 @@
     "esm": "^3.2.25",
     "node": "^16.13.0",
     "npm": "^9.7.2",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.1.0",
     "react-scripts": "^1.1.5",

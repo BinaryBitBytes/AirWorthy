@@ -1,5 +1,10 @@
-import path from 'path'
-module.exports = {
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
   entry: './src/index.mjs',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,10 +18,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
-  }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+    ],
+  },
 };

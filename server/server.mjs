@@ -1,6 +1,6 @@
+import express  from 'express'
 import apollo from 'apollo-server-express'
-import express from 'express'
-const { ApolloServer } = apollo
+const { ApolloServer, gql } = apollo
 import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
 import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
 import { connectDB } from './config/connection.mjs'
@@ -9,6 +9,7 @@ import { connectDB } from './config/connection.mjs'
 connectDB()
 // Global function to start the server asynchronously
 const startServer = async () => {
+  // // express = await express('express')
   // This creates an Express application
   const app = express()
   // This creates the instance of the Apollo server with the typeDefs & resolvers
