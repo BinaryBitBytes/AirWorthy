@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv';
 dotenv.config();
-
 // Access the MongoDB URI from the environment variable
 
 // Use the `mongodbURI` variable in your code to connect to MongoDB
@@ -20,3 +19,5 @@ export const connectDB = async () => {
     console.error('Failed to connect to MongoDB', error)
   }
 }
+
+console.log(connectDB());
