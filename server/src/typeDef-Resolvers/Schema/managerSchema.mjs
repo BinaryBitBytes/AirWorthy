@@ -5,7 +5,8 @@
 // import { gql } from'apollo-server-core'
 import  gql  from '../../gql.mjs'
 
-export const ManagerTypeDefs = gql`
+// export const ManagerTypeDefs = gql`
+export const ManagerTypeDefs = `
   input ManagerInput {
     managerName: String
     isAdmin: Boolean

@@ -3,7 +3,8 @@
  import gql  from '../../gql.mjs'
 // import gql from 'gql-tag'
 // const { gql } = gql
-export const AirlinerTypeDefs = gql`
+// export const AirlinerTypeDefs = gql`
+export const AirlinerTypeDefs = `
   """
   Airliner represents an airline company.
   """

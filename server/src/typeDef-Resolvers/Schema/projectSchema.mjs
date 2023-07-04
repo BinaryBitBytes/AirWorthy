@@ -6,7 +6,8 @@
 // import { gql } from'apollo-server-core'
 import gql  from '../../gql.mjs'
 
-export const ProjectTypeDefs = gql`
+// export const ProjectTypeDefs = gql`
+export const ProjectTypeDefs = `
     # //TODO need to add a real input type to project named projectInput and change project back to type project
   type Project {
   _id: ID!

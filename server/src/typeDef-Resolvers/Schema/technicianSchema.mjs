@@ -6,7 +6,8 @@
 // import { gql } from'apollo-server-core'
 import gql  from '../../gql.mjs'
 
-export const TechnicianTypeDefs = gql`
+// export const TechnicianTypeDefs = gql`
+export const TechnicianTypeDefs = `
 # //TODO need to add a real input type to technician named technicianInput and change auth back to type technician
 
 input Technician {

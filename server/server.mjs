@@ -2,21 +2,27 @@ import  express  from 'express'
 import apollo from 'apollo-server-express'
 const { ApolloServer, gql } = apollo
 import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
-import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
+// import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
+import TYPEDEFS from './src/typeDef-Resolvers/Schema/typeDef.mjs'
+
 import { connectDB } from './config/connection.mjs'
 
 // connecting to the mongo database
 connectDB()
 // Global function to start the server asynchronously
 const startServer = async () => {
+  //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
   // // express = await express('express')
   // This creates an Express application
   const app = express()
   // This creates the instance of the Apollo server with the typeDefs & resolvers
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers
-  })
+  const server = new ApolloServer(
+    {
+      // typeDefs,
+      TYPEDEFS,
+      resolvers
+    }
+  )
   await server.start()
   // await server.listen()
   // This applies the Apollo Server Middleware into the Express application

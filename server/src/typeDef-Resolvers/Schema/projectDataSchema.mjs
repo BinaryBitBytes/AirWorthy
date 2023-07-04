@@ -5,7 +5,8 @@
 // import { gql } from'apollo-server-core'
 import gql  from '../../gql.mjs'
 
-export const ProjectDataTypeDefs = gql`
+// export const ProjectDataTypeDefs = gql`
+export const ProjectDataTypeDefs = `
 input ProjectData {
     _id: ID!
     projectId: Int

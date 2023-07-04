@@ -8,7 +8,9 @@ import { TechnicianTypeDefs } from './technicianSchema.mjs'
 // import gql  from 'graphql-tag'
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
-import gql from '../../gql.mjs'
+//!!! import gql from '../../gql.mjs'
+// import gql from '../../gqlTag.mjs'
+import { gql } from 'apollo-server'
 
 // import { gql } from 'apollo-server'
 // const typeDefs = [
@@ -20,17 +22,51 @@ import gql from '../../gql.mjs'
 //         gql(ProjectTypeDefs),
 //         gql(TechnicianTypeDefs)
 //       ];
-const typeDefs = gql`
-  ${AirlinerTypeDefs},
-  ${AuthTypeDefs},
-  ${InspectorTypeDefs},
-  ${ManagerTypeDefs},
-  ${ProjectDataTypeDefs},
-  ${ProjectTypeDefs},
-  ${TechnicianTypeDefs}
-`;
-// console.log(typeDefs());
-export default typeDefs
+// const typeDefs = gql`
+//   ${AirlinerTypeDefs},
+//   ${AuthTypeDefs},
+//   ${InspectorTypeDefs},
+//   ${ManagerTypeDefs},
+//   ${ProjectDataTypeDefs},
+//   ${ProjectTypeDefs},
+//   ${TechnicianTypeDefs}
+// `;
 
+// const typeDefs = {
+//   AirlinerTypeDefs,
+//   AuthTypeDefs,
+//   InspectorTypeDefs,
+//   ManagerTypeDefs,
+//   ProjectDataTypeDefs,
+//   ProjectTypeDefs,
+//   TechnicianTypeDefs
+// };
+const typeDefs=`
+${await AirlinerTypeDefs}
+${await AuthTypeDefs}
+${await InspectorTypeDefs}
+${await ManagerTypeDefs}
+${await ProjectDataTypeDefs}
+${await ProjectTypeDefs}
+${await TechnicianTypeDefs}
+`
+// const typeDefs = [
+//   AirlinerTypeDefs,
+//   AuthTypeDefs,
+//   InspectorTypeDefs,
+//   ManagerTypeDefs,
+//   ProjectDataTypeDefs,
+//   ProjectTypeDefs,
+//   TechnicianTypeDefs
+// ].join('\n');
+
+// const TYPEDEFS = gql`
+// ${JSON.stringify(typeDefs)}
+// `;
+// console.log(typeDefs());
 console.log(typeof(typeDefs))
-console.log(typeDefs);
+console.log({typeDefs});
+export default gql(typeDefs)
+
+// console.log(typeof(TYPEDEFS))
+// console.log(TYPEDEFS)

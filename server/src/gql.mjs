@@ -3,7 +3,7 @@
 //Successful dynamic import of node module below
 async function gql (){
     try{
-        const { gql } = await import('apollo-server')
+        const { gql } = await import('apollo-server-core')
     } catch (error){
         console.error(error);
     }

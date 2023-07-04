@@ -5,7 +5,8 @@
 // import { gql } from'apollo-server-core'
 import gql  from '../../gql.mjs'
 
-export const InspectorTypeDefs = gql`
+// export const InspectorTypeDefs = gql`
+export const InspectorTypeDefs = `
   type Inspector {
     _id: ID!
     inspectorName: String

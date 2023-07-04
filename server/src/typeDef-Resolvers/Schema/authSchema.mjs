@@ -5,7 +5,8 @@
 // import { gql } from'apollo-server-core'
 import gql from '../../gql.mjs'
 
-export const AuthTypeDefs = gql`
+// export const AuthTypeDefs = gql`
+export const AuthTypeDefs = `
   type Query {
     auth: User
     auths: [User]
