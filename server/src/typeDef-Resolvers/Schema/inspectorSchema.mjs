@@ -6,7 +6,7 @@
 import gql  from '../../gql.mjs'
 
 // export const InspectorTypeDefs = gql`
-export const InspectorTypeDefs = `
+export const InspectorTypeDefs = gql(`
   type Inspector {
     _id: ID!
     inspectorName: String
@@ -37,4 +37,6 @@ export const InspectorTypeDefs = `
     removeInspector(inspectorID: ID!): Boolean
     # removeProject(inspectorID: ID!, projectID: ID!): Inspector
   }
-`
+`)
+
+console.log(InspectorTypeDefs)

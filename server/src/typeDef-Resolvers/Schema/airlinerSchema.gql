@@ -1,10 +1,10 @@
-// import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
- // import { gql } from'apollo-server-core'
-import gql  from '../../gql.mjs'
- // import gql from 'gql-tag'
- // const { gql } = gql
- // export const AirlinerTypeDefs = gql`
- export const AirlinerTypeDefs = gql(`
+# // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
+# // import { gql } from'apollo-server-core'
+#  import gql  from '../../gql.mjs'
+# // import gql from 'gql-tag'
+# // const { gql } = gql
+# // export const AirlinerTypeDefs = gql`
+# export const AirlinerTypeDefs = `
   """
   Airliner represents an airline company.
   """
@@ -46,6 +46,4 @@ import gql  from '../../gql.mjs'
     """
     removeAirliner(_id: ID!): Boolean
   }
-`);
-
-console.log(AirlinerTypeDefs)
+`;

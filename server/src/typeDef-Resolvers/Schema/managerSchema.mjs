@@ -6,7 +6,7 @@
 import  gql  from '../../gql.mjs'
 
 // export const ManagerTypeDefs = gql`
-export const ManagerTypeDefs = `
+export const ManagerTypeDefs = gql(`
   input ManagerInput {
     managerName: String
     isAdmin: Boolean
@@ -23,4 +23,5 @@ export const ManagerTypeDefs = `
     email: String
     password: String
   }
-`
+`)
+console.log(ManagerTypeDefs)

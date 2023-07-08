@@ -6,7 +6,7 @@
 import gql from '../../gql.mjs'
 
 // export const AuthTypeDefs = gql`
-export const AuthTypeDefs = `
+export const AuthTypeDefs = gql(`
   type Query {
     auth: User
     auths: [User]
@@ -25,4 +25,5 @@ export const AuthTypeDefs = `
     addUser(username: String, token: String, email: String, password: String, isAdmin: Boolean): User
     loginUser(username: String, token: String, email: String, password: String): User
   }
-`
+`)
+console.log(AuthTypeDefs)

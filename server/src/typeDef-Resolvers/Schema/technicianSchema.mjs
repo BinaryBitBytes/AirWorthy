@@ -7,7 +7,7 @@
 import gql  from '../../gql.mjs'
 
 // export const TechnicianTypeDefs = gql`
-export const TechnicianTypeDefs = `
+export const TechnicianTypeDefs = gql(`
 # //TODO need to add a real input type to technician named technicianInput and change auth back to type technician
 
 input Technician {
@@ -19,4 +19,5 @@ input Technician {
     email: String
     password: String
 }
-`
+`)
+console.log(TechnicianTypeDefs)

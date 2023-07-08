@@ -7,7 +7,7 @@
 import gql  from '../../gql.mjs'
 
 // export const ProjectTypeDefs = gql`
-export const ProjectTypeDefs = `
+export const ProjectTypeDefs = gql(`
     # //TODO need to add a real input type to project named projectInput and change project back to type project
   type Project {
   _id: ID!
@@ -39,4 +39,5 @@ type Mutation {
   removeProject(projectID: ID!): Project
   removeTechnician(projectID: ID!, technicianID: String): Project
 }
-`
+`)
+console.log(ProjectTypeDefs)
