@@ -19,7 +19,7 @@ import { TechnicianTypeDefs } from './technicianSchema.mjs'
 // import { gql } from '../../gql.mjs'
 // import { gql } from 'apollo-server'
 
-import { gql } from 'apollo-server-core'
+// import { gql } from 'apollo-server-core'
 // const typeDefs = [
 //         gql(AirlinerTypeDefs),
 //         gql(AuthTypeDefs),
@@ -29,7 +29,16 @@ import { gql } from 'apollo-server-core'
 //         gql(ProjectTypeDefs),
 //         gql(TechnicianTypeDefs)
 //       ];
-const typeDefs = gql`
+// const typeDefs = gql`
+//   ${AirlinerTypeDefs},
+//   ${AuthTypeDefs},
+//   ${InspectorTypeDefs},
+//   ${ManagerTypeDefs},
+//   ${ProjectDataTypeDefs},
+//   ${ProjectTypeDefs},
+//   ${TechnicianTypeDefs}
+// `;
+const typeDefs = `
   ${AirlinerTypeDefs},
   ${AuthTypeDefs},
   ${InspectorTypeDefs},
