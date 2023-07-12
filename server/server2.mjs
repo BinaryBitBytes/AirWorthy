@@ -1,18 +1,18 @@
 import  express  from 'express'
+// const { ApolloServer } = apollo
+import { ApolloServer } from '@apollo/server'
+import { startStandaloneServer } from '@apollo/server/standalone';
+import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
+import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
 // import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
 // import { GraphQLAbstractType } from 'graphql'
 // import { GraphQLArgs } from 'graphql'
 // import { GraphQLError } from 'graphql'
-import { GraphQLSchema as gqlSchema } from 'graphql'
+// import { GraphQLSchema } from 'graphql'
 // import { GraphQLList } from 'graphql'
 // import { GraphQLResponseBody } from '@apollo/server/dist/esm/externalTypes/graphql'
 // import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
-import apollo from 'apollo-server-core'
-const { ApolloServer } = apollo
-import { startStandaloneServer } from '@apollo/server/standalone';
-import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
 // import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
-import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
 
 import { connectDB } from './config/connection.mjs'
 
@@ -25,18 +25,18 @@ const startServer = async () => {
   // This creates an Express application
   const app = express()
   // This creates the instance of the Apollo server with the typeDefs & resolvers
-  const server = () => {
-    new ApolloServer(
+  const server = new ApolloServer(
     {
       // typeDefs,
       typeDefs,
       resolvers
     }
   )
-  }
   await server.start()
   // await server.listen()
+  const { url } = await startStandaloneServer(server)
   // This applies the Apollo Server Middleware into the Express application
+  console.log(`🚀  Server ready at ${url}`);
   server.applyMiddleware({ app })
   // This starts the server and listens on the respected port address
   app.listen({ port: 3069 }, () => {
