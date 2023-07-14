@@ -16,6 +16,7 @@
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.7.1",
+    "@apollo/subgraph": "^2.4.9",
     "@graphql-tools/load-files": "^7.0.0",
     "@graphql-tools/schema": "^10.0.0",
     "@popperjs/core": "^2.11.7",

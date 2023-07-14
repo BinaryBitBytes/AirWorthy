@@ -1,4 +1,7 @@
 import  express  from 'express'
+// import { buildSubgraphSchema } from '@apollo/subgraph';
+import * as buildSubgraphSchema from '@apollo/subgraph';
+
 // import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
 // import { GraphQLAbstractType } from 'graphql'
 // import { GraphQLArgs } from 'graphql'
@@ -9,7 +12,10 @@ import { GraphQLSchema as gqlSchema } from 'graphql'
 // import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
 import apollo from 'apollo-server-core'
 const { ApolloServer } = apollo
-import { startStandaloneServer } from '@apollo/server/standalone';
+// import { startStandaloneServer } from '@apollo/server/standalone';
+import StartStandaloneServer from '@apollo/server/standalone';
+const {startStandaloneServer} = StartStandaloneServer
+
 import resolvers from './src/typeDef-Resolvers/Resolvers/resolvers.mjs'
 // import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
 import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
@@ -29,12 +35,16 @@ const startServer = async () => {
     new ApolloServer(
     {
       // typeDefs,
-      typeDefs,
-      resolvers
+      schema: buildSubgraphSchema({typeDefs, resolvers})
     }
   )
   }
-  await server.start()
+  // await server.start()
+
+//! testing
+const { url } = await startStandaloneServer(server);
+console.log(`🚀  Server ready at ${url}`);
+//!;
   // await server.listen()
   // This applies the Apollo Server Middleware into the Express application
   server.applyMiddleware({ app })
@@ -44,4 +54,4 @@ const startServer = async () => {
   })
 }
 // Starting the Express Server with the Mongoose Database
-startServer().catch((error) => console.log(error))
+// // startServer().catch((error) => console.log(error))

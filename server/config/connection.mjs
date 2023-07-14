@@ -20,4 +20,4 @@ export const connectDB = async () => {
   }
 }
 
-console.log(connectDB());
+// console.log(connectDB());
