@@ -1,6 +1,7 @@
 import  express  from 'express'
 // import { buildSubgraphSchema } from '@apollo/subgraph';
-import * as buildSubgraphSchema from '@apollo/subgraph';
+// import * as buildSubgraphSchema from '@apollo/subgraph';
+import buildSubgraphSchema from '@apollo/subgraph';
 
 // import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
 // import { GraphQLAbstractType } from 'graphql'

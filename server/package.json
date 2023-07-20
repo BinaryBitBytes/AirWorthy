@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node -r esm server.js",
+    "START": "node server.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
