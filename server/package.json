@@ -1,6 +1,5 @@
 {
   "name": "server",
-  "type": "module",
   "version": "1.0.0",
   "description": "Server Side for Airworthy",
   "main": "server.js",
@@ -9,13 +8,16 @@
   },
   "scripts": {
     "start": "node -r esm server.js",
+    "START": "node server.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
   "author": "Miles Colon",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@apollo/server": "^4.7.1",
+    "@apollo/subgraph": "^2.4.9",
     "@graphql-tools/load-files": "^7.0.0",
     "@graphql-tools/schema": "^10.0.0",
     "@popperjs/core": "^2.11.7",
@@ -31,9 +33,8 @@
     "express-jwt": "^8.4.1",
     "fs": "^0.0.1-security",
     "gql-tag": "^1.0.1",
-    "graphql": "^16.6.0",
+    "graphql": "^16.7.1",
     "graphql-modules": "^2.1.2",
-    "graphql-tag": "^2.12.6",
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "mongoose": "^5.13.19",
@@ -42,18 +43,22 @@
     "path": "^0.12.7",
     "popper": "^1.0.1",
     "react-scripts": "^1.1.5",
-    "typescript": "^4.9.5",
     "url": "^0.11.0"
   },
   "devDependencies": {
     "esm": "^3.2.25",
+    "graphql": "^16.7.1",
+    "graphql-tag": "^2.12.6",
     "graphql-tools": "^9.0.0",
     "node": "^16.13.0",
     "nodemon": "^1.14.9",
-    "npm": "^9.7.2"
+    "npm": "^9.7.2",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
-    "node": "^16.13.0",
-    "npm": "8.1.0"
+    "node": "^18.16.1",
+    "npm": "9.7.2"
   }
 }
