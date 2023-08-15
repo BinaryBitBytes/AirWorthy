@@ -1,16 +1,19 @@
-import mongoose from 'mongoose'
+// import '../../server/config/.env'
 import dotenv from 'dotenv';
+import mongoose from 'mongoose'
 dotenv.config();
 // Access the MongoDB URI from the environment variable
 
 // Use the `mongodbURI` variable in your code to connect to MongoDB
 export const connectDB = async () => {
   try {
-    const mongodbURI = process.env.MONGODB_URI|| 'mongodb://127.0.0.1:27017/AirWorthy_DB';
+    const mongodbURI = process.env.REACT_APP_MONGODB_URI
+    //const mongodbURI = {process.env.REACT_APP_MONGODB_URI} || 'mongodb://localhost';
+    // const mongodbURI = process.env.MONGODB_URI || '127.0.0.1:27017/AirWorthy_DB';
     // const mongodbURI =  'mongodb://127.0.0.1:27017/AirWorthy_DB';
 
     console.log(mongodbURI)
-     mongoose.connect(mongodbURI , {
+     mongoose.connect(`${mongodbURI}` , {
       // await mongoose.createConnection(mongodbURI , {
       useNewUrlParser: true,
       useUnifiedTopology: true
