@@ -8,7 +8,8 @@
     "js": true
   },
   "scripts": {
-    "seed": "node server/src/data/seed.js",
+    "seed": "node server/src/data/seed.mjs",
+    "finsih": "NODE_OPTIONS='--experimental-specifier-resolution=node' node src/index.js",
     "start": "node -r esm server/server.mjs",
     "STARTING": "node server/server.mjs",
     "START": "node --experimental-modules server/server.mjs",

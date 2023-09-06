@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose'
 dotenv.config();
 // Access the MongoDB URI from the environment variable
-
+console.log(process.env.REACT_APP_MONGODB_URI)
 // Use the `mongodbURI` variable in your code to connect to MongoDB
 export const connectDB = async () => {
   try {

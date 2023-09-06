@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { connectDB } from '../../config/connection.js'
+import { connectDB } from '../../config/connection.mjs'
 import path from 'path'
 import express from 'express'
 import fs from 'fs'
@@ -28,7 +28,7 @@ import fs from 'fs'
     AuthData,
     ProjectData_Data 
 } from './index.js'
-import models from '../models/index.js'
+import models from '../models/index.mjs'
 const airliner = new models.AirlinerModel();
 const inspector = new models.InspectorModel();
 const manager = new models.ManagerModel();
