@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node -r esm server.js",
-    "_start_": "node -r esm server.js --trace-deprecation ...",
+    "_start_": "node -r esm server.js",
     "START": "node server.js",
     "watch": "nodemon server.js",
     "build:local": "env-cmd -f ./config/.env.local node -r esm server.js"

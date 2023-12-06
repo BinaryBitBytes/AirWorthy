@@ -8,7 +8,7 @@
     "js": true
   },
   "scripts": {
-    "seed": "node server/src/data/seed.js",
+    "seed": "node -r esm server/src/data/seed.mjs",
     "start": "node -r esm server/server.mjs",
     "_start_": "node -r esm server/server.mjs --trace-deprecation ...",
     "STARTING": "node server/server.mjs",

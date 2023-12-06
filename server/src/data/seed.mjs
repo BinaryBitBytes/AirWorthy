@@ -27,8 +27,8 @@ import {
   TechnicianData,
   AuthData,
   ProjectData_Data,
-} from "./index.js";
-import models from "../models/index.js";
+} from "./index.mjs";
+import models from "../models/index.mjs";
 const airliner = new models.AirlinerModel();
 const inspector = new models.InspectorModel();
 const manager = new models.ManagerModel();
