@@ -10,6 +10,7 @@
   "scripts": {
     "seed": "node server/src/data/seed.js",
     "start": "node -r esm server/server.mjs",
+    "_start_": "node -r esm server/server.mjs --trace-deprecation ...",
     "STARTING": "node server/server.mjs",
     "START": "node --experimental-modules server/server.mjs",
     "start1": "node --experimental-modules server/server.js concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
