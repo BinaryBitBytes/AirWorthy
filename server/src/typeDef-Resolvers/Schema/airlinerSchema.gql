@@ -8,6 +8,13 @@
   """
   Airliner represents an airline company.
   """
+  input AirlinerInput {
+    _id: UUID
+    airlinerName: String
+    ceatedAt: Date
+    modelAircraft: [{modelAircraft: [String]}]
+  }
+
   type Airliner {
     _id: ID!
     airlinerName: String
@@ -47,3 +54,5 @@
     removeAirliner(_id: ID!): Boolean
   }
 `;
+
+console.log(AirlinerInput)

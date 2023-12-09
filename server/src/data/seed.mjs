@@ -3,22 +3,6 @@ import { connectDB } from "../../config/connection.mjs";
 import path from "path";
 import express from "express";
 import fs from "fs";
-// import {
-//   AirlinerModel,
-//   InspectorModel,
-//   ManagerModel,
-//   ProjectModel,
-//   TechnicianModel,
-//   AuthModel,
-//   ProjectDataModel } from '../models/index.js'
-// import {
-//   Airliner_jsonString,
-//   Inspector_jsonString,
-//   Manager_jsonString,
-//   ProjectData_jsonString,
-//   Technician_jsonString,
-//   AuthData_jsonString,
-//   ProjectData_Data_jsonString  } from './json_String_index.js'
 import {
   AirlinerData,
   InspectorData,
@@ -28,7 +12,12 @@ import {
   AuthData,
   ProjectData_Data,
 } from "./index.mjs";
+
+import AirlinerModel from "../models/index.mjs";
+console.log(AirlinerModel);
 import models from "../models/index.mjs";
+
+//! @BinaryBitBytes: Assignment of Constants to new Models to handle state change.
 const airliner = new models.AirlinerModel();
 const inspector = new models.InspectorModel();
 const manager = new models.ManagerModel();
@@ -39,6 +28,7 @@ const projectData = new models.ProjectDataModel();
 
 const app = express();
 app.use(express.json());
+
 connectDB(async () => {
   async function seedDB() {
     try {
@@ -50,18 +40,11 @@ connectDB(async () => {
           }
         )
       );
+
       //Read seed data from the JSON files
       const seedDataPath = path.join(__dirname, "data");
       const fileNames = fs.readdirSync(seedDataPath);
 
-      // Now inserting seed data into the database
-      fileNames.forEach((fileName) => {
-        const filePath = path.join(seedDataPath, fileName);
-        const seedData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-        const modelName = fileName.split(".")[0];
-        const Model = mongoose.model(modelName);
-        Model.insertMany(seedData);
-      });
       // seeding the airliners
       async function airlinerSeed() {
         await airliner.deleteMany({});
@@ -71,6 +54,7 @@ connectDB(async () => {
         await airliner.insertMany(AirlinerData);
         console.log("Airliners seeded!");
       }
+
       // seeding the inspectors
       async function inspectorSeed() {
         await inspector.deleteMany({});
@@ -80,6 +64,7 @@ connectDB(async () => {
         await inspector.insertMany(InspectorData);
         console.log("Inspectors seeded!");
       }
+
       // seeding the managers
       async function managerSeed() {
         await manager.deleteMany({});
@@ -89,6 +74,7 @@ connectDB(async () => {
         await manager.insertMany(ManagerData);
         console.log("Managers seeded!");
       }
+
       // seeding the projects
       async function projectSeed() {
         await project.deleteMany({});
@@ -98,6 +84,7 @@ connectDB(async () => {
         await project.insertMany(ProjectData);
         console.log("Projects seeded!");
       }
+
       // seeding the technicians
       async function technicianSeed() {
         await technician.deleteMany({});
@@ -107,6 +94,7 @@ connectDB(async () => {
         await technician.insertMany(TechnicianData);
         console.log("Technicians seeded!");
       }
+
       // seeding the auth
       async function authSeed() {
         await auth.deleteMany({});
@@ -116,6 +104,7 @@ connectDB(async () => {
         await auth.insertMany(AuthData);
         console.log("Auth seeded!");
       }
+
       // seeding the project-data
       async function projectDataSeed() {
         await projectData.deleteMany({});
@@ -125,15 +114,28 @@ connectDB(async () => {
         await projectData.insertMany(ProjectData_Data);
         console.log("Project Data seeded!");
       }
-      await airlinerSeed();
-      await inspectorSeed();
-      await managerSeed();
-      await projectSeed();
-      await technicianSeed();
-      await authSeed();
-      await projectDataSeed();
-      console.log(`Database seeding is complete.`);
 
+      // Awaiting Seeds for the models.
+      async function SEEDED() {
+        await airlinerSeed([{ ...AirlinerData }]);
+        await inspectorSeed([{ ...InspectorData }]);
+        await managerSeed([{ ...ManagerData }]);
+        await projectSeed([{ ...ProjectData }]);
+        await technicianSeed([{ ...TechnicianData }]);
+        await authSeed([{ ...AuthData }]);
+        await projectDataSeed([{ ...ProjectData_Data }]);
+      }
+      // Now inserting seed data into the database
+      fileNames.forEach((fileName) => {
+        const filePath = path.join(seedDataPath, fileName);
+        const seedData = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+        const modelName = fileName.split(".")[0];
+        const Model = mongoose.model(modelName);
+        Model.insertMany(seedData);
+      });
+
+      console.log(`Database seeding is complete.`);
+      console.assert();
       console.log("Database has been seeded");
       process.exit(0);
     } catch (error) {
@@ -145,3 +147,32 @@ connectDB(async () => {
   await seedDB();
   process.exit(0);
 });
+
+// import {
+//   AirlinerData as Airlner,
+//   InspectorData as Inspector,
+//   ManagerData as Manager,
+//   ProjectData as Project,
+//   TechnicianData as Technician,
+//   AuthData as Auth,
+//   ProjectData_Data as Data,
+// } from "./index.mjs";
+
+/*
+import {
+  AirlinerModel,
+  InspectorModel,
+  ManagerModel,
+  ProjectModel,
+  TechnicianModel,
+  AuthModel,
+  ProjectDataModel } from '../models/index.js'
+import {
+  Airliner_jsonString,
+  Inspector_jsonString,
+  Manager_jsonString,
+  ProjectData_jsonString,
+  Technician_jsonString,
+  AuthData_jsonString,
+  ProjectData_Data_jsonString  } from './json_String_index.js'
+  */
