@@ -1,6 +1,9 @@
 import decode from "jwt-decode";
 
 class AuthService_ {
+  getToken() {
+    return localStorage.getItem("id_token");
+  }
   getReader() {
     return decode(this.getToken());
   }
@@ -17,10 +20,6 @@ class AuthService_ {
       return true;
     }
     return false;
-  }
-
-  getToken() {
-    return localStorage.getItem("id_token");
   }
 
   login(idToken) {

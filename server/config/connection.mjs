@@ -9,7 +9,8 @@ export const connectDB = async () => {
   try {
     // const mongodbURI =
     //   process.env.MONGODB_URI || "127.0.0.1:27017/AirWorthy_DB";
-    const mongodbURI = "mongodb://127.0.0.1:27017/AirWorthy_DB";
+    // const mongodbURI = "mongodb://127.0.0.1:27017/AirWorthy_DB";
+    const mongodbURI = "mongodb://127.0.0.1:/AirWorthy_DB";
 
     console.log(mongodbURI);
     mongoose
