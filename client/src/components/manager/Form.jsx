@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 /* Import Components */
-import Input from "../Input";
+import Input from "../Input.jsx";
 import TextArea from "../TextArea";
 import Select from "../Select";
 import Button from "../Button";
