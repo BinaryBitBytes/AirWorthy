@@ -16,5 +16,5 @@ const ProjectDataTypeDefs = gql`
   }
 `;
 
-export default { ProjectDataTypeDefs };
+export { ProjectDataTypeDefs };
 console.log({ ProjectDataTypeDefs });

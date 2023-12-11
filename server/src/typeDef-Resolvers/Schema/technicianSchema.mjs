@@ -21,6 +21,6 @@ const TechnicianTypeDefs = gql`
   }
 `;
 
-export default { TechnicianTypeDefs };
+export { TechnicianTypeDefs };
 console.log({ TechnicianTypeDefs });
 console.log(TechnicianTypeDefs);

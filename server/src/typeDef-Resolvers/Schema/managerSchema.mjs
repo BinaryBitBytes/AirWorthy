@@ -25,5 +25,5 @@ const ManagerTypeDefs = gql`
   }
 `;
 
-export default { ManagerTypeDefs };
+export { ManagerTypeDefs };
 console.log({ ManagerTypeDefs });

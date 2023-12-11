@@ -39,5 +39,5 @@ const InspectorTypeDefs = gql`
   }
 `;
 
-export default { InspectorTypeDefs };
+export { InspectorTypeDefs };
 console.log({ InspectorTypeDefs });

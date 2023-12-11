@@ -41,5 +41,5 @@ const ProjectTypeDefs = gql`
   }
 `;
 
-export default { ProjectTypeDefs };
+export { ProjectTypeDefs };
 console.log({ ProjectTypeDefs });

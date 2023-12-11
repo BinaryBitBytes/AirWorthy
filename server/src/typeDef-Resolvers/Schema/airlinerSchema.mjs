@@ -41,7 +41,7 @@ const AirlinerTypeDefs = gql`
   }
 `;
 
-export default { AirlinerTypeDefs };
+export { AirlinerTypeDefs };
 console.log({ AirlinerTypeDefs });
 
 //  export const AirlinerTypeDefs = gql(`

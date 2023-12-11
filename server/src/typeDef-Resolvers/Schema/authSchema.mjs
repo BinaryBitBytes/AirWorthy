@@ -37,5 +37,5 @@ const AuthTypeDefs = gql`
     ): User
   }
 `;
-export default { AuthTypeDefs };
+export { AuthTypeDefs };
 console.log({ AuthTypeDefs });
