@@ -54,20 +54,31 @@ The full-stack MERN application had to meet the following requirements:
 * Automattic/mongoose
 * remy/nodemon
 
+> ## Technology Implementation
+>> 1. **Apollo**
+>> <emp>_`Apollo will work with the graphql schema and the backed graphl api to work with the front end technologies.`_</emp>
+>>> - <u>**Defining the schema**</u>: Identify which data our feature requires, and then we structure our schema to provide that data as intuitively as possible.
+>>> - <u>**Backend implementation**</u>: Build out GraphQL API with Apollo Server & fetch required data from data sources containing it. Then, connect app to a live REST data source.
+>>> - <u>**Frontend implementation**</u>: Client consumes data from our GraphQL API to render its views.
+
+
 ## User Story
 
 ```md
-AS AN FAA inspector 
-I WANT to have a central database
-SO THAT I maintain the authenticity of work from certified and uncertified technicians.
+> AS AN FAA inspector 
+------------------------
+> I WANT to have a central database
+> SO THAT I maintain the authenticity of work from certified and uncertified technicians.
 
-AS AN Airline Company 
-I WANT to have a central database
-SO THAT I am be able to track the progress of the teams that are assigned to maintenance of our aircraft.
+> AS AN Airline Company 
+------------------------
+> I WANT to have a central database
+> SO THAT I am be able to track the progress of the teams that are assigned to maintenance of our aircraft.
 
-AS AN Aircraft Maintenance Technician 
-I WANT to be able to see the projects I am working on and assigned to
-SO THAT I can log my work history to log my time as I complete the work I do on the aircraft.
+> AS AN Aircraft Maintenance Technician 
+------------------------
+> I WANT to be able to see the projects I am working on and assigned to
+> SO THAT I can log my work history to log my time as I complete the work I do ?on the aircraft.
 ```
 ## Acceptance Criteria
 
