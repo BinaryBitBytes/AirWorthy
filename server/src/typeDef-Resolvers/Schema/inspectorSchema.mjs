@@ -3,10 +3,10 @@
 // const { gql } = gql
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
-import gql  from '../../gql.mjs'
+import gql from "../../gql.mjs";
 
 // export const InspectorTypeDefs = gql`
-export const InspectorTypeDefs = gql(`
+export const InspectorTypeDefs = gql`
   type Inspector {
     _id: ID!
     inspectorName: String
@@ -37,6 +37,6 @@ export const InspectorTypeDefs = gql(`
     removeInspector(inspectorID: ID!): Boolean
     # removeProject(inspectorID: ID!, projectID: ID!): Inspector
   }
-`)
+`;
 
-console.log(InspectorTypeDefs)
+console.log(InspectorTypeDefs);

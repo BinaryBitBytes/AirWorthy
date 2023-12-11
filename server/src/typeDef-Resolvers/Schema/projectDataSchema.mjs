@@ -3,16 +3,16 @@
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // const { gql } = gql
 // import { gql } from'apollo-server-core'
-import gql  from '../../gql.mjs'
+import gql from "../../gql.mjs";
 
 // export const ProjectDataTypeDefs = gql`
-export const ProjectDataTypeDefs = gql(`
-input ProjectData {
+export const ProjectDataTypeDefs = gql`
+  input ProjectData {
     _id: ID!
     projectId: Int
     projectName: String
     inspectorName: String
     workDescription: String
   }
-`)
-console.log(ProjectDataTypeDefs)
+`;
+console.log(ProjectDataTypeDefs);

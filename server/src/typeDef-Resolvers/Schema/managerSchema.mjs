@@ -3,10 +3,10 @@
 // const { gql } = gql
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
-import  gql  from '../../gql.mjs'
+import gql from "../../gql.mjs";
 
 // export const ManagerTypeDefs = gql`
-export const ManagerTypeDefs = gql(`
+export const ManagerTypeDefs = gql`
   input ManagerInput {
     managerName: String
     isAdmin: Boolean
@@ -23,5 +23,5 @@ export const ManagerTypeDefs = gql(`
     email: String
     password: String
   }
-`)
-console.log(ManagerTypeDefs)
+`;
+console.log(ManagerTypeDefs);

@@ -5,8 +5,8 @@
 // export const AirlinerTypeDefs = gql`
 import gql from "../../gql.mjs";
 
-export const AirlinerTypeDefs = `#graphql
-  #  Airliner represents an airline company.
+//  Airliner represents an airline company.
+export const AirlinerTypeDefs = gql`
   type Airliner {
     _id: ID!
     airlinerName: String
@@ -21,13 +21,12 @@ export const AirlinerTypeDefs = `#graphql
     # Get an airliner by ID.
     airliner(_id: ID!): Airliner
 
-   # Get airliners by airliner name.
+    # Get airliners by airliner name.
     airliners(airlinerName: String): [Airliner]
   }
 
-# Mustation for Airliner
+  # Mustation for Airliner
   type Mutation {
-    
     # Add a new airliner.
     addAirliner(
       airlinerName: String
@@ -37,7 +36,7 @@ export const AirlinerTypeDefs = `#graphql
       password: String
     ): Airliner
 
-  #  Remove an existing airliner.
+    #  Remove an existing airliner.
     removeAirliner(_id: ID!): Boolean
   }
 `;
