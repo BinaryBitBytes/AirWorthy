@@ -28,7 +28,6 @@ import { connectDB } from "./config/connection.mjs";
 // import { sample } from "lodash";
 
 // connecting to the mongo database
-connectDB();
 // Global function to start the server asynchronously
 const startServer = async () => {
   //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
@@ -59,4 +58,12 @@ const startServer = async () => {
   });
 };
 // Starting the Express Server with the Mongoose Database
+console.info(`Starting server.mjs`);
+console.info(
+  `----------------------------------------------------------------`
+);
+console.info(`Starting function: startServer`);
+startServer(); //! @BinaryBitBytes Error 12.11.23
+console.info(`Starting function: connectDB`);
+connectDB();
 // // startServer().catch((error) => console.log(error))
