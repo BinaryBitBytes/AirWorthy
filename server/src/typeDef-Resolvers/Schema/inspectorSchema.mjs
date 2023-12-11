@@ -6,7 +6,7 @@
 import gql from "../../gql.mjs";
 
 // export const InspectorTypeDefs = gql`
-export const InspectorTypeDefs = gql`
+const InspectorTypeDefs = gql`
   type Inspector {
     _id: ID!
     inspectorName: String
@@ -39,4 +39,5 @@ export const InspectorTypeDefs = gql`
   }
 `;
 
-console.log(InspectorTypeDefs);
+export default { InspectorTypeDefs };
+console.log({ InspectorTypeDefs });

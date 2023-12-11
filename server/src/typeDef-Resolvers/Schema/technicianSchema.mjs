@@ -7,7 +7,7 @@
 import gql from "../../gql.mjs";
 
 // export const TechnicianTypeDefs = gql`
-export const TechnicianTypeDefs = gql`
+const TechnicianTypeDefs = gql`
   # //TODO need to add a real input type to technician named technicianInput and change auth back to type technician
 
   input Technician {
@@ -20,4 +20,7 @@ export const TechnicianTypeDefs = gql`
     password: String
   }
 `;
+
+export default { TechnicianTypeDefs };
+console.log({ TechnicianTypeDefs });
 console.log(TechnicianTypeDefs);

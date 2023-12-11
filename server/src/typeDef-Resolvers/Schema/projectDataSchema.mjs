@@ -6,7 +6,7 @@
 import gql from "../../gql.mjs";
 
 // export const ProjectDataTypeDefs = gql`
-export const ProjectDataTypeDefs = gql`
+const ProjectDataTypeDefs = gql`
   input ProjectData {
     _id: ID!
     projectId: Int
@@ -15,4 +15,6 @@ export const ProjectDataTypeDefs = gql`
     workDescription: String
   }
 `;
-console.log(ProjectDataTypeDefs);
+
+export default { ProjectDataTypeDefs };
+console.log({ ProjectDataTypeDefs });

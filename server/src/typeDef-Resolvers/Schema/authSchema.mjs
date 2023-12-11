@@ -6,7 +6,7 @@
 import gql from "../../gql.mjs";
 
 // export const AuthTypeDefs = gql`
-export const AuthTypeDefs = gql`
+const AuthTypeDefs = gql`
   type Query {
     auth: User
     auths: [User]
@@ -37,4 +37,5 @@ export const AuthTypeDefs = gql`
     ): User
   }
 `;
-console.log(AuthTypeDefs);
+export default { AuthTypeDefs };
+console.log({ AuthTypeDefs });
