@@ -1,32 +1,23 @@
-/*
-import { buildSubgraphSchema } from '@apollo/subgraph';
-import * as buildSubgraphSchema from '@apollo/subgraph';
-import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
-import { GraphQLAbstractType } from 'graphql'
-import { GraphQLArgs } from 'graphql'
-import { GraphQLError } from 'graphql'
-import { GraphQLList } from 'graphql'
-import { GraphQLResponseBody } from '@apollo/server/dist/esm/externalTypes/graphql'
-import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
-import { startStandaloneServer } from '@apollo/server/standalone';
-import StartStandaloneServer from '@apollo/server/standalone';
-import { GraphQLSchema as gqlSchema } from "graphql";
-*/
+import * as apollo from "apollo-server-core";
 import express from "express";
-import apollo from "apollo-server-core";
-const { ApolloServer } = apollo;
-import * as StartStandaloneServer from "@apollo/server/standalone";
-import { buildSubgraphSchema } from "@apollo/subgraph/dist/index.d.ts";
-const { startStandaloneServer } = StartStandaloneServer;
-
+import buildSubgraphSchema from "@apollo/subgraph";
+import StartStandaloneServer from "@apollo/server/standalone";
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
-// import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
 import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
-
 import { connectDB } from "./config/connection.mjs";
-// import { data } from "jquery";
-// import { prototype } from "events";
-// import { sample } from "lodash";
+
+// const { startStandaloneServer } = StartStandaloneServer;
+const startStandaloneServer = () => {
+  return StartStandaloneServer;
+};
+const BuildSubgraphSchema = () => {
+  return buildSubgraphSchema;
+};
+const ApolloServer = () => {
+  return apollo;
+};
+console.log(ApolloServer);
+console.log(typeof ApolloServer);
 
 // connecting to the mongo database
 // Global function to start the server asynchronously
@@ -41,14 +32,14 @@ const startServer = async () => {
     // new ApolloServer({
     //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
     // });
-    const apolloServer = new ApolloServer({
-      schema: buildSubgraphSchema({
+    const apolloServer = ApolloServer({
+      schema: BuildSubgraphSchema({
         // typeDefs: DocumentNode[typeDefs],
         typeDefs: typeDefs,
         resolvers,
       }),
     });
-    await apolloServer.listen({ port: 3069 });
+    await new apolloServer.listen({ port: 3069 });
   };
   await server();
 
@@ -76,3 +67,22 @@ startServer(); //! @BinaryBitBytes Error 12.11.23
 console.info(`Starting function: connectDB`);
 connectDB();
 // // startServer().catch((error) => console.log(error))
+
+/* --------------------------------
+  import { buildSubgraphSchema } from '@apollo/subgraph';
+  import * as buildSubgraphSchema from '@apollo/subgraph';
+  import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
+  import { GraphQLAbstractType } from 'graphql'
+  import { GraphQLArgs } from 'graphql'
+  import { GraphQLError } from 'graphql'
+  import { GraphQLList } from 'graphql'
+  import { GraphQLResponseBody } from '@apollo/server/dist/esm/externalTypes/graphql'
+  import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
+  import { startStandaloneServer } from '@apollo/server/standalone';
+  import StartStandaloneServer from '@apollo/server/standalone';
+  import { GraphQLSchema as gqlSchema } from "graphql";
+  // import typeDefs from './src/typeDef-Resolvers/Schema/typeDef.mjs'
+  // import { data } from "jquery";
+  // import { prototype } from "events";
+  // import { sample } from "lodash";
+  */
