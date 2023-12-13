@@ -11,6 +11,7 @@
     "seed": "node -r esm server/src/data/seed.mjs",
     "start": "node -r esm server/server.mjs",
     "_start_": "node -r esm server/server.mjs --trace-deprecation ...",
+     "_START_": "nodemon -r esm ts-node server.mjs --trace-deprecation ...",
     "STARTING": "node server/server.mjs",
     "START": "node --experimental-modules server/server.mjs",
     "start1": "node --experimental-modules server/server.js concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -78,7 +79,8 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.1.0",
     "react-scripts": "^5.0.1",
-    "typescript": "^5.1.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
     "web-vitals": "^0.2.4"
   },
   "engines": {

@@ -12,12 +12,11 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import StartStandaloneServer from '@apollo/server/standalone';
 import { GraphQLSchema as gqlSchema } from "graphql";
 */
-
-import buildSubgraphSchema from "@apollo/subgraph";
 import express from "express";
 import apollo from "apollo-server-core";
 const { ApolloServer } = apollo;
 import * as StartStandaloneServer from "@apollo/server/standalone";
+import { buildSubgraphSchema } from "@apollo/subgraph";
 const { startStandaloneServer } = StartStandaloneServer;
 
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
@@ -39,12 +38,19 @@ const startServer = async () => {
   app.use(express);
   // This creates the instance of the Apollo server with the typeDefs & resolvers
   const server = async () => {
-    new ApolloServer({
-      // typeDefs,
-      schema: buildSubgraphSchema({ typeDefs, resolvers }),
+    // new ApolloServer({
+    //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
+    // });
+    const apolloServer = new ApolloServer({
+      schema: buildSubgraphSchema({
+        // typeDefs: DocumentNode[typeDefs],
+        typeDefs: typeDefs,
+        resolvers,
+      }),
     });
+    await apolloServer.listen({ port: 3069 });
   };
-  await server.start();
+  await server();
 
   //! testing
   const { url } = await startStandaloneServer(server);

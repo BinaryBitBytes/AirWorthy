@@ -1,20 +1,19 @@
 {
-    "compilerOptions": {
-      "target": "ES2020",
-      "module": "ES2020",
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "strict": true,
-      "outDir": "dist",
-      "baseUrl": ".",
-      "paths": {
-        "*": ["src/*"]
-      },
-      "resolveJsonModule": true,
-      "allowSyntheticDefaultImports": true,
-      "forceConsistentCasingInFileNames": true
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"]
     },
-    "include": ["src/**/*", "node_modules"],
-    "exclude": ["dist"]
-  }
-  
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts", "node_modules"],
+  "exclude": ["dist"]
+}

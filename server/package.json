@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node -r esm server.mjs",
     "_start_": "nodemon -r esm server.mjs",
+    "_START_": "nodemon -r esm ts-node server.mjs",
     "START": "node server.mjs",
     "watch": "nodemon server.mjs",
     "build:local": "env-cmd -f ./config/.env.local node -r esm server.mjs"
