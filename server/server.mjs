@@ -16,7 +16,7 @@ import express from "express";
 import apollo from "apollo-server-core";
 const { ApolloServer } = apollo;
 import * as StartStandaloneServer from "@apollo/server/standalone";
-import { buildSubgraphSchema } from "@apollo/subgraph";
+import { buildSubgraphSchema } from "@apollo/subgraph/dist/index.d.ts";
 const { startStandaloneServer } = StartStandaloneServer;
 
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
