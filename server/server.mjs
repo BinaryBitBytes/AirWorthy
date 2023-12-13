@@ -1,15 +1,17 @@
-// import { buildSubgraphSchema } from '@apollo/subgraph';
-// import * as buildSubgraphSchema from '@apollo/subgraph';
-// import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
-// import { GraphQLAbstractType } from 'graphql'
-// import { GraphQLArgs } from 'graphql'
-// import { GraphQLError } from 'graphql'
-// import { GraphQLList } from 'graphql'
-// import { GraphQLResponseBody } from '@apollo/server/dist/esm/externalTypes/graphql'
-// import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
-// import { startStandaloneServer } from '@apollo/server/standalone';
-// import StartStandaloneServer from '@apollo/server/standalone';
-// import { GraphQLSchema as gqlSchema } from "graphql";
+/*
+import { buildSubgraphSchema } from '@apollo/subgraph';
+import * as buildSubgraphSchema from '@apollo/subgraph';
+import GraphQLServerOptions from 'apollo-server-core/dist/graphqlOptions'
+import { GraphQLAbstractType } from 'graphql'
+import { GraphQLArgs } from 'graphql'
+import { GraphQLError } from 'graphql'
+import { GraphQLList } from 'graphql'
+import { GraphQLResponseBody } from '@apollo/server/dist/esm/externalTypes/graphql'
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
+import { startStandaloneServer } from '@apollo/server/standalone';
+import StartStandaloneServer from '@apollo/server/standalone';
+import { GraphQLSchema as gqlSchema } from "graphql";
+*/
 
 import buildSubgraphSchema from "@apollo/subgraph";
 import express from "express";
@@ -31,17 +33,18 @@ import { connectDB } from "./config/connection.mjs";
 // Global function to start the server asynchronously
 const startServer = async () => {
   //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
-  // // express = await express('express')
   // This creates an Express application
+  // // express = await express('express')
   const app = express();
+  app.use(express);
   // This creates the instance of the Apollo server with the typeDefs & resolvers
-  const server = () => {
+  const server = async () => {
     new ApolloServer({
       // typeDefs,
       schema: buildSubgraphSchema({ typeDefs, resolvers }),
     });
   };
-  // await server.start()
+  await server.start();
 
   //! testing
   const { url } = await startStandaloneServer(server);
