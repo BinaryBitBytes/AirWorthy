@@ -1,14 +1,17 @@
 import * as apollo from "apollo-server-core";
+import * as apolloServerExprress from "apollo-server-express";
 import express from "express";
 import buildSubgraphSchema from "@apollo/subgraph";
-import * as StartStandaloneServer from "@apollo/server/standalone";
+import * as startStandaloneServer from "@apollo/server/standalone";
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { connectDB } from "./config/connection.mjs";
 
-// const { startStandaloneServer } = StartStandaloneServer;
-const startStandaloneServer = () => {
-  return StartStandaloneServer;
+const ApolloServerExpress = () => {
+  return apolloServerExpress;
+};
+const StartStandaloneServer = () => {
+  return startStandaloneServer;
 };
 const BuildSubgraphSchema = () => {
   return buildSubgraphSchema;
@@ -18,6 +21,7 @@ const ApolloServer = () => {
 };
 console.log(ApolloServer);
 console.log(typeof ApolloServer);
+// const { startStandaloneServer } = StartStandaloneServer;
 
 // connecting to the mongo database
 // Global function to start the server asynchronously
@@ -46,11 +50,9 @@ const startServer = async () => {
     // await apolloServer.listen({ port: 3069 });
   };
   console.log(server.apolloServer);
-
   await server();
-
   //! testing
-  const { url } = await startStandaloneServer(server);
+  const { url } = StartStandaloneServer(server);
   console.log(`🚀  Server ready at ${url}`);
   //!;
   // await server.listen()
@@ -60,6 +62,7 @@ const startServer = async () => {
   app.listen({ port: 3069 }, () => {
     console.log(
       `The Apollo Server is running @ http://localhost:3069${server.graphqlPath}`
+      // `The Apollo Server is running @ http://localhost:3069${server.apply}`
     );
   });
 };
