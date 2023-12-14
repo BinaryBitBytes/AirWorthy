@@ -40,10 +40,13 @@ const startServer = async () => {
       }),
     });
 
-    console.log(apolloServer);
+    return apolloServer;
+
     // await new apolloServer.listen({ port: 3069 });
-    await apolloServer.listen({ port: 3069 });
+    // await apolloServer.listen({ port: 3069 });
   };
+  console.log(server.apolloServer);
+
   await server();
 
   //! testing
