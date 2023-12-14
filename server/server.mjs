@@ -1,7 +1,7 @@
 import * as apollo from "apollo-server-core";
 import express from "express";
 import buildSubgraphSchema from "@apollo/subgraph";
-import StartStandaloneServer from "@apollo/server/standalone";
+import * as StartStandaloneServer from "@apollo/server/standalone";
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { connectDB } from "./config/connection.mjs";
@@ -39,7 +39,10 @@ const startServer = async () => {
         resolvers,
       }),
     });
-    await new apolloServer.listen({ port: 3069 });
+
+    console.log(apolloServer);
+    // await new apolloServer.listen({ port: 3069 });
+    await apolloServer.listen({ port: 3069 });
   };
   await server();
 
