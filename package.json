@@ -12,7 +12,7 @@
     "start": "node -r esm server/server.mjs",
     "STARTING": "node server/server.mjs",
     "START": "node --experimental-modules server/server.mjs",
-    "start1": "node --experimental-modules server/server.js concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "start1": "node --experimental-modules server/server.mjs concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "envDebug": "cross-env NODE_OPTIONS=--trace-deprecation react-scripts start",
     "runStart": "react-scripts start",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",

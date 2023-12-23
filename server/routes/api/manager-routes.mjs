@@ -1,19 +1,26 @@
+// import { createUser, getSingleUser, saveManager, removeManager, login } from '../../controllers/user-controller'
+import {
+  createUser,
+  getSingleUser,
+  saveManager,
+  removeManager,
+} from "../../controllers/user-controller.mjs";
 
-import { createUser, getSingleUser, saveManager, removeManager, login } from '../../controllers/user-controller'
+import { login } from "../../controllers/";
 
 // import middleware
-import { authMiddleware } from '../../utils/middleware/auth.cjs'
+import { authMiddleware } from "../../utils/middleware/auth.mjs";
 //! ^^ problem 5.15.23 4:00am
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 // put authMiddleware anywhere we need to send a token for verification of user
-router.route('/').post(createUser).put(authMiddleware, saveManager)
+router.route("/").post(createUser).put(authMiddleware, saveManager);
 
-router.route('/login').post(login)
+router.route("/login").post(login);
 
-router.route('/manager').get(authMiddleware, getSingleUser)
+router.route("/manager").get(authMiddleware, getSingleUser);
 
-router.route('/manager/:managerId').delete(authMiddleware, removeManager)
+router.route("/manager/:managerId").delete(authMiddleware, removeManager);
 
-export default router
+export default router;

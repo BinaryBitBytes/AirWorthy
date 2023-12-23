@@ -2,7 +2,7 @@ import React from "react";
 import Manager from "../components/Manager.js";
 
 <React.Fragment>
-<Manager />
+  <Manager />
 </React.Fragment>;
 // function Manager() {
 //   return <Manager />;
