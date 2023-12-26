@@ -1,9 +1,14 @@
-import { ApolloServer } from 'apollo-server';
-import typedefs from '../../server/src/typeDef-Resolvers/index.js';
-import { resolver } from '../../server/src/typeDef-Resolvers/index.js';
+import { ApolloServer } from "apollo-server";
+import typedefs from "../../server/src/typeDef-Resolvers/index.mjs";
+import * as resolver from "../../server/src/typeDef-Resolvers/index.mjs";
 
-const server = new ApolloServer({ typeDefs: typedefs, resolvers: resolver });
+export const server = new ApolloServer({
+  typeDefs: typedefs,
+  resolvers: resolver,
+});
 
+console.log(server);
 server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`)
-})
+  x;
+  console.log(`🚀  Server ready at ${url}`);
+});
