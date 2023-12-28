@@ -1,5 +1,7 @@
-import decode from "jwt-decode";
-
+import * as DECODE from "jwt-decode";
+const decode = () => {
+  return DECODE;
+};
 class AuthService_ {
   getToken() {
     return localStorage.getItem("id_token");
@@ -33,5 +35,6 @@ class AuthService_ {
   }
 }
 
-const AuthService = new AuthService_();
-export default AuthService();
+export const AuthService = new AuthService_();
+console.log(AuthService);
+// export default AuthService();
