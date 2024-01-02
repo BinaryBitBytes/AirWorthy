@@ -1,5 +1,6 @@
-import * as apollo from "apollo-server-core";
-import * as apolloServerExprress from "apollo-server-express";
+// import * as apollo from "apollo-server-core";
+import * as apollo from "apollo-server-express";
+// !import * as apolloServerExprress from "apollo-server-express";
 import * as express from "express";
 import buildSubgraphSchema from "@apollo/subgraph";
 import * as startStandaloneServer from "@apollo/server/standalone";
@@ -10,9 +11,9 @@ import { connectDB } from "./config/connection.mjs";
 const Express = () => {
   return express;
 };
-const ApolloServerExpress = () => {
-  return apolloServerExpress;
-};
+// const ApolloServerExpress = () => {
+//   return apolloServerExpress;
+// };
 const StartStandaloneServer = () => {
   return startStandaloneServer;
 };
@@ -42,39 +43,40 @@ const startServer = async () => {
 };
 console.log(`Listening on 3000 START`);
 console.log(`Listening on 3000 END STARTING PHASE`);
-/*////////////////////////////////////////////////// */
-/*////////////////////////////////////////////////// */
-/*////////////////////////////////////////////////// */
-/*////////////////////////////////////////////////// */
+/*//////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////*/
 
 // This creates the instance of the Apollo server with the typeDefs & resolvers
+var apolloServer = ApolloServer({
+  schema: BuildSubgraphSchema({
+    // typeDefs: DocumentNode[typeDefs],
+    typeDefs: typeDefs,
+    resolvers,
+  }),
+});
+console.log(apolloServer);
 const server = async () => {
   // new ApolloServer({
   //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
   // });
-  const apolloServer = ApolloServer({
-    schema: BuildSubgraphSchema({
-      // typeDefs: DocumentNode[typeDefs],
-      typeDefs: typeDefs,
-      resolvers,
-    }),
-  });
 
-  return apolloServer;
+  return new apolloServer();
 
   // await new apolloServer.listen({ port: 3069 });
   // await apolloServer.listen({ port: 3069 });
 };
-/*////////////////////////////////////////////////// */
+/*//////////////////////////////////////////////////*/
 console.log(server.apolloServer);
-await server();
+server();
 //! testing
 const { url } = StartStandaloneServer(server);
 console.log(`🚀  Server ready at ${url}`);
 //!;
 // await server.listen()
 // This applies the Apollo Server Middleware into the Express application
-server.applyMiddleware(app);
+server.applyMiddleware({ app, ...rest });
 // This starts the server and listens on the respected port address
 app.listen({ port: 3069 }, () => {
   console.log(
