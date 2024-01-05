@@ -14,7 +14,7 @@ export const connectDB = async () => {
     const mongodbURI = "mongodb://127.0.0.1:27017/AirWorthy_DB";
 
     console.log(mongodbURI);
-    mongoose
+    await mongoose
       .connect(`${mongodbURI}`, {
         // await mongoose.createConnection(mongodbURI , {
         useNewUrlParser: true,
@@ -28,4 +28,4 @@ export const connectDB = async () => {
   }
 };
 
-// console.log(connectDB());
+console.log(connectDB());

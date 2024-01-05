@@ -1,3 +1,5 @@
+import gql from "graphql-tag";
+export default gql;
 //  import { gql } from 'apollo-server-core/src/gql.js'
 //import { gql } from 'graphql-tag'
 //Successful dynamic import of node module below
@@ -19,5 +21,3 @@
 //     }
 
 // }
-import gql from 'graphql-tag'
-export default gql  
