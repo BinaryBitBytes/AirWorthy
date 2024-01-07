@@ -1,10 +1,10 @@
 {
-    "git.ignoreLimitWarning": true,
-    "debug.javascript.terminalOptions": {},
-    "debug.javascript.debugByLinkOptions": "on",
-    "liveshare.sharedTerminalHeight": 60,
-    "editor.tokenColorCustomizations": {
-        "comments": "",
-        "textMateRules": []
-    }
+  "git.ignoreLimitWarning": true,
+  "debug.javascript.terminalOptions": {},
+  "debug.javascript.debugByLinkOptions": "on",
+  "liveshare.sharedTerminalHeight": 60,
+  "editor.tokenColorCustomizations": {
+    "comments": "#17ad2d",
+    "textMateRules": []
+  }
 }
