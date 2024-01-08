@@ -76,7 +76,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.25.3",
     "esm": "^3.2.25",
-    "node": "^16.13.0",
+    "node": "^18.16.1",
     "npm": "^9.7.2",
     "preset": "@shelf/jest-mongodb",
     "react": "^18.2.0",
