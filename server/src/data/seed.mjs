@@ -117,14 +117,31 @@ connectDB(async () => {
 
       // Awaiting Seeds for the models.
       async function SEEDED() {
-        await airlinerSeed([{ ...AirlinerData }]);
-        await inspectorSeed([{ ...InspectorData }]);
-        await managerSeed([{ ...ManagerData }]);
-        await projectSeed([{ ...ProjectData }]);
-        await technicianSeed([{ ...TechnicianData }]);
-        await authSeed([{ ...AuthData }]);
-        await projectDataSeed([{ ...ProjectData_Data }]);
+        return await Promise.all([
+          airlinerSeed([{ ...AirlinerData }]),
+          inspectorSeed([{ ...InspectorData }]),
+          managerSeed([{ ...ManagerData }]),
+          projectSeed([{ ...ProjectData }]),
+          technicianSeed([{ ...TechnicianData }]),
+          authSeed([{ ...AuthData }]),
+          projectDataSeed([{ ...ProjectData_Data }]),
+        ]).exec();
       }
+      console.log(`Seeded is running below`);
+      console.log(SEEDED);
+      console.log(`Seeded is running below with functionality`);
+      console.log(SEEDED());
+      console.log(`End of seeded log`);
+
+      // async function SEEDED() {
+      //   await airlinerSeed([{ ...AirlinerData }]);
+      //   await inspectorSeed([{ ...InspectorData }]);
+      //   await managerSeed([{ ...ManagerData }]);
+      //   await projectSeed([{ ...ProjectData }]);
+      //   await technicianSeed([{ ...TechnicianData }]);
+      //   await authSeed([{ ...AuthData }]);
+      //   await projectDataSeed([{ ...ProjectData_Data }]);
+      // }
       // Now inserting seed data into the database
       fileNames.forEach((fileName) => {
         const filePath = path.join(seedDataPath, fileName);
@@ -143,9 +160,10 @@ connectDB(async () => {
       process.exit(1);
     }
   }
+  await seedDB().then.process.exit(0);
 
-  await seedDB();
-  process.exit(0);
+  // await seedDB();
+  // process.exit(0);
 });
 
 // import {
