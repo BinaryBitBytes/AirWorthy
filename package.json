@@ -52,10 +52,10 @@
     "manager": "^1.0.9",
     "mongodb": "^6.3.0",
     "mongoose": "^7.1.1",
-    "node": "^18.16.1",
+    "node": "^21.5.0",
     "node-gyp": "^9.3.1",
     "nodemon": "^3.0.1",
-    "nvm": "0.0.4",
+    "nvm": "1.1.10",
     "path": "^0.12.7",
     "react-icons": "^4.1.0",
     "react-router-dom": "^6.11.1",
@@ -81,8 +81,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.25.3",
     "esm": "^3.2.25",
-    "node": "^18.16.1",
-    "npm": "^9.7.2",
+    "node": "^21.5.0",
+    "npm": "10.2.4",
     "preset": "@shelf/jest-mongodb",
     "react": "^18.2.0",
     "react-dom": "^17.0.2",
@@ -94,8 +94,8 @@
     "webpack-cli": "^5.1.4"
   },
   "engines": {
-    "node": "18.16.1",
-    "npm": "9.7.2"
+    "node": "^21.5.0",
+    "npm": "10.2.4"
   },
   "repository": {
     "type": "git",

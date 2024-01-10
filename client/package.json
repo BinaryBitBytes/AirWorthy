@@ -48,8 +48,8 @@
     ]
   },
   "engines": {
-    "node": "18.16.1",
-    "npm": "9.7.2"
+    "node": "^21.5.0",
+    "npm": "10.2.4"
   },
   "description": "Client Side for Airworthy",
   "main": "./src/index.jsx",
