@@ -2,7 +2,7 @@
   "name": "airworthy",
   "version": "1.0.0",
   "description": "A full stack MERN application that uses an authentication system to allow FAA Inspectors, Airliners, and Aircraft Technicians to update progress on their work all while keeping a log of records on projects completed.",
-  "main": "server/server.js",
+  "main": "src/index.mjs",
   "quokka": {
     "babel": true,
     "js": true
@@ -22,7 +22,12 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "BUILD": "swc src --out-dir dist/src",
-    "BUILD:ci": "tsc && npm run BUILD --trace-deprecation"
+    "BUILD:ci": "tsc && npm run BUILD --trace-deprecation",
+    "Zbuild": "webpack --mode production",
+    "Zstart": "npm run build && node ./server/src/index.mjs",
+    "Zclient": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "Zserver": "nodemon ./server/server.mjs",
+    "Zdev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Miles Colón",
@@ -47,7 +52,7 @@
     "manager": "^1.0.9",
     "mongodb": "^6.3.0",
     "mongoose": "^7.1.1",
-    "node": "^16.13.0",
+    "node": "^18.16.1",
     "node-gyp": "^9.3.1",
     "nodemon": "^3.0.1",
     "nvm": "0.0.4",
@@ -85,7 +90,8 @@
     "react-scripts": "^5.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "webpack-cli": "^5.1.4"
   },
   "engines": {
     "node": "18.16.1",

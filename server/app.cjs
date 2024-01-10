@@ -13,7 +13,7 @@ app.use(express.static("images"));
 app.use("/static", express.static(path.join(__dirname, "public")));
 // app.use("/static", express.static("assets"));
 app.use("/static", express.static(path.join(__dirname, "assets")));
-
+// {app.get} == CORRECT - 01/09/2023 {lines[17-19]}
 app.get("/", function (req, res, next) {
   next();
 });

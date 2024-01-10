@@ -52,7 +52,7 @@
     "npm": "9.7.2"
   },
   "description": "Client Side for Airworthy",
-  "main": "index.js",
+  "main": "./src/index.jsx",
   "keywords": [
     "Client"
   ],
