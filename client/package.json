@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "21.4.0",
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
@@ -10,18 +10,19 @@
     "bootstrap": "^4.6.2",
     "concurrently": "^7.3.0",
     "jquery": "^3.4.1",
+    "npm": "^10.3.0",
     "jwt-decode": "^2.2.0",
     "lightbox2": "^2.11.4",
-    "node-sass": "^7.0.1",
+    "node-sass": "^9.0.0",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.15.0",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-bootstrap": "^1.0.1",
     "react-datepicker": "^4.8.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.1",
-    "sass": "^1.62.1",
+    "sass": "^1.62.7",
     "sass-loader": "^13.0.0",
     "typed.js": "^2.0.10",
     "web-vitals": "^2.1.4"
@@ -48,8 +49,8 @@
     ]
   },
   "engines": {
-    "node": "^21.5.0",
-    "npm": "10.2.4"
+    "node": "^21.4.0",
+    "npm": "10.3.0"
   },
   "description": "Client Side for Airworthy",
   "main": "./src/index.jsx",
