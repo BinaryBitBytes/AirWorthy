@@ -24,4 +24,7 @@ export default {
       },
     ],
   },
+  devServer: {
+    allowedHosts: ["localhost"],
+  },
 };
