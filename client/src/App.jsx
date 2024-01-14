@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar.jsx"; //! Fix import package for
+import Footer from "./components/Footer.jsx"; //! Fix import package for
 // import Wrapper from "./components/Wrapper";
 
-import Intro from "./components/intro";
-import Manager from "./components/manager/Manager";
-import Technician from "./components/technician/Technician";
+import Intro from "./components/intro.jsx";
+import Manager from "./components/manager/Manager.jsx";
+import Technician from "./components/technician/Technician.jsx";
 
 function App() {
   return (

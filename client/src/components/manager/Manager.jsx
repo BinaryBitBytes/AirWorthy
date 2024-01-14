@@ -1,7 +1,7 @@
 import React from "react";
-import "../stars.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
-import FormContainer from "./Form";
+import "../stars.scss"; //! Fix import package for
+import "bootstrap/dist/css/bootstrap.min.css"; //! Fix import package for
+import FormContainer from "./Form.jsx"; //! Fix import package for
 
 class Manager extends React.Component {
   render() {

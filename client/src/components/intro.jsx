@@ -1,6 +1,6 @@
 import React from "react";
-import "./stars.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./stars.scss"; //! Fix import package for stars.scss
+import "bootstrap/dist/css/bootstrap.min.css"; //! Fix import package for bootstrap
 
 class Intro extends React.Component {
   render() {
@@ -22,7 +22,11 @@ class Intro extends React.Component {
                 </strong> */}
             </p>
             <p className="pt-3">
-            <a className="btn btn-light btn  px-4" href="client\src\components\Login.js" role="button">
+              <a
+                className="btn btn-light btn  px-4"
+                href="client\src\components\Login.js"
+                role="button"
+              >
                 Login Or Sign-Up
               </a>
             </p>

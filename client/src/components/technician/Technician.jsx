@@ -1,6 +1,6 @@
 import React from "react";
-import "../stars.scss";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../stars.scss"; //! Fix import package for
+import "bootstrap/dist/css/bootstrap.min.css"; //! Fix import package for
 
 class Technician extends React.Component {
   render() {
@@ -41,7 +41,9 @@ class Technician extends React.Component {
                         <td>9375</td>
                         <td>Wifi Modification</td>
                         <td>
-                          <label className="badge badge-success">Completed</label>
+                          <label className="badge badge-success">
+                            Completed
+                          </label>
                         </td>
                       </tr>
 
@@ -52,7 +54,9 @@ class Technician extends React.Component {
                       <td>Radar Modification</td>
 
                       <td>
-                        <label className="badge badge-warning">In progress</label>
+                        <label className="badge badge-warning">
+                          In progress
+                        </label>
                       </td>
                       <tr>
                         <td>Karen Becarin</td>

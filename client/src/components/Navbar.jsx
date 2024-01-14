@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
-import "bootstrap/dist/css/bootstrap.css";
-import "./stars.scss";
+import "bootstrap/dist/css/bootstrap.css"; //! Fix import package for
+import "./stars.scss"; //! Fix import package for
 
 class Navbar extends React.Component {
   componentDidMount() {

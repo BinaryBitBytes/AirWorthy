@@ -5,7 +5,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default {
-  entry: "./src/index.mjs",
+  mode: "development",
+  entry: "../client/src/index.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "app.jsx",
@@ -13,8 +14,9 @@ export default {
   module: {
     rules: [
       {
-        test: /\.{js|mjs|jsx}$/,
-        // exclude: /node_modules/,
+        // test: /\.{js|mjs|jsx}$/,
+        test: /\.(js|mjs|jsx)$/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {

@@ -12,6 +12,7 @@
     "_START_": "nodemon -r esm ts-node server.mjs",
     "START": "node server.mjs",
     "watch": "nodemon server.mjs",
+    "Watch": "webpack --watch --config webpack.config.js",
     "build:local": "env-cmd -f ./config/.env.local node -r esm server.mjs"
   },
   "keywords": [],
