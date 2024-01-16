@@ -1,28 +1,34 @@
 import mongoose from "mongoose";
-// const { model } = mongoose
-const model = () => {
-  return mongoose;
-};
-const ProjectData = new mongoose.Schema({
-  projectId: {
-    type: Number,
-    required: true,
-  },
-  projectName: {
-    type: String,
-    required: true,
-  },
-  inspectorName: {
-    type: String,
-    required: true,
-  },
-  workDescription: {
-    type: String,
-    required: true,
-  },
-});
-
+class ProjectDataModel {
+  constructor() {
+    this.schema = new mongoose.Schema({
+      projectId: {
+        type: Number,
+        required: true,
+      },
+      projectName: {
+        type: String,
+        required: true,
+      },
+      inspectorName: {
+        type: String,
+        required: true,
+      },
+      workDescription: {
+        type: String,
+        required: true,
+      },
+    });
+    this.model = mongoose.model("ProjectData", this.schema);
+  }
+}
+console.log(`
+  Console Log(typeof) ===  ${typeof ProjectDataModel} 
+-----------------
+  Console.log(ProjectDataModel)
+  ${ProjectDataModel}
+------------
+  `);
 // const ProjectData = mongoose.model('ProjectData', ProjectData)
-const ProjectDataModel = model("ProjectData", ProjectData);
 // export default ProjectData
 export default ProjectDataModel;
