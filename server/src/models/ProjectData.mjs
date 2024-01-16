@@ -29,6 +29,8 @@ console.log(`
   ${ProjectDataModel}
 ------------
   `);
+ProjectDataModel;
+console.log(ProjectDataModel);
 // const ProjectData = mongoose.model('ProjectData', ProjectData)
 // export default ProjectData
 export default ProjectDataModel;

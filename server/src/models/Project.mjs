@@ -39,4 +39,6 @@ console.log(`
   ${ProjectModel}
 ------------
   `);
+ProjectModel;
+console.log(ProjectModel);
 export default ProjectModel;

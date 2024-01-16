@@ -56,5 +56,6 @@ console.log(`
   ${ManagerModel}
 ------------
   `);
-
+ManagerModel;
+console.log(ManagerModel);
 export default ManagerModel;

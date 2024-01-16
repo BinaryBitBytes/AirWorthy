@@ -69,8 +69,10 @@ console.log(`AuthModel @ console.log(AuthModel) =
 ${AuthModel}`);
 
 console.log(`-------------------------Before Export-------------------------`);
+AuthModel;
 export default AuthModel;
 console.log(`------------------------After Export---------------------------`);
+console.log(AuthModel);
 
 //! @BinaryBitBytes 1.16.24 - original version @ branch: Server.12.15.23
 // const Auth = new mongoose.Schema(

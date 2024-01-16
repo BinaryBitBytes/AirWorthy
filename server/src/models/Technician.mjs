@@ -55,4 +55,6 @@ console.log(`
   ${TechnicianModel}
 ------------
   `);
+TechnicianModel;
+console.log(TechnicianModel);
 export default TechnicianModel;
