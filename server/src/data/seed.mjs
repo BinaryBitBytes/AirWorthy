@@ -3,18 +3,19 @@ import { connectDB } from "../../config/connection.mjs";
 import path from "path";
 import express from "express";
 import fs from "fs";
-import {
-  AirlinerData,
-  InspectorData,
-  ManagerData,
-  ProjectData,
-  TechnicianData,
-  AuthData,
-  ProjectData_Data,
-} from "./index.mjs";
-
-import AirlinerModel from "../models/index.mjs";
-console.log(AirlinerModel);
+// !! BELOW IS INDEX>JS @BinaryBitBytes
+//import {
+//   AirlinerModel,
+//   AirlinerData,
+//   InspectorData,
+//   ManagerData,
+//   ProjectData,
+//   TechnicianData,
+//   AuthData,
+//   ProjectData_Data,
+// } from "./index.mjs";
+//! ---
+// import AirlinerModel from "../models/index.mjs";
 import models from "../models/index.mjs";
 
 //! @BinaryBitBytes: Assignment of Constants to new Models to handle state change.

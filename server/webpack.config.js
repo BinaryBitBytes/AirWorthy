@@ -18,7 +18,7 @@ export default {
         test: /\.(js|mjs|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: ["babel-loader", "sass-loader", "style-loader", "css-loader"],
           options: {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },

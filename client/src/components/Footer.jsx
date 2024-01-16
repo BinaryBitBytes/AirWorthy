@@ -1,6 +1,6 @@
 import React from "react";
 //import SCSS from"client/src/components/stars.scss";
-
+//! ^^@BinaryBitBytes-Fix import package for
 function Footer() {
   return (
     <footer className="footer-area">

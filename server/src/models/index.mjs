@@ -15,13 +15,20 @@ import TechnicianModel from "./Technician.mjs";
 // Technician.belongsTo(Project, {
 //   foreignKey: 'user_id',
 // });
+const airlinerModel = new AirlinerModel();
+const authModel = new AuthModel();
+const inspectorModel = new InspectorModel();
+const managerModel = new ManagerModel();
+const projectModel = new ProjectModel();
+const projectDataModel = new ProjectDataModel();
+const technicianModel = new TechnicianModel();
 
 export default {
-  AirlinerModel,
-  AuthModel,
-  InspectorModel,
-  ManagerModel,
-  ProjectModel,
-  ProjectDataModel,
-  TechnicianModel,
+  airlinerModel: [airlinerModel],
+  authModel: [authModel],
+  inspectorModel: [inspectorModel],
+  managerModel: [managerModel],
+  projectModel: [projectModel],
+  projectDataModel: [projectDataModel],
+  technicianModel: [technicianModel],
 };
