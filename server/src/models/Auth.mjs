@@ -1,43 +1,94 @@
 // Resolvers > Models > Schema
-import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
-const { model } = mongoose
-// import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
 
-const Auth = new mongoose.Schema({
-  id: {
-    type: Number,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  token: {
-    type: String,
-    allowNull: false,
-    primaryKey: false
-  },
-  userID: [{ type: String }],
-  user: String,
-  userName: String,
-  email: String,
-  password: String,
-  isAdmin: { type: Boolean, enum: [true] }
-},
-{
-  hooks: {
-    beforeCreate: async (newUserData) => {
-      newUserData.password = await bcrypt.hash(newUserData.password, 10)
-      return newUserData
+const model = () => {
+  return mongoose;
+};
+// import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
+const Auth = new mongoose.Schema(
+  {
+    id: {
+      type: Number,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    beforeUpdate: async (updatedUserData) => {
-      updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10)
-      return updatedUserData
-    }
+    token: {
+      type: String,
+      allowNull: false,
+      primaryKey: false,
+    },
+    userID: [{ type: String }],
+    user: String,
+    userName: String,
+    email: String,
+    password: String,
+    isAdmin: { type: Boolean, enum: [true] },
   },
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'Auth'
-})
-const AuthModel = model('Auth', Auth)
-export default AuthModel
+  {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
+        return updatedUserData;
+      },
+    },
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "Auth",
+  }
+);
+const AuthModel = model("Auth", Auth);
+export default AuthModel;
+
+//! @BinaryBitBytes 1.16.24 - original version @ branch: Server.12.15.23
+// const Auth = new mongoose.Schema(
+//   {
+//     id: {
+//       type: Number,
+//       allowNull: false,
+//       primaryKey: true,
+//       autoIncrement: true,
+//     },
+//     token: {
+//       type: String,
+//       allowNull: false,
+//       primaryKey: false,
+//     },
+//     userID: [{ type: String }],
+//     user: String,
+//     userName: String,
+//     email: String,
+//     password: String,
+//     isAdmin: { type: Boolean, enum: [true] },
+//   },
+//   {
+//     hooks: {
+//       beforeCreate: async (newUserData) => {
+//         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+//         return newUserData;
+//       },
+//       beforeUpdate: async (updatedUserData) => {
+//         updatedUserData.password = await bcrypt.hash(
+//           updatedUserData.password,
+//           10
+//         );
+//         return updatedUserData;
+//       },
+//     },
+//     timestamps: false,
+//     freezeTableName: true,
+//     underscored: true,
+//     modelName: "Auth",
+//   }
+// );
+// const AuthModel = model("Auth", Auth);
+// export default AuthModel;

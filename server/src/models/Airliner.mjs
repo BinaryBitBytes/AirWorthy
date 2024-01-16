@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 // const { model } = mongoose;
-
+const model = () => {
+  return mongoose;
+};
+console.log(model);
 // MODELS
 const Airliner = new mongoose.Schema(
   {

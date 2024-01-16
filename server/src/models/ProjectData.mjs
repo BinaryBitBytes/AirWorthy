@@ -1,26 +1,28 @@
-import mongoose from 'mongoose'
-const { model } = mongoose
-
+import mongoose from "mongoose";
+// const { model } = mongoose
+const model = () => {
+  return mongoose;
+};
 const ProjectData = new mongoose.Schema({
   projectId: {
     type: Number,
-    required: true
+    required: true,
   },
   projectName: {
     type: String,
-    required: true
+    required: true,
   },
   inspectorName: {
     type: String,
-    required: true
+    required: true,
   },
   workDescription: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 // const ProjectData = mongoose.model('ProjectData', ProjectData)
-const ProjectDataModel = model('ProjectData', ProjectData)
+const ProjectDataModel = model("ProjectData", ProjectData);
 // export default ProjectData
-export default ProjectDataModel
+export default ProjectDataModel;

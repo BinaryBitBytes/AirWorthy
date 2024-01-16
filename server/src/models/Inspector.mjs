@@ -1,7 +1,8 @@
-import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
-const { model } = mongoose
-// import { resolvers } from "../typeDef-Resolvers/inspectorSchema.js"
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+const model = () => {
+  return mongoose;
+}; // import { resolvers } from "../typeDef-Resolvers/inspectorSchema.js"
 
 const Inspector = new mongoose.Schema(
   {
@@ -9,35 +10,41 @@ const Inspector = new mongoose.Schema(
       type: Number,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     inspectorName: { type: String, required: true, unique: true },
     isAdmin: { type: Boolean, enum: [true] },
     onProject: [{ type: String }],
     userName: String,
     email: String,
-    password: String
+    password: String,
   },
   {
     hooks: {
       beforeCreate: async (newInspectorData) => {
-        newInspectorData.password = await bcrypt.hash(newInspectorData.password, 10)
-        return newInspectorData
+        newInspectorData.password = await bcrypt.hash(
+          newInspectorData.password,
+          10
+        );
+        return newInspectorData;
       },
       beforeUpdate: async (updatedInspectorData) => {
-        updatedInspectorData.password = await bcrypt.hash(updatedInspectorData.password, 10)
-        return updatedInspectorData
-      }
+        updatedInspectorData.password = await bcrypt.hash(
+          updatedInspectorData.password,
+          10
+        );
+        return updatedInspectorData;
+      },
     },
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Inspector'
+    modelName: "Inspector",
   }
-)
+);
 
-const InspectorModel = model('Inspector', Inspector)
-export default InspectorModel
+const InspectorModel = model("Inspector", Inspector);
+export default InspectorModel;
 
 // export const inspectorResolvers = {
 //   Query: {
