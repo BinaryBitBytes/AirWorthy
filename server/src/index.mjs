@@ -5,8 +5,21 @@ const TYPEDEFS = () => {
   return { typeDefs };
 };
 
-const server = new ApolloServer(TYPEDEFS, resolver);
-server.listen().then(({ url }) => {
-  url = "127.0.0.1:3001";
-  console.log(`🚀  Server ready at ${url}`);
-});
+class server {
+  constructor() {
+    this.server = new ApolloServer(TYPEDEFS, resolver); //? Error 1.16.24
+    server.listen().then(({ url }) => {
+      let { url } = "127.0.0.1:3001";
+      console.log(`🚀  Server ready at ${url}`);
+    });
+
+    // const server = new ApolloServer(TYPEDEFS, resolver); //? Error 1.16.24
+    // server.listen().then(({ url }) => {
+    //   url = "127.0.0.1:3001";
+    //   console.log(`🚀  Server ready at ${url}`);
+    // });
+  }
+}
+console.log(server);
+
+class apolloServer extends server {}
