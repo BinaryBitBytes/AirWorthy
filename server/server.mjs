@@ -77,7 +77,8 @@ console.log(`🚀  Server ready at ${url}`);
 // await server.listen()
 
 // This applies the Apollo Server Middleware into the Express application
-server.applyMiddleware({ app, ...rest });
+// server.applyMiddleware({ app, ...rest });
+server.applyMiddleware({ app });
 
 // This starts the server and listens on the respected port address
 app.listen({ port: 3069 }, () => {
