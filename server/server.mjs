@@ -61,7 +61,7 @@ const server = async () => {
   //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
   // });
 
-  return await new apolloServer(); //? added await to the return value 4.22.2024
+  return await new ApolloServer(); //? added await to the return value 4.22.2024
 
   // await new apolloServer.listen({ port: 3069 });
   // await apolloServer.listen({ port: 3069 });
