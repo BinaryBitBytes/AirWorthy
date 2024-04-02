@@ -1,9 +1,10 @@
 // import * as apollo from "apollo-server-core";
+const APOLLO = apollo;
 import * as apollo from "apollo-server-express";
 // !import * as apolloServerExprress from "apollo-server-express";
 import * as express from "express";
-import * as buildSubgraphSchema from "@apollo/subgraph";
 import * as startStandaloneServer from "@apollo/server/standalone";
+import * as buildSubgraphSchema from "@apollo/subgraph";
 import * as resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import * as typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { connectDB } from "./config/connection.mjs";
@@ -11,17 +12,17 @@ import { connectDB } from "./config/connection.mjs";
 //   return apolloServerExpress;
 // };
 
-const Express = () => {
-  return express;
+const Express = async () => {
+  return { express }; //? added await to the return value 4.22.2024
 };
-const StartStandaloneServer = () => {
-  return startStandaloneServer;
+const StartStandaloneServer = async () => {
+  return { startStandaloneServer }; //? added await to the return value 4.22.2024
 };
-const BuildSubgraphSchema = () => {
-  return buildSubgraphSchema;
+const BuildSubgraphSchema = async () => {
+  return { buildSubgraphSchema }; //? added await to the return value 4.22.2024
 };
-const ApolloServer = () => {
-  return apollo;
+const ApolloServer = async () => {
+  return { apollo }; //? added await to the return value 4.22.2024
 };
 console.log(ApolloServer);
 console.log(typeof ApolloServer);
@@ -60,7 +61,7 @@ const server = async () => {
   //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
   // });
 
-  return new apolloServer();
+  return await new apolloServer(); //? added await to the return value 4.22.2024
 
   // await new apolloServer.listen({ port: 3069 });
   // await apolloServer.listen({ port: 3069 });

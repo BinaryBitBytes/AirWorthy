@@ -45,7 +45,7 @@
     "jquery": "^3.7.0",
     "jsonwebtoken": "^9.0.0",
     "manager": "^1.0.9",
-    "mongodb": "^6.3.0",
+    "mongodb": "^3.7.4",
     "mongoose": "^7.1.1",
     "node": "^16.13.0",
     "node-gyp": "^9.3.1",
@@ -84,7 +84,7 @@
     "react-icons": "^4.1.0",
     "react-scripts": "^5.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3",
+    "typescript": "^5.3.2",
     "web-vitals": "^0.2.4"
   },
   "engines": {
