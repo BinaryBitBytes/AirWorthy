@@ -1,5 +1,4 @@
 // import * as apollo from "apollo-server-core";
-const APOLLO = apollo;
 import * as apollo from "apollo-server-express";
 // !import * as apolloServerExprress from "apollo-server-express";
 import * as express from "express";
@@ -50,6 +49,14 @@ const startServer = async () => {
   app.get("/", function (req, res, next) {
     next();
   });
+  // This starts the server and listens on the respected port address
+  app.listen({ port: 3069 }, () => {
+    console.log(
+      `The Apollo Server is running @ http://localhost:3069${server.graphqlPath}`
+      // `The Apollo Server is running @ http://localhost:3069${server.apply}`
+    );
+  });
+  // };
   app.listen(3000);
 };
 console.log(`Listening on 3000 START`);
@@ -61,7 +68,7 @@ const server = async () => {
   //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
   // });
 
-  return await new ApolloServer(); //? added await to the return value 4.22.2024
+  return await new apolloServer(); //? added await to the return value 4.22.2024
 
   // await new apolloServer.listen({ port: 3069 });
   // await apolloServer.listen({ port: 3069 });
@@ -80,15 +87,6 @@ console.log(`🚀  Server ready at ${url}`);
 // This applies the Apollo Server Middleware into the Express application
 // server.applyMiddleware({ app, ...rest });
 server.applyMiddleware({ app });
-
-// This starts the server and listens on the respected port address
-app.listen({ port: 3069 }, () => {
-  console.log(
-    `The Apollo Server is running @ http://localhost:3069${server.graphqlPath}`
-    // `The Apollo Server is running @ http://localhost:3069${server.apply}`
-  );
-});
-// };
 
 // Starting the Express Server with the Mongoose Database
 console.info(`Starting server.mjs`);
