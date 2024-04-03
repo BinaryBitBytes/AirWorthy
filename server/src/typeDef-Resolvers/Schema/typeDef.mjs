@@ -1,10 +1,38 @@
-import { AirlinerTypeDefs } from './airlinerSchema.mjs'
-import { AuthTypeDefs } from './authSchema.mjs'
-import { InspectorTypeDefs } from './inspectorSchema.mjs'
-import { ManagerTypeDefs } from './managerSchema.mjs'
-import { ProjectDataTypeDefs } from './projectDataSchema.mjs'
-import { ProjectTypeDefs } from './projectSchema.mjs'
-import { TechnicianTypeDefs } from './technicianSchema.mjs'
+import { AirlinerTypeDefs } from "./airlinerSchema.mjs";
+import { AuthTypeDefs } from "./authSchema.mjs";
+import { InspectorTypeDefs } from "./inspectorSchema.mjs";
+import { ManagerTypeDefs } from "./managerSchema.mjs";
+import { ProjectDataTypeDefs } from "./projectDataSchema.mjs";
+import { ProjectTypeDefs } from "./projectSchema.mjs";
+import { TechnicianTypeDefs } from "./technicianSchema.mjs";
+
+const typeDefs = () => {
+  return [
+    {
+      AirlinerTypeDefs,
+      AuthTypeDefs,
+      InspectorTypeDefs,
+      ManagerTypeDefs,
+      ProjectDataTypeDefs,
+      ProjectTypeDefs,
+      TechnicianTypeDefs,
+    },
+  ];
+};
+//*
+// const typeDefs = [
+//   {
+//     AirlinerTypeDefs,
+//     AuthTypeDefs,
+//     InspectorTypeDefs,
+//     ManagerTypeDefs,
+//     ProjectDataTypeDefs,
+//     ProjectTypeDefs,
+//     TechnicianTypeDefs,
+//   },
+// ];
+
+/ * /;
 // const { AirlinerTypeDefs } = await import('./airlinerSchema.mjs')
 // const { AuthTypeDefs } = await import('./authSchema.mjs')
 // const { InspectorTypeDefs } = await import('./inspectorSchema.mjs')
@@ -38,15 +66,6 @@ import { TechnicianTypeDefs } from './technicianSchema.mjs'
 //   ${ProjectTypeDefs},
 //   ${TechnicianTypeDefs}
 // `;
-const typeDefs = `
-  ${AirlinerTypeDefs},
-  ${AuthTypeDefs},
-  ${InspectorTypeDefs},
-  ${ManagerTypeDefs},
-  ${ProjectDataTypeDefs},
-  ${ProjectTypeDefs},
-  ${TechnicianTypeDefs}
-`;
 
 // // const typeDefs = {
 // //   AirlinerTypeDefs,
@@ -80,8 +99,8 @@ const typeDefs = `
 // ${JSON.stringify(typeDefs)}
 // `;
 // console.log(typeDefs());
-console.log(typeof(typeDefs))
-console.log({typeDefs});
+console.log(typeof typeDefs);
+console.log({ typeDefs });
 // export default gql(typeDefs)
 export default typeDefs;
 

@@ -7,10 +7,12 @@
 // import { typeDef as ProjectData, resolvers as projectDataResolvers } from './projectDataSchema.js';
 // import { typeDef as Project, resolvers as projectResolvers } from './projectSchema.js';
 // import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema.js';
-import resolvers from '../typeDef-Resolvers/Resolvers/resolvers.js'
-import typedefs from '../typeDef-Resolvers/Schema/typeDef.js'
-export const resolver = resolvers
-export default typedefs
+import resolvers from "../typeDef-Resolvers/Resolvers/resolvers.mjs";
+import * as typedef from "../typeDef-Resolvers/Schema/typeDef.mjs";
+// export const resolver = resolvers;
+export const resolver = resolvers;
 
-// console.log(typeDefs);
-// console.log(resolvers);
+export const typedefs = { typedef: typedef };
+
+console.log({ typedefs });
+console.log(resolvers);

@@ -1,36 +1,49 @@
-import mongoose from 'mongoose'
-import bcrypt from 'bcrypt'
-const { model } = mongoose
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+// const { model } = mongoose;
 
-const Airliner = new mongoose.Schema({
-  id: {
-    type: Number,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  airlinerName: String,
-  isAdmin: { type: Boolean, enum: [true] },
-  modelAircraft: [String],
-  userName: String,
-  email: String,
-  password: String
-}, {
-  hooks: {
-    beforeCreate: async function (newAirlinerData) {
-      newAirlinerData.password = await bcrypt.hash(newAirlinerData.password, 10)
-      return newAirlinerData
+// MODELS
+const Airliner = new mongoose.Schema(
+  {
+    id: {
+      type: Number,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    beforeUpdate: async function (updatedAirlinerData) {
-      updatedAirlinerData.password = await bcrypt.hash(updatedAirlinerData.password, 10)
-      return updatedAirlinerData
-    }
+    airlinerName: String,
+    isAdmin: { type: Boolean, enum: [true] },
+    modelAircraft: [String],
+    userName: String,
+    email: String,
+    password: String,
   },
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'Airliner'
-})
+  {
+    hooks: {
+      beforeCreate: async function (newAirlinerData) {
+        newAirlinerData.password = await bcrypt.hash(
+          newAirlinerData.password,
+          10
+        );
+        return newAirlinerData;
+      },
+      beforeUpdate: async function (updatedAirlinerData) {
+        updatedAirlinerData.password = await bcrypt.hash(
+          updatedAirlinerData.password,
+          10
+        );
+        return updatedAirlinerData;
+      },
+    },
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "Airliner",
+  }
+);
 
-const AirlinerModel = model('Airliner', Airliner)
-export default AirlinerModel
+const AirlinerModel = mongoose.model("Airliner", Airliner);
+
+console.log(AirlinerModel);
+export default AirlinerModel;
+console.log(Airliner);

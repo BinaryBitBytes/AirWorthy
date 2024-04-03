@@ -10,7 +10,6 @@
     "bootstrap": "^4.6.2",
     "concurrently": "^7.3.0",
     "jquery": "^3.4.1",
-    "jwt-decode": "^2.2.0",
     "lightbox2": "^2.11.4",
     "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
@@ -53,11 +52,13 @@
   },
   "description": "Client Side for Airworthy",
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [
     "Client"
   ],
   "author": "Miles Colon",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "jwt-decode": "^4.0.0"
+  }
 }

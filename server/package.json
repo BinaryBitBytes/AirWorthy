@@ -2,15 +2,17 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Server Side for Airworthy",
-  "main": "server.js",
+  "main": "server.mjs",
   "quokka": {
     "babel": true
   },
   "scripts": {
-    "start": "node -r esm server.js",
-    "START": "node server.js",
-    "watch": "nodemon server.js",
-    "build:local": "env-cmd -f ./config/.env.local node -r esm server.js"
+    "start": "node -r esm server.mjs",
+    "_start_": "nodemon -r esm server.mjs",
+    "_START_": "nodemon -r esm ts-node server.mjs",
+    "START": "node server.mjs",
+    "watch": "nodemon server.mjs",
+    "build:local": "env-cmd -f ./config/.env.local node -r esm server.mjs"
   },
   "keywords": [],
   "author": "Miles Colon",

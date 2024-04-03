@@ -1,6 +1,11 @@
-import decode from 'jwt-decode';
-
-class AuthService {
+import * as DECODE from "jwt-decode";
+const decode = () => {
+  return DECODE;
+};
+class AuthService_ {
+  getToken() {
+    return localStorage.getItem("id_token");
+  }
   getReader() {
     return decode(this.getToken());
   }
@@ -13,25 +18,23 @@ class AuthService {
   isTokenExpired(token) {
     const decoded = decode(token);
     if (decoded.exp < Date.now() / 1000) {
-      localStorage.removeItem('id_token');
+      localStorage.removeItem("id_token");
       return true;
     }
     return false;
   }
 
-  getToken() {
-    return localStorage.getItem('id_token');
-  }
-
   login(idToken) {
-    localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    localStorage.setItem("id_token", idToken);
+    window.location.assign("/");
   }
 
   logout() {
-    localStorage.removeItem('id_token');
-    window.location.assign('/');
+    localStorage.removeItem("id_token");
+    window.location.assign("/");
   }
 }
 
-export default new AuthService();
+export const AuthService = new AuthService_();
+console.log(AuthService);
+// export default AuthService();

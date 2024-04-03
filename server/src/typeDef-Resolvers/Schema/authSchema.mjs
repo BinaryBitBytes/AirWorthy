@@ -3,10 +3,10 @@
 // const { gql } = gql
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
-import gql from '../../gql.mjs'
+import gql from "../../gql.mjs";
 
 // export const AuthTypeDefs = gql`
-export const AuthTypeDefs = gql(`
+const AuthTypeDefs = gql`
   type Query {
     auth: User
     auths: [User]
@@ -22,8 +22,20 @@ export const AuthTypeDefs = gql(`
   }
 
   type Mutation {
-    addUser(username: String, token: String, email: String, password: String, isAdmin: Boolean): User
-    loginUser(username: String, token: String, email: String, password: String): User
+    addUser(
+      username: String
+      token: String
+      email: String
+      password: String
+      isAdmin: Boolean
+    ): User
+    loginUser(
+      username: String
+      token: String
+      email: String
+      password: String
+    ): User
   }
-`)
-console.log(AuthTypeDefs)
+`;
+export { AuthTypeDefs };
+console.log({ AuthTypeDefs });

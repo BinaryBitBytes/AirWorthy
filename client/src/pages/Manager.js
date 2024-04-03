@@ -1,8 +1,8 @@
 import React from "react";
-import Manager from "../components/Manager.js";
+import Manager from "../components/manager/Manager";
 
 <React.Fragment>
-<Manager />
+  <Manager />
 </React.Fragment>;
 // function Manager() {
 //   return <Manager />;
