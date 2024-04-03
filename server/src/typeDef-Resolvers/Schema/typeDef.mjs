@@ -5,20 +5,34 @@ import { ManagerTypeDefs } from "./managerSchema.mjs";
 import { ProjectDataTypeDefs } from "./projectDataSchema.mjs";
 import { ProjectTypeDefs } from "./projectSchema.mjs";
 import { TechnicianTypeDefs } from "./technicianSchema.mjs";
-
-const typeDefs = () => {
-  return [
-    {
-      AirlinerTypeDefs,
-      AuthTypeDefs,
-      InspectorTypeDefs,
-      ManagerTypeDefs,
-      ProjectDataTypeDefs,
-      ProjectTypeDefs,
-      TechnicianTypeDefs,
-    },
-  ];
+const typeDefs = {
+  ...AirlinerTypeDefs,
+  ...AuthTypeDefs,
+  ...InspectorTypeDefs,
+  ...ManagerTypeDefs,
+  ...ProjectDataTypeDefs,
+  ...ProjectTypeDefs,
+  ...TechnicianTypeDefs,
 };
+
+console.log(typeof typeDefs);
+console.log({ typeDefs });
+export default typeDefs;
+
+//? const typeDefs = () => {
+//   return [
+//     {
+//       AirlinerTypeDefs,
+//       AuthTypeDefs,
+//       InspectorTypeDefs,
+//       ManagerTypeDefs,
+//       ProjectDataTypeDefs,
+//       ProjectTypeDefs,
+//       TechnicianTypeDefs,
+//     },
+//   ];
+//?  };
+
 //*
 // const typeDefs = [
 //   {
@@ -99,10 +113,7 @@ const typeDefs = () => {
 // ${JSON.stringify(typeDefs)}
 // `;
 // console.log(typeDefs());
-console.log(typeof typeDefs);
-console.log({ typeDefs });
 // export default gql(typeDefs)
-export default typeDefs;
 
 // console.log(typeof(TYPEDEFS))
 // console.log(TYPEDEFS)

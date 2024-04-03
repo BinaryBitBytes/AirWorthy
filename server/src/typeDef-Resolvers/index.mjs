@@ -9,10 +9,12 @@
 // import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema.js';
 import resolvers from "../typeDef-Resolvers/Resolvers/resolvers.mjs";
 import * as typedef from "../typeDef-Resolvers/Schema/typeDef.mjs";
-// export const resolver = resolvers;
-export const resolver = resolvers;
+//? export const resolver = resolvers;
+const resolver = [resolvers];
+export default resolver;
 
-export const typedefs = { typedef: typedef };
+//? export const typedefs = { typedef: typedef };
+const typedefs = { typedef: typedef };
 
 console.log({ typedefs });
 console.log(resolvers);
