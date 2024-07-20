@@ -7,6 +7,9 @@ import gql from "../../gql.mjs";
 
 //  Airliner represents an airline company.
 const AirlinerTypeDefs = gql`
+  """
+  AIRLINER
+  """
   type Airliner {
     _id: ID!
     airlinerName: String
@@ -43,6 +46,8 @@ const AirlinerTypeDefs = gql`
 
 export { AirlinerTypeDefs };
 console.log({ AirlinerTypeDefs });
+console.log("================================================================");
+console.log(AirlinerTypeDefs);
 
 //  export const AirlinerTypeDefs = gql(`
 //   """

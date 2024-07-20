@@ -5,19 +5,24 @@ import { ManagerTypeDefs } from "./managerSchema.mjs";
 import { ProjectDataTypeDefs } from "./projectDataSchema.mjs";
 import { ProjectTypeDefs } from "./projectSchema.mjs";
 import { TechnicianTypeDefs } from "./technicianSchema.mjs";
+import { gql } from "apollo-server-core";
+
+const AIRLINER = gql("Airliner", AirlinerTypeDefs);
+console.log(AIRLINER);
 
 const typeDefs = () => {
-  return [
-    {
-      AirlinerTypeDefs,
-      AuthTypeDefs,
-      InspectorTypeDefs,
-      ManagerTypeDefs,
-      ProjectDataTypeDefs,
-      ProjectTypeDefs,
-      TechnicianTypeDefs,
-    },
-  ];
+  return;
+  AIRLINER,
+    [
+      {
+        AuthTypeDefs,
+        InspectorTypeDefs,
+        ManagerTypeDefs,
+        ProjectDataTypeDefs,
+        ProjectTypeDefs,
+        TechnicianTypeDefs,
+      },
+    ];
 };
 //*
 // const typeDefs = [
