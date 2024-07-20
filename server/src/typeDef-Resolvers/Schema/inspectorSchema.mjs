@@ -7,7 +7,7 @@ import gql from "../../gql.mjs";
 
 // export const InspectorTypeDefs = gql`
 const InspectorTypeDefs = gql`
-  type Inspector {
+  interface Inspector {
     _id: ID!
     inspectorName: String
     isAdmin: Boolean
@@ -17,6 +17,17 @@ const InspectorTypeDefs = gql`
     password: String
   }
 
+  type Query implements Inspector {
+    inspectors: [Inspector]
+    inspector(inspectorID: ID!): Inspector
+  }
+
+  type Mutation implements Inspector {
+    addInspector(inspector: InspectorInput): Inspector
+    # addProject(inspectorID: ID!, projectID: ID!): Inspector
+    removeInspector(inspectorID: ID!): Boolean
+    # removeProject(inspectorID: ID!, projectID: ID!): Inspector
+  }
   input InspectorInput {
     inspectorName: String
     isAdmin: Boolean
@@ -24,18 +35,6 @@ const InspectorTypeDefs = gql`
     username: String!
     email: String
     password: String
-  }
-
-  type Query {
-    inspectors: [Inspector]
-    inspector(inspectorID: ID!): Inspector
-  }
-
-  type Mutation {
-    addInspector(inspector: InspectorInput): Inspector
-    # addProject(inspectorID: ID!, projectID: ID!): Inspector
-    removeInspector(inspectorID: ID!): Boolean
-    # removeProject(inspectorID: ID!, projectID: ID!): Inspector
   }
 `;
 

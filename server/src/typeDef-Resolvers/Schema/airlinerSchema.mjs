@@ -10,7 +10,7 @@ const AirlinerTypeDefs = gql`
   """
   AIRLINER
   """
-  type Airliner {
+  interface Airliner {
     _id: ID!
     airlinerName: String
     isAdmin: Boolean
@@ -20,7 +20,7 @@ const AirlinerTypeDefs = gql`
   }
 
   # The Query for the Airliner
-  type Query {
+  type Query implements Airliner {
     # Get an airliner by ID.
     airliner(_id: ID!): Airliner
 
@@ -29,7 +29,7 @@ const AirlinerTypeDefs = gql`
   }
 
   # Mustation for Airliner
-  type Mutation {
+  type Mutation implements Airliner {
     # Add a new airliner.
     addAirliner(
       airlinerName: String
