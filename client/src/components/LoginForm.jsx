@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
-import { AuthService } from "../utils/auth";
+import { AuthService } from "../Utils/auth.js";
+import * as api from "../Utils/api.js";
+const LOGIN_USER = api;
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
