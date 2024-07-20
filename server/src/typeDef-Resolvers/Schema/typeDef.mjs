@@ -11,18 +11,17 @@ const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 console.log(AIRLINER);
 
 const typeDefs = () => {
-  return;
-  AIRLINER,
-    [
-      {
-        AuthTypeDefs,
-        InspectorTypeDefs,
-        ManagerTypeDefs,
-        ProjectDataTypeDefs,
-        ProjectTypeDefs,
-        TechnicianTypeDefs,
-      },
-    ];
+  // AIRLINER,
+  return [
+    {
+      AuthTypeDefs,
+      InspectorTypeDefs,
+      ManagerTypeDefs,
+      ProjectDataTypeDefs,
+      ProjectTypeDefs,
+      TechnicianTypeDefs,
+    },
+  ];
 };
 //*
 // const typeDefs = [
