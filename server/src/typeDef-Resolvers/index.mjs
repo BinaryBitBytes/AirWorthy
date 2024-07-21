@@ -10,9 +10,18 @@
 import resolvers from "../typeDef-Resolvers/Resolvers/resolvers.mjs";
 import * as typedef from "../typeDef-Resolvers/Schema/typeDef.mjs";
 // export const resolver = resolvers;
-export const resolver = resolvers;
+// export const resolver = resolvers;
 
-export const typedefs = { typedef: typedef };
-
+// I will be constructing resolvers into an export function to avoid the use of default
+const resolver = () => {
+  return resolvers;
+};
+resolvers();
+// export const typedefs = { typedef: typedef };
+//I will be constructing typedefs into an export function to avoid the use of default
+const typeDefs = () => {
+  return typedef;
+};
+typeDefs();
 console.log({ typedefs });
 console.log(resolvers);
