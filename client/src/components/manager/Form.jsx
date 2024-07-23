@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 /* Import Components */
 import Input from "../Input.jsx";
-import TextArea from "../TextArea";
-import Select from "../Select";
-import Button from "../Button";
+import TextArea from "../TextArea.jsx";
+import Select from "../Select.jsx";
+import Button from "../Button.jsx";
 // import { Card } from "react-bootstrap";
 
 class FormContainer extends Component {

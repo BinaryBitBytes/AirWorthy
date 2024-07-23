@@ -1,8 +1,8 @@
-async function gql (){
-    try {
-        const { gql } = await import('gql-tag')
-    } catch (error){
-        console.error(error)
-    }
+async function gql() {
+  try {
+    const { gql } = await import("gql-tag");
+  } catch (error) {
+    console.error(error);
+  }
 }
-export default gql
+export default gql;

@@ -7,12 +7,13 @@ import gql from "../../gql.mjs";
 
 // export const AuthTypeDefs = gql`
 const AuthTypeDefs = gql`
-  type Query {
+  interface Query {
+    id: ID!
     auth: User
     auths: [User]
   }
 
-  type User {
+  type User implements Query {
     _id: ID
     token: String
     username: String
@@ -21,7 +22,7 @@ const AuthTypeDefs = gql`
     isAdmin: Boolean
   }
 
-  type Mutation {
+  type Mutation implements Query {
     addUser(
       username: String
       token: String

@@ -12,24 +12,23 @@ import { connectDB } from "./config/connection.mjs";
 // };
 
 const Express = async () => {
-  return { express }; //? added await to the return value 4.22.2024
+  return new { express }(); //? added await to the return value 4.22.2024
 };
 const StartStandaloneServer = async () => {
-  return { startStandaloneServer }; //? added await to the return value 4.22.2024
+  return new { startStandaloneServer }(); //? added await to the return value 4.22.2024
 };
 const BuildSubgraphSchema = async () => {
-  return { buildSubgraphSchema }; //? added await to the return value 4.22.2024
+  return new { buildSubgraphSchema }(); //? added await to the return value 4.22.2024
 };
 const ApolloServer = async () => {
-  return { apollo }; //? added await to the return value 4.22.2024
+  return new { apollo }(); //? added await to the return value 4.22.2024
 };
 console.log(ApolloServer);
 console.log(typeof ApolloServer);
 // const { startStandaloneServer } = StartStandaloneServer;
-
 // connecting to the mongo database
 // Global function to start the server asynchronously
-var app = Express;
+const app = Express;
 // This creates the instance of the Apollo server with the typeDefs & resolvers
 const apolloServer = ApolloServer({
   schema: BuildSubgraphSchema({
@@ -39,7 +38,7 @@ const apolloServer = ApolloServer({
   }),
 });
 console.log(apolloServer);
-
+console.warn(`Server start has been initiated`);
 const startServer = async () => {
   /* //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
   ☺/ This creates an Express application

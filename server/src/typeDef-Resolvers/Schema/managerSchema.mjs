@@ -6,6 +6,7 @@
 import gql from "../../gql.mjs";
 
 // export const ManagerTypeDefs = gql`
+//! NEEDS INTERFACE
 const ManagerTypeDefs = gql`
   input ManagerInput {
     managerName: String

@@ -37,4 +37,4 @@ class AuthService_ {
 
 export const AuthService = new AuthService_();
 console.log(AuthService);
-// export default AuthService();
+export default AuthService;

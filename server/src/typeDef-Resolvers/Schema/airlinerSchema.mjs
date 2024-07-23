@@ -7,7 +7,10 @@ import gql from "../../gql.mjs";
 
 //  Airliner represents an airline company.
 const AirlinerTypeDefs = gql`
-  type Airliner {
+  """
+  AIRLINER
+  """
+  interface Airliner {
     _id: ID!
     airlinerName: String
     isAdmin: Boolean
@@ -17,7 +20,7 @@ const AirlinerTypeDefs = gql`
   }
 
   # The Query for the Airliner
-  type Query {
+  type Query implements Airliner {
     # Get an airliner by ID.
     airliner(_id: ID!): Airliner
 
@@ -26,7 +29,7 @@ const AirlinerTypeDefs = gql`
   }
 
   # Mustation for Airliner
-  type Mutation {
+  type Mutation implements Airliner {
     # Add a new airliner.
     addAirliner(
       airlinerName: String
@@ -43,6 +46,8 @@ const AirlinerTypeDefs = gql`
 
 export { AirlinerTypeDefs };
 console.log({ AirlinerTypeDefs });
+console.log("================================================================");
+console.log(AirlinerTypeDefs);
 
 //  export const AirlinerTypeDefs = gql(`
 //   """

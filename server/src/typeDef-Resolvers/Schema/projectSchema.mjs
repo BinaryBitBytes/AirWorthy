@@ -9,7 +9,7 @@ import gql from "../../gql.mjs";
 // export const ProjectTypeDefs = gql`
 //TODO need to add a real input type to project named projectInput and change project back to type project
 const ProjectTypeDefs = gql`
-  type Project {
+  interface Project {
     _id: ID!
     projectName: String
     isAdmin: Boolean
@@ -19,7 +19,7 @@ const ProjectTypeDefs = gql`
     password: String
   }
 
-  input ProjectInput {
+  type ProjectInput implements Project {
     projectName: String
     isAdmin: Boolean
     onProject: [String]
@@ -28,12 +28,12 @@ const ProjectTypeDefs = gql`
     password: String
   }
 
-  type Query {
+  type Query implements Project {
     projects: [Project]
     project(projectID: ID!): Project
   }
 
-  type Mutation {
+  type Mutation implements Project {
     addProject(input: ProjectInput): Project
     updateProject(projectID: ID!, onProject: [String]): Project
     removeProject(projectID: ID!): Project
