@@ -25,6 +25,9 @@ const typeDefs = () => {
   ];
   return;
 };
+console.log(typeof typeDefs);
+console.log({ typeDefs });
+export default typeDefs;
 //*
 // const typeDefs = [
 //   {
@@ -105,10 +108,7 @@ const typeDefs = () => {
 // ${JSON.stringify(typeDefs)}
 // `;
 // console.log(typeDefs());
-console.log(typeof typeDefs);
-console.log({ typeDefs });
 // export default gql(typeDefs)
-export default typeDefs;
 
 // console.log(typeof(TYPEDEFS))
 // console.log(TYPEDEFS)

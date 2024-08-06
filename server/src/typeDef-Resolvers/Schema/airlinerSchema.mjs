@@ -4,50 +4,74 @@
 // const { gql } = gql
 // export const AirlinerTypeDefs = gql`
 import gql from "../../gql.mjs";
+// airlinerTypeDefs.mjs
 
-//  Airliner represents an airline company.
-const AirlinerTypeDefs = gql`
-  """
-  AIRLINER
-  """
-  interface Airliner {
-    _id: ID!
-    airlinerName: String
-    isAdmin: Boolean
-    modelAircraft: [String]
-    email: String
-    password: String
-  }
+const AirlinerTypeDefs = (() => {
+  const typeDefs = gql`
+    type Airliner {
+      id: ID!
+      name: String!
+      capacity: Int!
+      range: Int!
+    }
 
-  # The Query for the Airliner
-  type Query implements Airliner {
-    # Get an airliner by ID.
-    airliner(_id: ID!): Airliner
+    type Query {
+      airliners: [Airliner]
+    }
 
-    # Get airliners by airliner name.
-    airliners(airlinerName: String): [Airliner]
-  }
+    type Mutation {
+      addAirliner(name: String!, capacity: Int!, range: Int!): Airliner
+    }
+  `;
 
-  # Mustation for Airliner
-  type Mutation implements Airliner {
-    # Add a new airliner.
-    addAirliner(
-      airlinerName: String
-      _isAdmin: Boolean
-      modelAircraft: [String]
-      email: String
-      password: String
-    ): Airliner
-
-    #  Remove an existing airliner.
-    removeAirliner(_id: ID!): Boolean
-  }
-`;
+  return typeDefs;
+})();
 
 export { AirlinerTypeDefs };
-console.log({ AirlinerTypeDefs });
-console.log("================================================================");
-console.log(AirlinerTypeDefs);
+// //  Airliner represents an airline company.
+// const AirlinerTypeDefs = () => {
+//   return gql`
+//     """
+//     AIRLINER
+//     """
+//     interface Airliner {
+//       _id: ID!
+//       airlinerName: String
+//       isAdmin: Boolean
+//       modelAircraft: [String]
+//       email: String
+//       password: String
+//     }
+
+//     # The Query for the Airliner
+//     type Query implements Airliner {
+//       # Get an airliner by ID.
+//       airliner(_id: ID!): Airliner
+
+//       # Get airliners by airliner name.
+//       airliners(airlinerName: String): [Airliner]
+//     }
+
+//     # Mustation for Airliner
+//     type Mutation implements Airliner {
+//       # Add a new airliner.
+//       addAirliner(
+//         airlinerName: String
+//         _isAdmin: Boolean
+//         modelAircraft: [String]
+//         email: String
+//         password: String
+//       ): Airliner
+
+//       #  Remove an existing airliner.
+//       removeAirliner(_id: ID!): Boolean
+//     }
+//   `;
+// };
+// export default AirlinerTypeDefs;
+// console.log({ AirlinerTypeDefs });
+// console.log("================================================================");
+// console.log(AirlinerTypeDefs);
 
 //  export const AirlinerTypeDefs = gql(`
 //   """

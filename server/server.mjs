@@ -62,7 +62,7 @@ console.log(`Listening on 3000 START`);
 console.log(`Listening on 3000 END STARTING PHASE`);
 /*//////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////*/
-const server = async () => {
+async function server() {
   let RUN = await ApolloServer.apply({
     schema: BuildSubgraphSchema({ typeDefs, resolvers }),
   });
@@ -72,7 +72,7 @@ const server = async () => {
 
   // await new apolloServer.listen({ port: 3069 });
   // await apolloServer.listen({ port: 3069 });
-};
+}
 /*//////////////////////////////////////////////////*/
 console.log(server.apolloServer);
 await server();
