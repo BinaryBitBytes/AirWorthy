@@ -21,7 +21,7 @@ const BuildSubgraphSchema = async () => {
   return new { buildSubgraphSchema }(); //? added await to the return value 4.22.2024
 };
 const ApolloServer = async () => {
-  return new { apollo }(); //? added await to the return value 4.22.2024
+  return { apollo }; //? added await to the return value 4.22.2024
 };
 console.log(ApolloServer);
 console.log(typeof ApolloServer);
@@ -63,18 +63,19 @@ console.log(`Listening on 3000 END STARTING PHASE`);
 /*//////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////*/
 const server = async () => {
-  // new ApolloServer({
-  //    schema: buildSubgraphSchema({ typeDefs, resolvers }),
-  // });
+  let RUN = await ApolloServer.apply({
+    schema: BuildSubgraphSchema({ typeDefs, resolvers }),
+  });
 
-  return await new apolloServer(); //? added await to the return value 4.22.2024
+  const RUNNING = { RUN };
+  return RUNNING; //? added await to the return value 4.22.2024
 
   // await new apolloServer.listen({ port: 3069 });
   // await apolloServer.listen({ port: 3069 });
 };
 /*//////////////////////////////////////////////////*/
 console.log(server.apolloServer);
-server();
+await server();
 /*//////////////////////////////////////////////////*/
 /*//////////////////////////////////////////////////*/
 //! testing
