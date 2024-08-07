@@ -15,6 +15,9 @@ import { resolvers as projectDataResolvers } from "./projectDataSchema.mjs";
 import { resolvers as projectResolvers } from "./projectSchema.mjs";
 import { resolvers as technicianResolvers } from "./technicianSchema.mjs";
 import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
+
+const SCHEMA = { EXECUTABLE_SCHEMA };
+console.log(SCHEMA);
 console.log(airlinerResolvers);
 
 // Define the root resolvers
