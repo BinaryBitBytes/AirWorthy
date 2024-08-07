@@ -1,28 +1,38 @@
-import {ApolloServer } from 'apollo-server'
+import { ApolloServer } from "apollo-server";
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
-import { makeExecutableSchema } from '@graphql-tools/schema'
-import { merge } from 'lodash'
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import { merge } from "lodash";
 // import { gql } from '../../../gql.mjs'
 // import gql from 'gql-tag'
 
 // Import resolvers from schema files
-import { resolvers as airlinerResolvers } from './airlinerSchema.mjs'
-import { resolvers as authResolvers } from './authSchema.mjs'
-import { resolvers as inspectorResolvers } from './inspectorSchema.mjs'
-import { resolvers as managerResolvers } from './managerSchema.mjs'
-import { resolvers as projectDataResolvers } from './projectDataSchema.mjs'
-import { resolvers as projectResolvers } from './projectSchema.mjs'
-import { resolvers as technicianResolvers } from './technicianSchema.mjs'
+import { resolvers as airlinerResolvers } from "./airlinerSchema.mjs";
+import { resolvers as authResolvers } from "./authSchema.mjs";
+import { resolvers as inspectorResolvers } from "./inspectorSchema.mjs";
+import { resolvers as managerResolvers } from "./managerSchema.mjs";
+import { resolvers as projectDataResolvers } from "./projectDataSchema.mjs";
+import { resolvers as projectResolvers } from "./projectSchema.mjs";
+import { resolvers as technicianResolvers } from "./technicianSchema.mjs";
+import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
+console.log(airlinerResolvers);
 
 // Define the root resolvers
 const rootResolvers = {
-  Query: {}
-}
+  Query: {},
+};
 
 // Define the executable schema
-const schema = makeExecutableSchema({
-  typeDefs: [Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician], // Add the correct typeDefs here
+const schema = EXECUTABLE_SCHEMA({
+  typeDefs: [
+    Airliner,
+    Auth,
+    Inspector,
+    Manager,
+    ProjectData,
+    Project,
+    Technician,
+  ], // Add the correct typeDefs here
   resolvers: merge(
     rootResolvers,
     airlinerResolvers,
@@ -32,19 +42,19 @@ const schema = makeExecutableSchema({
     projectDataResolvers,
     projectResolvers,
     technicianResolvers
-  )
-})
+  ),
+});
 
 // Create an Apollo Server instance
 const server = new ApolloServer({
-  schema
+  schema,
   // ... other Apollo Server options if needed
-})
+});
 
 // Start the server
 server.listen().then(({ url }) => {
-  console.log(`Server running at ${url}`)
-})
+  console.log(`Server running at ${url}`);
+});
 
 // import pkg from 'lodash';
 // import { ApolloServer, gql } from 'apollo-server';
