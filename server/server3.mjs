@@ -1,5 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
+import { typeDefs as typeDefs } from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { Resolvers as resolvers } from "../server/src/typeDef-Resolvers/Resolvers/schema.mjs";
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
@@ -17,6 +18,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
+console.log(server);
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
 //  1. creates an Express app
 //  2. installs your ApolloServer instance as middleware
