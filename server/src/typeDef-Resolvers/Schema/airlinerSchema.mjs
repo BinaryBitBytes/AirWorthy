@@ -8,6 +8,7 @@ import gql from "../../gql.mjs";
 
 const AirlinerTypeDefs = (() => {
   const typeDefs = gql`
+    ##AIRLINE TYPE
     type Airliner {
       id: ID!
       name: String!
@@ -15,10 +16,11 @@ const AirlinerTypeDefs = (() => {
       range: Int!
     }
 
+    ##QUERY FOR AIRLINE
     type Query {
       airliners: [Airliner]
     }
-
+    ##MUTATION FOR AIRLINE
     type Mutation {
       addAirliner(name: String!, capacity: Int!, range: Int!): Airliner
     }
