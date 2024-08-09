@@ -16,8 +16,8 @@ import { projectResolver as projectResolvers } from "./projectResolver.mjs";
 import { technicianResolver as technicianResolvers } from "./technicianResolver.mjs";
 import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
 
-const SCHEMA = { EXECUTABLE_SCHEMA };
-console.log(SCHEMA);
+const execSchema = { EXECUTABLE_SCHEMA };
+console.log(execSchema);
 console.log(airlinerResolvers);
 
 // Define the root resolvers
@@ -26,27 +26,29 @@ const rootResolvers = {
 };
 
 // Define the executable schema
-const schema = EXECUTABLE_SCHEMA({
-  typeDefs: [
-    Airliner,
-    Auth,
-    Inspector,
-    Manager,
-    ProjectData,
-    Project,
-    Technician,
-  ], // Add the correct typeDefs here
-  resolvers: merge(
-    rootResolvers,
-    airlinerResolvers,
-    authResolvers,
-    inspectorResolvers,
-    managerResolvers,
-    projectDataResolvers,
-    projectResolvers,
-    technicianResolvers
-  ),
-});
+export const SCHEMA = () => {
+  return EXECUTABLE_SCHEMA({
+    typeDefs: [
+      Airliner,
+      Auth,
+      Inspector,
+      Manager,
+      ProjectData,
+      Project,
+      Technician,
+    ], // Add the correct typeDefs here
+    resolvers: merge(
+      rootResolvers,
+      airlinerResolvers,
+      authResolvers,
+      inspectorResolvers,
+      managerResolvers,
+      projectDataResolvers,
+      projectResolvers,
+      technicianResolvers
+    ),
+  });
+};
 
 // Create an Apollo Server instance
 const server = new ApolloServer({
