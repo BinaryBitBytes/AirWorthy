@@ -2,18 +2,18 @@ import { ApolloServer } from "apollo-server";
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import { merge } from "lodash";
+import * as merge from "lodash";
 // import { gql } from '../../../gql.mjs'
 // import gql from 'gql-tag'
 
 // Import resolvers from schema files
-import { resolvers as airlinerResolvers } from "./airlinerSchema.mjs";
-import { resolvers as authResolvers } from "./authSchema.mjs";
-import { resolvers as inspectorResolvers } from "./inspectorSchema.mjs";
-import { resolvers as managerResolvers } from "./managerSchema.mjs";
-import { resolvers as projectDataResolvers } from "./projectDataSchema.mjs";
-import { resolvers as projectResolvers } from "./projectSchema.mjs";
-import { resolvers as technicianResolvers } from "./technicianSchema.mjs";
+import { authResolver as authResolvers } from "./authResolver.mjs";
+import { airlinerResolver as airlinerResolvers } from "./airlinerResolver.mjs";
+import { inspectorResolver as inspectorResolvers } from "./inspectorResolver.mjs";
+import { managerResolver as managerResolvers } from "./managerResolver.mjs";
+import { projectDataResolver as projectDataResolvers } from "./projectDataResolver.mjs";
+import { projectResolver as projectResolvers } from "./projectResolver.mjs";
+import { technicianResolver as technicianResolvers } from "./technicianResolver.mjs";
 import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
 
 const SCHEMA = { EXECUTABLE_SCHEMA };

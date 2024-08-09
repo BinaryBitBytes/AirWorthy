@@ -7,6 +7,8 @@
     "babel": true
   },
   "scripts": {
+    "compile": "tsc",
+    "execute": "npm run compile && node ./dist/index.js",
     "start": "node -r esm server.mjs",
     "_start_": "nodemon -r esm server.mjs",
     "_START_": "nodemon -r esm ts-node server.mjs",
@@ -19,10 +21,11 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@apollo/server": "^4.7.1",
+    "@apollo/server": "^4.10.5",
     "@apollo/subgraph": "^2.4.9",
     "@graphql-tools/load-files": "^7.0.0",
-    "@graphql-tools/schema": "^10.0.0",
+    "@graphql-tools/merge": "^9.0.4",
+    "@graphql-tools/schema": "^10.0.4",
     "@popperjs/core": "^2.11.7",
     "apollo-server": "^3.12.0",
     "apollo-server-core": "^3.12.0",
@@ -37,7 +40,6 @@
     "express-jwt": "^8.4.1",
     "fs": "^0.0.1-security",
     "gql-tag": "^1.0.1",
-    "graphql": "^16.7.1",
     "graphql-modules": "^2.1.2",
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
@@ -48,13 +50,15 @@
     "path": "^0.12.7",
     "popper": "^1.0.1",
     "react-scripts": "^1.1.5",
-    "url": "^0.11.0"
+    "tslib": "^2.6.3",
+    "url": "^0.11.0",
+    "value-or-promise": "^1.0.12"
   },
   "devDependencies": {
     "esm": "^3.2.25",
-    "graphql": "^16.7.1",
+    "graphql": "^16.9.0",
     "graphql-tag": "^2.12.6",
-    "graphql-tools": "^9.0.0",
+    "graphql-tools": "^9.0.1",
     "node": "^16.13.0",
     "nodemon": "^1.14.9",
     "npm": "^9.7.2",
