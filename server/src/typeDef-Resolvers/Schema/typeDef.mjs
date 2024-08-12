@@ -10,7 +10,7 @@ import { TechnicianTypeDefs } from "./technicianSchema.mjs";
 // const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 // console.log(AIRLINER);
 
-export default function typeDefs() {
+export default async function typeDefs() {
   return {
     AirlinerTypeDefs,
     AuthTypeDefs,
