@@ -52,7 +52,7 @@ export const projectResolver = {
   },
 };
 
-export default resolver;
+export const resolver = projectResolver;
 
 // export const resolver = {
 //   Project: {

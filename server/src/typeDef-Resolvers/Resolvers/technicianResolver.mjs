@@ -46,4 +46,4 @@ export const technicianResolver = {
     },
   },
 };
-export default resolver;
+export const resolver = technicianResolver;

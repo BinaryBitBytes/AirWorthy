@@ -52,4 +52,4 @@ export const managerResolver = {
   },
 };
 
-export default resolver;
+export const resolver = managerResolver;

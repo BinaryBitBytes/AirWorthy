@@ -8,7 +8,7 @@ import * as merge from "lodash";
 
 // Import resolvers from schema files
 import { resolver as authResolvers } from "./authResolver.mjs";
-import { airlinerResolver as airlinerResolvers } from "./airlinerResolver.mjs";
+import { resolver as airlinerResolvers } from "./airlinerResolver.mjs";
 import { inspectorResolver as inspectorResolvers } from "./inspectorResolver.mjs";
 import { managerResolver as managerResolvers } from "./managerResolver.mjs";
 import { projectDataResolver as projectDataResolvers } from "./projectDataResolver.mjs";
@@ -52,7 +52,8 @@ export const SCHEMA = () => {
 
 // Create an Apollo Server instance
 const server = new ApolloServer({
-  schema,
+  //schema,
+  SCHEMA,
   // ... other Apollo Server options if needed
 });
 

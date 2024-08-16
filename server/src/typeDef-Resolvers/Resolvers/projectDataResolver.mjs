@@ -45,4 +45,4 @@ export const projectDataResolver = {
     },
   },
 };
-export default resolver;
+export const resolver = projectDataResolver;

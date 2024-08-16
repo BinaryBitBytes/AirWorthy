@@ -41,6 +41,6 @@ const airlinerResolver = {
   },
 };
 
-console.log(airlinerResolvers.Mutation);
+console.log(airlinerResolver.Mutation);
 
-const resolver = airlinerResolver;
+export const resolver = airlinerResolver;
