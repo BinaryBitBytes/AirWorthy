@@ -7,7 +7,7 @@ import * as merge from "lodash";
 // import gql from 'gql-tag'
 
 // Import resolvers from schema files
-import { authResolver as authResolvers } from "./authResolver.mjs";
+import { resolver as authResolvers } from "./authResolver.mjs";
 import { airlinerResolver as airlinerResolvers } from "./airlinerResolver.mjs";
 import { inspectorResolver as inspectorResolvers } from "./inspectorResolver.mjs";
 import { managerResolver as managerResolvers } from "./managerResolver.mjs";

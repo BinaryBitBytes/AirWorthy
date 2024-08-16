@@ -12,7 +12,7 @@
     "start": "node -r esm server.mjs",
     "_start_1": "nodemon -r esm server.mjs",
      "_start_2": "nodemon -r esm server2.mjs",
-    "_start_3": "nodemon -r esm server3.mjs",
+    "_start_3": "nodemon -r esm ts-node server3.mjs",
     "_START_": "nodemon -r esm ts-node server.mjs",
     "START": "node server.mjs",
     "watch": "nodemon server.mjs",
@@ -47,8 +47,7 @@
     "lodash": "^4.17.21",
     "mongodb": "^5.7.0",
     "mongoose": "^5.13.19",
-    "node": "^16.13.0",
-    "nvm": "0.0.4",
+    "node": "^20.5.1",
     "path": "^0.12.7",
     "popper": "^1.0.1",
     "react-scripts": "^1.1.5",
@@ -63,13 +62,13 @@
     "graphql-tools": "^9.0.1",
     "node": "^16.13.0",
     "nodemon": "^1.14.9",
-    "npm": "^9.7.2",
+    "npm": "^10.3.0",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
   "engines": {
-    "node": "^18.16.1",
-    "npm": "9.7.2"
+    "node": "^20.5.1",
+    "npm": "10.3.0"
   }
 }

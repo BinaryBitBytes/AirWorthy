@@ -1,6 +1,6 @@
 // import { AuthTypeDefs } from "../typeDef-Resolvers/authSchema.js";
 import { default as AuthModel } from "../../models/Auth.mjs";
-export const authResolver = {
+const authResolver = {
   Query: {
     auth: async (parent, args) => {
       return AuthModel.findOne({ _id: args.authID }).populate("auth");
@@ -38,7 +38,7 @@ export const authResolver = {
   },
 };
 
-export default resolver;
+export const resolver = authResolver;
 
 // // import { Auth } from '../../models/Auth.js'
 // export const resolver = {
