@@ -16,23 +16,46 @@ import { projectResolver as projectResolvers } from "./projectResolver.mjs";
 import { technicianResolver as technicianResolvers } from "./technicianResolver.mjs";
 import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
 
-  const AUTH_RES = () => {return ...authResolvers;}
-  const AIR_RES = ...airlinerResolvers
-  const INS_RES = ...inspectorResolvers,
-  ...managerResolvers,
-  ...projectDataResolvers,
-  ...projectResolvers,
-  ...technicianResolvers,
-
+const AUTH_RES = () => {
+  return { ...authResolvers };
+};
+const AIR_RES = () => {
+  return { ...airlinerResolvers };
+};
+const INS_RES = () => {
+  return { ...inspectorResolvers };
+};
+const MAN_RES = () => {
+  return { ...managerResolvers };
+};
+const PRO_D_RES = () => {
+  return { ...projectDataResolvers };
+};
+const PRO_RES = () => {
+  return { ...projectResolvers };
+};
+const TEC_RES = () => {
+  return { ...technicianResolvers };
+};
 const RESOLVERS = [
-  authResolvers,
-  airlinerResolvers,
-  inspectorResolvers,
-  managerResolvers,
-  projectDataResolvers,
-  projectResolvers,
-  technicianResolvers,
+  AUTH_RES,
+  AIR_RES,
+  INS_RES,
+  MAN_RES,
+  PRO_RES,
+  PRO_D_RES,
+  TEC_RES,
 ];
+
+// const RESOLVERS = [
+//   authResolvers,
+//   airlinerResolvers,
+//   inspectorResolvers,
+//   managerResolvers,
+//   projectDataResolvers,
+//   projectResolvers,
+//   technicianResolvers,
+// ];
 console.log(RESOLVERS);
 const execSchema = { EXECUTABLE_SCHEMA };
 console.log(execSchema);
@@ -67,7 +90,7 @@ export const SCHEMA = () => {
     ),
   });
 };
-
+console.log(SCHEMA);
 // Create an Apollo Server instance
 const server = new ApolloServer({
   //schema,
