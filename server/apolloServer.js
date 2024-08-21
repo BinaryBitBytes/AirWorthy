@@ -1,7 +1,7 @@
 //?-- apolloServer.js--
 import * as ApolloServer from "apollo-server";
 // import * as APOLLOSERVER from "./node_modules/apollo-server/dist/index.js";
-import * as DOCUMENTS from "./src/typeDef -Resolvers/Resolvers/resolvers.mjs";
+import * as DOCUMENTS from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 const apolloServer = { ApolloServer: new { ApolloServer }() };
 
 var _DOCUMENTS_ = () => {

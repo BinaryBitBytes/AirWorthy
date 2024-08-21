@@ -1,6 +1,6 @@
-import { airlinerResolvers } from "./airlinerResolver.mjs";
+import { resolver as airlinerResolvers } from "./airlinerResolver.mjs";
 import { resolver as authResolvers } from "./authResolver.mjs";
-import { resolvers as inspectorResolvers } from "./inspectorResolver.mjs";
+import { resolver as inspectorResolvers } from "./inspectorResolver.mjs";
 import { resolver as managerResolvers } from "./managerResolver.mjs";
 import { resolver as projectDataResolvers } from "./projectDataResolver.mjs";
 import { resolver as projectResolvers } from "./projectResolver.mjs";

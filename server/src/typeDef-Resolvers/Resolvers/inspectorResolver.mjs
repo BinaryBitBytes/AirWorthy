@@ -1,6 +1,6 @@
 import { default as InspectorModel } from "../../models/Inspector.mjs";
 
-export const inspectorResolver = {
+export const resolver = {
   Query: {
     inspectors: async () => {
       return await InspectorModel.find().sort({ createdAt: -1 });
