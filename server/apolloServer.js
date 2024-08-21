@@ -1,6 +1,8 @@
 //?-- apolloServer.js--
-import * as apolloServer from "apollo-server-express";
-import * as DOCUMENTS from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
+import * as ApolloServer from "apollo-server";
+// import * as APOLLOSERVER from "./node_modules/apollo-server/dist/index.js";
+import * as DOCUMENTS from "./src/typeDef -Resolvers/Resolvers/resolvers.mjs";
+const apolloServer = { ApolloServer: new { ApolloServer }() };
 
 var _DOCUMENTS_ = () => {
   // class box(string, id, index) {

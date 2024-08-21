@@ -11,7 +11,7 @@
     "execute": "npm run compile && node ./dist/index.js",
     "start": "node -r esm server.mjs",
     "_start_1": "nodemon -r esm server.mjs",
-     "_start_2": "nodemon -r esm server2.mjs",
+    "_start_2": "nodemon -r esm server2.mjs",
     "_start_3": "nodemon -r esm ts-node server3.mjs",
     "_START_": "nodemon -r esm ts-node server.mjs",
     "START": "node server.mjs",
@@ -51,6 +51,7 @@
     "path": "^0.12.7",
     "popper": "^1.0.1",
     "react-scripts": "^1.1.5",
+    "server": "file:",
     "tslib": "^2.6.3",
     "url": "^0.11.0",
     "value-or-promise": "^1.0.12"
