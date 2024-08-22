@@ -2,7 +2,7 @@
 import { ApolloServer } from "apollo-server";
 // import * as ApolloServer from "./node_modules/@apollo/server/src/ApolloServer.ts";
 // "@apollo/server/src/standalone/index.ts";
-import { startStandaloneServer } from "./node_modules/@apollo/server/dist/cjs/standalone/index.js";
+import { startStandaloneServer } as startStandaloneServer  from "apollo/server";
 // import * as startStandaloneServer from "./node_modules/@apollo/server/standalone/";
 import * as typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { SCHEMA } from "../server/src/typeDef-Resolvers/Resolvers/schema.mjs";
