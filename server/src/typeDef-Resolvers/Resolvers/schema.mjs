@@ -9,7 +9,7 @@ import * as merge from "lodash";
 // Import resolvers from schema files
 import { resolver as authResolvers } from "./authResolver.mjs";
 import { resolver as airlinerResolvers } from "./airlinerResolver.mjs";
-import { inspectorResolver as inspectorResolvers } from "./inspectorResolver.mjs";
+import { resolver as inspectorResolvers } from "./inspectorResolver.mjs";
 import { managerResolver as managerResolvers } from "./managerResolver.mjs";
 import { projectDataResolver as projectDataResolvers } from "./projectDataResolver.mjs";
 import { projectResolver as projectResolvers } from "./projectResolver.mjs";

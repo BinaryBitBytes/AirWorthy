@@ -1,11 +1,21 @@
+//Graph-QL
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import { expressMiddleware } from "@apollo/server/express4";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+import express from "express";
+import http from "http";
+import cors from "cors";
+import bodyParser from "body-parser";
 // /@apollo/server.ts";
-import { ApolloServer } from "apollo-server";
+// import * as ApolloServer from "apollo-server";
 // import * as ApolloServer from "./node_modules/@apollo/server/src/ApolloServer.ts";
 // "@apollo/server/src/standalone/index.ts";
-import { startStandaloneServer } as startStandaloneServer  from "apollo/server";
+// import * as startStandaloneServer from "apollo-server";
 // import * as startStandaloneServer from "./node_modules/@apollo/server/standalone/";
 import * as typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { SCHEMA } from "../server/src/typeDef-Resolvers/Resolvers/schema.mjs";
+
 const resolvers = SCHEMA;
 const apolloServer = new ApolloServer();
 // const StartStandaloneServer = { startStandaloneServer };

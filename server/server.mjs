@@ -17,6 +17,7 @@ const Express = async () => {
 const StartStandaloneServer = async () => {
   return new { startStandaloneServer }(); //? added await to the return value 4.22.2024
 };
+console.log(StartStandaloneServer);
 const BuildSubgraphSchema = async () => {
   return new { buildSubgraphSchema }(); //? added await to the return value 4.22.2024
 };
