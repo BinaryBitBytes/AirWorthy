@@ -1,8 +1,12 @@
 // import * as apollo from "apollo-server-core";
 import * as apollo from "apollo-server-express";
+import * as apolloServer from "apollo-server-express/dist/index.js";
 // !import * as apolloServerExprress from "apollo-server-express";
 import * as express from "express";
+// @ts //? TS package.
 import * as startStandaloneServer from "@apollo/server/standalone";
+//--~\\/>//? END
+
 import * as buildSubgraphSchema from "@apollo/subgraph";
 import * as resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import * as typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
