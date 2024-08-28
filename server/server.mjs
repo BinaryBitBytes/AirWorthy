@@ -4,13 +4,16 @@ import * as apolloServer from "apollo-server-express/dist/index.js";
 // !import * as apolloServerExprress from "apollo-server-express";
 import * as express from "express";
 // @ts //? TS package.
-import * as startStandaloneServer from "@apollo/server/standalone";
+import * as _APOLLO_STANDALONE_ from "@apollo/server/standalone";
 //--~\\/>//? END
 
-import * as buildSubgraphSchema from "@apollo/subgraph";
+import * as _APOLLO_SUBGRAPH_ from "@apollo/subgraph";
 import * as resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
-import * as typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
+import _TYPEDEFS_ from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { connectDB } from "./config/connection.mjs";
+
+console.log(_TYPEDEFS_);
+
 // const ApolloServerExpress = () => {
 //   return apolloServerExpress;
 // };
@@ -19,11 +22,11 @@ const Express = async () => {
   return new { express }(); //? added await to the return value 4.22.2024
 };
 const StartStandaloneServer = async () => {
-  return new { startStandaloneServer }(); //? added await to the return value 4.22.2024
+  return _APOLLO_STANDALONE_.startStandaloneServer(); //? added await to the return value 4.22.2024
 };
 console.log(StartStandaloneServer);
 const BuildSubgraphSchema = async () => {
-  return new { buildSubgraphSchema }(); //? added await to the return value 4.22.2024
+  return _APOLLO_SUBGRAPH_.buildSubgraphSchema; //? added await to the return value 4.22.2024
 };
 const ApolloServer = async () => {
   return { apollo }; //? added await to the return value 4.22.2024
@@ -35,14 +38,14 @@ console.log(typeof ApolloServer);
 // Global function to start the server asynchronously
 const app = Express;
 // This creates the instance of the Apollo server with the typeDefs & resolvers
-const apolloServer = ApolloServer({
+const _APOLLOSERVER_ = ApolloServer({
   schema: BuildSubgraphSchema({
     // typeDefs: DocumentNode[typeDefs],
-    typeDefs: typeDefs,
+    typeDefs: _TYPEDEFS_,
     resolvers,
   }),
 });
-console.log(apolloServer);
+console.log(_APOLLOSERVER_);
 console.warn(`Server start has been initiated`);
 const startServer = async () => {
   /* //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
@@ -69,7 +72,7 @@ console.log(`Listening on 3000 END STARTING PHASE`);
 /*//////////////////////////////////////////////////*/
 async function server() {
   let RUN = await ApolloServer.apply({
-    schema: BuildSubgraphSchema({ typeDefs, resolvers }),
+    schema: BuildSubgraphSchema({ _TYPEDEFS_, resolvers }),
   });
 
   const RUNNING = { RUN };
@@ -93,7 +96,7 @@ console.log(`🚀  Server ready at ${url}`);
 
 // This applies the Apollo Server Middleware into the Express application
 // server.applyMiddleware({ app, ...rest });
-server.applyMiddleware({ app });
+//! server.applyMiddleware({ app });
 
 // Starting the Express Server with the Mongoose Database
 console.info(`Starting server.mjs`);
