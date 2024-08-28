@@ -1,19 +1,17 @@
-import { default as TechnicianModel } from '../../models/Technician.mjs'
-export const resolver = {
+import { default as TechnicianModel } from "../../models/Technician.mjs";
+export const technicianResolver = {
   Technician: {
-    Query:
-    {
+    Query: {
       technicians: async () => {
-        return await TechnicianModel.find().sort({ createdAt: -1 }) // .cursor(); //added .cursor to see if this resolves //! added await
+        return await TechnicianModel.find().sort({ createdAt: -1 }); // .cursor(); //added .cursor to see if this resolves //! added await
       },
 
       technician: async (parent, { technicianID }) => {
-        return await TechnicianModel.findOne({ _id: technicianID }) // .cursor(); //added .cursor to see if this resolves //! added await
-      }
+        return await TechnicianModel.findOne({ _id: technicianID }); // .cursor(); //added .cursor to see if this resolves //! added await
+      },
     },
 
-    Mutation:
-    {
+    Mutation: {
       addTechnician: async (
         parent,
         { technicianName, isAdmin, onProject, username, email, password }
@@ -24,28 +22,28 @@ export const resolver = {
           onProject,
           username,
           email,
-          password
-        })
+          password,
+        });
       },
       addProject: async (parent, { technicianID, onProject }) => {
         return TechnicianModel.findOneAndUpdate(
           { _id: technicianID },
           {
-            $addToSet: { project: { onProject } }
+            $addToSet: { project: { onProject } },
           },
           {
             new: true,
-            runValidators: true
+            runValidators: true,
           }
-        )
+        );
       },
       removeTechnician: async (parent, { technicianID }) => {
-        return TechnicianModel.fineOneAndDelete({ _id: technicianID })
+        return TechnicianModel.fineOneAndDelete({ _id: technicianID });
       },
       removeTechnician: async (parent, { technicianID, onProject }) => {
-        return TechnicianModel.destroy({ _id: technicianID }, {})
-      }
-    }
-  }
-}
-export default resolver
+        return TechnicianModel.destroy({ _id: technicianID }, {});
+      },
+    },
+  },
+};
+export const resolver = technicianResolver;

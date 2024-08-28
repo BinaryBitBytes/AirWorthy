@@ -1,12 +1,12 @@
-import { default as ProjectModel } from '../../models/Project.mjs'
-export const resolver = {
+import { default as ProjectModel } from "../../models/Project.mjs";
+export const projectResolver = {
   Query: {
     projects: async () => {
-      return await ProjectModel.find().sort({ createdAt: -1 })
+      return await ProjectModel.find().sort({ createdAt: -1 });
     },
     project: async (parent, { projectID }) => {
-      return await ProjectModel.findOne({ _id: projectID })
-    }
+      return await ProjectModel.findOne({ _id: projectID });
+    },
   },
   Mutation: {
     addProject: async (
@@ -19,40 +19,40 @@ export const resolver = {
         onProject,
         username,
         email,
-        password
-      })
+        password,
+      });
     },
     updateProject: async (parent, { projectID, onProject }) => {
       return ProjectModel.findOneAndUpdate(
         { _id: projectID },
         {
-          $addToSet: { onProject }
+          $addToSet: { onProject },
         },
         {
           new: true,
-          runValidators: true
+          runValidators: true,
         }
-      )
+      );
     },
     removeProject: async (parent, { projectID }) => {
-      return ProjectModel.findOneAndDelete({ _id: projectID })
+      return ProjectModel.findOneAndDelete({ _id: projectID });
     },
     removeTechnician: async (parent, { projectID, technicianID }) => {
       return ProjectModel.findOneAndUpdate(
         { _id: projectID },
         {
-          $pull: { onProject: technicianID }
+          $pull: { onProject: technicianID },
         },
         {
           new: true,
-          runValidators: true
+          runValidators: true,
         }
-      )
-    }
-  }
-}
+      );
+    },
+  },
+};
 
-export default resolver
+export const resolver = projectResolver;
 
 // export const resolver = {
 //   Project: {

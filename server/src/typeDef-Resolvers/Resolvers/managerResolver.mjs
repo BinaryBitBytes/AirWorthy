@@ -1,13 +1,13 @@
-import { default as ManagerModel } from '../../models/Manager.mjs' // Import the Manager model
+import { default as ManagerModel } from "../../models/Manager.mjs"; // Import the Manager model
 
-export const resolver = {
+export const managerResolver = {
   Query: {
     managers: async () => {
-      return await ManagerModel.find().sort({ createdAt: -1 })
+      return await ManagerModel.find().sort({ createdAt: -1 });
     },
     manager: async (parent, { managerID }) => {
-      return await ManagerModel.findOne({ _id: managerID })
-    }
+      return await ManagerModel.findOne({ _id: managerID });
+    },
   },
   Mutation: {
     addManager: async (
@@ -20,34 +20,36 @@ export const resolver = {
         onProject,
         username,
         email,
-        password
-      })
+        password,
+      });
     },
     addProject: async (parent, { managerID, onProject }) => {
       return ManagerModel.findOneAndUpdate(
         { _id: managerID },
         {
-          $addToSet: { onProject }
+          $addToSet: { onProject },
         },
         {
           new: true,
-          runValidators: true
+          runValidators: true,
         }
-      )
+      );
     },
     removeManager: async (parent, { managerID }) => {
-      return ManagerModel.findOneAndDelete({ _id: managerID })
+      return ManagerModel.findOneAndDelete({ _id: managerID });
     },
     removeProject: async (parent, { managerID, onProject }) => {
-      const manager = await ManagerModel.findOne({ _id: managerID })
+      const manager = await ManagerModel.findOne({ _id: managerID });
       if (!manager) {
-        throw new Error('Manager not found.')
+        throw new Error("Manager not found.");
       }
-      manager.onProject = manager.onProject.filter((project) => project !== onProject)
-      await manager.save()
-      return manager
-    }
-  }
-}
+      manager.onProject = manager.onProject.filter(
+        (project) => project !== onProject
+      );
+      await manager.save();
+      return manager;
+    },
+  },
+};
 
-export default resolver
+export const resolver = managerResolver;

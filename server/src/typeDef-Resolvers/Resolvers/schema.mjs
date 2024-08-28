@@ -1,50 +1,107 @@
-import {ApolloServer } from 'apollo-server'
+import { ApolloServer } from "apollo-server";
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
-import { makeExecutableSchema } from '@graphql-tools/schema'
-import { merge } from 'lodash'
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import * as merge from "lodash";
 // import { gql } from '../../../gql.mjs'
 // import gql from 'gql-tag'
 
 // Import resolvers from schema files
-import { resolvers as airlinerResolvers } from './airlinerSchema.mjs'
-import { resolvers as authResolvers } from './authSchema.mjs'
-import { resolvers as inspectorResolvers } from './inspectorSchema.mjs'
-import { resolvers as managerResolvers } from './managerSchema.mjs'
-import { resolvers as projectDataResolvers } from './projectDataSchema.mjs'
-import { resolvers as projectResolvers } from './projectSchema.mjs'
-import { resolvers as technicianResolvers } from './technicianSchema.mjs'
+import { resolver as authResolvers } from "./authResolver.mjs";
+import { resolver as airlinerResolvers } from "./airlinerResolver.mjs";
+import { resolver as inspectorResolvers } from "./inspectorResolver.mjs";
+import { managerResolver as managerResolvers } from "./managerResolver.mjs";
+import { projectDataResolver as projectDataResolvers } from "./projectDataResolver.mjs";
+import { projectResolver as projectResolvers } from "./projectResolver.mjs";
+import { technicianResolver as technicianResolvers } from "./technicianResolver.mjs";
+import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
+
+const AUTH_RES = () => {
+  return { ...authResolvers };
+};
+const AIR_RES = () => {
+  return { ...airlinerResolvers };
+};
+const INS_RES = () => {
+  return { ...inspectorResolvers };
+};
+const MAN_RES = () => {
+  return { ...managerResolvers };
+};
+const PRO_D_RES = () => {
+  return { ...projectDataResolvers };
+};
+const PRO_RES = () => {
+  return { ...projectResolvers };
+};
+const TEC_RES = () => {
+  return { ...technicianResolvers };
+};
+const RESOLVERS = [
+  AUTH_RES,
+  AIR_RES,
+  INS_RES,
+  MAN_RES,
+  PRO_RES,
+  PRO_D_RES,
+  TEC_RES,
+];
+
+// const RESOLVERS = [
+//   authResolvers,
+//   airlinerResolvers,
+//   inspectorResolvers,
+//   managerResolvers,
+//   projectDataResolvers,
+//   projectResolvers,
+//   technicianResolvers,
+// ];
+console.log(RESOLVERS);
+const execSchema = { EXECUTABLE_SCHEMA };
+console.log(execSchema);
+console.log(airlinerResolvers);
 
 // Define the root resolvers
 const rootResolvers = {
-  Query: {}
-}
+  Query: {},
+};
 
 // Define the executable schema
-const schema = makeExecutableSchema({
-  typeDefs: [Airliner, Auth, Inspector, Manager, ProjectData, Project, Technician], // Add the correct typeDefs here
-  resolvers: merge(
-    rootResolvers,
-    airlinerResolvers,
-    authResolvers,
-    inspectorResolvers,
-    managerResolvers,
-    projectDataResolvers,
-    projectResolvers,
-    technicianResolvers
-  )
-})
-
+export const SCHEMA = () => {
+  return EXECUTABLE_SCHEMA({
+    typeDefs: [
+      Airliner,
+      Auth,
+      Inspector,
+      Manager,
+      ProjectData,
+      Project,
+      Technician,
+    ], // Add the correct typeDefs here
+    RESOLVERS: merge(
+      rootResolvers,
+      airlinerResolvers,
+      authResolvers,
+      inspectorResolvers,
+      managerResolvers,
+      projectDataResolvers,
+      projectResolvers,
+      technicianResolvers
+    ),
+  });
+};
+console.log(SCHEMA);
 // Create an Apollo Server instance
 const server = new ApolloServer({
-  schema
+  //schema,
+  SCHEMA,
   // ... other Apollo Server options if needed
-})
-
+});
+const SERVER = this.server;
 // Start the server
 server.listen().then(({ url }) => {
-  console.log(`Server running at ${url}`)
-})
+  console.log(`Server running at ${url}`);
+});
 
 // import pkg from 'lodash';
 // import { ApolloServer, gql } from 'apollo-server';

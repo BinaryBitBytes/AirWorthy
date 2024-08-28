@@ -1,7 +1,7 @@
 import { default as AirlinerModel } from "../../models/Airliner.mjs";
 import bcrypt from "bcrypt";
 
-export const airlinerResolvers = {
+const airlinerResolver = {
   Query: {
     airliner: async (_, { _id }) => {
       return AirlinerModel.findOne({ _id });
@@ -41,4 +41,6 @@ export const airlinerResolvers = {
   },
 };
 
-console.log(airlinerResolvers.Mutation);
+console.log(airlinerResolver.Mutation);
+
+export const resolver = airlinerResolver;

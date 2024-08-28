@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^4.6.2",
+    "client": "file:",
     "concurrently": "^7.3.0",
     "jquery": "^3.4.1",
     "lightbox2": "^2.11.4",

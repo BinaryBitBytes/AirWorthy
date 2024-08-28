@@ -1,20 +1,18 @@
-import { default as ProjectDataModel } from '../../models/ProjectData.mjs'
+import { default as ProjectDataModel } from "../../models/ProjectData.mjs";
 
-export const resolver = {
+export const projectDataResolver = {
   ProjectData: {
-    Query:
-    {
+    Query: {
       projectData: async () => {
-        return await ProjectDataModel.find().sort({ createdAt: -1 }) //! added await
+        return await ProjectDataModel.find().sort({ createdAt: -1 }); //! added await
       },
 
       project: async (parent, { projectID }) => {
-        return await ProjectDataModel.findOne({ _id: projectID }) //! added await
-      }
+        return await ProjectDataModel.findOne({ _id: projectID }); //! added await
+      },
     },
 
-    Mutation:
-    {
+    Mutation: {
       addProject_Data: async (
         parent,
         { projectId, projectName, inspectorName, workDescription }
@@ -23,28 +21,28 @@ export const resolver = {
           projectId,
           projectName,
           inspectorName,
-          workDescription
-        })
+          workDescription,
+        });
       },
       addInspector: async (parent, { projectID, inspectorName }) => {
         return Manager.findOneAndUpdate(
           { _id: projectID },
           {
-            $addToSet: { workDescription: { inspectorName } }
+            $addToSet: { workDescription: { inspectorName } },
           },
           {
             new: true,
-            runValidators: true
+            runValidators: true,
           }
-        )
+        );
       },
       removeProject_Data: async (parent, { projectID }) => {
-        return ProjectDataModel.fineOneAndDelete({ _id: projectID })
+        return ProjectDataModel.fineOneAndDelete({ _id: projectID });
       },
       removeProject_Data: async (parent, { projectID, workDescription }) => {
         return ProjectDataModel.destroy({ _id: projectID }, {});
-      }
-    }
-  }
-}
-export default resolver
+      },
+    },
+  },
+};
+export const resolver = projectDataResolver;

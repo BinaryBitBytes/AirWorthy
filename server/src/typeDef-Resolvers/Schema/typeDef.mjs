@@ -10,21 +10,38 @@ import { TechnicianTypeDefs } from "./technicianSchema.mjs";
 // const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 // console.log(AIRLINER);
 
-const typeDefs = () => {
-  // AIRLINER,
-  [
-    {
-      AirlinerTypeDefs,
-      AuthTypeDefs,
-      InspectorTypeDefs,
-      ManagerTypeDefs,
-      ProjectDataTypeDefs,
-      ProjectTypeDefs,
-      TechnicianTypeDefs,
-    },
-  ];
-  return;
+const _TYPEDEFS_ = async function typeDefs() {
+  return {
+    AirlinerTypeDefs,
+    AuthTypeDefs,
+    InspectorTypeDefs,
+    ManagerTypeDefs,
+    ProjectDataTypeDefs,
+    ProjectTypeDefs,
+    TechnicianTypeDefs,
+  };
 };
+
+export default _TYPEDEFS_;
+
+// const typeDefs = () => {
+//   // AIRLINER,
+//   [
+//     {
+//       AirlinerTypeDefs,
+//       AuthTypeDefs,
+//       InspectorTypeDefs,
+//       ManagerTypeDefs,
+//       ProjectDataTypeDefs,
+//       ProjectTypeDefs,
+//       TechnicianTypeDefs,
+//     },
+//   ];
+//   return;
+// };
+
+// export default typeDefs;
+
 //*
 // const typeDefs = [
 //   {
@@ -38,7 +55,6 @@ const typeDefs = () => {
 //   },
 // ];
 
-/ * /;
 // const { AirlinerTypeDefs } = await import('./airlinerSchema.mjs')
 // const { AuthTypeDefs } = await import('./authSchema.mjs')
 // const { InspectorTypeDefs } = await import('./inspectorSchema.mjs')
@@ -105,10 +121,7 @@ const typeDefs = () => {
 // ${JSON.stringify(typeDefs)}
 // `;
 // console.log(typeDefs());
-console.log(typeof typeDefs);
-console.log({ typeDefs });
 // export default gql(typeDefs)
-export default typeDefs;
 
 // console.log(typeof(TYPEDEFS))
 // console.log(TYPEDEFS)

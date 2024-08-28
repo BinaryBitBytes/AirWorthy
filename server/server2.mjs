@@ -28,7 +28,7 @@ const startServer = async () => {
   const server = new ApolloServer({
     // typeDefs,
     typeDefs: typeDefs,
-    resolvers: resolvers[{resolvers...}]
+    resolvers: [...resolvers],
     // @BinaryBitBytes //? [resolvers.typeDef]
   });
   await server.start();
