@@ -88,8 +88,8 @@
     "web-vitals": "^0.2.4"
   },
   "engines": {
-    "node": "18.16.1",
-    "npm": "9.7.2"
+    "node": "20.5.1.",
+    "npm": "9.8.0"
   },
   "repository": {
     "type": "git",
