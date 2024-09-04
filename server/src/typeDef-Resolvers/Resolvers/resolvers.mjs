@@ -5,15 +5,22 @@ import { resolver as managerResolvers } from "./managerResolver.mjs";
 import { resolver as projectDataResolvers } from "./projectDataResolver.mjs";
 import { resolver as projectResolvers } from "./projectResolver.mjs";
 import { resolver as technicianResolvers } from "./technicianResolver.mjs";
-
-const resolvers = {
-  ...airlinerResolvers,
-  ...authResolvers,
-  ...inspectorResolvers,
-  ...managerResolvers,
-  ...projectDataResolvers,
-  ...projectResolvers,
-  ...technicianResolvers,
+import { gql } from "apollo-server";
+const resolvers = async () => {
+  return await gql[
+    ({ ...airlinerResolvers },
+    { ...authResolvers },
+    { ...inspectorResolvers },
+    { ...managerResolvers },
+    { ...projectDataResolvers },
+    { ...projectResolvers },
+    { ...technicianResolvers })
+  ];
 };
-export default resolvers;
+// const translate = gql(resolvers);
+// console.log(translate);
+console.warn(
+  `----------------------------------------------------------------`
+);
 console.log(resolvers);
+export default resolvers;
