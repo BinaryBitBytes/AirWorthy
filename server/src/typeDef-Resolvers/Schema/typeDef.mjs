@@ -5,21 +5,21 @@ import { ManagerTypeDefs } from "./managerSchema.mjs";
 import { ProjectDataTypeDefs } from "./projectDataSchema.mjs";
 import { ProjectTypeDefs } from "./projectSchema.mjs";
 import { TechnicianTypeDefs } from "./technicianSchema.mjs";
-// import { gql } from "apollo-server-core";
-
+import { gql } from "apollo-server-core";
+import { mergeTypeDefs } from "@graphql-tools/merge";
 // const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 // console.log(AIRLINER);
 
 const _TYPEDEFS_ = async function typeDefs() {
-  return {
+  return mergeTypeDefs(
     AirlinerTypeDefs,
     AuthTypeDefs,
     InspectorTypeDefs,
     ManagerTypeDefs,
     ProjectDataTypeDefs,
     ProjectTypeDefs,
-    TechnicianTypeDefs,
-  };
+    TechnicianTypeDefs
+  );
 };
 
 export default _TYPEDEFS_;

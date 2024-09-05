@@ -8,11 +8,12 @@ import * as _APOLLO_STANDALONE_ from "@apollo/server/standalone";
 //--~\\/>//? END
 
 import * as _APOLLO_SUBGRAPH_ from "@apollo/subgraph";
-import * as resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
+import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import _TYPEDEFS_ from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { connectDB } from "./config/connection.mjs";
 
-console.log(_TYPEDEFS_);
+console.log(`Type Defs Below: : __________________
+  ` + _TYPEDEFS_);
 
 // const ApolloServerExpress = () => {
 //   return apolloServerExpress;
@@ -41,11 +42,12 @@ const app = Express;
 const _APOLLOSERVER_ = ApolloServer({
   schema: BuildSubgraphSchema({
     // typeDefs: DocumentNode[typeDefs],
-    typeDefs: _TYPEDEFS_,
+    _TYPEDEFS_: _TYPEDEFS_,
     resolvers,
   }),
 });
 console.log(_APOLLOSERVER_);
+
 console.warn(`Server start has been initiated`);
 const startServer = async () => {
   /* //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
@@ -53,10 +55,11 @@ const startServer = async () => {
   / // express = await express('express')
   */
   // app.use(Express);
-  app.get("/", function (req, res, next) {
+  app.get("/", (req, res, next) => {
+    res.send(200 && console.log(`Route: app.get(res.send(200) Under Start Server has initiated`))
+    req.receive;
     next();
-  });
-  // This starts the server and listens on the respected port address
+  };
   app.listen({ port: 3069 }, () => {
     console.log(
       `The Apollo Server is running @ http://localhost:3069${server.graphqlPath}`
@@ -66,6 +69,8 @@ const startServer = async () => {
   // };
   app.listen(3000);
 };
+
+// This starts the server and listens on the respected port address
 console.log(`Listening on 3000 START`);
 console.log(`Listening on 3000 END STARTING PHASE`);
 /*//////////////////////////////////////////////////*/

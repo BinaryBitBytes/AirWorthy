@@ -2,12 +2,12 @@
 import { ApolloServer } from "apollo-server-express";
 import express, { urlencoded, json } from "express";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import typeDefs from "../../src/typeDef-Resolvers/Schema/typeDef.mjs";
-import { resolver } from "../../src/typeDef-Resolvers/index.mjs";
+import _TYPEDEFS_ from "../../src/typeDef-Resolvers/Schema/typeDef.mjs";
+import resolvers from "../../src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import { types } from "util";
 import * as pkg2 from "../../utils/middleware/auth.mjs";
 const { authMiddleware } = pkg2;
-
+const _TYPEDEFS_MERGED = _TYPEDEFS_;
 // !-----------------------------------------------------------------------------------$$$$$$------------------]]]]]
 // associating express with a app decleration
 // Creates an Express application.
@@ -25,9 +25,11 @@ const app = express();
 export default async function server() {
   // new expressMiddleware({
   new ApolloServer({
-    typeDefs: types, // new property added //!5.21.23
+    typeDefs: [..._TYPEDEFS_MERGED], // new property added //!5.21.23
+
+    // typeDefs: { ..._TYPEDEFS_MERGED }, // new property added //!5.21.23
     // typeDef: typeDef, // new property added //!5.21.23 // type or typeDef property?
-    resolver,
+    resolvers: resolvers,
     playground: true, // new property added //!5.21.23
     context: authMiddleware,
     // context: ({ req }) => ({ //new property added //!5.21.23
@@ -86,7 +88,7 @@ app.get("/", (req, res) => {
 //*   }
 //* }
 
-server(typeDefs, resolver); //! 5.15.23 destructured with {}
+server(_TYPEDEFS_MERGED, resolvers); //! 5.15.23 destructured with {}
 // startApolloServer({typeDef}, {resolvers}); //! 5.15.23 destructured with {}
 // }
 // export default { apiRoutes };
