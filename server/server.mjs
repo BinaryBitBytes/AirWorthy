@@ -12,8 +12,10 @@ import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import _TYPEDEFS_ from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { connectDB } from "./config/connection.mjs";
 
-console.log(`Type Defs Below: : __________________
-  ` + _TYPEDEFS_);
+console.log(
+  `Type Defs Below: : __________________
+  ` + _TYPEDEFS_
+);
 
 // const ApolloServerExpress = () => {
 //   return apolloServerExpress;
@@ -37,7 +39,7 @@ console.log(typeof ApolloServer);
 // const { startStandaloneServer } = StartStandaloneServer;
 // connecting to the mongo database
 // Global function to start the server asynchronously
-const app = Express;
+const app = Express();
 // This creates the instance of the Apollo server with the typeDefs & resolvers
 const _APOLLOSERVER_ = ApolloServer({
   schema: BuildSubgraphSchema({
@@ -50,16 +52,12 @@ console.log(_APOLLOSERVER_);
 
 console.warn(`Server start has been initiated`);
 const startServer = async () => {
+  // GET();
   /* //! const resolvers = await import ('./src/typeDef-Resolvers/Resolvers/resolvers.mjs')
   ☺/ This creates an Express application
   / // express = await express('express')
   */
   // app.use(Express);
-  app.get("/", (req, res, next) => {
-    res.send(200 && console.log(`Route: app.get(res.send(200) Under Start Server has initiated`))
-    req.receive;
-    next();
-  };
   app.listen({ port: 3069 }, () => {
     console.log(
       `The Apollo Server is running @ http://localhost:3069${server.graphqlPath}`
@@ -69,6 +67,23 @@ const startServer = async () => {
   // };
   app.listen(3000);
 };
+
+app.get("/", (req, res) => {
+  console.log(app.mouthpath);
+  res.send("Landing PAge");
+});
+// const GET = async () => {
+//   return await app.get("/", (req, res, next) => {
+//     res.send(
+//       200 &&
+//         console.log(
+//           `Route: app.get(res.send(200) Under Start Server has initiated`
+//         )
+//     );
+//     req.receive;
+//     next();
+//   });
+// };
 
 // This starts the server and listens on the respected port address
 console.log(`Listening on 3000 START`);
