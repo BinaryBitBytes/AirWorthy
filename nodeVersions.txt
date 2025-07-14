@@ -7,3 +7,14 @@
 
 new / current 
 { node: 'v16.13.0', npm: '8.1.0' }
+
+  "engines": {
+    "node": "22.17.0",
+    "npm": "10.8.2"
+  }
+}
+
+//server/package.json >> apollo federation / server conversion to apollo gateway
+  "apollo-server": "^3.13.0",
+    "apollo-server-core": "^3.12.0",
+    "apollo-server-express": "^3.12.0",

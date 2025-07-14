@@ -12,8 +12,10 @@
 // the Content-Type was not matched, or an error occurred.
 
 //importing pages
-import { Intro, Manager, Technician } from '../../client/src/pages'
-import { signToken } from '../utils/middleware/auth.cjs'
+import { Intro } from "../../client/src/pages/Intro.jsx";
+import { Manager } from "../../client/src/pages/Manager.jsx";
+import { Technician } from "../../client/src/pages/Technician.jsx";
+import { signToken } from "../utils/middleware/auth.mjs";
 
 // get a single user by either their id or their username
 //! --------------
@@ -23,7 +25,9 @@ export async function getSingleUser({ user = null, params }, res) {
   });
 
   if (!foundUser) {
-    return res.status(400).json({ message: 'Cannot find a user with this id!' });
+    return res
+      .status(400)
+      .json({ message: "Cannot find a user with this id!" });
   }
 
   res.json(foundUser);
@@ -34,7 +38,7 @@ export async function createUser({ body }, res) {
   const user = await user.create(body);
 
   if (!user) {
-    return res.status(400).json({ message: 'Something is wrong!' });
+    return res.status(400).json({ message: "Something is wrong!" });
   }
   const token = signToken(user);
   res.json({ token, user });
@@ -43,7 +47,9 @@ export async function createUser({ body }, res) {
 // {body} is destructured req.body
 //! --------------
 export default async function login({ body }, res) {
-  const user = await user.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+  const user = await user.findOne({
+    $or: [{ username: body.username }, { email: body.email }],
+  });
   if (!user) {
     return res.status(400).json({ message: "Can't find this user" });
   }
@@ -51,7 +57,7 @@ export default async function login({ body }, res) {
   const correctPw = await user.isCorrectPassword(body.password);
 
   if (!correctPw) {
-    return res.status(400).json({ message: 'Wrong password!' });
+    return res.status(400).json({ message: "Wrong password!" });
   }
   const token = signToken(user);
   res.json({ token, user });
@@ -92,7 +98,9 @@ export async function removeTechnician({ user, params }, res) {
     { new: true }
   );
   if (!updatedUser) {
-    return res.status(404).json({ message: "Couldn't find user with this id!" });
+    return res
+      .status(404)
+      .json({ message: "Couldn't find user with this id!" });
   }
   return res.json(updatedUser);
 }
@@ -103,7 +111,9 @@ export async function removeManager({ user, params }, res) {
     { new: true }
   );
   if (!updatedUser) {
-    return res.status(404).json({ message: "Couldn't find user with this id!" });
+    return res
+      .status(404)
+      .json({ message: "Couldn't find user with this id!" });
   }
   return res.json(updatedUser);
 }

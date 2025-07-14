@@ -7,13 +7,15 @@ import * as merge from "lodash";
 // import gql from 'gql-tag'
 
 // Import resolvers from schema files
-import { resolver as authResolvers } from "./authResolver.mjs";
-import { resolver as airlinerResolvers } from "./airlinerResolver.mjs";
-import { resolver as inspectorResolvers } from "./inspectorResolver.mjs";
-import { managerResolver as managerResolvers } from "./managerResolver.mjs";
-import { projectDataResolver as projectDataResolvers } from "./projectDataResolver.mjs";
-import { projectResolver as projectResolvers } from "./projectResolver.mjs";
-import { technicianResolver as technicianResolvers } from "./technicianResolver.mjs";
+// import { resolver as authResolvers } from "../Resolvers/Class/_AUTH_RESOLVER.mjs";
+import { CLASSFUL_resolver_AUTH as authResolvers } from "../Resolvers/Class/_AUTH_RESOLVER.mjs";
+// import { resolver as airlinerResolvers } from "./airlinerResolver.mjs";
+import { CLASSFUL_resolver_AIRLINER as airlinerResolvers } from "./Class/_AIRLINER_RESOLVER.mjs";
+import { CLASSFUL_resolver_INSPECTOR as inspectorResolvers } from "./Class/_INSPECTOR_RESOLVER.mjs";
+import { CLASSFUL_resolver_MANAGER as managerResolvers } from "./Class/_MANAGER_RESOLVER.mjs";
+import { CLASSFUL_resolver_PROJECT_DATA_RESOLVER as projectDataResolvers } from "./Class/_PROJECT_DATA_RESOLVER.mjs";
+import { CLASSFUL_resolver_PROJECT__RESOLVER as projectResolvers } from "./Class/_PROJECT_RESOLVER.mjs";
+import { CLASSFUL_resolver_TECHNICIAN as technicianResolvers } from "./Class/_TECHNICIAN_RESOLVER.mjs";
 import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
 
 const AUTH_RES = () => {

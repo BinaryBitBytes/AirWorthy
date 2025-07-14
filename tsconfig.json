@@ -11,8 +11,8 @@
     "isolatedModules": false,
     "noEmit": false,
     "lib": ["esnext"],
-    "types": ["node", "es6", "module"]
+    "types": ["node", "es6"]
   },
   "exclude": ["node_modules"],
-  "include": ["src/**/*.ts", "bin/*.ts"]
+  "include": ["src/**/*.ts", "bin/**/*.ts"]
 }
