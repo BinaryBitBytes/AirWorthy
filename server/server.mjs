@@ -7,7 +7,7 @@ import { expressMiddleware } from "@as-integrations/express5";
 import http from "http";
 import cors from "cors";
 import helmet from "helmet";
-import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
+import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.js";
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import { ClientConnectDB } from "./config/connection.mjs";
 import { config } from "dotenv";

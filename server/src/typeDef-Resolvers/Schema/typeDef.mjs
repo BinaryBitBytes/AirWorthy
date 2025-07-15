@@ -9,20 +9,29 @@ import { TechnicianTypeDefs } from "./technicianSchema.mjs";
 
 // const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 // console.log(AIRLINER);
-
-const _TYPEDEFS_ = async function typeDefs() {
-  return {
-    AirlinerTypeDefs,
-    AuthTypeDefs,
-    InspectorTypeDefs,
-    ManagerTypeDefs,
-    ProjectDataTypeDefs,
-    ProjectTypeDefs,
-    TechnicianTypeDefs,
-  };
+const _TYPEDEFS_ = {
+  ...AuthTypeDefs,
+  ...AirlinerTypeDefs,
+  ...InspectorTypeDefs,
+  ...ManagerTypeDefs,
+  ...ProjectDataTypeDefs,
+  ...ProjectTypeDefs,
+  ...TechnicianTypeDefs,
 };
+// const _TYPEDEFS_ = async function typeDefs() {
+//   return {
+//     AirlinerTypeDefs,
+//     AuthTypeDefs,
+//     InspectorTypeDefs,
+//     ManagerTypeDefs,
+//     ProjectDataTypeDefs,
+//     ProjectTypeDefs,
+//     TechnicianTypeDefs,
+//   };
+// };
 
 export default _TYPEDEFS_;
+console.log(_TYPEDEFS_);
 
 // const typeDefs = () => {
 //   // AIRLINER,
