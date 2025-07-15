@@ -8,20 +8,20 @@
 // import { typeDef as Project, resolvers as projectResolvers } from './projectSchema.js';
 // import { typeDef as Technician, resolvers as technicianResolvers } from './technicianSchema.js';
 import resolvers from "../typeDef-Resolvers/Resolvers/resolvers.mjs";
-import * as typedef from "../typeDef-Resolvers/Schema/typeDef.mjs";
+import * as _TYPEDEFS_ from "../typeDef-Resolvers/Schema/typeDef.mjs";
 // export const resolver = resolvers;
 // export const resolver = resolvers;
 
 // I will be constructing resolvers into an export function to avoid the use of default
-const resolver = () => {
+const resolver = async () => {
   return resolvers;
 };
-resolvers();
+resolver();
 // export const typedefs = { typedef: typedef };
 //I will be constructing typedefs into an export function to avoid the use of default
 const typeDefs = () => {
-  return typedef;
+  return _TYPEDEFS_;
 };
 typeDefs();
-console.log({ typedefs });
+console.log({ typeDefs });
 console.log(resolvers);

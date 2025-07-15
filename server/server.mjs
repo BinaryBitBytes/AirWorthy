@@ -1,7 +1,10 @@
 // @BinaryBitBytes # Check the references on server [07.12.2025]
 
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from "@apollo/server";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import express from "express";
+import { expressMiddleware } from "@as-integrations/express5";
+import http from "http";
 import cors from "cors";
 import helmet from "helmet";
 import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
@@ -14,34 +17,30 @@ config();
 
 // Initialize Express app
 const app = express();
-
-// Security and middleware setup
-app.use(helmet()); // Adds security headers
-app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000" })); // Restrict CORS
-app.use(express.json()); // Parse JSON bodies
-
-// Health check endpoint
-app.get("/health", (req, res) => {
-  res.status(200).json({ status: "OK" });
-});
+const httpServer = http.createServer(app);
 
 // Apollo Server setup
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: ({ req }) => {
-    // Add JWT or other context here if needed
-    return { req };
-  },
-  introspection: process.env.NODE_ENV !== "production", // Enable introspection in dev
-  debug: process.env.NODE_ENV !== "production",
-});
-
+async function server() {
+  return new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    context: ({ req }) => {
+      // Add JWT or other context here if needed
+      return { req };
+    },
+    introspection: process.env.NODE_ENV !== "production", // Enable introspection in dev
+    debug: process.env.NODE_ENV !== "production",
+  });
+}
+console.log(`------SERVER LOG for FN ApolloServer`);
+console.log(server());
+console.log(`===================================`);
 // Main server startup function
 async function startServer() {
   try {
     // Connect to MongoDB
-    await ClientConnectDB();
+    ClientConnectDB();
 
     // Start Apollo Server
     await server.start();
@@ -62,6 +61,25 @@ async function startServer() {
   }
 }
 
+// Security and middleware setup
+app.use(
+  helmet(),
+  cors({ origin: process.env.CLIENT_URL || "http://localhost:3000" }),
+  express.json(),
+  express.Middleware(server)
+); // Adds security headers
+
+// app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000" })); // Restrict CORS
+// app.use(express.json()); // Parse JSON bodies
+
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "OK" });
+});
+
+await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+
+console.log(`🚀 Server ready at http://localhost:4000`);
 // Start the server
 startServer();
 
