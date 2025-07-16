@@ -31,7 +31,6 @@ const _TYPEDEFS_ = {
 // };
 
 export default _TYPEDEFS_;
-console.log(_TYPEDEFS_);
 
 // const typeDefs = () => {
 //   // AIRLINER,

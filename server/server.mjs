@@ -7,7 +7,7 @@ import { expressMiddleware } from "@as-integrations/express5";
 import http from "http";
 import cors from "cors";
 import helmet from "helmet";
-import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.js";
+import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
 import { ClientConnectDB } from "./config/connection.mjs";
 import { config } from "dotenv";
@@ -22,8 +22,8 @@ const httpServer = http.createServer(app);
 // Apollo Server setup
 async function server() {
   return new ApolloServer({
-    typeDefs,
-    resolvers,
+    ...typeDefs,
+    ...resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
     context: ({ req }) => {
       // Add JWT or other context here if needed
@@ -43,7 +43,7 @@ async function startServer() {
     ClientConnectDB();
 
     // Start Apollo Server
-    await server.start();
+    await server.ApolloServer.start();
 
     // Apply Apollo middleware to Express
     server.applyMiddleware({ app, path: "/graphql" });
@@ -66,7 +66,7 @@ app.use(
   helmet(),
   cors({ origin: process.env.CLIENT_URL || "http://localhost:3000" }),
   express.json(),
-  express.Middleware(server)
+  expressMiddleware(server)
 ); // Adds security headers
 
 // app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:3000" })); // Restrict CORS

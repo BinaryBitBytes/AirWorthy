@@ -16,12 +16,12 @@ console.log(typeof _TYPEDEFS_);
 const resolver = async () => {
   return resolvers;
 };
-resolver();
 // export const typedefs = { typedef: typedef };
 //I will be constructing typedefs into an export function to avoid the use of default
 const typeDefs = async () => {
   return _TYPEDEFS_;
 };
-typeDefs();
 console.log({ typeDefs });
 console.log(resolvers);
+
+export default resolver && typeDefs;
