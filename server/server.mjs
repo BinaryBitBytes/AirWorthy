@@ -34,7 +34,7 @@ async function server() {
   });
 }
 console.log(`------SERVER LOG for FN ApolloServer`);
-console.log(server());
+// console.log(server());
 console.log(`===================================`);
 // Main server startup function
 async function startServer() {
