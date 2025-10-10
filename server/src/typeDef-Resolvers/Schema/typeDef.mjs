@@ -1,3 +1,4 @@
+import { stringify } from "ajv";
 import { AirlinerTypeDefs } from "./airlinerSchema.mjs";
 import { AuthTypeDefs } from "./authSchema.mjs";
 import { InspectorTypeDefs } from "./inspectorSchema.mjs";
@@ -18,7 +19,15 @@ const _TYPEDEFS_ = {
   ...ProjectTypeDefs,
   ...TechnicianTypeDefs,
 };
-// const _TYPEDEFS_ = async function typeDefs() {
+
+// function deconstructedTypeDefs(){
+// Object.forEach((_TYPEDEFS_) => {
+//   return(
+
+//   )
+// });
+// }
+// co}nst _TYPEDEFS_ = async function typeDefs() {
 //   return {
 //     AirlinerTypeDefs,
 //     AuthTypeDefs,

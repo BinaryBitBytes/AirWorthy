@@ -3,10 +3,11 @@
 // import gql from 'gql-tag'
 // const { gql } = gql
 // export const AirlinerTypeDefs = gql`
+import { isDocumentNode } from "@apollo/subgraph/dist/schema-helper/index.js";
 import gql from "../../gql.mjs";
 // airlinerTypeDefs.mjs
 
-const AirlinerTypeDefs = (() => {
+function AirlinerTypeDefs() {
   const typeDefs = gql`
     ##AIRLINE TYPE
     type Airliner {
@@ -27,9 +28,11 @@ const AirlinerTypeDefs = (() => {
   `;
 
   return typeDefs;
-})();
+}
+//console Logging the document to be revealed as a string
+console.log(AirlinerTypeDefs(isDocumentNode(toString())));
 
-export { AirlinerTypeDefs };
+export default AirlinerTypeDefs;
 // //  Airliner represents an airline company.
 // const AirlinerTypeDefs = () => {
 //   return gql`

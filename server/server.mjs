@@ -1,16 +1,15 @@
 // @BinaryBitBytes # Check the references on server [07.12.2025]
-
-import { ApolloServer } from "@apollo/server";
-import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
-import express from "express";
-import { expressMiddleware } from "@as-integrations/express5";
-import http from "http";
-import cors from "cors";
-import helmet from "helmet";
-import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
-import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
-import { ClientConnectDB } from "./config/connection.mjs";
 import { config } from "dotenv";
+import { expressMiddleware } from "@as-integrations/express5";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+import { ApolloServer } from "@apollo/server";
+import { ClientConnectDB } from "./config/connection.mjs";
+import cors from "cors";
+import express from "express";
+import helmet from "helmet";
+import http from "http";
+import resolvers from "./src/typeDef-Resolvers/Resolvers/resolvers.mjs";
+import typeDefs from "./src/typeDef-Resolvers/Schema/typeDef.mjs";
 
 // Load environment variables
 config();
