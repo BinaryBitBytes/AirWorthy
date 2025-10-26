@@ -1,12 +1,13 @@
-import { stringify } from "ajv";
-import { AirlinerTypeDefs } from "./airlinerSchema.mjs";
+import pkg from "ajv";
+import AirlinerTypeDefs from "./airlinerSchema.mjs";
 import { AuthTypeDefs } from "./authSchema.mjs";
-import { InspectorTypeDefs } from "./inspectorSchema.mjs";
+import InspectorTypeDefs from "./inspectorSchema.mjs";
 import { ManagerTypeDefs } from "./managerSchema.mjs";
 import { ProjectDataTypeDefs } from "./projectDataSchema.mjs";
 import { ProjectTypeDefs } from "./projectSchema.mjs";
 import { TechnicianTypeDefs } from "./technicianSchema.mjs";
 // import { gql } from "apollo-server-core";
+const { stringify } = pkg;
 
 // const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 // console.log(AIRLINER);
