@@ -1,45 +1,56 @@
-// import gql from 'apollo-server'
-// import gql  from 'gql-tag'
-// const { gql } = gql
-// import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
-// import { makeExecutableSchema } from '@graphql-tools/schema'
-// import { gql } from'apollo-server-core'
+// src/typeDef-Resolvers/Schema/typeDef.mjs
+// import { gql } from "graphql-tag";
 import gql from "../../gql.mjs";
 
-// export const ProjectTypeDefs = gql`
-//TODO need to add a real input type to project named projectInput and change project back to type project
-const ProjectTypeDefs = gql`
-  interface Project {
+const typeDefs = gql`
+  type Project {
     _id: ID!
     projectName: String
     isAdmin: Boolean
-    onProject: [String]
+    onProject: [String!]
     username: String
     email: String
     password: String
   }
 
-  type ProjectInput implements Project {
-    projectName: String
+  input ProjectInput {
+    projectName: String!
     isAdmin: Boolean
-    onProject: [String]
+    onProject: [String!]
     username: String
     email: String
     password: String
   }
 
-  type Query implements Project {
-    projects: [Project]
+  type Query {
+    projects: Project!
     project(projectID: ID!): Project
   }
 
-  type Mutation implements Project {
-    addProject(input: ProjectInput): Project
-    updateProject(projectID: ID!, onProject: [String]): Project
+  type Mutation {
+    addProject(input: ProjectInput!): Project
+    updateProject(projectID: ID!, input: ProjectInput!): Project
     removeProject(projectID: ID!): Project
-    removeTechnician(projectID: ID!, technicianID: String): Project
+    removeTechnician(projectID: ID!, technicianID: String!): Project
   }
 `;
+const ProjectTypeDefs = typeDefs;
+console.error(ProjectTypeDefs);
+export default ProjectTypeDefs;
 
-export { ProjectTypeDefs };
-console.log({ ProjectTypeDefs });
+// # """
+// # Concrete Project type implementing the Project interface
+// # """ # type Project { #   _id: ID! #   projectName: String
+// # input #   isAdmin: Boolean
+// #   onProject: [String!]
+// #   username: String
+// #   email: String
+// #   password: String
+// # }
+// # input Project {
+// #   projects: [Project]
+// #   project(projectID: ID!): Project
+// # }
+// # """
+// # Input type for creating/updating projects
+// # """

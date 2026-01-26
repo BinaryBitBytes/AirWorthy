@@ -6,10 +6,10 @@
 # // export const AirlinerTypeDefs = gql`
 # export const AirlinerTypeDefs = `
 
-  """
-    Airliner represents an airline company.
-  """
-  input AirlinerInput {
+  # """
+  #   Airliner represents an airline company.
+  # """
+  input Airliner {
     _id: UUID
     airlinerName: String
     ceatedAt: Date
@@ -25,25 +25,25 @@
     password: String
   }
 
-    """
-    Get an airliner by ID.
-    """
-    """
-    Get airliners by airliner name.
-    """
+    # """
+    # Get an airliner by ID.
+    # """
+    # """
+    # Get airliners by airliner name.
+    # """
   type Query {
     airliner(_id: ID!): Airliner
 
     airliners(airlinerName: String): [Airliner]
   }
 
-    """
-    Add a new airliner.
-    """
+    # """
+    # Add a new airliner.
+    # """
 
-    """
-    Remove an existing airliner.
-    """
+    # """
+    # Remove an existing airliner.
+    # """
   type Mutation {
     addAirliner(
       airlinerName: String

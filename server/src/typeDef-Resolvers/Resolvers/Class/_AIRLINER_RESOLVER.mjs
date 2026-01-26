@@ -8,7 +8,14 @@ import { default as mongoose } from "mongoose";
  * It provides functionality to fetch, add, and remove airliners from the database.
  */
 class AirlinerResolver {
-  constructor() {
+  constructor(airlinerName, isAdmin, modelAircraft, username, email, password) {
+    this.airlinerName = airlinerName;
+    this.isAdmin = isAdmin;
+    this.modelAircraft = modelAircraft;
+    this.username = username;
+    this.email = email;
+    this.password = password;
+
     this.AIRLINER_RES_QUERY = {
       Query: {
         /**

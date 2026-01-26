@@ -7,31 +7,43 @@ import { isDocumentNode } from "@apollo/subgraph/dist/schema-helper/index.js";
 import gql from "../../gql.mjs";
 // airlinerTypeDefs.mjs
 
-function AirlinerTypeDefs() {
-  const typeDefs = gql`
-    ##AIRLINE TYPE
-    type Airliner {
-      id: ID!
-      name: String!
-      capacity: Int!
-      range: Int!
-    }
+// ##AIRLINE TYPE
+// ##QUERY FOR AIRLINE
+// # type Query {
+// #   Airliner(id: ID!): Airliner
+// # }
+const typeDefs = gql`
+  type Airliner {
+    id: ID!
+    airlinerName: String!
+    isAdmin: Boolean
+    aircraft: Int!
+  }
 
-    ##QUERY FOR AIRLINE
-    type Query {
-      airliners: [Airliner]
-    }
-    ##MUTATION FOR AIRLINE
-    type Mutation {
-      addAirliner(name: String!, capacity: Int!, range: Int!): Airliner
-    }
-  `;
+  input AirlinerInput {
+    airlinerName: String!
+    isAdmin: Boolean!
+    aircraft: Int!
+  }
 
-  return typeDefs;
-}
+  type Query {
+    airliners: [Airliner!]
+    airliner(id: ID!): Airliner
+  }
+  ##MUTATION FOR AIRLINE
+  type Mutation {
+    addAirliner(
+      airlinerName: String!
+      isAdmin: Boolean!
+      Aircraft: Int!
+    ): Airliner
+  }
+`;
+
+const AirlinerTypeDefs = typeDefs;
 //console Logging the document to be revealed as a string
-console.log(AirlinerTypeDefs(isDocumentNode(toString())));
-
+// console.log(AirlinerTypeDefs(isDocumentNode(toString())));
+console.log(AirlinerTypeDefs);
 export default AirlinerTypeDefs;
 // //  Airliner represents an airline company.
 // const AirlinerTypeDefs = () => {

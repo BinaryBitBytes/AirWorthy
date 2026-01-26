@@ -1,6 +1,9 @@
 // Import the two parts of a GraphQL schema
-import { ApolloServer } from "apollo-server-express";
+//! Deprecated End of 2025 Apolo server upgrade to version 5  import { ApolloServer } from "apollo-server-express";
 import express, { urlencoded, json } from "express";
+console.log(`🚀 ~ import { ApolloServer } from "apollo-server-express";
+:`, import { ApolloServer } from "apollo-server-express";
+)
 import { startStandaloneServer } from "@apollo/server/standalone";
 import typeDefs from "../../src/typeDef-Resolvers/Schema/typeDef.mjs";
 import { resolver } from "../../src/typeDef-Resolvers/index.mjs";

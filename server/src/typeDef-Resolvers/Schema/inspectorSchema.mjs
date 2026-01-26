@@ -19,7 +19,7 @@ function InspectorTypeDefs() {
       password: String
     }
 
-    type Inspector {
+    type Query {
       inspectors: [Inspector]
       inspector(inspectorID: ID!): Inspector
     }
@@ -44,5 +44,5 @@ function InspectorTypeDefs() {
 //console Logging the document to be revealed as a string
 console.log(InspectorTypeDefs(isDocumentNode(toString())));
 
-export default { InspectorTypeDefs };
+export default InspectorTypeDefs;
 console.log({ InspectorTypeDefs });

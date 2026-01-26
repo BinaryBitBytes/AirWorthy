@@ -1,9 +1,10 @@
-import { ApolloServer } from "apollo-server";
+// import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
 // import { gql } from '../../../node_modules/apollo-server/src/exports.ts'
 // import { gql } from'apollo-server-core'
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import * as merge from "lodash";
-// import { gql } from '../../../gql.mjs'
+import { mergeTypeDefs } from "@graphql-tools/merge"; // import { gql } from '../../../gql.mjs'
 // import gql from 'gql-tag'
 
 // Import resolvers from schema files
@@ -17,7 +18,7 @@ import { CLASSFUL_resolver_PROJECT_DATA_RESOLVER as projectDataResolvers } from 
 import { CLASSFUL_resolver_PROJECT__RESOLVER as projectResolvers } from "./Class/_PROJECT_RESOLVER.mjs";
 import { CLASSFUL_resolver_TECHNICIAN as technicianResolvers } from "./Class/_TECHNICIAN_RESOLVER.mjs";
 import { makeExecutableSchema as EXECUTABLE_SCHEMA } from "@graphql-tools/schema";
-
+import _TYPEDEFS_ from "../Schema/typeDef.mjs";
 const AUTH_RES = () => {
   return { ...authResolvers };
 };
@@ -67,29 +68,31 @@ console.log(airlinerResolvers);
 const rootResolvers = {
   Query: {},
 };
-
+const typeDefinitions = mergeTypeDefs(_TYPEDEFS_);
 // Define the executable schema
 export const SCHEMA = () => {
   return EXECUTABLE_SCHEMA({
-    typeDefs: [
-      Airliner,
-      Auth,
-      Inspector,
-      Manager,
-      ProjectData,
-      Project,
-      Technician,
-    ], // Add the correct typeDefs here
-    RESOLVERS: merge(
-      rootResolvers,
-      airlinerResolvers,
-      authResolvers,
-      inspectorResolvers,
-      managerResolvers,
-      projectDataResolvers,
-      projectResolvers,
-      technicianResolvers
-    ),
+    typeDefinitions,
+    // typeDefs: [
+    //   Airliner,
+    //   Auth,
+    //   Inspector,
+    //   Manager,
+    //   ProjectData,
+    //   Project,
+    //   Technician,
+    // ], // Add the correct typeDefs here
+    RESOLVERS,
+    //  [
+    //   rootResolvers,
+    //   airlinerResolvers,
+    //   authResolvers,
+    //   inspectorResolvers,
+    //   managerResolvers,
+    //   projectDataResolvers,
+    //   projectResolvers,
+    //   technicianResolvers,
+    // ]
   });
 };
 console.log(SCHEMA);

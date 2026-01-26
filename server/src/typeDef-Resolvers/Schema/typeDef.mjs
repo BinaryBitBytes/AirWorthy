@@ -1,26 +1,28 @@
-import pkg from "ajv";
+// import pkg from "ajv";
 import AirlinerTypeDefs from "./airlinerSchema.mjs";
 import { AuthTypeDefs } from "./authSchema.mjs";
 import InspectorTypeDefs from "./inspectorSchema.mjs";
-import { ManagerTypeDefs } from "./managerSchema.mjs";
+import ManagerTypeDefs from "./managerSchema.mjs";
 import { ProjectDataTypeDefs } from "./projectDataSchema.mjs";
-import { ProjectTypeDefs } from "./projectSchema.mjs";
+import ProjectTypeDefs from "./projectSchema.mjs";
 import { TechnicianTypeDefs } from "./technicianSchema.mjs";
 // import { gql } from "apollo-server-core";
-const { stringify } = pkg;
+import { mergeTypeDefs } from "@graphql-tools/merge";
+// const { stringify } = pkg;
 
 // const AIRLINER = gql("Airliner", AirlinerTypeDefs);
 // console.log(AIRLINER);
 const _TYPEDEFS_ = {
-  ...AuthTypeDefs,
-  ...AirlinerTypeDefs,
-  ...InspectorTypeDefs,
   ...ManagerTypeDefs,
-  ...ProjectDataTypeDefs,
+  ...InspectorTypeDefs,
+  ...AirlinerTypeDefs,
+  ...AuthTypeDefs,
   ...ProjectTypeDefs,
   ...TechnicianTypeDefs,
+  ...ProjectDataTypeDefs,
 };
 
+export default _TYPEDEFS_;
 // function deconstructedTypeDefs(){
 // Object.forEach((_TYPEDEFS_) => {
 //   return(
@@ -39,8 +41,6 @@ const _TYPEDEFS_ = {
 //     TechnicianTypeDefs,
 //   };
 // };
-
-export default _TYPEDEFS_;
 
 // const typeDefs = () => {
 //   // AIRLINER,
